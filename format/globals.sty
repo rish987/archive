@@ -1,0 +1,33 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{rl_theory/globals}
+
+\RequirePackage{soul}
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{xcolor}
+
+\ProcessOptions\relax
+
+\def\p{{\rm Pr}}
+\def\R{\mathbb R}
+
+\def\noteop #1 #2{\stackrel{\text{(#1)}}{#2}}
+\def\edots#1#2#3{#1_{#2},\ldots,#1_{#3}}
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+\definecolor{lightlightgray}{rgb}{0.90, 0.90, 0.90}
+\definecolor{lightgray}{rgb}{0.70, 0.70, 0.70}
+\definecolor{gray}{rgb}{0.50, 0.50, 0.50}
+\definecolor{blue}{rgb}{0.56, 0.74, 0.86}
+\definecolor{red}{rgb}{1, 0.51, 0.56}
+\definecolor{green}{rgb}{0.53, 0.66, 0.42}
+
+\def\todo{\hskip 0pt {\color{gray}[TODO]}}
+\def\mtodo{\text{\todo}}
+
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{--}
+\renewcommand{\labelitemiii}{--}
+\renewcommand{\labelitemiv}{--}
