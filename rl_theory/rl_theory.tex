@@ -1,4 +1,10 @@
 \documentclass{rl_theory/rl_theory}
+\usepackage{calc}
+\usepackage{xintexpr}
+\usetikzlibrary{calc}
+\def\sc{\setcounter}
+\def\nc{\newcounter}
+\def\hlg#1{\hlc[lightlightgray]{#1}}
 
 \begin{document}
 
@@ -18,6 +24,58 @@ John N. Tsitsiklis.
 }
 \maketitle
 
-\begin{part} {Introduction}
+\pgfkeys{/tikz/board/.style={y=-1cm, scale=1, every node/.style={transform shape}}}
+\begin{part} {Motivating example}
+  \def\agent#1#2{\draw ($(#1,#2)$) node [rectangle, draw=black, fill=blue, inner sep=0.14cm] {};}
+  \def\tile#1#2{\draw ($(#1,#2)$) node [rectangle, draw=black, inner sep=1cm] {};}
+  \def\tileidx#1#2#3{\draw ($(#1,#2) - (0.5, 0.5)$) node [rectangle, fill=lightlightgray, minimum size=0.4cm] {{#3}};}
+
+  \def\actions#1#2#3#4{
+    \draw (#1, #2) node (center) {};
+
+    \xintifboolexpr {#3 > 0} { \draw [->] (center) -- +(0, -0.5); }{}
+    \xintifboolexpr {#3 < 2} { \draw [->] (center) -- +(0, 0.5); }{}
+    \xintifboolexpr {#4 < 2} { \draw [->] (center) -- +(0.5, 0); }{}
+    \xintifboolexpr {#4 > 0} { \draw [->] (center) -- +(-0.5, 0); }{}
+  }
+
+  \def\brd{\hlg{board}}
+  \def\agt{\hlg{agent}}
+  \def\til{\hlg{tile}}
+  \def\act{\hlg{action}}
+  \def\stp{\hlg{step}}
+  Consider the following ``\brd'':\\
+  \def\boardopts{}
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \nc{row}
+      \nc{col}
+      \nc{x}
+      \nc{y}
+      \nc{idx}
+      \foreach \row in {0,1,...,2}
+      {\sc{row}{\row}
+
+        \foreach \col in {0,1,...,2} 
+        {\sc{col}{\col}
+          \sc{x}{\value{col} * 2}
+          \sc{y}{\value{row} * 2}
+          \sc{idx}{(\value{col} + \value{row} * 3) + 1}
+
+          \actions{\thex}{\they}{\row}{\col}
+
+          \tileidx{\thex}{\they}{\theidx}{}
+          \tile{\thex}{\they}
+        }
+      }
+      \agent{0}{0}
+    \end{tikzpicture},
+  \end{center}
+  where there are a total of 9 ``\til{}s'' (\tikz[board, scale=0.1]{\tileidx{0}{0}{$\cdot$}{}\tile{0}{0}}), 
+  an ``\agt'' (\tikz[board, scale=0.7]{\agent{0}{0}}), and
+  a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can perform at every \til.
+
+  At every ``\stp'' in time, the agent is in one of the \til{}s,
+  and must take one of the \act{}s.
 \end{part}
 \end{document}
