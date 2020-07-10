@@ -4,12 +4,12 @@
 \usetikzlibrary{calc}
 \def\sc{\setcounter}
 \def\nc{\newcounter}
-\def\hlg#1{\hlc[lightlightgray]{#1}}
+\def\hlg#1{\hlc[lightlightlightgray]{#1}}
 
 \begin{document}
 
 \title{
-\hlc[lightlightgray]{Reinforcement Learning Theory}\\
+\hlc[lightlightlightgray]{Reinforcement Learning Theory}\\
 \vspace{10pt}
 \large 
 Rishikesh Vaishnav\\ 
@@ -26,56 +26,150 @@ John N. Tsitsiklis.
 
 \pgfkeys{/tikz/board/.style={y=-1cm, scale=1, every node/.style={transform shape}}}
 \begin{part} {Motivating example}
-  \def\agent#1#2{\draw ($(#1,#2)$) node [rectangle, draw=black, fill=blue, inner sep=0.14cm] {};}
-  \def\tile#1#2{\draw ($(#1,#2)$) node [rectangle, draw=black, inner sep=1cm] {};}
-  \def\tileidx#1#2#3{\draw ($(#1,#2) - (0.5, 0.5)$) node [rectangle, fill=lightlightgray, minimum size=0.4cm] {{#3}};}
+  \def\agent{\draw (center) node [rectangle, draw=black, fill=blue, inner sep=0.14cm] {};}
 
-  \def\actions#1#2#3#4{
-    \draw (#1, #2) node (center) {};
+  \def\ifbool{\xintifboolexpr}
 
-    \xintifboolexpr {#3 > 0} { \draw [->] (center) -- +(0, -0.5); }{}
-    \xintifboolexpr {#3 < 2} { \draw [->] (center) -- +(0, 0.5); }{}
-    \xintifboolexpr {#4 < 2} { \draw [->] (center) -- +(0.5, 0); }{}
-    \xintifboolexpr {#4 > 0} { \draw [->] (center) -- +(-0.5, 0); }{}
+  \def\tilecoords#1#2{\draw ($(#1 * \tilesep,#2 * \tilesep)$) node (center) {};}
+  \def\tile#1{\draw (center) node (#1) [rectangle, draw=black, inner sep=1cm] {};}
+  \def\tileidx#1{\draw ($(center) - (0.5, 0.5)$) node [rectangle, draw=black, minimum size=0.4cm] {{#1}};}
+
+  \def\tileandidx#1{\tile{#1}\tileidx{#1}}
+
+  \def\tilecenter#1#2{\draw (#1, #2) node (center) {};}
+  \def\tiledir#1#2{\draw [->, #1] (center) -- +#2;}
+  \def\tileup#1{\tiledir{#1}{(0, -0.5)}}
+  \def\tiledown#1{\tiledir{#1}{(0, 0.5)}}
+  \def\tileright#1{\tiledir{#1}{(0.5, 0)}}
+  \def\tileleft#1{\tiledir{#1}{(-0.5, 0)}}
+
+  \def\tiletransition#1#2#3#4{\draw [->, opacity=#4] (#1) -- node [#3] {#4} (#2);}
+
+  \def\tilesep{2}
+
+  \def\actions#1#2{
+    \ifbool {#1 > 0} { \tileup{} }{}
+    \ifbool {#1 < 2} { \tiledown{} }{}
+    \ifbool {#2 < 2} { \tileright{} }{}
+    \ifbool {#2 > 0} { \tileleft{} }{}
   }
 
-  \def\brd{\hlg{board}}
+  \def\brd{\hlg{environment}}
   \def\agt{\hlg{agent}}
-  \def\til{\hlg{tile}}
+  \def\til{\hlg{state}}
   \def\act{\hlg{action}}
   \def\stp{\hlg{step}}
+  \def\trd{\hlg{transition distribution}}
+  \def\ind{\hlg{initial distribution}}
+  \def\rwd{\hlg{return}}
+  \def\tileloop#1{
+    \foreach \row in {0,1,...,2}
+    {\sc{row}{\row}
+      \foreach \col in {0,1,...,2}
+      {\sc{col}{\col}
+        \setidx
+        #1
+      }
+    }
+  }
   Consider the following ``\brd'':\\
   \def\boardopts{}
   \begin{center}
     \begin{tikzpicture}[board]
       \nc{row}
       \nc{col}
-      \nc{x}
-      \nc{y}
       \nc{idx}
-      \foreach \row in {0,1,...,2}
-      {\sc{row}{\row}
-
-        \foreach \col in {0,1,...,2} 
-        {\sc{col}{\col}
-          \sc{x}{\value{col} * 2}
-          \sc{y}{\value{row} * 2}
-          \sc{idx}{(\value{col} + \value{row} * 3) + 1}
-
-          \actions{\thex}{\they}{\row}{\col}
-
-          \tileidx{\thex}{\they}{\theidx}{}
-          \tile{\thex}{\they}
-        }
+      \def\setidx{\sc{idx}{(\value{col} + \value{row} * 3) + 1}}
+      \tileloop 
+      {
+        \tilecoords{\col}{\row}
+        \ifbool{\row == 0 && \col == 0}{\agent}{}
+        \tileandidx{\theidx}
+        \actions{\row}{\col}
       }
-      \agent{0}{0}
+
+      \tileloop 
+      {
+        \expandafter\gdef\csname reward\theidx\endcsname{5}
+      }
+
+      \tileloop 
+      {
+        \tilecoords{\col}{\row}
+        \draw ($(center) - (-0.5, 0.5)$) node [rectangle, fill=lightlightgray, minimum size=0.4cm] {{\csname reward\theidx\endcsname}};
+      }
     \end{tikzpicture},
   \end{center}
-  where there are a total of 9 ``\til{}s'' (\tikz[board, scale=0.1]{\tileidx{0}{0}{$\cdot$}{}\tile{0}{0}}), 
+  where there are a total of 9 ``\til{}s'' (\tikz[board, scale=0.1]{\tilecoords{0}{0}\tile{0}\tileidx{$\cdot$}}), 
   an ``\agt'' (\tikz[board, scale=0.7]{\agent{0}{0}}), and
-  a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can perform at every \til.
+  a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can take at every \til.
 
   At every ``\stp'' in time, the agent is in one of the \til{}s,
-  and must take one of the \act{}s.
+  and must take one of the \act{}s. 
+
+  At any \stp, if the \agt\ takes an \act\ in a \til, 
+  it will be in a \til\ at the next \stp\ according to a ``\trd''
+  (that only depends on the current \til\ and \act, not the current \stp).
+
+  For example, the \agt\ could
+  \begin{itemize}
+    \def\tilesep{3.2}
+    \def\tscale{0.6}
+    \item take \act\ $\uparrow$ at \til\ $7$:
+      \begin{center}
+        \begin{tikzpicture}[board, scale=\tscale]
+          \tilecoords{0}{1}
+          \tileandidx{7}
+          \tileup{draw=blue}
+          \agent
+
+          \tilecoords{0}{0}
+          \tileandidx{4}
+
+          \tilecoords{1}{1}
+          \tileandidx{8}
+
+          \tiletransition{7}{8}{below}{0.25}
+          \tiletransition{7}{4}{left}{0.75}
+        \end{tikzpicture},
+      \end{center}
+      and
+    \item take \act\ $\rightarrow$ at \til\ $5$:
+      \begin{center}
+        \begin{tikzpicture}[board, scale=\tscale]
+          \tilecoords{1}{1}
+          \tileandidx{5}
+          \tileright{draw=blue}
+          \agent
+
+          \tilecoords{0}{1}
+          \tileandidx{4}
+
+          \tilecoords{2}{1}
+          \tileandidx{6}
+
+          \tilecoords{1}{0}
+          \tileandidx{2}
+
+          \tilecoords{1}{2}
+          \tileandidx{8}
+
+          \tiletransition{5}{6}{below}{0.75}
+          \tiletransition{5}{4}{above}{0.05}
+          \tiletransition{5}{2}{left}{0.10}
+          \tiletransition{5}{8}{right}{0.10}
+        \end{tikzpicture},
+      \end{center}
+  \end{itemize}
+  showing the probability of being in another \til\ at the next \stp\ according to the \trd.
+
+  However, this begs the question, what \til\ is the \agt\ at initially (\stp\ 1)? 
+  To decide this, there is also an \ind\ over the \til{}s.
+
+  \newpage
+
+  Now, let's make things a bit more interesting. 
+
+  Suppose every \til\ also has a \rwd\ that the \agt\ recieves from it, leaving our \brd\ looking something like:
 \end{part}
 \end{document}
