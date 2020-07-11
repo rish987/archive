@@ -58,7 +58,7 @@
 \def\fullboard#1{
   \board
   {
-    \runcmd{python rewards.py}
+    \runcmd{python ._code/rewards.py}
     \input{temp_rewards.tex}
     \tileloop 
     {
@@ -70,7 +70,7 @@
 }
 \def\fullboardact#1{
   \fullboard{
-    \runcmd{python actions.py actions_#1.dat}
+    \runcmd{python ._code/actions.py actions_#1.dat}
     \input{temp_actions.tex}
     \tileloop 
     {

@@ -5,3 +5,4 @@ if [[ ! -d "$RL_THEORY_FMT_DIR" ]]; then
 fi
 
 cp ./format/{*.cls,*.sty} "$RL_THEORY_FMT_DIR"
+cp ./defs/*.tex "$RL_THEORY_FMT_DIR"
