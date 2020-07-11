@@ -1,13 +1,6 @@
 \documentclass{rl_theory/rl_theory}
-\usepackage{calc}
-\usepackage{xintexpr}
-\usetikzlibrary{calc}
-\def\sc{\setcounter}
-\def\nc{\newcounter}
-\def\hlg#1{\hlc[lightlightlightgray]{#1}}
 
 \begin{document}
-
 \title{
 \hlc[lightlightlightgray]{Reinforcement Learning Theory}\\
 \vspace{10pt}
@@ -23,85 +16,21 @@ and
 John N. Tsitsiklis.
 }
 \maketitle
-
-\pgfkeys{/tikz/board/.style={y=-1cm, scale=1, every node/.style={transform shape}}}
 \begin{part} {Motivating example}
-  \def\agent{\draw (center) node [rectangle, draw=black, fill=blue, inner sep=0.14cm] {};}
+  \input{keywords.tex}
+  \input{example_defs.tex}
 
-  \def\ifbool{\xintifboolexpr}
-
-  \def\tilecoords#1#2{\draw ($(#1 * \tilesep,#2 * \tilesep)$) node (center) {};}
-  \def\tile#1{\draw (center) node (#1) [rectangle, draw=black, inner sep=1cm] {};}
-  \def\tileidx#1{\draw ($(center) - (0.5, 0.5)$) node [rectangle, draw=black, minimum size=0.4cm] {{#1}};}
-
-  \def\tileandidx#1{\tile{#1}\tileidx{#1}}
-
-  \def\tilecenter#1#2{\draw (#1, #2) node (center) {};}
-  \def\tiledir#1#2{\draw [->, #1] (center) -- +#2;}
-  \def\tileup#1{\tiledir{#1}{(0, -0.5)}}
-  \def\tiledown#1{\tiledir{#1}{(0, 0.5)}}
-  \def\tileright#1{\tiledir{#1}{(0.5, 0)}}
-  \def\tileleft#1{\tiledir{#1}{(-0.5, 0)}}
-
-  \def\tiletransition#1#2#3#4{\draw [->, opacity=#4] (#1) -- node [#3] {#4} (#2);}
-
-  \def\tilesep{2}
-
-  \def\actions#1#2{
-    \ifbool {#1 > 0} { \tileup{} }{}
-    \ifbool {#1 < 2} { \tiledown{} }{}
-    \ifbool {#2 < 2} { \tileright{} }{}
-    \ifbool {#2 > 0} { \tileleft{} }{}
-  }
-
-  \def\brd{\hlg{environment}}
-  \def\agt{\hlg{agent}}
-  \def\til{\hlg{state}}
-  \def\act{\hlg{action}}
-  \def\stp{\hlg{step}}
-  \def\trd{\hlg{transition distribution}}
-  \def\ind{\hlg{initial distribution}}
-  \def\rwd{\hlg{return}}
-  \def\tileloop#1{
-    \foreach \row in {0,1,...,2}
-    {\sc{row}{\row}
-      \foreach \col in {0,1,...,2}
-      {\sc{col}{\col}
-        \setidx
-        #1
-      }
-    }
-  }
   Consider the following ``\brd'':\\
-  \def\boardopts{}
   \begin{center}
     \begin{tikzpicture}[board]
-      \nc{row}
-      \nc{col}
-      \nc{idx}
-      \def\setidx{\sc{idx}{(\value{col} + \value{row} * 3) + 1}}
-      \tileloop 
-      {
-        \tilecoords{\col}{\row}
-        \ifbool{\row == 0 && \col == 0}{\agent}{}
-        \tileandidx{\theidx}
-        \actions{\row}{\col}
-      }
-
-      \tileloop 
-      {
-        \expandafter\gdef\csname reward\theidx\endcsname{5}
-      }
-
-      \tileloop 
-      {
-        \tilecoords{\col}{\row}
-        \draw ($(center) - (-0.5, 0.5)$) node [rectangle, fill=lightlightgray, minimum size=0.4cm] {{\csname reward\theidx\endcsname}};
+      \board{
+        \tileloop{\actions{\row}{\col}}
+        \tilecoords{0}{0}\agent{}
       }
     \end{tikzpicture},
   \end{center}
   where there are a total of 9 ``\til{}s'' (\tikz[board, scale=0.1]{\tilecoords{0}{0}\tile{0}\tileidx{$\cdot$}}), 
-  an ``\agt'' (\tikz[board, scale=0.7]{\agent{0}{0}}), and
+  an ``\agt'' (\tikz[board, scale=0.7]{\tilecoords{0}{0}\agent{}}), and
   a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can take at every \til.
 
   At every ``\stp'' in time, the agent is in one of the \til{}s,
@@ -121,7 +50,7 @@ John N. Tsitsiklis.
           \tilecoords{0}{1}
           \tileandidx{7}
           \tileup{draw=blue}
-          \agent
+          \agent{}
 
           \tilecoords{0}{0}
           \tileandidx{4}
@@ -140,7 +69,7 @@ John N. Tsitsiklis.
           \tilecoords{1}{1}
           \tileandidx{5}
           \tileright{draw=blue}
-          \agent
+          \agent{}
 
           \tilecoords{0}{1}
           \tileandidx{4}
@@ -161,15 +90,64 @@ John N. Tsitsiklis.
         \end{tikzpicture},
       \end{center}
   \end{itemize}
-  showing the probability of being in another \til\ at the next \stp\ according to the \trd.
+  showing the probability of 
+  being in another \til\ at 
+  the next \stp\ according to the \trd.
 
-  However, this begs the question, what \til\ is the \agt\ at initially (\stp\ 1)? 
+  However, this begs the question, 
+  what \til\ is the \agt\ at initially (\stp\ 1)? 
   To decide this, there is also an \ind\ over the \til{}s.
 
   \newpage
-
   Now, let's make things a bit more interesting. 
 
-  Suppose every \til\ also has a \rwd\ that the \agt\ recieves from it, leaving our \brd\ looking something like:
+  Let every \til\ also have a \rwd\ that 
+  the \agt\ recieves from it, 
+  leaving our \brd\ looking something like:
+
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \fullboard{
+        \tileloop{\actions{\row}{\col}}
+        \tilecoords{0}{0}\agent{}
+      }
+    \end{tikzpicture},
+  \end{center}
+  with the \rwd{}s 
+  (\tikz[board, scale=0.5]{\tilecoords{0}{0}\tilerwdraw{$\cdot$}{(0,0)}}) shown.
+
+  Also, let there be some fixed ``\lmt'' such that,
+  when the current \stp\ reaches it, everything ends.
+
+  Now, suppose you can ``program'' the \agt\ as follows: 
+  for every \til\ and \stp, you can fix the \act\ that the \agt\ takes.
+  For example, here's what you might program the \agt\ to do 
+  at every \til\ for two different \stp{}s:
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \fullboardact{1}{}
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}[board]
+      \fullboardact{2}{.}
+    \end{tikzpicture}.
+  \end{center}
+  We'll call each such programming a ``\str''. 
+
+  We know that the \agt\ starts in some \til\ according to the \ind.
+  After this, we follow the \str, 
+  transitioning \til{}s according to the \trd, recieving \rwd{}s 
+  at every \til\ until
+  we reach the \lmt. Let's refer to this process as a ``\run'', and
+  the sum of the \rwd{}s over all a \run's \til{}s
+  as the ``\trwd''.
+
+  Because there is some \ind\ and \trd\ 
+  that are fixed over \run{}s, 
+  we know there must be 
+  some \atrwd\ for every \str.
+
+  Now, consider the following question: 
+  what \str\ has the greatest \atrwd?
 \end{part}
 \end{document}

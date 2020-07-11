@@ -6,6 +6,10 @@
 \RequirePackage{amsfonts}
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
+\RequirePackage{calc}
+\RequirePackage{xintexpr}
+\usetikzlibrary{calc}
+
 
 \ProcessOptions\relax
 
@@ -28,6 +32,15 @@
 
 \def\todo{\hskip 0pt {\color{gray}[TODO]}}
 \def\mtodo{\text{\todo}}
+
+\def\sc{\setcounter}
+\def\nc{\newcounter}
+\def\hlg#1{\hlc[lightlightlightgray]{#1}}
+\def\defl#1#2{\expandafter\gdef\csname #1\endcsname{#2}}
+\def\getl#1{\csname #1\endcsname}
+\def\runcmd#1{\immediate\write18{#1}}
+
+\def\ifbool{\xintifboolexpr}
 
 \renewcommand{\labelitemi}{--}
 \renewcommand{\labelitemii}{--}
