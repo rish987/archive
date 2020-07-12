@@ -1,5 +1,8 @@
 \documentclass{rl_theory}
 
+\input{keywords.tex}
+\input{notation.tex}
+
 \begin{document}
 \title{
 \hlc[lightlightlightgray]{Reinforcement Learning Theory}\\
@@ -16,22 +19,21 @@ and
 John N. Tsitsiklis.
 }
 \maketitle
+
 \begin{part} {Motivating example}
-  \input{keywords.tex}
   \input{example_defs.tex}
 
   Consider the following ``\brd'':\\
   \begin{center}
     \begin{tikzpicture}[board]
       \board{
-        \tileloop{\actions{\row}{\col}}
-        \tilecoords{0}{0}\agent{}
+        \tilecoords{0}{0}\actions\agent{}
       }
     \end{tikzpicture},
   \end{center}
   where there are a total of 9 ``\til{}s'' (\tikz[board, scale=0.1]{\tilecoords{0}{0}\tile{0}\tileidx{$\cdot$}}), 
   an ``\agt'' (\tikz[board, scale=0.7]{\tilecoords{0}{0}\agent{}}), and
-  a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can take at every \til.
+  a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can take at any \til.
 
   At every ``\stp'' in time, the agent is in one of the \til{}s,
   and must take one of the \act{}s. 
@@ -108,8 +110,7 @@ John N. Tsitsiklis.
   \begin{center}
     \begin{tikzpicture}[board]
       \fullboard{
-        \tileloop{\actions{\row}{\col}}
-        \tilecoords{0}{0}\agent{}
+        \tilecoords{0}{0}\actions\agent{}
       }
     \end{tikzpicture},
   \end{center}
@@ -149,5 +150,50 @@ John N. Tsitsiklis.
 
   Now, consider the following question: 
   what \str\ has the greatest \atrwd?
+\end{part}
+
+\newpage
+\begin{part}{Notation}
+  To answer this question, let's establish some notation.
+
+  Let's denote
+  $$\text{$\S :=$ the set of \til{}s},$$
+  and 
+  $$\text{$\A :=$ the set of \act{}s.}$$
+  Assume that $\S$ and $\A$ are finite.
+  Denote
+  $$\text{$\RW : \S \rightarrow \R :=$ mapping from \til{}s to \rwd{}s.}$$
+
+  Denote
+  $$\text{$\T :=$ the \lmt, where $\T \ge 1$},$$
+  $$\text{$\STT = \left(\edots\STT{1}{\T}\right) :=$ an arbitrary \str, 
+  where each mapping $\STT_\TT : \S \rightarrow \A$},$$
+  and
+  $$\text{$\ST :=$ the set of all \strs\ $\pi$}.$$
+  Note that $|\ST| = \T \times |\S| \times |\A|.$
+
+  Now, suppose the \agt\ is following some \str\ $\STT$.
+  For all $1 \le \TT \le \T$,
+  denote
+  $$\text{$\S_\TT :=$ random variable for the \til\ at \stp\ $\TT$},$$
+  and
+  $$\text{$\A_\TT :=$ random variable for the \act\ at \stp\ $\TT$},$$
+  whose distributions are dependent on $\STT$.
+
+  Let $\PSTT(\cdot)$ and $\ESTT(\cdot)$ denote the probability of an event
+  and the expectation of a quantity
+  when the \agt\ follows $\STT$.
+  For all $\SS \in \S$, we know that
+  $$\PSTT(\S_1 = \SS)$$
+  is defined by the \ind, and
+  for all $\SS, \SS' \in \S$, $2 \le \TT \le \T$ such that 
+  $\PSTT(\S_{\TT - 1} = \SS') > 0$,
+  $$\PSTT(\S_\TT = \SS \mid \A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS')$$
+  is defined by the \trd.
+
+  We can now write the \trwd\ as
+  $$\sum_{\TT = 1}^\T \RW(\S_\TT)$$
+  and the \atrwd\ as
+  $$\ESTT\left[\sum_{\TT = 1}^\T \RW(\S_\TT)\right].$$
 \end{part}
 \end{document}

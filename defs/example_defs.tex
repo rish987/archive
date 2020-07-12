@@ -17,11 +17,11 @@
 
 \def\tilesep{2}
 
-\def\actions#1#2{
-  \ifbool {#1 > 0} { \tileup{} }{}
-  \ifbool {#1 < 2} { \tiledown{} }{}
-  \ifbool {#2 < 2} { \tileright{} }{}
-  \ifbool {#2 > 0} { \tileleft{} }{}
+\def\actions{
+  \tileup{}
+  \tiledown{}
+  \tileright{}
+  \tileleft{}
 }
 
 \def\tileloop#1{
