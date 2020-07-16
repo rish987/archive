@@ -8,9 +8,12 @@ if [[ ! -e "$TEMPLATE" ]]; then
     exit
 fi
 
-NEW_PATH="${PARENT_DIR}$TYPE/$NAME"
+NEW_PATH="$PARENT_DIR/$TYPE/$NAME"
 
 if [[ ! -d "$NEW_PATH" ]]; then
     mkdir -p "$NEW_PATH"
     cp "$TEMPLATE" "$NEW_PATH/$NAME.tex"
+    echo "New \"$TYPE\" directory for \"$NAME\" created."
+else
+    echo "\"$TYPE\" directory for \"$NAME\" already exists."
 fi
