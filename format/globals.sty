@@ -2,12 +2,15 @@
 \ProvidesPackage{rl_theory/globals}
 
 \RequirePackage{soul}
+\RequirePackage{mathtools}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
 \RequirePackage{calc}
 \RequirePackage{xintexpr}
+\RequirePackage{parskip}
+\RequirePackage{fullpage}
 \usetikzlibrary{calc}
 
 
@@ -42,8 +45,14 @@
 \def\runcmd#1{\immediate\write18{#1}}
 
 \def\ifbool{\xintifboolexpr}
+\def\defeq{\coloneqq}
 
 \renewcommand{\labelitemi}{--}
 \renewcommand{\labelitemii}{--}
 \renewcommand{\labelitemiii}{--}
 \renewcommand{\labelitemiv}{--}
+
+\newcommand{\hlc}[2][yellow]{{%
+  \colorlet{tempcolor}{#1}%
+  \sethlcolor{tempcolor}\hl{#2}}%
+}

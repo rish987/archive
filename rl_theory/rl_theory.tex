@@ -1,5 +1,7 @@
 \documentclass{rl_theory}
 
+\def\lnp#1#2{$\color{blue}\left[\text{\color{black}#2}\color{blue}\right]_{\rm P}$}
+
 \input{keywords.tex}
 \input{notation.tex}
 
@@ -157,27 +159,27 @@ John N. Tsitsiklis.
   To answer this question, let's establish some notation.
 
   Let's denote
-  $$\text{$\S :=$ the set of \til{}s},$$
+  $$\text{$\S \defeq$ the set of \til{}s},$$
   and 
-  $$\text{$\A :=$ the set of \act{}s.}$$
+  $$\text{$\A \defeq$ the set of \act{}s.}$$
   Assume that $\S$ and $\A$ are finite.
   Denote
-  $$\text{$\RW : \S \rightarrow \R :=$ mapping from \til{}s to \rwd{}s.}$$
+  $$\text{$\RW : \S \rightarrow \R \defeq$ mapping from \til{}s to \rwd{}s.}$$
 
   Denote
-  $$\text{$\T :=$ the \lmt, where $\T \ge 1$},$$
-  $$\text{$\STT = \left(\edots\STT{1}{\T}\right) :=$ an arbitrary \str, 
+  $$\text{$\T \defeq$ the \lmt, where $\T \ge 1$},$$
+  $$\text{$\STT = \left(\edots\STT{1}{\T}\right) \defeq$ an arbitrary \str, 
   where each mapping $\STT_\TT : \S \rightarrow \A$},$$
   and
-  $$\text{$\ST :=$ the set of all \strs\ $\pi$}.$$
-  Note that $|\ST| = \T \times |\S| \times |\A|.$
+  $$\text{$\ST \defeq$ the set of all \strs\ $\pi$}.$$
+  Note that \lnp{asdf1}{$|\ST| = \T \times |\S| \times |\A|$}.  Note that \lnp{asdf2}{$|\ST| = \T \times |\S| \times |\A|$}.
 
   Now, suppose the \agt\ is following some \str\ $\STT$.
   For all $1 \le \TT \le \T$,
   denote
-  $$\text{$\S_\TT :=$ random variable for the \til\ at \stp\ $\TT$},$$
+  $$\text{$\S_\TT \defeq$ random variable for the \til\ at \stp\ $\TT$},$$
   and
-  $$\text{$\A_\TT :=$ random variable for the \act\ at \stp\ $\TT$},$$
+  $$\text{$\A_\TT \defeq$ random variable for the \act\ at \stp\ $\TT$},$$
   whose distributions are dependent on $\STT$.
 
   Let $\PSTT(\cdot)$ and $\ESTT(\cdot)$ denote the probability of an event

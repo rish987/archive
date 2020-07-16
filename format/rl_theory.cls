@@ -7,9 +7,6 @@
 
 \RequirePackage{rl_theory/globals}
 
-\RequirePackage{parskip}
-\RequirePackage{fullpage}
-
 \makeatletter 
 \newcommand\mynobreakpar{\par\nobreak\@afterheading} 
 \makeatother
@@ -19,8 +16,3 @@
 \newcommand{\listof}[2]{\listgen{#1}{1}{#2}}
 \newcommand{\listn}[1]{\listof{#1}{n}}
 \renewenvironment{part}[1]{\tsectionfmt{\underline}{#1}{}}{}
-
-\newcommand{\hlc}[2][yellow]{{%
-  \colorlet{tempcolor}{#1}%
-  \sethlcolor{tempcolor}\hl{#2}}%
-}
