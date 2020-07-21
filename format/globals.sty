@@ -11,8 +11,10 @@
 \RequirePackage{xintexpr}
 \RequirePackage{parskip}
 \RequirePackage{fullpage}
-\usetikzlibrary{calc}
+\RequirePackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref}
+\RequirePackage{catchfile}
 
+\usetikzlibrary{calc}
 
 \ProcessOptions\relax
 
@@ -42,7 +44,17 @@
 \def\hlg#1{\hlc[lightlightlightgray]{#1}}
 \def\defl#1#2{\expandafter\gdef\csname #1\endcsname{#2}}
 \def\getl#1{\csname #1\endcsname}
+
 \def\runcmd#1{\immediate\write18{#1}}
+
+\def\readcmd#1#2{%
+  \CatchFileDef{#2}{|"#1"}{}%
+  \edef#2{\expandafter\stripspace#2\next}
+}%
+
+\def\stripspace#1 \next{#1}
+\readcmd{git rev-parse --show-toplevel}{\root}
+\readcmd{pwd}{\curr}
 
 \def\ifbool{\xintifboolexpr}
 \def\defeq{\coloneqq}
@@ -57,4 +69,11 @@
   \sethlcolor{tempcolor}\hl{#2}}%
 }
 
-\def\lnproof#1#2{$\color{blue}\left[\text{\color{black}#2}\color{blue}\right]_{\rm P}$}
+\def\ln#1#2#3{\href{#1}{\lnfmt{#2}{#3}}}
+\def\lng#1#2#3{
+  \readcmd{python \root/relpath.py "\curr" "\root/#1"}{\relpath}
+  \ln{\relpath}{#2}{#3}
+}
+\def\lnfmt#1#2{$\color{blue}\left[\text{\color{black}#1}\color{blue}\right]_{\rm #2}$}
+\def\lnproof#1#2{\ln{proof/#1/#1.pdf}{#2}{P}}
+\def\lngproof#1#2{\lng{#1}{#2}{P}}
