@@ -71,7 +71,7 @@
 
 \def\ln#1#2#3{\href{#1}{\lnfmt{#2}{#3}}}
 \def\lng#1#2#3{
-  \readcmd{python \root/relpath.py "\curr" "\root/#1"}{\relpath}
+  \readcmd{python \root/scripts/relpath.py "\curr" "\root/#1"}{\relpath}
   \ln{\relpath}{#2}{#3}
 }
 \def\lnfmt#1#2{$\color{blue}\left[\text{\color{black}#1}\color{blue}\right]_{\rm #2}$}
