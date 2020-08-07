@@ -1,0 +1,131 @@
+\begin{part} {Motivating example}
+  \input{example_defs.tex}
+
+  Consider the following ``\brd'':\\
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \board{
+        \tilecoords{0}{0}\actions\agent{}
+      }
+    \end{tikzpicture},
+  \end{center}
+  where there are a total of 9 ``\til{}s'' (\tikz[board, scale=0.1]{\tilecoords{0}{0}\tile{0}\tileidx{$\cdot$}}), 
+  an ``\agt'' (\tikz[board, scale=0.7]{\tilecoords{0}{0}\agent{}}), and
+  a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can take at any \til.
+
+  At every ``\stp'' in time, the agent is in one of the \til{}s,
+  and must take one of the \act{}s. 
+
+  At any \stp, if the \agt\ takes an \act\ in a \til, 
+  it will be in a \til\ at the next \stp\ according to a ``\trd''
+  (that only depends on the current \til\ and \act, not the current \stp).
+
+  For example, the \agt\ could
+  \begin{itemize}
+    \def\tilesep{3.2}
+    \def\tscale{0.6}
+    \item take \act\ $\uparrow$ at \til\ $7$:
+      \begin{center}
+        \begin{tikzpicture}[board, scale=\tscale]
+          \tilecoords{0}{1}
+          \tileandidx{7}
+          \tileup{draw=blue}
+          \agent{}
+
+          \tilecoords{0}{0}
+          \tileandidx{4}
+
+          \tilecoords{1}{1}
+          \tileandidx{8}
+
+          \tiletransition{7}{8}{below}{0.25}
+          \tiletransition{7}{4}{left}{0.75}
+        \end{tikzpicture},
+      \end{center}
+      and
+    \item take \act\ $\rightarrow$ at \til\ $5$:
+      \begin{center}
+        \begin{tikzpicture}[board, scale=\tscale]
+          \tilecoords{1}{1}
+          \tileandidx{5}
+          \tileright{draw=blue}
+          \agent{}
+
+          \tilecoords{0}{1}
+          \tileandidx{4}
+
+          \tilecoords{2}{1}
+          \tileandidx{6}
+
+          \tilecoords{1}{0}
+          \tileandidx{2}
+
+          \tilecoords{1}{2}
+          \tileandidx{8}
+
+          \tiletransition{5}{6}{below}{0.75}
+          \tiletransition{5}{4}{above}{0.05}
+          \tiletransition{5}{2}{left}{0.10}
+          \tiletransition{5}{8}{right}{0.10}
+        \end{tikzpicture},
+      \end{center}
+  \end{itemize}
+  showing the probability of 
+  being in another \til\ at 
+  the next \stp\ according to the \trd.
+
+  However, this begs the question, 
+  what \til\ is the \agt\ at initially (\stp\ 1)? 
+  To decide this, there is also an \ind\ over the \til{}s.
+
+  \newpage
+  Now, let's make things a bit more interesting. 
+
+  Let every \til\ also have a \rwd\ that 
+  the \agt\ recieves from it, 
+  leaving our \brd\ looking something like:
+
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \fullboard{
+        \tilecoords{0}{0}\actions\agent{}
+      }
+    \end{tikzpicture},
+  \end{center}
+  with the \rwd{}s 
+  (\tikz[board, scale=0.5]{\tilecoords{0}{0}\tilerwdraw{$\cdot$}{(0,0)}}) shown.
+
+  Also, let there be some fixed ``\lmt'' such that,
+  when the current \stp\ reaches it, everything ends.
+
+  Now, suppose you can ``program'' the \agt\ as follows: 
+  for every \til\ and \stp, you can fix the \act\ that the \agt\ takes.
+  For example, here's what you might program the \agt\ to do 
+  at every \til\ for two different \stp{}s:
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \fullboardact{1}{}
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}[board]
+      \fullboardact{2}{.}
+    \end{tikzpicture}.
+  \end{center}
+  We'll call each such programming a ``\str''. 
+
+  We know that the \agt\ starts in some \til\ according to the \ind.
+  After this, we follow the \str, 
+  transitioning \til{}s according to the \trd, recieving \rwd{}s 
+  at every \til\ until
+  we reach the \lmt. Let's refer to this process as a ``\run'', and
+  the sum of the \rwd{}s over all a \run's \til{}s
+  as the ``\trwd''.
+
+  Because there is some \ind\ and \trd\ 
+  that are fixed over \run{}s, 
+  we know there must be 
+  some \atrwd\ for every \str.
+
+  Now, consider the following question: 
+  what \str\ has the greatest \atrwd?
+\end{part}

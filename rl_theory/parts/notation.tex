@@ -1,0 +1,56 @@
+\begin{part}{Notation}
+  To answer this question, let's establish some notation.
+
+  Let's denote
+  $$\text{$\S \defeq$ the set of \til{}s},$$
+  and 
+  $$\text{$\A \defeq$ the set of \act{}s.}$$
+  Assume that $\S$ and $\A$ are finite.
+  Denote
+  $$\text{$\RW : \S \rightarrow \R \defeq$ mapping from \til{}s to \rwd{}s.}$$
+
+  Denote
+  $$\text{$\T \defeq$ the \lmt, where $\T \ge 1$},$$
+  $$\text{$\STT = \left(\edots\STT{1}{\T}\right) \defeq$ an arbitrary \str, 
+  where each mapping $\STT_\TT : \S \rightarrow \A$},$$
+  and
+  $$\text{$\ST \defeq$ the set of all \strs\ $\pi$}.$$
+  Note that \lnproof{num_policies}{$|\ST| = \T \times |\S| \times |\A|$}.
+
+  Now, suppose the \agt\ is following some \str\ $\STT$.
+  For all $1 \le \TT \le \T$,
+  denote
+  $$\text{$\S_\TT \defeq$ random variable for the \til\ at \stp\ $\TT$},$$
+  and
+  $$\text{$\A_\TT \defeq$ random variable for the \act\ at \stp\ $\TT$},$$
+  whose distributions are dependent on $\STT$.
+
+  Let $\PSTT(\cdot)$ and $\ESTT(\cdot)$ denote the probability of an event
+  and the expectation of a quantity
+  when the \agt\ follows $\STT$.
+  For all $\SS \in \S$, we know that
+  $$\PSTT(\S_1 = \SS)$$
+  is defined by the \ind, and
+  for all $\SS, \SS' \in \S$, $2 \le \TT \le \T$ 
+  \lnnote{reachability_req}{such that $\PSTT(\S_{\TT - 1} = \SS') > 0$},
+  $$\PSTT(\S_\TT = \SS \mid \A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS')$$
+  is defined by the \trd, where 
+  $\S_\TT$ is independent of all previous \til{}s and \act{}s given $\A_\TTM$ and $\S_\TTM$.
+  Notationally, for all $2 \le \TT \le \T$,
+  %$$ \left( \S_\TT \independent \A_{\TT - 2}, \S_{\TT - 2}, \ldots, \A_{1}, \S_{1} \right)\mid \A_\TTM, \S_\TTM.$$
+  $$ 
+  \PSTT\left( \S_\TT \mid \A_{\TTM}, \S_{\TTM}, \ldots, \A_{1}, \S_{1} \right)
+  = 
+  \PSTT\left( \S_\TT \mid \A_{\TTM}, \S_{\TTM}\right)
+  $$
+  (here we use \lnnote{impl_assgn}{implied assignment}).
+  Because we follow a fixed \str, we know that
+  $$\PSTT(\A_\TT = \STT_\TT(\SS') \mid \S_\TT = \SS') = 1$$
+  for all
+  $1 \le \TT \le \T - 1$.
+
+  We can now write the \trwd\ as
+  $$\sum_{\TT = 1}^\T \RW(\S_\TT)$$
+  and the \atrwd\ as
+  $$\ESTT\left[\sum_{\TT = 1}^\T \RW(\S_\TT)\right].$$
+\end{part}
