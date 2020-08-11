@@ -5,11 +5,14 @@ function Followln()
     let rtype = rlist[1]
     let rname = rlist[2]
     let rpath = expand('%:h')
-    execute "!./scripts/follow.sh " . rtype . " " . rname . " " . rpath
-    edit `=rpath . "/" . rtype . "/" . rname . "/" . rname . ".tex"`
-    echo "Followed \"" . rname . "\"."
+    let filepath = trim(system("./scripts/follow.sh " . rtype . " " . rname . " " . rpath))
+    if v:shell_error == 0
+        edit `=filepath`
+        echo "Followed \"" . rname . "\"."
+    endif
   endif
 endfunction
+
 map <leader>rf :call Followln()<CR>
 map <leader>ru :edit `=expand('%:h:h:h') . '/' . expand('%:h:h:h:t'). '.tex'`<CR>
 map <leader>rl :execute "!./scripts/load_format.sh"<CR>

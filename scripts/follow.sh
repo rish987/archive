@@ -5,15 +5,20 @@ TEMPLATE="templates/$TYPE.tex"
 
 if [[ ! -e "$TEMPLATE" ]]; then
     echo "No template found for type \"$TYPE\". Exiting..."
-    exit
+    exit 1
 fi
+
+while [[ ! -e $PARENT_DIR/Makefile ]]; do
+    PARENT_DIR=`dirname $PARENT_DIR`
+done
 
 NEW_PATH="$PARENT_DIR/$TYPE/$NAME"
 
+FILENAME="$NEW_PATH/$NAME.tex"
+
 if [[ ! -d "$NEW_PATH" ]]; then
     mkdir -p "$NEW_PATH"
-    cp "$TEMPLATE" "$NEW_PATH/$NAME.tex"
-    echo "New \"$TYPE\" directory for \"$NAME\" created."
-else
-    echo "\"$TYPE\" directory for \"$NAME\" already exists."
+    cp "$TEMPLATE" "$FILENAME"
 fi
+
+echo -n $FILENAME
