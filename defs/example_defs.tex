@@ -58,8 +58,7 @@
 \def\fullboard#1{
   \board
   {
-    \runcmd{python code/rewards.py}
-    \input{temp_rewards.tex}
+    \input{_input/rewards.tex}
     \tileloop 
     {
       \tilecoords{\col}{\row}
@@ -70,8 +69,7 @@
 }
 \def\fullboardact#1{
   \fullboard{
-    \runcmd{python code/actions.py actions_#1.dat}
-    \input{temp_actions.tex}
+    \input{_input/actions_#1.tex}
     \tileloop 
     {
       \tilecoords{\col}{\row}
