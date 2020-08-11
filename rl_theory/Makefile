@@ -1,26 +1,41 @@
-RL_THEORY_FMT_DIR = "${HOME}/texmf/tex/latex/rl_theory"
+FMTD = ${HOME}/texmf/tex/latex/rl_theory
+FMTDLD = ../defs
+FMTDLF = ../format
 
-rl_theory.pdf : rl_theory.tex parts/example.tex parts/notation.tex _input/rewards.tex _input/actions_1.tex _input/actions_2.tex 
+global_defs = ${FMTD}/notation.tex ${FMTD}/keywords.tex ${FMTD}/example_defs.tex 
+global_styles = ${FMTD}/globals.sty ${FMTD}/rl_theory.cls
+
+rl_theory.pdf : rl_theory.tex parts/example.tex parts/notation.tex \
+	_input/rewards.tex _input/actions_1.tex _input/actions_2.tex \
+	${global_defs} ${global_styles}
 	pdflatex --shell-escape rl_theory.tex
 
+${global_defs} ${global_styles} : ${FMTD}
 
-_input/actions_1.tex : code/actions.py actions_1.dat
-	python code/actions.py actions_1
+${FMTD} :
+	mkdir -p ${FMTD}
 
-_input/actions_2.tex : code/actions.py actions_2.dat
-	python code/actions.py actions_2
+.SECONDEXPANSION :
 
-code/actions.py : _input/
+${global_defs} : ${FMTDLD}/$$(notdir $$@)
+	cp $< ${FMTD}
 
-code/rewards.py : _input/
+${global_styles} : ${FMTDLF}/$$(notdir $$@)
+	cp $< ${FMTD}
+
+_input/actions_%.tex : code/actions.py actions_%.dat
+	python $< actions_$*
+
+_input/rewards.tex : code/rewards.py rewards.dat
+	python $<
+
+code/actions.py code/rewards.py : _input/
 
 _input/ :
 	mkdir _input
 
-_input/rewards.tex : code/rewards.py rewards.dat
-	python code/rewards.py
-
 clean :
-	rm *.aux *.out *.log *.fls
-	rm -rf _input
-	rm parts/*.aux
+	-rm *.aux *.out *.log *.fls *.pdf
+	-rm -rf _input
+	-rm -rf ${FMTD}
+	-rm parts/*.aux
