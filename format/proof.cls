@@ -6,3 +6,6 @@
 \LoadClass[a4paper]{report}  
 
 \RequirePackage{rl_theory/globals}
+
+\input{keywords.tex}
+\input{notation.tex}

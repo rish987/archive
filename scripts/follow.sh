@@ -4,7 +4,7 @@ PARENT_DIR="$3"
 TEMPLATE="templates/$TYPE.tex"
 
 if [[ ! -e "$TEMPLATE" ]]; then
-    echo "No template found for type \"$TYPE\". Exiting..."
+    echo -n "No template found for type \"$TYPE\"."
     exit 1
 fi
 
