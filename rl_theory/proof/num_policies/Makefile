@@ -2,25 +2,26 @@ FMTD := ${HOME}/texmf/tex/latex/rl_theory
 TOP := $(shell git rev-parse --show-toplevel | tr -d "\n")
 FMTDLD := ${TOP}/defs
 FMTDLF := ${TOP}/format
+NAME := $(shell basename `pwd`)
 
-global_defs := ${FMTD}/notation.tex ${FMTD}/keywords.tex
-global_styles := ${FMTD}/globals.sty ${FMTD}/proof.cls 
+global_defs := ${addprefix ${FMTD}/,notation.tex keywords.tex}
+global_styles := ${FMTD}/globals.sty 
 
-num_policies.pdf : num_policies.tex ${global_defs} ${global_styles}
+global_styles := ${global_styles} ${FMTD}/proof.cls 
+
+${NAME}.pdf : ${NAME}.tex ${global_defs} ${global_styles}
 	pdflatex --shell-escape $<
-
-${global_defs} ${global_styles} : ${FMTD}
-
-${FMTD} :
-	mkdir -p ${FMTD}
 
 .SECONDEXPANSION :
 
-${global_defs} : ${FMTDLD}/$$(notdir $$@)
+${global_defs} : ${FMTDLD}/$$(notdir $$@) | ${FMTD}
 	cp $< ${FMTD}
 
-${global_styles} : ${FMTDLF}/$$(notdir $$@)
+${global_styles} : ${FMTDLF}/$$(notdir $$@) | ${FMTD}
 	cp $< ${FMTD}
+
+${FMTD} :
+	mkdir -p ${FMTD}
 
 clean :
 	-rm *.aux *.out *.log *.fls *.pdf
