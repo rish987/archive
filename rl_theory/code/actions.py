@@ -10,5 +10,5 @@ for row in range(actions.shape[0]):
         idx = (row * 3) + col + 1
         out += "\\defl{{action{}}}{{{}}}\n".format(idx, actions[row][col])
 
-with open("_input/" + sys.argv[1] + ".tex", "w") as file:
+with open("../_input/" + sys.argv[1] + ".tex", "w") as file:
     file.write(out)
