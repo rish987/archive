@@ -17,8 +17,8 @@ endfunction
 map <leader>rf :call Followln()<CR>
 
 edit rl_theory/rl_theory.tex
-tabedit defs/keywords.tex
-split defs/notation.tex
+tabedit format/keywords.tex
+split format/notation.tex
 tabedit format/globals.sty
 
 tabfirst

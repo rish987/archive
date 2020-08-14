@@ -4,7 +4,6 @@ import sys
 out = ""
 
 filename = sys.argv[1] + ".dat"
-print(filename)
 actions = np.loadtxt(filename, dtype=int)
 for row in range(actions.shape[0]):
     for col in range(actions.shape[1]):
