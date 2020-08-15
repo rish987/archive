@@ -23,7 +23,7 @@ formats := ${addprefix ${FMTD}/,notation.tex keywords.tex globals.sty}
 all : ${RL_T} ${PROOFS}
 
 %.pdf : %.tex
-	cd ${dir $@} && pdflatex --shell-escape ${notdir $<}
+	cd ${dir $@} && mkdir -p _tikz && pdflatex --shell-escape ${notdir $<}
 
 ${PROOFS} : ${formats} ${FMTD}/proof.cls
 ${RL_T} : ${formats} ${FMTD}/rl_theory.cls ${FMTD}/example_defs.tex 
@@ -39,10 +39,10 @@ test :
 	echo ${PROOFS_CLEAN}
 
 ${PROOFS_CLEAN} : 
-	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf
+	-${CD_TO}; rm -rf *.aux *.out *.log *.fls *.pdf _tikz
 
 ${RL_T_CLEAN} : 
-	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf; rm -rf _input; rm -f parts/*.aux
+	-${CD_TO}; rm -rf *.aux *.out *.log *.fls *.pdf; rm -rf _input; rm -f parts/*.aux _tikz
 
 clean : ${RL_T_CLEAN} ${PROOFS_CLEAN}
 	-rm -rf ${FMTD}
@@ -50,7 +50,6 @@ clean : ${RL_T_CLEAN} ${PROOFS_CLEAN}
 # --- 
 
 # --- auxilliary dependencies ---
-
 # --- --- rl_theory --- ---
 RL_T_INP := rl_theory/_input/
 RL_T_CODE := rl_theory/code/
