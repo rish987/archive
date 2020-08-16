@@ -5,7 +5,7 @@ function Followln()
     let rtype = rlist[1]
     let rname = rlist[2]
     let rpath = expand('%:h')
-    silent let output = trim(system("./scripts/follow.sh " . rtype . " " . rname . " " . rpath))
+    silent let output = trim(system("./scripts/follow.sh " . rtype . " " . rname . " ./" . rpath))
     if v:shell_error == 0
         edit `=output`
     else

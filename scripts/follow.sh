@@ -8,7 +8,7 @@ if [[ ! -e "$TEMPLATE" ]]; then
     exit 1
 fi
 
-while [[ ! -e $PARENT_DIR/Makefile ]]; do
+while ! scripts/is_root.sh $PARENT_DIR; do
     PARENT_DIR=`dirname $PARENT_DIR`
 done
 
