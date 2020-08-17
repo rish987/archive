@@ -9,7 +9,7 @@
 \RequirePackage{tikz}
 \RequirePackage{calc}
 \RequirePackage{xintexpr}
-\RequirePackage{tcolorbox}
+\RequirePackage[many]{tcolorbox}
 \RequirePackage{parskip}
 \RequirePackage{fullpage}
 \RequirePackage{suffix}
@@ -103,24 +103,33 @@
 \currrelpath
 \expandafter\def\expandafter\currpath\expandafter{\expandafter\pathfmt\expandafter{\temp}}
 
-\newenvironment{proposition}[1][Proposition \currpath.]
+\newenvironment{mytcb}[1][]
 {
-    \begin{tcolorbox}[title={#1}, 
-        colback=blue!5, colbacktitle=blue!40, coltitle=black, colframe=blue!60!black,
-        arc=0.1mm]
+  \begin{tcolorbox}[breakable, #1]
+  \parskip=10pt
 }
 {
-    \end{tcolorbox}
+  \end{tcolorbox}
+}
+
+\newenvironment{proposition}[1][Proposition \currpath.]
+{
+  \begin{mytcb}[title={#1}, 
+    colback=blue!5, colbacktitle=blue!40, coltitle=black, colframe=blue!60!black,
+    arc=0.1mm]
+}
+{
+  \end{mytcb}
 }
 
 \newenvironment{proof}
 {
-    \begin{tcolorbox}[title={Proof.}, 
+    \begin{mytcb}[title={Proof.}, 
         colbacktitle=lightlightlightgray, coltitle=black, colback=white, colframe=gray!80!black,
         arc=0.1mm]
 }
 {
-    \end{tcolorbox}
+    \end{mytcb}
 }
 
 \RequirePackage{fancyhdr}
@@ -131,3 +140,4 @@
 \setlength{\headheight}{26pt}
 
 \RequirePackage[margin=1in]{geometry}
+\def\fnnot#1#2#3{#1 : #2 \rightarrow #3}

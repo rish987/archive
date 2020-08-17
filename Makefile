@@ -61,7 +61,7 @@ RL_T_INP_REW := $(addprefix ${RL_T_INP},rewards.tex)
 RL_T_CODE_ACT := $(addprefix ${RL_T_CODE},actions.py)
 RL_T_CODE_REW := $(addprefix ${RL_T_CODE},rewards.py)
 
-${RL_T} : ${RL_T_INP_ACT} ${RL_T_INP_REW}
+${RL_T} : ${RL_T_INP_ACT} ${RL_T_INP_REW} rl_theory/parts/*.tex
 
 rl_theory/_input/actions_%.tex : ${RL_T_CODE_ACT} rl_theory/code/actions_%.dat | ${RL_T_INP}
 	cd $(dir $<); python $(notdir $<) actions_$*
