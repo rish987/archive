@@ -44,7 +44,7 @@
 \definecolor{red}{rgb}{1, 0.51, 0.56}
 \definecolor{green}{rgb}{0.53, 0.66, 0.42}
 
-\def\todo{\hskip 0pt {\color{gray}[TODO]}}
+\def\todo{\hskip 0pt {\color{gray}{[TODO]}}}
 \def\mtodo{\text{\todo}}
 
 \def\sc{\setcounter}
@@ -122,3 +122,12 @@
 {
     \end{tcolorbox}
 }
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\currpath\vspace{10pt}}
+\setlength{\headheight}{26pt}
+
+\RequirePackage[margin=1in]{geometry}
