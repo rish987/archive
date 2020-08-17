@@ -9,3 +9,10 @@
 
 \input{keywords.tex}
 \input{notation.tex}
+
+\RequirePackage{fancyhdr}
+\pagestyle{fancy}
+
+\renewcommand{\headrulewidth}{0pt}
+\rhead{\currpath\vspace{10pt}}
+\setlength{\headheight}{26pt}

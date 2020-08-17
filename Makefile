@@ -19,14 +19,15 @@ PROOFS := $(call source_pdf_list,proof)
 PROOFS_CLEAN := $(call source_clean_list,proof)
 
 formats := ${addprefix ${FMTD}/,notation.tex keywords.tex globals.sty} 
+scripts := ${addprefix scripts/,path_fmt.py relpath.py relpathln.py} 
 
 all : ${RL_T} ${PROOFS}
 
 %.pdf : %.tex
 	cd ${dir $@} && pdflatex --shell-escape ${notdir $<}
 
-${PROOFS} : ${formats} ${FMTD}/proof.cls
-${RL_T} : ${formats} ${FMTD}/rl_theory.cls ${FMTD}/example_defs.tex 
+${PROOFS} : ${formats} ${FMTD}/proof.cls ${scripts}
+${RL_T} : ${formats} ${FMTD}/rl_theory.cls ${FMTD}/example_defs.tex ${scripts}
 
 ${FMTD}/% : ${FMTDL}/% | ${FMTD}
 	cp $< ${FMTD}
