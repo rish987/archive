@@ -18,16 +18,22 @@ CD_ABV = cd ${D_ABV}
 PROOFS := $(call source_pdf_list,proof)
 PROOFS_CLEAN := $(call source_clean_list,proof)
 
+NOTES := $(call source_pdf_list,note)
+NOTES_CLEAN := $(call source_clean_list,note)
+
 formats := ${addprefix ${FMTD}/,notation.tex keywords.tex globals.sty} 
 scripts := ${addprefix scripts/,path_fmt.py relpath.py relpathln.py} 
 
-all : ${RL_T} ${PROOFS}
+all : ${RL_T} ${PROOFS} ${NOTES}
 
 %.pdf : %.tex
 	cd ${dir $@} && pdflatex --shell-escape ${notdir $<}
 
-${PROOFS} : ${formats} ${FMTD}/proof.cls ${scripts}
-${RL_T} : ${formats} ${FMTD}/rl_theory.cls ${FMTD}/example_defs.tex ${scripts}
+${RL_T} ${PROOFS} ${NOTES} : ${formats} ${scripts}
+
+${RL_T} : ${FMTD}/rl_theory.cls ${FMTD}/example_defs.tex
+${PROOFS} : ${FMTD}/proof.cls
+${NOTES} : ${FMTD}/note.cls
 
 ${FMTD}/% : ${FMTDL}/% | ${FMTD}
 	cp $< ${FMTD}
@@ -35,17 +41,16 @@ ${FMTD}/% : ${FMTDL}/% | ${FMTD}
 ${FMTD} :
 	mkdir -p ${FMTD}
 
-test :
-	echo ${PROOFS}
-	echo ${PROOFS_CLEAN}
-
 ${PROOFS_CLEAN} : 
+	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf
+
+${NOTES_CLEAN} : 
 	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf
 
 ${RL_T_CLEAN} : 
 	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf; rm -rf _input; rm -f parts/*.aux
 
-clean : ${RL_T_CLEAN} ${PROOFS_CLEAN}
+clean : ${RL_T_CLEAN} ${PROOFS_CLEAN} ${NOTES_CLEAN}
 	-rm -rf ${FMTD}
 
 # --- 

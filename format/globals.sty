@@ -96,6 +96,7 @@
 \def\lngproof#1#2{\lng{#1}{#2}{P}}
 
 \def\proofd{{\color{blue!80!black}P}}
+\def\noted{{\color{blue!80!black}N}}
 
 \def\currrelpath{\readcmd{python \root/scripts/relpath.py "\root" "\curr"}{\temp}}
 \def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1"}{\temp}\hlc[lightlightgray]{\temp}}
@@ -132,6 +133,16 @@
     \end{mytcb}
 }
 
+\newenvironment{note}[1][Note \currpath.]
+{
+  \begin{mytcb}[title={#1}, 
+    colback=lightgray!15, colbacktitle=lightgray!30, coltitle=black, colframe=lightgray!60!black,
+    arc=0.1mm]
+}
+{
+  \end{mytcb}
+}
+
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
 
@@ -141,3 +152,7 @@
 
 \RequirePackage[margin=1in]{geometry}
 \def\fnnot#1#2#3{#1 : #2 \rightarrow #3}
+
+\input{keywords.tex}
+\input{notation.tex}
+\def\ctext#1{$$\text{#1}$$}

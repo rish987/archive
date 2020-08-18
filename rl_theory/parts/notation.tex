@@ -28,11 +28,16 @@
   Let $\PSTT(\cdot)$ and $\ESTT(\cdot)$ denote the probability of an event
   and the expectation of a quantity
   when the \agt\ follows $\STT$.
+  Because we follow a fixed \str, we know that
+  $$\PSTT(\A_\TT = \STT_\TT(\SS') \mid \S_\TT = \SS') = 1$$
+  for all
+  $\SS' \in \S$, $1 \le \TT \le \T - 1$
+  \lnnote{rchreqa}{such that $\PSTT(\S_{\TT} = \SS') > 0$}.
   For all $\SS \in \S$, we know that
   $$\PSTT(\S_1 = \SS)$$
   is defined by the \ind, and
   for all $\SS, \SS' \in \S$, $2 \le \TT \le \T$ 
-  \lnnote{rchreq}{such that $\PSTT(\S_{\TT - 1} = \SS') > 0$},
+  \lnnote{rchreqs}{such that $\PSTT(\S_{\TT - 1} = \SS') > 0$},
   $$\PSTT(\S_\TT = \SS \mid \A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS')$$
   is defined by the \trd, where 
   $\S_\TT$ is independent of all previous \til{}s and \act{}s given $\A_\TTM$ and $\S_\TTM$.
@@ -44,10 +49,6 @@
   \PSTT\left( \S_\TT \mid \A_{\TTM}, \S_{\TTM}\right)
   $$
   (here we use \lnnote{implasn}{implied assignment}).
-  Because we follow a fixed \str, we know that
-  $$\PSTT(\A_\TT = \STT_\TT(\SS') \mid \S_\TT = \SS') = 1$$
-  for all
-  $1 \le \TT \le \T - 1$.
 
   We can now write the \trwd\ as
   $$\sum_{\TT = 1}^\T \RW(\S_\TT)$$

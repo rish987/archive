@@ -1,0 +1,32 @@
+\documentclass{rl_theory/note}
+
+\begin{document}
+\begin{note}
+  \def\quant{\PSTT(\S_\TT = \SS \mid \A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS')}
+  This ``reachability requirement'' is necessary
+  because of the fact that
+  $$\text{ $\quant$ is defined } 
+  \iff \PSTT(\S_{\TT - 1} = \SS') > 0.$$%
+
+  From the definition of conditional probability, we have
+  $$ \quant 
+  = \frac{\PSTT(\S_\TT = \SS, \A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS')}
+    {\PSTT(\A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS')}.$$
+
+  In one direction, we have that if $\PSTT(\S_\TTM = \SS') > 0$, then 
+  $$\PSTT(\A_\TTM = \STT_\TTM(\SS')\mid \S_\TTM = \SS') = 1$$ 
+  is defined, so
+  we can write the denominator as
+  \begin{align*}
+    \PSTT(\A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS') &= \PSTT(\A_\TTM = \STT_\TTM(\SS')\mid \S_\TTM = \SS')
+    \PSTT(\S_\TTM = \SS')\\
+                                                     &= \PSTT(\S_\TTM = \SS') > 0,
+  \end{align*}
+  so $\quant$ is defined.
+
+  In the other direction, we have that if $\PSTT(\S_\TTM = \SS') = 0$, then 
+  $$ \PSTT(\A_\TTM = \STT_\TTM(\SS'), \S_\TTM = \SS') = 0,$$ 
+  so $\quant$
+  is undefined.
+\end{note}
+\end{document}
