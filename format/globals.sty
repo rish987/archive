@@ -78,9 +78,9 @@
 }
 
 \renewcommand\ln[4][]{\href{#2}{\lnfmt[#1]{#3}{#4}}}
-\def\lng#1#2#3{
-  \readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{\temp}
-  \ln{\temp}{#2}{#3}
+\def\lng#1#2#3{%
+  \readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{\temp}%
+  \ln{\temp}{#2}{#3}%
 }
 \newcommand\lnfmt[3][]{%
   \ifthenelse{\equal{#1}{}}%
@@ -94,6 +94,7 @@
 \newcommand\lnproof[3][]{\ln[#1]{proof/#2/#2.pdf}{#3}{P}}
 \newcommand\lnnote[3][]{\ln[#1]{note/#2/#2.pdf}{#3}{N}}
 \def\lngproof#1#2{\lng{#1}{#2}{P}}
+\def\lngnote#1#2{\lng{#1}{#2}{N}}
 
 \def\proofd{{\color{blue!80!black}P}}
 \def\noted{{\color{blue!80!black}N}}
