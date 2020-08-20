@@ -27,7 +27,7 @@ scripts := ${addprefix scripts/,path_fmt.py relpath.py relpathln.py}
 all : ${RL_T} ${PROOFS} ${NOTES}
 
 %.pdf : %.tex
-	cd ${dir $@} && pdflatex --shell-escape ${notdir $<}
+	cd ${dir $@} && latexmk --pdf --shell-escape ${notdir $<}
 
 ${RL_T} ${PROOFS} ${NOTES} : ${formats} ${scripts}
 
@@ -42,13 +42,13 @@ ${FMTD} :
 	mkdir -p ${FMTD}
 
 ${PROOFS_CLEAN} : 
-	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf
+	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf *.fdb_latexmk
 
 ${NOTES_CLEAN} : 
-	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf
+	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf *.fdb_latexmk
 
 ${RL_T_CLEAN} : 
-	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf; rm -rf _input; rm -f parts/*.aux
+	-${CD_TO}; rm -f *.aux *.out *.log *.fls *.pdf *.fdb_latexmk; rm -rf _input; rm -f parts/*.aux
 
 clean : ${RL_T_CLEAN} ${PROOFS_CLEAN} ${NOTES_CLEAN}
 	-rm -rf ${FMTD}
