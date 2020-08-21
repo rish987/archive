@@ -3,6 +3,8 @@
 FMTD := ${HOME}/texmf/tex/latex/rl_theory
 FMTDL := format
 
+WRAPPER := wrapper.m4
+
 source_basename_list = $(subst .tex,,$(shell find . -type d -name $(1) | xargs -i find "{}" -maxdepth 2 -mindepth 2 -name *.tex))
 source_pdf_list = $(addsuffix .pdf,$(call source_basename_list,$(1)))
 source_clean_list = $(addsuffix .clean,$(call source_basename_list,$(1)))
@@ -24,16 +26,24 @@ NOTES_CLEAN := $(call source_clean_list,note)
 formats := ${addprefix ${FMTD}/,notation.tex keywords.tex globals.sty} 
 scripts := ${addprefix scripts/,path_fmt.py relpath.py relpathln.py} 
 
-all : ${RL_T} ${PROOFS} ${NOTES}
+all : graph
 
-%.pdf : %.tex
-	cd ${dir $@} && latexmk --pdf --shell-escape ${notdir $<}
+graph : ${RL_T} ${PROOFS} ${NOTES}
 
-${RL_T} ${PROOFS} ${NOTES} : ${formats} ${scripts}
+full :
 
-${RL_T} : ${FMTD}/rl_theory.cls ${FMTD}/example_defs.tex
-${PROOFS} : ${FMTD}/proof.cls
-${NOTES} : ${FMTD}/note.cls
+%.pdf : __%.pdf
+	mv $< $@
+
+__%.pdf : __%.tex
+	cd $(dir $@) && latexmk --pdf --shell-escape $(notdir $<)
+
+__%.tex : %.tex
+	m4 -Dinput_tex="$<" wrapper.m4 > $@
+
+${RL_T} ${PROOFS} ${NOTES} : ${FMTD}/rl_theory.cls ${formats} ${scripts}
+
+${RL_T} : ${FMTD}/example_defs.tex
 
 ${FMTD}/% : ${FMTDL}/% | ${FMTD}
 	cp $< ${FMTD}
