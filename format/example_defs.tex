@@ -58,7 +58,7 @@
 \def\fullboard#1{
   \board
   {
-    \input{_input/rewards.tex}
+    \input{\curr/_input/rewards.tex}
     \tileloop 
     {
       \tilecoords{\col}{\row}
@@ -69,7 +69,7 @@
 }
 \def\fullboardact#1{
   \fullboard{
-    \input{_input/actions_#1.tex}
+    \input{\curr/_input/actions_#1.tex}
     \tileloop 
     {
       \tilecoords{\col}{\row}

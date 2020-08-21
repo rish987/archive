@@ -1,5 +1,7 @@
 roots=("./rl_theory")
-roots+=(`find . -type d -name "proof" | xargs -i find "{}" -maxdepth 1 -mindepth 1 -type d`)
+roots+=(`find . -type d \( -name "proof" -o -name "note" \) | xargs -i find "{}" -maxdepth 1 -mindepth 1 -type d`)
+
+roots=(`realpath ${roots[@]}`)
 
 if [[ " ${roots[@]} " =~ "$1 " ]]; then
     exit 0

@@ -1,32 +1,9 @@
-\documentclass{rl_theory/note}
-
-\begin{document}
 \begin{note}
   \def\quant{\PSTT(\SV_\TT = \SS \mid \AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS')}
   This ``reachability requirement'' is necessary
-  because of the fact that
+  because 
+  \lnproof{whendefps}{it can be shown}
+  that
   $$\text{ $\quant$ is defined } 
   \iff \PSTT(\SV_{\TT - 1} = \SS') > 0.$$%
-
-  From the definition of conditional probability, we have
-  $$ \quant 
-  = \frac{\PSTT(\SV_\TT = \SS, \AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS')}
-    {\PSTT(\AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS')}.$$
-
-  In one direction, we have that if $\PSTT(\SV_\TTM = \SS') > 0$, then 
-  $$\PSTT(\AV_\TTM = \STT_\TTM(\SS')\mid \SV_\TTM = \SS') = 1$$ 
-  \lngnote{rl_theory/note/rchreqa}{is defined}, so
-  we can write the denominator as
-  \begin{align*}
-    \PSTT(\AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS') &= \PSTT(\AV_\TTM = \STT_\TTM(\SS')\mid \SV_\TTM = \SS')
-    \PSTT(\SV_\TTM = \SS')\\
-                                                     &= \PSTT(\SV_\TTM = \SS') > 0,
-  \end{align*}
-  so $\quant$ is defined.
-
-  In the other direction, we have that if $\PSTT(\SV_\TTM = \SS') = 0$, then 
-  $$ \PSTT(\AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS') = 0,$$ 
-  so $\quant$
-  is undefined.
 \end{note}
-\end{document}

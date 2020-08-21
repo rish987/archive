@@ -1,6 +1,6 @@
 TYPE="$1"
 NAME="$2"
-PARENT_DIR="$3"
+PARENT_DIR=`realpath "$3"`
 TEMPLATE="templates/$TYPE.tex"
 
 if [[ ! -e "$TEMPLATE" ]]; then
@@ -21,4 +21,6 @@ if [[ ! -d "$NEW_PATH" ]]; then
     cp "$TEMPLATE" "$FILENAME"
 fi
 
+ROOT=`git rev-parse --show-toplevel | tr -d "\n"`
+FILENAME=`realpath --relative-to=$ROOT $FILENAME`
 echo -n $FILENAME
