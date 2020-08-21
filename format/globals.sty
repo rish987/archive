@@ -87,8 +87,20 @@
   \href{#2}{\templntext}%
   \fi%
 }
+
+\def\includereference#1{
+  \begin{reference}{#1}
+    \appendtexpath{\curr}{\texpath}
+    \input{\texpath}
+  \end{reference}
+}
+
+
+\def\appendtexpath#1#2{\readcmd{python \root/scripts/appendtexpath.py "#1"}{#2}}
+
+\def\getrelpathln#1#2{\readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}}
 \def\lng#1#2#3{%
-  \readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{\temp}%
+  \iffull\def\temp{#1}\else\getrelpathln{#1}{\temp}\fi
   \ln{\temp}{#2}{#3}%
 }
 \newcommand\lnfmt[3][]{%
@@ -100,8 +112,8 @@
     $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]_{\rm #3}$%
   }%
 }
-\newcommand\lnproof[3][]{\ln[#1]{proof/#2/#2.pdf}{#3}{P}}
-\newcommand\lnnote[3][]{\ln[#1]{note/#2/#2.pdf}{#3}{N}}
+\newcommand\lnproof[3][]{\ln[#1]{\iffull \currreference/proof/#2\else proof/#2/#2.pdf\fi}{#3}{P}}
+\newcommand\lnnote[3][]{\ln[#1]{\iffull \currreference/note/#2\else note/#2/#2.pdf\fi}{#3}{N}}
 \def\lngproof#1#2{\lng{#1}{#2}{P}}
 \def\lngnote#1#2{\lng{#1}{#2}{N}}
 
@@ -184,10 +196,14 @@
 
 \newenvironment{reference}[1]
 {
+  \def\currreference{#1}
+  \newpage
   \labeltext{#1}
-  \def\currpath{\pathfmt{#1}}
-  \rhead{\currpath\vspace{10pt}}
-  \setcounter{page}{1}
+  \def\curr{\root/#1}
+  \gdef\currpath{\pathfmt{#1}}
+  %\setcounter{page}{1}
+  \pagestyle{fancy}
+  \fancyhead[R]{\currpath\vspace{10pt}}
 }
 {
 }

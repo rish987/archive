@@ -30,7 +30,7 @@ all : graph
 
 graph : ${RL_T} ${PROOFS} ${NOTES}
 
-full :
+full : rl_theory/rl_theory_full.pdf
 
 %.pdf : __%.pdf
 	mv $< $@
