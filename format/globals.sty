@@ -80,7 +80,7 @@
 }
 
 \renewcommand\ln[4][]{%
-  \def\templntext{\lnfmt[#1]{#3}{#4}}
+  \def\templntext{\lnfmt[#2]{#3}{#4}}%
   \iffull%
   \hyperref[#2]{\templntext}%
   \else%
@@ -100,20 +100,20 @@
 
 \def\getrelpathln#1#2{\readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}}
 \def\lng#1#2#3{%
-  \iffull\def\temp{#1}\else\getrelpathln{#1}{\temp}\fi
+  \iffull\def\temp{#1}\else\getrelpathln{#1}{\temp}\fi%
   \ln{\temp}{#2}{#3}%
 }
 \newcommand\lnfmt[3][]{%
   \ifthenelse{\equal{#1}{}}%
   {%
-    $\color{blue}[$\color{black}#2$\color{blue}]_{\rm #3}$%
+    $\color{blue}[$\color{black}#2$\color{blue}]_{\rm{}#3}$%
   }%
   {%
-    $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]_{\rm #3}$%
+    $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]\!_{\rm{}#3}$%
   }%
 }
-\newcommand\lnproof[3][]{\ln[#1]{\iffull \currreference/proof/#2\else proof/#2/#2.pdf\fi}{#3}{P}}
-\newcommand\lnnote[3][]{\ln[#1]{\iffull \currreference/note/#2\else note/#2/#2.pdf\fi}{#3}{N}}
+\newcommand\lnproof[3][]{\ln[#1]{\iffull\currreference/proof/#2\else proof/#2/#2.pdf\fi}{#3}{P}}
+\newcommand\lnnote[3][]{\ln[#1]{\iffull\currreference/note/#2\else note/#2/#2.pdf\fi}{#3}{N}}
 \def\lngproof#1#2{\lng{#1}{#2}{P}}
 \def\lngnote#1#2{\lng{#1}{#2}{N}}
 
