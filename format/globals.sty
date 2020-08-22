@@ -56,6 +56,11 @@
 \def\defl#1#2{\expandafter\gdef\csname #1\endcsname{#2}}
 \def\getl#1{\csname #1\endcsname}
 
+\nc{a}
+\nc{b}
+\nc{c}
+\nc{d}
+
 \def\runcmd#1{\immediate\write18{#1}}
 
 \def\readcmd#1#2{%
@@ -173,9 +178,6 @@
 
 \def\ctext#1{$$\text{#1}$$}
 
-\input{keywords.tex}
-\input{notation.tex}
-
 \MakeRobust{\ref}% avoid expanding it when in a textual label
 
 \makeatletter
@@ -204,6 +206,10 @@
   %\setcounter{page}{1}
   \pagestyle{fancy}
   \fancyhead[R]{\currpath\vspace{10pt}}
+  \inheritdefs
 }
 {
 }
+
+\def\inheritdefs{\readcmd{\root/scripts/defs_inheritance.sh "\curr"}{\defsinherited} \defsinherited}
+\inheritdefs

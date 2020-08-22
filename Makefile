@@ -5,7 +5,11 @@ FMTDL := format
 
 WRAPPER := wrapper.m4
 
-source_basename_list = $(subst .tex,,$(shell find . -type d -name $(1) | xargs -i find "{}" -maxdepth 2 -mindepth 2 -name *.tex))
+source_basename_list = $(subst .tex,,$(shell find . -type d -name $(1) | xargs -i find "{}" \
+					   -maxdepth 2 -mindepth 2 \
+					   -name *.tex \
+					   \( ! -name defs.tex \) \
+					   ))
 source_pdf_list = $(addsuffix .pdf,$(call source_basename_list,$(1)))
 source_tex_list = $(addsuffix .tex,$(call source_basename_list,$(1)))
 source_clean_list = $(addsuffix .clean,$(call source_basename_list,$(1)))
@@ -31,9 +35,13 @@ NOTES := $(call source_pdf_list,note)
 NOTES_SRC := $(call source_tex_list,note)
 NOTES_CLEAN := $(call source_clean_list,note)
 
+test:
+	echo ${PROOFS} ${NOTES}
+
 ${RL_T_F} : ${RL_T_SRC} ${PROOFS_SRC} ${NOTES_SRC}
 
-formats := ${addprefix ${FMTD}/,notation.tex keywords.tex globals.sty} 
+formats := ${addprefix ${FMTD}/,globals.sty} 
+# TODO update
 scripts := ${addprefix scripts/,path_fmt.py relpath.py relpathln.py} 
 
 all : dag lin_dag
@@ -55,8 +63,6 @@ ${RL_T_F_SRC} :
 	{ echo "\\\\fulltrue\n\includereference{rl_theory}"; for path in $$(realpath --relative-to=$$(git rev-parse --show-toplevel | tr -d "\n") $$(find . -type d -a \( -name proof -o -name note \) | xargs -i find "{}" -maxdepth 1 -mindepth 1)); do echo "\includereference{$$path}"; done; } > $@
 
 ${RL_T} ${RL_T_F} ${PROOFS} ${NOTES} : ${FMTD}/rl_theory.cls ${formats} ${scripts}
-
-${RL_T} ${RL_T_F} : ${FMTD}/example_defs.tex
 
 ${FMTD}/% : ${FMTDL}/% | ${FMTD}
 	cp $< ${FMTD}

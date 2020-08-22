@@ -14,6 +14,9 @@
 \def\run{\hlg{run}}
 \def\trwd{\hlg{total return}}
 \def\atrwd{\hlg{average total return}}
+
+% ---
+
 \def\S{{\mathbf S}}
 \def\SV{{\rm S}}
 \def\SS{{\rm s}}
@@ -30,6 +33,9 @@
 
 \def\PSTT{\P_{\STT}}
 \def\ESTT{{\mathbb E}_{\STT}}
+
+% ---
+
 \def\agent#1{\draw (center) node [rectangle, draw=black, fill=blue, inner sep=0.14cm, #1] {};}
 
 \def\tilecoords#1#2{\draw ($(#1 * \tilesep,#2 * \tilesep)$) node (center) {};}
@@ -58,9 +64,9 @@
 
 \def\tileloop#1{
   \foreach \row in {0,1,...,2}
-  {\sc{row}{\row}
+  {\sc{a}{\row}
     \foreach \col in {0,1,...,2}
-    {\sc{col}{\col}
+    {\sc{b}{\col}
       \tilecoords{\col}{\row}
       \setidx
       #1
@@ -69,8 +75,8 @@
 }
 
 \def\board#1{
-  \def\setidx{\sc{idx}{(\value{col} + \value{row} * 3) + 1}}
-  \tileloop {\tileandidx{\theidx}}
+  \def\setidx{\sc{c}{(\value{b} + \value{a} * 3) + 1}}
+  \tileloop {\tileandidx{\thec}}
   #1
 }
 
@@ -94,7 +100,7 @@
     \tileloop 
     {
       \tilecoords{\col}{\row}
-      \tilerwd{\getl{reward\theidx}};
+      \tilerwd{\getl{reward\thec}};
     }
     #1
   }
@@ -105,7 +111,7 @@
     \tileloop 
     {
       \tilecoords{\col}{\row}
-      \tileact{\getl{action\theidx}};
+      \tileact{\getl{action\thec}};
     }
   }
 }
@@ -114,7 +120,3 @@
 \pgfkeys{/tikz/strategy/.style={opacity=0.35}}
 \pgfkeys{/tikz/strategyagt/.style={strategy}}
 \pgfkeys{/tikz/strategyact/.style={strategy, draw opacity=0.7, draw=blue}}
-
-\nc{row}
-\nc{col}
-\nc{idx}
