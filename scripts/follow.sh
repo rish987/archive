@@ -14,7 +14,7 @@ done
 
 NEW_PATH="$PARENT_DIR/$TYPE/$NAME"
 
-FILENAME="$NEW_PATH/$NAME.tex"
+FILENAMES="$NEW_PATH/$NAME.tex $NEW_PATH/defs.tex"
 
 if [[ ! -d "$NEW_PATH" ]]; then
     mkdir -p "$NEW_PATH"
@@ -22,5 +22,5 @@ if [[ ! -d "$NEW_PATH" ]]; then
 fi
 
 ROOT=`git rev-parse --show-toplevel | tr -d "\n"`
-FILENAME=`realpath --relative-to=$ROOT $FILENAME`
-echo -n $FILENAME
+FILENAMES=`realpath --relative-to=$ROOT $FILENAMES`
+echo -n $FILENAMES
