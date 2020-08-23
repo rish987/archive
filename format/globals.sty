@@ -84,13 +84,17 @@
   \sethlcolor{tempcolor}\hl{#2}}%
 }
 
-\renewcommand\ln[4][]{%
-  \def\templntext{\lnfmt[#2]{#3}{#4}}%
+\def\lnraw#1#2{%
   \iffull%
-  \hyperref[#2]{\templntext}%
+  \hyperref[#1]{#2}%
   \else%
-  \href{#2}{\templntext}%
+  \href{#1}{#2}%
   \fi%
+}
+
+\renewcommand\ln[4][]{%
+  \def\templntext{\lnfmt[#1]{#3}{#4}}%
+  \lnraw{#2}{\templntext}%
 }
 
 \def\includereference#1{
@@ -117,8 +121,38 @@
     $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]\!_{\rm{}#3}$%
   }%
 }
-\newcommand\lnproof[3][]{\ln[#1]{\iffull\currreference/proof/#2\else proof/#2/#2.pdf\fi}{#3}{P}}
-\newcommand\lnnote[3][]{\ln[#1]{\iffull\currreference/note/#2\else note/#2/#2.pdf\fi}{#3}{N}}
+
+\makeatletter
+\newcommand*{\Ifinlist}[2]{%
+  \edef\tempa{#1}%
+  \edef\tempb{#2}%
+  \expandafter\expandafter\expandafter\in@\expandafter\expandafter\expandafter{\expandafter\expandafter\expandafter,\expandafter\tempa\expandafter,\expandafter}\expandafter{\expandafter,\tempb,}%
+  \ifin@
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+}
+\makeatother
+
+\def\firstreflist{}
+
+\newcommand\lnl[5][]{%
+	\iffull%
+		\def\temppath{\currreference/#4/#2}%
+		\Ifinlist{\temppath}{\firstreflist}{%
+		}{%
+			\labeltext{\temppath_}%
+			\edef\firstreflist{\firstreflist,\temppath}%
+		}%
+		\ln[#1]{\temppath}{#3}{#5}%
+	\else%
+		\ln[#1]{#4/#2/#2.pdf}{#3}{#5}%
+	\fi%
+}
+
+\newcommand\lnproof[3][]{\lnl[#1]{#2}{#3}{proof}{P}}
+\newcommand\lnnote[3][]{\lnl[#1]{#2}{#3}{note}{N}}
 \def\lngproof#1#2{\lng{#1}{#2}{P}}
 \def\lngnote#1#2{\lng{#1}{#2}{N}}
 
@@ -126,7 +160,7 @@
 \def\noted{{\color{blue!80!black}N}}
 
 \def\currrelpath{\readcmd{python \root/scripts/relpath.py "\root" "\curr"}{\temp}}
-\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1"}{\temp}\hlc[lightlightgray]{\temp}}
+\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{lightlightgray}{\temp}}
 
 \newenvironment{mytcb}[1][]
 {
