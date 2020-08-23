@@ -5,6 +5,8 @@
 
 \LoadClass[a4paper]{report}  
 
+\RequirePackage{catchfile}
+
 \RequirePackage{rl_theory/globals}
 
 \makeatletter 
