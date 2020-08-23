@@ -124,13 +124,16 @@
 
 \makeatletter
 \newcommand*{\Ifinlist}[2]{%
-  \in@{,#1,}{,#2,}%
+  \edef\tempa{#1}%
+  \edef\tempb{#2}%
+  \expandafter\expandafter\expandafter\in@\expandafter\expandafter\expandafter{\expandafter\expandafter\expandafter,\expandafter\tempa\expandafter,\expandafter}\expandafter{\expandafter,\tempb,}%
   \ifin@
     \expandafter\@firstoftwo
   \else
     \expandafter\@secondoftwo
   \fi
 }
+\makeatother
 
 \def\firstreflist{}
 
@@ -157,7 +160,7 @@
 \def\noted{{\color{blue!80!black}N}}
 
 \def\currrelpath{\readcmd{python \root/scripts/relpath.py "\root" "\curr"}{\temp}}
-\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1"}{\temp}\colorbox{lightlightgray}{\temp}}
+\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{lightlightgray}{\temp}}
 
 \newenvironment{mytcb}[1][]
 {
