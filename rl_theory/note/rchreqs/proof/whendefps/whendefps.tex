@@ -1,7 +1,5 @@
-\def\quant{\PSTT(\SV_\TT = \SS \mid \AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS')}
 \begin{proposition}
-  $$\text{ $\quant$ is defined } 
-  \iff \PSTT(\SV_{\TT - 1} = \SS') > 0.$$%
+  $$\prop$$%
 \end{proposition}
 
 \begin{proof}
@@ -12,7 +10,7 @@
 
   In one direction, we have that if $\PSTT(\SV_\TTM = \SS') > 0$, then 
   $$\PSTT(\AV_\TTM = \STT_\TTM(\SS')\mid \SV_\TTM = \SS') = 1$$ 
-  \lngnote{rl_theory/note/rchreqa}{is defined}, so
+  \lngproof{rl_theory/note/rchreqa/proof/whendefpa}{is defined}, so
   we can write the denominator as
   \begin{align*}
     \PSTT(\AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS') &= \PSTT(\AV_\TTM = \STT_\TTM(\SS')\mid \SV_\TTM = \SS')
@@ -25,4 +23,7 @@
   $$ \PSTT(\AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS') = 0,$$ 
   so $\quant$
   is undefined.
+
+  Therefore, we have that
+  $$\prop.$$%
 \end{proof}
