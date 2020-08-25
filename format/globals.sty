@@ -71,7 +71,7 @@
 }%
 
 \def\stripspace#1 \next{#1}
-\readcmd{git rev-parse --show-toplevel}{\root}
+\edef\root{src}
 % ---
 
 \def\sc{\setcounter}
@@ -129,7 +129,7 @@
 		}%
 		\ln[#1]{\temppath}{#3}{#5}%
 	\else%
-		\ln[#1]{#4/#2/#2.pdf}{#3}{#5}%
+		\ln[#1]{#4/#2/ref.pdf}{#3}{#5}%
 	\fi%
 }
 
@@ -170,8 +170,7 @@
 % --- references ---
 \def\includereference#1{
   \begin{reference}{#1}
-    \appendtexpath{\curr}{\texpath}
-    \input{\texpath}
+    \input{\curr/ref.tex}
   \end{reference}
 }
 
@@ -179,7 +178,9 @@
 {
   \def\currreference{#1}
   \newpage
-  \labeltext{#1}
+  \iffull
+    \labeltext{#1}
+  \fi
   \def\curr{\root/#1}
   \gdef\currpath{\pathfmt{#1}}
   %\setcounter{page}{1}
@@ -192,14 +193,11 @@
 % ---
 
 % --- reference path formatting ---
-\def\appendtexpath#1#2{\readcmd{python \root/scripts/appendtexpath.py "#1"}{#2}}
-
 \def\getrelpathln#1#2{\readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}}
 
 \def\proofd{{\color{blue!80!black}P}}
 \def\noted{{\color{blue!80!black}N}}
 
-\def\currrelpath{\readcmd{python \root/scripts/relpath.py "\root" "\curr"}{\temp}}
 \def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{lightlightgray}{\temp}}
 % ---
 
@@ -247,12 +245,7 @@
 
 \RequirePackage[margin=1in]{geometry}
 
-\readcmd{pwd}{\curr}
-
-\currrelpath
-
 \def\inheritdefs{\readcmd{\root/scripts/defs_inheritance.sh "\curr"}{\defsinherited} \defsinherited}
-\inheritdefs
 
 % --- header ---
 \RequirePackage{fancyhdr}
@@ -260,8 +253,4 @@
 
 \renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{26pt}
-
-\expandafter\def\expandafter\currpath\expandafter{\expandafter\pathfmt\expandafter{\temp}}
-
-\rhead{\currpath\vspace{10pt}}
 % ---
