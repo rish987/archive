@@ -17,7 +17,7 @@ for dir_i, dir in enumerate(path_split):
                 link_path = "/".join(path_split[0:dir_i + 3]) + "_"
             else:
                 link_path = "/".join(path_split[0:dir_i + 1])
-            link = "\\lnraw{{{}}}{{{}}}".format(link_path, link)
+            link = "\\ln{{{}}}{{{}}}".format(link_path, link)
 
         path_split_fmt.append(link)
 

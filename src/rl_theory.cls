@@ -27,12 +27,10 @@
 \RequirePackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref}
 \RequirePackage{catchfile}
 \RequirePackage{xifthen}
-\RequirePackage[margin=1in]{geometry}
+\RequirePackage[top=0.5in, bottom=0.7in, left=1in, right=1in, includeheadfoot, headsep=20pt]{geometry}
+\setlength{\headheight}{15pt}
 
 \usetikzlibrary{calc}
-
-\setlength{\headheight}{12pt}
-
 % --- general notation ---
 \newcommand{\listgen}[3]{\ensuremath{#1_#2, \ldots, #1_{#3}}}
 \newcommand{\listof}[2]{\listgen{#1}{1}{#2}}
@@ -89,7 +87,7 @@
 % ---
 
 % --- linking ---
-\def\lnraw#1#2{%
+\def\ln#1#2{%
   \iffull%
   \hyperref[#1]{#2}%
   \else%
@@ -97,11 +95,13 @@
   \fi%
 }
 
-\renewcommand\ln[4][]{%
-  \def\templntext{\lnfmt[#1]{#3}{#4}}%
-  \lnraw{#2}{\templntext}%
+% specially formatted link 
+\newcommand\lnfmt[4][]{%
+  \def\templntext{\fmtln[#1]{#3}{#4}}%
+  \ln{#2}{\templntext}%
 }
 
+% "local" reference link
 \newcommand\lnl[5][]{%
 	\iffull%
 		\def\temppath{\currreference/#4/#2}%
@@ -110,23 +110,24 @@
 			\labeltext{\temppath_}%
 			\edef\firstreflist{\firstreflist,\temppath}%
 		}%
-		\ln[#1]{\temppath}{#3}{#5}%
+		\lnfmt[#1]{\temppath}{#3}{#5}%
 	\else%
-		\ln[#1]{#4/#2/ref.pdf}{#3}{#5}%
+		\lnfmt[#1]{#4/#2/ref.pdf}{#3}{#5}%
 	\fi%
+}
+
+% "global" reference link
+\newcommand\lng[4][]{%
+  \iffull\def\temp{#2}\else\getrelpathln{#2}{\temp}\fi%
+  \lnfmt[#1]{\temp}{#3}{#4}%
 }
 
 \newcommand\lnproof[3][]{\lnl[#1]{#2}{#3}{proof}{P}}
 \newcommand\lnnote[3][]{\lnl[#1]{#2}{#3}{note}{N}}
-\def\lngproof#1#2{\lng{#1}{#2}{P}}
-\def\lngnote#1#2{\lng{#1}{#2}{N}}
+\newcommand\lngproof[3][]{\lng[#1]{#2}{#3}{P}}
+\newcommand\lngnote[3][]{\lng[#1]{#2}{#3}{N}}
 
-\def\lng#1#2#3{%
-  \iffull\def\temp{#1}\else\getrelpathln{#1}{\temp}\fi%
-  \ln{\temp}{#2}{#3}%
-}
-
-\newcommand\lnfmt[3][]{%
+\newcommand\fmtln[3][]{%
   \ifthenelse{\equal{#1}{}}%
   {%
     $\color{blue}[$\color{black}#2$\color{blue}]_{\rm{}#3}$%
@@ -168,7 +169,7 @@
   \gdef\currpath{\pathfmt{#1}}
   %\setcounter{page}{1}
   \pagestyle{fancy}
-  \fancyhead[R]{\currpath\vspace{10pt}}
+  \fancyhead[R]{\currpath}
   \inheritdefs
 }
 {
@@ -231,7 +232,6 @@
 \pagestyle{fancy}
 
 \renewcommand{\headrulewidth}{0pt}
-\setlength{\headheight}{26pt}
 % ---
 
 \def\inheritdefs{\readcmd{\root/scripts/defs_inheritance.sh "\curr"}{\defsinherited} \defsinherited}
