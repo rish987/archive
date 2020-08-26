@@ -1,3 +1,14 @@
+function Followfile() 
+  let rpos = searchpos('rinclude', 'bn')
+  if rpos[0] == line(".")
+    let rlist = matchlist(strpart(getline('.'), rpos[1] + 1), '{\(.\{-}\)}')
+    let rpath = expand('%:h')
+    let rtail = rlist[1]
+    let rpathtail = rpath . "/" . rtail . ".tex"
+    edit `=rpathtail`
+  endif
+endfunction
+
 function Followln() 
   let rpos = searchpos('ln', 'bn')
   if rpos[0] == line(".")
@@ -83,17 +94,18 @@ func! StoreWinBuff()
 endfunc
 
 map <leader>rf :call Followln()<CR>
+map <leader>rgf :call Followfile()<CR>
 map <leader>rh :call Backln()<CR>
 map <leader>rl :call Forwardln()<CR>
 
 map <leader>rs :set hlsearch<CR>/\\lng\?\w*{[a-zA-Z_/]\{-}}/e<CR>
 
-edit rl_theory/rl_theory.tex
+edit src/rl_theory/ref.tex
 call InitWinBuff()
-15split rl_theory/defs.tex
+15split src/rl_theory/defs.tex
 call InitWinBuff()
 set winfixheight
 wincmd b
-tabedit format/globals.sty
+tabedit src/rl_theory.cls
 
 tabfirst

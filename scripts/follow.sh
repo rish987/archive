@@ -1,7 +1,7 @@
 TYPE="$1"
 NAME="$2"
 PARENT_DIR=`realpath "$3"`
-TEMPLATE="templates/$TYPE.tex"
+TEMPLATE="scripts/templates/$TYPE.tex"
 
 if [[ ! -e "$TEMPLATE" ]]; then
     echo -n "No template found for type \"$TYPE\"."
@@ -14,11 +14,14 @@ done
 
 NEW_PATH="$PARENT_DIR/$TYPE/$NAME"
 
-FILENAMES="$NEW_PATH/$NAME.tex $NEW_PATH/defs.tex"
+REF_FILENAME="$NEW_PATH/ref.tex"
+DEFS_FILENAME="$NEW_PATH/defs.tex"
+FILENAMES="$REF_FILENAME $DEFS_FILENAME"
 
 if [[ ! -d "$NEW_PATH" ]]; then
     mkdir -p "$NEW_PATH"
-    cp "$TEMPLATE" "$FILENAME"
+    cp "$TEMPLATE" "$REF_FILENAME"
+    touch "$DEFS_FILENAME"
 fi
 
 ROOT=`git rev-parse --show-toplevel | tr -d "\n"`
