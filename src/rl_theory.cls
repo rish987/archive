@@ -10,9 +10,6 @@
 \makeatother
 
 \newcommand{\tsectionfmt}[3]{#1{\bf #2.\nobreak}#3\mynobreakpar}
-\newcommand{\listgen}[3]{\ensuremath{#1_#2, \ldots, #1_{#3}}}
-\newcommand{\listof}[2]{\listgen{#1}{1}{#2}}
-\newcommand{\listn}[1]{\listof{#1}{n}}
 \renewenvironment{part}[1]{\tsectionfmt{\underline}{#1}{}}{}
 
 \RequirePackage{soul}
@@ -30,12 +27,17 @@
 \RequirePackage[pdftex, pdfborderstyle={/S/U/W 0}]{hyperref}
 \RequirePackage{catchfile}
 \RequirePackage{xifthen}
+\RequirePackage[margin=1in]{geometry}
 
 \usetikzlibrary{calc}
 
 \setlength{\headheight}{12pt}
 
 % --- general notation ---
+\newcommand{\listgen}[3]{\ensuremath{#1_#2, \ldots, #1_{#3}}}
+\newcommand{\listof}[2]{\listgen{#1}{1}{#2}}
+\newcommand{\listn}[1]{\listof{#1}{n}}
+
 \def\P{{\rm Pr}}
 \def\R{\mathbb R}
 \def\E{\mathbb E}
@@ -58,15 +60,15 @@
 \fullfalse
 
 % --- colors ---
-\definecolor{lightlightlightgray}{rgb}{0.95, 0.95, 0.95}
-\definecolor{lightlightgray}{rgb}{0.85, 0.85, 0.85}
-\definecolor{lightgray}{rgb}{0.70, 0.70, 0.70}
+\definecolor{___gray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{__gray}{rgb}{0.85, 0.85, 0.85}
+\definecolor{_gray}{rgb}{0.70, 0.70, 0.70}
 \definecolor{gray}{rgb}{0.50, 0.50, 0.50}
 \definecolor{blue}{rgb}{0.56, 0.74, 0.86}
 \definecolor{red}{rgb}{1, 0.51, 0.56}
 \definecolor{green}{rgb}{0.53, 0.66, 0.42}
 
-\def\hlg#1{\hlc[lightlightlightgray]{#1}}
+\def\hlg#1{\hlc[___gray]{#1}}
 
 \newcommand{\hlc}[2][yellow]{{%
   \colorlet{tempcolor}{#1}%
@@ -179,7 +181,7 @@
 \def\proofd{{\color{blue!80!black}P}}
 \def\noted{{\color{blue!80!black}N}}
 
-\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{lightlightgray}{\temp}}
+\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{__gray}{\temp}}
 % ---
 
 % --- boxes ---
@@ -205,7 +207,7 @@
 \newenvironment{proof}
 {
     \begin{mytcb}[title={Proof.}, 
-        colbacktitle=lightlightlightgray, coltitle=black, colback=white, colframe=gray!80!black,
+        colbacktitle=___gray, coltitle=black, colback=white, colframe=gray!80!black,
         arc=0.1mm]
 }
 {
@@ -215,7 +217,7 @@
 \newenvironment{note}[1][Note \currpath.]
 {
   \begin{mytcb}[title={#1}, 
-    colback=lightgray!15, colbacktitle=lightgray!30, coltitle=black, colframe=lightgray!60!black,
+    colback=_gray!15, colbacktitle=_gray!30, coltitle=black, colframe=_gray!60!black,
     arc=0.1mm]
 }
 {
@@ -224,10 +226,6 @@
 
 % ---
 
-\RequirePackage[margin=1in]{geometry}
-
-\def\inheritdefs{\readcmd{\root/scripts/defs_inheritance.sh "\curr"}{\defsinherited} \defsinherited}
-
 % --- header ---
 \RequirePackage{fancyhdr}
 \pagestyle{fancy}
@@ -235,6 +233,8 @@
 \renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{26pt}
 % ---
+
+\def\inheritdefs{\readcmd{\root/scripts/defs_inheritance.sh "\curr"}{\defsinherited} \defsinherited}
 
 \def\sc{\setcounter}
 \def\nc{\newcounter}
