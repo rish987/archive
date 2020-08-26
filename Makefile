@@ -1,7 +1,4 @@
 # --- core dependencies ---
-FMTD := ${HOME}/texmf/tex/latex/rl_theory
-FMTDL := format
-
 SOURCE_DIR := src
 OUTPUT_DIR := output
 BUILD_DIR := build
@@ -26,20 +23,23 @@ RL_T_F_SRC := ${BUILD_SOURCE_DIR}/full.tex
 PROOFS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,proof)))
 NOTES := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,note)))
 
+TREE_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/tree.m4
+FULL_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/full.m4
+
 scripts := $(addprefix ${BUILD_SOURCE_DIR}/scripts/,defs_inheritance.sh relpathln.py defs_inheritance.py path_fmt.py)
 
-all : ${RL_T} ${PROOFS} ${NOTES}
+all : ${RL_T_F} ${RL_T} ${PROOFS} ${NOTES}
 
 .SECONDEXPANSION :
 
 ${OUTPUT_DIR}/%/ref.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell python scripts/get_deps.py $$*)) | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
 	find ${BUILD_DIR} -maxdepth 1 -type f | xargs rm -f
-	m4 -Dinput_ref="$*" wrapper_tree.m4 > ${BUILD_DIR}/${BUILD_BASENAME}.tex
+	m4 -Dinput_ref="$*" ${TREE_WRAPPER} > ${BUILD_DIR}/${BUILD_BASENAME}.tex
 	cd ${BUILD_DIR} && latexmk --pdf --shell-escape ${BUILD_BASENAME}.tex
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
 
-${RL_T_F} : ${RL_T_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_DIR}
-	m4 -Dinput=${RL_T_F_SRC} wrapper_full.m4 > ${BUILD_DIR}/${BUILD_BASENAME}.tex
+${RL_T_F} : ${RL_T_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
+	m4 -Dinput=${RL_T_F_SRC} ${FULL_WRAPPER} > ${BUILD_DIR}/${BUILD_BASENAME}.tex
 	cd ${BUILD_DIR} && latexmk --pdf --shell-escape ${BUILD_BASENAME}.tex
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
 
@@ -53,17 +53,10 @@ ${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${
 ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}:
 	mkdir -p $@
 
-${RL_T} ${RL_T_F} ${PROOFS} ${NOTES} : ${FMTD}/rl_theory.cls ${FMTD}/globals.sty ${scripts}
-
-${FMTD}/% : ${FMTDL}/% | ${FMTD}
-	cp $< ${FMTD}
-
-${FMTD} :
-	mkdir -p ${FMTD}
+${RL_T} ${RL_T_F} ${PROOFS} ${NOTES} : ${BUILD_SOURCE_DIR}/rl_theory.cls ${scripts}
 
 clean : 
 	-rm -rf build output
-	-rm -rf ${FMTD}
 # --- 
 
 # --- auxilliary dependencies ---
