@@ -86,37 +86,6 @@
 \edef\root{src}
 % ---
 
-\def\sc{\setcounter}
-\def\nc{\newcounter}
-\def\defl#1#2{\expandafter\gdef\csname #1\endcsname{#2}}
-\def\getl#1{\csname #1\endcsname}
-
-\nc{a}
-\nc{b}
-\nc{c}
-\nc{d}
-
-\def\ifbool{\xintifboolexpr}
-\def\defeq{\coloneqq}
-
-\renewcommand{\labelitemi}{--}
-\renewcommand{\labelitemii}{--}
-\renewcommand{\labelitemiii}{--}
-\renewcommand{\labelitemiv}{--}
-
-\makeatletter
-\newcommand*{\Ifinlist}[2]{%
-  \edef\tempa{#1}%
-  \edef\tempb{#2}%
-  \expandafter\expandafter\expandafter\in@\expandafter\expandafter\expandafter{\expandafter\expandafter\expandafter,\expandafter\tempa\expandafter,\expandafter}\expandafter{\expandafter,\tempb,}%
-  \ifin@
-    \expandafter\@firstoftwo
-  \else
-    \expandafter\@secondoftwo
-  \fi
-}
-\makeatother
-
 % --- linking ---
 \def\lnraw#1#2{%
   \iffull%
@@ -266,3 +235,36 @@
 \renewcommand{\headrulewidth}{0pt}
 \setlength{\headheight}{26pt}
 % ---
+
+\def\sc{\setcounter}
+\def\nc{\newcounter}
+\def\defl#1#2{\expandafter\gdef\csname #1\endcsname{#2}}
+\def\getl#1{\csname #1\endcsname}
+
+\nc{a}
+\nc{b}
+\nc{c}
+\nc{d}
+
+\def\ifbool{\xintifboolexpr}
+\def\defeq{\coloneqq}
+
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{--}
+\renewcommand{\labelitemiii}{--}
+\renewcommand{\labelitemiv}{--}
+
+\makeatletter
+\newcommand*{\Ifinlist}[2]{%
+  \edef\tempa{#1}%
+  \edef\tempb{#2}%
+  \expandafter\expandafter\expandafter\in@\expandafter\expandafter\expandafter{\expandafter\expandafter\expandafter,\expandafter\tempa\expandafter,\expandafter}\expandafter{\expandafter,\tempb,}%
+  \ifin@
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+}
+\makeatother
+
+\def\rinclude#1{\include{\curr/#1}}
