@@ -17,18 +17,19 @@ D_ABV = $(dir $@)/..
 CD_TO = cd ${D_TO}
 CD_ABV = cd ${D_ABV}
 
-RL_T := ${OUTPUT_DIR}/rl_theory/ref.pdf
-RL_T_F := ${OUTPUT_DIR}/full.pdf
-RL_T_F_SRC := ${BUILD_SOURCE_DIR}/full.tex
+ARCHIVES := ${OUTPUT_DIR}/archives/ref.pdf
+ARCHIVES_F := ${OUTPUT_DIR}/full.pdf
+ARCHIVES_F_SRC := ${BUILD_SOURCE_DIR}/full.tex
 PROOFS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,proof)))
 NOTES := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,note)))
+TOPICS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,topic)))
 
 TREE_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/tree.m4
 FULL_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/full.m4
 
 scripts := $(addprefix ${BUILD_SOURCE_DIR}/scripts/,defs_inheritance.sh relpathln.py defs_inheritance.py path_fmt.py)
 
-all : ${RL_T_F} ${RL_T} ${PROOFS} ${NOTES}
+all : ${ARCHIVES_F} ${ARCHIVES} ${PROOFS} ${NOTES} ${TOPICS}
 
 .SECONDEXPANSION :
 
@@ -38,13 +39,14 @@ ${OUTPUT_DIR}/%/ref.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell python scri
 	cd ${BUILD_DIR} && latexmk --pdf --shell-escape ${BUILD_BASENAME}.tex
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
 
-${RL_T_F} : ${RL_T_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
-	m4 -Dinput=${RL_T_F_SRC} ${FULL_WRAPPER} > ${BUILD_DIR}/${BUILD_BASENAME}.tex
+${ARCHIVES_F} : ${ARCHIVES_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
+	find ${BUILD_DIR} -maxdepth 1 -type f | xargs rm -f
+	m4 -Dinput=${ARCHIVES_F_SRC} ${FULL_WRAPPER} > ${BUILD_DIR}/${BUILD_BASENAME}.tex
 	cd ${BUILD_DIR} && latexmk --pdf --shell-escape ${BUILD_BASENAME}.tex
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
 
-${RL_T_F_SRC} : | ${BUILD_SOURCE_DIR}
-	{ echo "\\\\fulltrue\n\includereference{rl_theory}"; for path in $$(cd ${SOURCE_DIR} && find . -type d -a \( -name proof -o -name note \) | xargs -i find "{}" -maxdepth 1 -mindepth 1); do echo "\includereference{$$(echo $$path | cut -f2- -d/)}"; done; } > ${RL_T_F_SRC}
+${ARCHIVES_F_SRC} : | ${BUILD_SOURCE_DIR}
+	{ echo "\\\\fulltrue\n\includereference{archives}"; for path in $$(cd ${SOURCE_DIR} && find . -type d -a \( -name proof -o -name note -o -name topic \) | xargs -i find "{}" -maxdepth 1 -mindepth 1); do echo "\includereference{$$(echo $$path | cut -f2- -d/)}"; done; } > ${ARCHIVES_F_SRC}
 
 ${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${BUILD_DIR}
 	mkdir -p $(dir $@)
@@ -53,7 +55,7 @@ ${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${
 ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}:
 	mkdir -p $@
 
-${RL_T} ${RL_T_F} ${PROOFS} ${NOTES} : ${BUILD_SOURCE_DIR}/rl_theory.cls ${scripts}
+${ARCHIVES} ${ARCHIVES_F} ${PROOFS} ${NOTES} ${TOPICS}: ${BUILD_SOURCE_DIR}/archives.cls ${scripts}
 
 clean : 
 	-rm -rf build output
@@ -61,20 +63,21 @@ clean :
 
 # --- auxilliary dependencies ---
 # --- --- rl_theory --- ---
-RL_T_INP := ${BUILD_SOURCE_DIR}/rl_theory/_input/
-RL_T_CODE := ${BUILD_SOURCE_DIR}/rl_theory/code/
+RL_T_D := ${BUILD_SOURCE_DIR}/archives/topic/rl_theory
+RL_T_INP := ${RL_T_D}/_input/
+RL_T_CODE := ${RL_T_D}/code/
 RL_T_INP_ACT := $(addprefix ${RL_T_INP},actions_1.tex actions_2.tex)
 RL_T_INP_REW := $(addprefix ${RL_T_INP},rewards.tex)
 
 RL_T_CODE_ACT := $(addprefix ${RL_T_CODE},actions.py)
 RL_T_CODE_REW := $(addprefix ${RL_T_CODE},rewards.py)
 
-${RL_T} ${RL_T_F}: ${RL_T_INP_ACT} ${RL_T_INP_REW} $(addprefix ${BUILD_SOURCE_DIR}/rl_theory/parts/,notation.tex example.tex)
+${RL_T_D}/ref.pdf ${ARCHIVES_F}: ${RL_T_INP_ACT} ${RL_T_INP_REW} $(addprefix ${RL_T_D}/parts/,notation.tex example.tex)
 
-${BUILD_SOURCE_DIR}/rl_theory/_input/actions_%.tex : ${RL_T_CODE_ACT} ${BUILD_SOURCE_DIR}/rl_theory/code/actions_%.dat | ${RL_T_INP}
+${RL_T_D}/_input/actions_%.tex : ${RL_T_CODE_ACT} ${RL_T_D}/code/actions_%.dat | ${RL_T_INP}
 	cd $(dir $<); python $(notdir $<) actions_$*
 
-${BUILD_SOURCE_DIR}/rl_theory/_input/rewards.tex : ${RL_T_CODE_REW} ${BUILD_SOURCE_DIR}/rl_theory/code/rewards.dat | ${RL_T_INP}
+${RL_T_D}/_input/rewards.tex : ${RL_T_CODE_REW} ${RL_T_D}/code/rewards.dat | ${RL_T_INP}
 	cd $(dir $<); python $(notdir $<)
 
 ${RL_T_INP} :

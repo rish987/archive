@@ -100,12 +100,12 @@ map <leader>rl :call Forwardln()<CR>
 
 map <leader>rs :set hlsearch<CR>/\\lng\?\w*{[a-zA-Z_/]\{-}}/e<CR>
 
-edit src/rl_theory/ref.tex
+edit src/archives/ref.tex
 call InitWinBuff()
-15split src/rl_theory/defs.tex
+15split src/archives/defs.tex
 call InitWinBuff()
 set winfixheight
 wincmd b
-tabedit src/rl_theory.cls
+tabedit src/archives.cls
 
 tabfirst

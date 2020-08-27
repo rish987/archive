@@ -1,4 +1,4 @@
-\documentclass{src/rl_theory}
+\documentclass{src/archives}
 
 \begin{document}
 \includereference{input_ref}

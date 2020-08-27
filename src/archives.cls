@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{src/rl_theory}
+\ProvidesClass{src/archives}
 
 \ProcessOptions\relax
 
@@ -124,8 +124,10 @@
 
 \newcommand\lnproof[3][]{\lnl[#1]{#2}{#3}{proof}{P}}
 \newcommand\lnnote[3][]{\lnl[#1]{#2}{#3}{note}{N}}
+\newcommand\lntopic[3][]{\lnl[#1]{#2}{#3}{topic}{T}}
 \newcommand\lngproof[3][]{\lng[#1]{#2}{#3}{P}}
 \newcommand\lngnote[3][]{\lng[#1]{#2}{#3}{N}}
+\newcommand\lngtopic[3][]{\lng[#1]{#2}{#3}{T}}
 
 \newcommand\fmtln[3][]{%
   \ifthenelse{\equal{#1}{}}%
@@ -181,6 +183,7 @@
 
 \def\proofd{{\color{blue!80!black}P}}
 \def\noted{{\color{blue!80!black}N}}
+\def\topicd{{\color{blue!80!black}T}}
 
 \def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{__gray}{\temp}}
 % ---

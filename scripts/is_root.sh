@@ -1,5 +1,5 @@
-roots=("src/rl_theory")
-roots+=(`find src -type d \( -name "proof" -o -name "note" \) | xargs -i find "{}" -maxdepth 1 -mindepth 1 -type d`)
+roots=("src/archives")
+roots+=(`find src -type d \( -name "proof" -o -name "note" -o -name "topic" \) | xargs -i find "{}" -maxdepth 1 -mindepth 1 -type d`)
 
 roots=(`realpath ${roots[@]}`)
 
