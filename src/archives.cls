@@ -271,3 +271,19 @@
 \makeatother
 
 \def\rinclude#1{\include{\curr/#1}}
+
+\newenvironment{rtitlepage}
+{
+  \setcounter{a}{\thepage}
+  \begin{titlepage}
+  \setcounter{page}{\thea}
+  \stepcounter{a}
+  \centering
+  \vspace*{3in}
+}
+{
+  \thispagestyle{fancy}
+  \end{titlepage}
+  \newpage
+  \setcounter{page}{\thea}
+}
