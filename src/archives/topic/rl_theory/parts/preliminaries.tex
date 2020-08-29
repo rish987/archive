@@ -1,0 +1,39 @@
+\begin{part}{Preliminaries}
+  Let's now describe some preliminary results using this notation.
+
+  One of the first questions we may ask is, does our notation completely describe
+  the distribution of \run{}s for a particular \str?
+  That is, 
+  \ctext{for any particular sequence of 
+  \til{}s $\edots \SS 1 \T \in \S$ and
+  \act{}s $\edots \AA 1 {\T - 1} \in \A$, 
+  }
+  and
+  \ctext{for any \str\ $\STT \in \ST$,}
+  can we determine the value of
+  $$\PSTT(\SV_1 = \SS_1, \AV_1 = \AA_1, \ldots, \SV_{\T - 1} = \SS_{\T - 1}, \AV_{\T - 1} = \AA_{\T - 1}, \SV_T = \SS_\T)?$$
+  The answer to this question is: yes! 
+  We have all the information we need 
+  to completely describe 
+  this joint distribution. 
+  \lnproof{pexpr}{It can be written} as
+  \begin{align*}
+    \text{\lnnote{implasn}{$\PSTT(\SS_1, \AA_1, \ldots, \SS_{\T - 1}, \AA_{\T - 1}, \SS_\T)$}}
+    =\ &\PIND(\SS_1)\times\tag{}\\
+       &\PACT{\STT}{1}{\AA_1}{\SS_1}
+        \PTRD{\SS_2}{\AA_1}{\SS_1}\times\\
+       &\PACT{\STT}{2}{\AA_2}{\SS_2}
+        \PTRD{\SS_3}{\AA_2}{\SS_2}\times\\
+       &\ldots\times\\
+       &\PACT{\STT}{{\T - 1}}{\AA_{\T - 1}}{\SS_{\T - 1}}
+        \PTRD{\SS_\T}{\AA_{\T - 1}}{\SS_{\T - 1}},
+  \end{align*}
+  or, in more compact \lnnote{prodnot}{product notation},
+  \begin{align*}
+    \PSTT(\SS_1, \AA_1, \ldots, \SS_{\T - 1}, \AA_{\T - 1}, \SS_\T)
+    =\ \PIND(\SS_1)\times
+       \prod_{\TT = 1}^{\T - 1}
+       \PACT{\STT}{\TT}{\AA_\TT}{\SS_\TT}
+       \PTRD{\SS_{\TT + 1}}{\AA_\TT}{\SS_\TT}.
+  \end{align*}
+\end{part}

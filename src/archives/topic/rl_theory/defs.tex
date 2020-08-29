@@ -34,6 +34,10 @@
 \def\PSTT{\P_{\STT}}
 \def\ESTT{{\mathbb E}_{\STT}}
 
+\def\PP{{\rm P}}
+\def\PIND{\PP_{\rm I}}
+\def\PACT#1#2#3#4{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}
+\def\PTRD#1#2#3{\PP_{\rm T}\left(#1 \mid #2, #3\right)}
 % ---
 
 \def\agent#1{\draw (center) node [rectangle, draw=black, fill=blue, inner sep=0.14cm, #1] {};}
@@ -120,3 +124,8 @@
 \pgfkeys{/tikz/strategy/.style={opacity=0.35}}
 \pgfkeys{/tikz/strategyagt/.style={strategy}}
 \pgfkeys{/tikz/strategyact/.style={strategy, draw opacity=0.7, draw=blue}}
+
+% ---
+
+\def\rchreqarng{${\SS \in \S}$, ${\AA \in \A}$, ${1 \le \TT \le \T - 1}$}
+\def\rchreqsrng{${\SS, \SS' \in \S}$, ${\AA \in \A}$, ${2 \le \TT \le \T}$}

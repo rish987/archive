@@ -1,0 +1,30 @@
+\begin{note}
+  \def\paramprob{probability parameterization}
+  We use the notation $\P(\cdot)$ and $\PP(\cdot)$ to 
+  distinguish between a probability and a ``\paramprob'',
+  respectively.
+
+  A \paramprob\ is simply a function mapping 
+  to probability values, and is defined for every possible input.
+  The form of the inputs are implicit in its definition.
+
+  A probability, however, may or may not be defined, specifically
+  when it is a conditional probability.
+
+  When we correspond a probability with a \paramprob,
+  we almost always mean to say that, for a particular input, 
+  they are equal when the probability is defined.
+
+  \def\X{{\mathbf X}}
+  \def\XV{{\rm X}}
+  \def\XX{{\rm x}}
+
+  \def\Y{{\mathbf Y}}
+  \def\YV{{\rm Y}}
+  \def\YY{{\rm y}}
+  For example, consider the random variables $\XV$, $\YV$,
+  supported on $\X$ and $\Y$ respectively. For $\XX \in \X$, $\YY \in \Y$,
+  if we correspond $\P(\XV = \XX \mid \YV = \YY)$ with $\PP(\XX \mid \YY)$,
+  we mean to say that when $\P(\XV = \XX \mid \YV = \YY)$ is defined (that is, when $\P(\YV = \YY) > 0$),
+  $$\P(\XV = \XX \mid \YV = \YY) = \PP(\XX \mid \YY).$$%
+\end{note}

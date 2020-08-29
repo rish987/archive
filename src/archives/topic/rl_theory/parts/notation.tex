@@ -11,11 +11,25 @@
 
   Denote
   $$\text{$\T \defeq$ the \lmt, where $\T \ge 1$},$$
-  $$\text{$\STT = \left(\edots\STT{1}{\T}\right) \defeq$ an arbitrary \str, 
+  $$\text{$\STT = \left(\edots\STT{1}{\T - 1}\right) \defeq$ an arbitrary \str, 
   where each ``\stpstr'' {$\fnnot{\STT_\TT}{\S}{\A}$}},$$
   and
   $$\text{$\ST \defeq$ the set of all \strs\ $\pi$}.$$
   Note that \lnproof{npol}{$|\ST| = \T \times |\S| \times |\A|$}.
+
+  For any $\SS \in \S$, denote
+  \ctext{\lnnote{paramprob}{$\PIND(\SS)$} $\defeq$ the \ind\ probability of starting in \til\ $\SS$.}
+  For any $\SS \in \S$, $\AA \in \A$, $\STT \in \ST$, $1 \le \TT \le \T - 1$, denote
+  $$\PACT\STT\TT\AA\SS\defeq 
+    \begin{cases}
+      1 & \STT_\TT(\SS) = \AA\\
+      0 & \STT_\TT(\SS) \ne \AA.\\
+    \end{cases}
+  $$
+  For any $\SS,\SS' \in \S$, $\AA \in \A$, denote
+  \ctext{$\PTRD\SS\AA{\SS'} \defeq$ the \trd\ probability of going to \til\ $\SS$ after
+    \act\ $\AA$\
+    in \til\ $\SS'$.}
 
   Now, suppose the \agt\ is following some \str\ $\STT$.
   For all $1 \le \TT \le \T$,
@@ -28,26 +42,26 @@
   Let $\PSTT(\cdot)$ and $\ESTT[\cdot]$ denote the probability of an event
   and the expectation of a quantity
   when the \agt\ follows $\STT$.
-  Because we follow a fixed \str, we know that
-  $$\PSTT(\AV_\TT = \STT_\TT(\SS) \mid \SV_\TT = \SS) = 1$$
+  Because we follow a fixed \str, we know that, when defined,
+  $$\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS) = \PACT\STT\TT\AA\SS$$
   for all
-  $\SS \in \S$, $1 \le \TT \le \T - 1$
-  \lnnote{rchreqa}{such that $\PSTT(\SV_{\TT} = \SS) > 0$}.
+  \rchreqarng.
   For all $\SS \in \S$, we know that
-  $$\PSTT(\SV_1 = \SS)$$
-  is defined by the \ind, and
-  for all $\SS, \SS' \in \S$, $2 \le \TT \le \T$ 
-  \lnnote{rchreqs}{such that $\PSTT(\SV_{\TT - 1} = \SS') > 0$},
-  $$\PSTT(\SV_\TT = \SS \mid \AV_\TTM = \STT_\TTM(\SS'), \SV_\TTM = \SS')$$
-  is defined by the \trd, where 
-  $\SV_\TT$ is independent of all previous \til{}s and \act{}s given $\AV_\TTM$ and $\SV_\TTM$.
-  Notationally, for all $2 \le \TT \le \T$,
-  $$ 
-  \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1} \right)
-  = 
-  \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}\right)
+  $$\PSTT(\SV_1 = \SS) = \PIND(\SS)$$
+  is given by the \ind, and
+  for all \rchreqsrng, when defined,
   $$
-  (here we use \lnnote{implasn}{implied assignment}).
+  \PSTT(\SV_\TT = \SS \mid \AV_\TTM = \AA, \SV_\TTM = \SS') =
+  \PTRD\SS\AA{\SS'}
+  $$
+  is given by the \trd, where
+  $\SV_\TT$ is independent of all previous \til{}s and \act{}s given $\AV_\TTM$ and $\SV_\TTM$.
+  Notationally, for all $2 \le \TT \le \T$, when defined,
+  \ctext{
+    \lnnote{implgen}{$\PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1} \right)
+    = 
+    \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}\right)$}.
+  }
 
   We can now write the \trwd\ as
   $$\sum_{\TT = 1}^\T \RW(\SV_\TT)$$

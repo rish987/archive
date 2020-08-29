@@ -13,6 +13,7 @@
 \renewenvironment{part}[1]{\tsectionfmt{\underline}{#1}{}}{}
 
 \RequirePackage{soul}
+\RequirePackage{environ}
 \RequirePackage{mathtools}
 \RequirePackage{amsmath}
 \RequirePackage{amsfonts}
@@ -28,7 +29,7 @@
 \RequirePackage{catchfile}
 \RequirePackage{xifthen}
 \RequirePackage[top=0.5in, bottom=0.7in, left=1in, right=1in, includeheadfoot, headsep=20pt]{geometry}
-\setlength{\headheight}{15pt}
+\setlength{\headheight}{16pt}
 
 \usetikzlibrary{calc}
 % --- general notation ---
@@ -55,7 +56,9 @@
 % ---
 
 \newif\iffull
+\newif\ifln
 \fullfalse
+\lnfalse
 
 % --- colors ---
 \definecolor{___gray}{rgb}{0.95, 0.95, 0.95}
@@ -88,10 +91,16 @@
 
 % --- linking ---
 \def\ln#1#2{%
-  \iffull%
-  \hyperref[#1]{#2}%
+  \ifln%
+    #2%
   \else%
-  \href{#1}{#2}%
+    \lntrue
+    \iffull%
+    \hyperref[#1]{#2}%
+    \else%
+    \href{#1}{#2}%
+    \fi%
+    \lnfalse
   \fi%
 }
 
@@ -105,11 +114,8 @@
 \newcommand\lnl[5][]{%
 	\iffull%
 		\def\temppath{\currreference/#4/#2}%
-		\Ifinlist{\temppath}{\firstreflist}{%
-		}{%
-			\labeltext{\temppath_}%
-			\edef\firstreflist{\firstreflist,\temppath}%
-		}%
+    \global\edef\templabel{\temppath_}%
+    \labeltext{\templabel}%
 		\lnfmt[#1]{\temppath}{#3}{#5}%
 	\else%
 		\lnfmt[#1]{#4/#2/ref.pdf}{#3}{#5}%
@@ -176,6 +182,13 @@
 }
 {
 }
+
+\NewEnviron{ralign}{%
+	\def\n{\nonumber}
+  \begin{align}
+    \BODY \nonumber
+  \end{align}
+}
 % ---
 
 % --- reference path formatting ---
@@ -201,12 +214,14 @@
 \newenvironment{proposition}[1][Proposition \currpath.]
 {
   \begin{mytcb}[title={#1}, 
-    colback=blue!5, colbacktitle=blue!40, coltitle=black, colframe=blue!60!black,
+    colback=blue!5, colbacktitle=blue!20, coltitle=black, colframe=blue!60!black,
     arc=0.1mm]
 }
 {
   \end{mytcb}
 }
+
+\def\propfmtrel#1{Proposition \pathfmt{\currreference/proof/#1}.}
 
 \newenvironment{proof}
 {
