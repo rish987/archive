@@ -1,0 +1,42 @@
+\begin{proposition}
+  For any $1 \le \TT \le \T$, for
+  \ctext{\pexprdomg\TT} and for \ctext{\pexprdompol,} 
+  we can write
+  $$\pexprjointdistasng{\TT}$$ as
+  $$ \pexprjointdistg{\TT} = \pexprg{\TT}{\TT'}.$$%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  {\it Base case.}
+
+  When $\TT = 2$, we can consider two cases:
+  \begin{itemize}
+    \def\bcact{\PACT{\STT}{1}{\AA_1}{\SS_1}}
+    \def\bctrd{\PTRD{\SS_2}{\AA_1}{\SS_1}}
+    \def\bcind{\PIND(\SS_1)}
+    \def\bcjoint{\P(\SS_1, \AA_1, \SS_2)}
+    \def\bca{\PSTT(\SS_1)}
+    \def\bcb{\PSTT(\AA_1 \mid \SS_1)}
+    \def\bcc{\PSTT(\SS_2 \mid \AA_1, \SS_1)}
+    \item Case 1: $\bcind = 0$. 
+      By definition, we have
+      $$\bca = \bcind = 0,$$
+      and so
+      $$\bca = 0 = \bcjoint,$$
+      and
+      $$\bcjoint = \bcind\bcact\bctrd = 0.$$
+    \item Case 2: $\bcind > 0$. 
+      By definition, we have
+      $$\bca = \bcind > 0$$
+      and so 
+      \lnproof{whendefpa}{$\bcb$ is defined}
+      and 
+      \lnproof{whendefps}{$\bcc$ is defined}.
+      By definition,
+      $$\bcb = \bcact$$
+      and $$\bcc = \bctrd.$$
+      Therefore,
+      $$\bcjoint = \bca\bcb\bcc = \bcind\bcact\bctrd.$$
+  \end{itemize}
+\end{proof}

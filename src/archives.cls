@@ -96,7 +96,7 @@
   \else%
     \lntrue
     \iffull%
-    \hyperref[#1]{#2}%
+    \hyperlink{#1}{#2}%
     \else%
     \href{#1}{#2}%
     \fi%
@@ -115,7 +115,7 @@
 	\iffull%
 		\def\temppath{\currreference/#4/#2}%
     \global\edef\templabel{\temppath_}%
-    \labeltext{\templabel}%
+    \hypertarget{\templabel}{}%
 		\lnfmt[#1]{\temppath}{#3}{#5}%
 	\else%
 		\lnfmt[#1]{#4/#2/ref.pdf}{#3}{#5}%
@@ -171,7 +171,7 @@
   \def\currreference{#1}
   \newpage
   \iffull
-    \labeltext{#1}
+    \hypertarget{#1}{}
   \fi
   \def\curr{\root/#1}
   \gdef\currpath{\pathfmt{#1}}
@@ -302,3 +302,7 @@
   \newpage
   \setcounter{page}{\thea}
 }
+
+\def\srulen{\hrule}
+\def\srule{\vspace{10pt}\srulen}
+\def\srulei{\vspace{4pt}\srule}

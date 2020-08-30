@@ -129,3 +129,18 @@
 
 \def\rchreqarng{${\SS \in \S}$, ${\AA \in \A}$, ${1 \le \TT \le \T - 1}$}
 \def\rchreqsrng{${\SS, \SS' \in \S}$, ${\AA \in \A}$, ${2 \le \TT \le \T}$}
+
+\def\pexprjointdistasng#1{\PSTT(\SV_1 = \SS_1, \AV_1 = \AA_1, \ldots, \SV_{{#1} - 1} = \SS_{{#1} - 1}, \AV_{{#1} - 1} = \AA_{{#1} - 1}, \SV_{#1} = \SS_{#1})}
+\def\pexprjointdistasn{\pexprjointdistasng\T}
+\def\pexprjointdistg#1{\PSTT(\SS_1, \AA_1, \ldots, \SS_{{#1} - 1}, \AA_{{#1} - 1}, \SS_{#1})}
+\def\pexprjointdist{\pexprjointdistg\T}
+\def\pexprg#1#2{\PIND(\SS_1)\times
+       \prod_{{#2} = 1}^{#1 - 1}
+       \PACT{\STT}{{#2}}{\AA_{#2}}{\SS_{#2}}
+       \PTRD{\SS_{{#2} + 1}}{\AA_{#2}}{\SS_{#2}}}
+\def\pexpr{\pexprg\T\TT}
+\def\pexprdomg#1{any particular sequence of 
+  \til{}s $\edots \SS 1 {#1} \in \S$ and
+  \act{}s $\edots \AA 1 {#1 - 1} \in \A$}
+\def\pexprdom{\pexprdomg{\T}}
+\def\pexprdompol{any \str~${\STT \in \ST}$}
