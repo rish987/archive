@@ -34,8 +34,7 @@
   {\it Inductive hypothesis.}
   Assume that for $\TT - 1$ such that $1 \le \TT - 1 \le \T - 1$,
   the proposition holds. That is,
-  $$ \pexprjointdistg{\TT - 1} = \pexprg{\TT - 1}{\TT'}.$$%
-
+  $$ \pexprjointdistg{\TT - 1} = \pexprgg{\TT - 1}{\TT - 2}{\TT'}.$$%
   \srule
   {\it Inductive step.}
   We want to show that the proposition holds for $\TT.$
@@ -45,18 +44,22 @@
     \item Case 1: $\isa = 0$. 
       Then,
       $$\isa = 0 = \isjoint,$$
-      and by the induction hypothesis,
+      and
       \begin{align*}
       &\pexprg{\TT}{\TT'} \\
-      &= \isa \times \isact \times \istrd \\
-      &= 0 = \isjoint.
+      =\ &\pexprgg{\TT - 1}{\TT - 2}{\TT'} \times \\
+      &\isact \times \istrd\\
+      \noteop i = \ & \isa \times \isact \times \istrd \\
+      \noteop ii = \ & 0 = \isjoint,
       \end{align*}
+      where (i) follows from the inductive hypothesis,
+      and (ii) follows from the fact that $\isa = 0$.
     \item Case 2: $\isa > 0$. 
       Then, 
       \ctext{$\isbf$ and $\isb$ are defined,}
       and we have
-      $$\isbf = \isb = \isact,$$
-      with $$\isa \times \isbf = \ismid.$$
+      $$\isbf \noteop i = \isb \noteop ii = \isact,$$
+      where (i) is implied by definition, and (ii) follows by definition.
 
       There are two cases to consider:
       \begin{itemize}
@@ -67,8 +70,7 @@
           $$\iscf = \isc = \istrd.$$
           Therefore,
           \begin{align*}
-            \isjoint =\ & \ismid \times \iscf\\
-                     =\ & \isa \times \isbf \times\\& \iscf\\
+            \isjoint =\ & \isa \times \isbf \times\\& \iscf\\
             =\ & \isa \times \isb \times \isc\\
             =\ & \pexprg{\TT}{\TT'}.
           \end{align*}
