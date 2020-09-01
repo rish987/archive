@@ -1,0 +1,24 @@
+\begin{proposition}
+    For any random variables 
+    \listrv
+    we have
+    $$\pcindprop1.$$%
+\end{proposition}
+
+\begin{proof}
+  Suppose 
+  $\XV = \XX \in \X$,
+  $\YV = \YY \in \Y$, and
+  $\ZV = \ZZ \in \Z$.
+
+  By assumption,
+  $$\ppre\XX = \PSTT(\YV = \YY) 
+  = \ppre\XX + \sum_{\others}\ppre{\XX'},$$
+    so
+    $$\forall \others,\ \ppre{\XX'} = 0,$$
+  and in particular
+  $$\forall \others,\ \ppost{\XX'} = 0.$$
+
+  Therefore, $$\ppost{\XX} = \PSTT(\YV = \YY, \ZV = \ZZ),$$
+  so $$\P(\XV = \XX \mid \YV = \YY, \ZV = \ZZ) = 1.$$%
+\end{proof}

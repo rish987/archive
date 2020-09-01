@@ -7,36 +7,78 @@
 \end{proposition}
 
 \begin{proof}
+  \def\last{\TT - 1}
+  \def\sslast{\SS_{\last}}
+  \def\aalast{\AA_{\last}}
+  \def\prelist{\SS_1, \AA_1, \SS_2, \ldots, \sslast}
+  \def\postlist{\SS_1, \AA_1, \SS_2, \ldots, \SS_\TT}
+  \def\pprelist{\PSTT(\prelist)}
+  \def\isact{\PACT{\STT}{\last}{\aalast}{\sslast}}
+  \def\istrd{\PTRD{\SS_\TT}{\aalast}{\sslast}}
+  \def\isjoint{\PSTT(\postlist)}
+  \def\isa{\pprelist}
+  \def\isbf{\PSTT(\aalast \mid \prelist)}
+  \def\isb{\PSTT(\aalast \mid \sslast)}
+  \def\ismid{\PSTT(\prelist, \aalast)}
+  \def\iscf{\PSTT(\SS_\TT \mid \aalast, \prelist)}
+  \def\isc{\PSTT(\SS_\TT \mid \AA_{\TT - 1}, \SS_{\TT - 1})}
+  \def\bcind{\PIND(\SS_1)}
+  \def\bca{\PSTT(\SS_1)}
   \hrule
   {\it Base case.}
+  When $\TT = 1$,
+  we have by definition that
+  $\bca = \bcind$.
 
-  When $\TT = 2$, we can consider two cases:
+  \srule
+  {\it Inductive hypothesis.}
+  Assume that for $\TT - 1$ such that $1 \le \TT - 1 \le \T - 1$,
+  the proposition holds. That is,
+  $$ \pexprjointdistg{\TT - 1} = \pexprg{\TT - 1}{\TT'}.$$%
+
+  \srule
+  {\it Inductive step.}
+  We want to show that the proposition holds for $\TT.$
+
+  We can consider two cases:
   \begin{itemize}
-    \def\bcact{\PACT{\STT}{1}{\AA_1}{\SS_1}}
-    \def\bctrd{\PTRD{\SS_2}{\AA_1}{\SS_1}}
-    \def\bcind{\PIND(\SS_1)}
-    \def\bcjoint{\P(\SS_1, \AA_1, \SS_2)}
-    \def\bca{\PSTT(\SS_1)}
-    \def\bcb{\PSTT(\AA_1 \mid \SS_1)}
-    \def\bcc{\PSTT(\SS_2 \mid \AA_1, \SS_1)}
-    \item Case 1: $\bcind = 0$. 
-      By definition, we have
-      $$\bca = \bcind = 0,$$
-      and so
-      $$\bca = 0 = \bcjoint,$$
-      and
-      $$\bcjoint = \bcind\bcact\bctrd = 0.$$
-    \item Case 2: $\bcind > 0$. 
-      By definition, we have
-      $$\bca = \bcind > 0$$
-      and so 
-      \lnproof{whendefpa}{$\bcb$ is defined}
-      and 
-      \lnproof{whendefps}{$\bcc$ is defined}.
-      By definition,
-      $$\bcb = \bcact$$
-      and $$\bcc = \bctrd.$$
-      Therefore,
-      $$\bcjoint = \bca\bcb\bcc = \bcind\bcact\bctrd.$$
+    \item Case 1: $\isa = 0$. 
+      Then,
+      $$\isa = 0 = \isjoint,$$
+      and by the induction hypothesis,
+      \begin{align*}
+      &\pexprg{\TT}{\TT'} \\
+      &= \isa \times \isact \times \istrd \\
+      &= 0 = \isjoint.
+      \end{align*}
+    \item Case 2: $\isa > 0$. 
+      Then, 
+      \ctext{$\isbf$ and $\isb$ are defined,}
+      and we have
+      $$\isbf = \isb = \isact,$$
+      with $$\isa \times \isbf = \ismid.$$
+
+      There are two cases to consider:
+      \begin{itemize}
+        \item Case 2.1: $\ismid = \isa > 0$.
+          Then, 
+          \ctext{$\iscf$ is defined,}
+          and we have
+          $$\iscf = \isc = \istrd.$$
+          Therefore,
+          \begin{align*}
+            \isjoint =\ & \ismid \times \iscf\\
+                     =\ & \isa \times \isbf \times\\& \iscf\\
+            =\ & \isa \times \isb \times \isc\\
+            =\ & \pexprg{\TT}{\TT'}.
+          \end{align*}
+        \item Case 2.2: $\ismid = 0$.
+          Then,
+          $$\isjoint = 0$$
+          and
+          $$\isact = 0$$,
+          so
+          $$\isjoint = \pexprg{\TT}{\TT'} = 0.$$
+      \end{itemize}
   \end{itemize}
 \end{proof}

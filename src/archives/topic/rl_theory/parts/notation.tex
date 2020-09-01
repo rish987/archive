@@ -43,9 +43,15 @@
   and the expectation of a quantity
   when the \agt\ follows $\STT$.
   Because we follow a fixed \str, we know that, when defined,
-  $$\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS) = \PACT\STT\TT\AA\SS$$
+  $$\pactdef$$
   for all
-  \rchreqarng.
+  \rchreqarng,
+  \lnproof{actcind}{from which it follows} that
+  $A_\TT$ is independent of all previous \til{}s and \act{}s given $\SV_\TT$.
+  Notationally, for all \actcindrange, when defined,
+  \ctext{
+  \lnnote{implgen}{$\actcindprop$}.
+  }
   For all $\SS \in \S$, we know that
   $$\PSTT(\SV_1 = \SS) = \PIND(\SS)$$
   is given by the \ind, and
@@ -58,9 +64,9 @@
   $\SV_\TT$ is independent of all previous \til{}s and \act{}s given $\AV_\TTM$ and $\SV_\TTM$.
   Notationally, for all $2 \le \TT \le \T$, when defined,
   \ctext{
-    \lnnote{implgen}{$\PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1} \right)
+    $\PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1} \right)
     = 
-    \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}\right)$}.
+    \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}\right)$.
   }
 
   We can now write the \trwd\ as
