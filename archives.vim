@@ -16,8 +16,9 @@ function Followln()
     let rtype = rlist[1]
     let rname = rlist[2]
     let rpath = expand('%:h')
-    silent let output = split(trim(system("./scripts/follow.sh " . rtype . " " . rname . " ./" . rpath)))
+    silent let output_full = trim(system("./scripts/follow.sh " . rtype . " " . rname . " ./" . rpath))
     if v:shell_error == 0
+        silent let output = split(output_full)
         wincmd b
         " save buffer after following link to ensure only buffers that had
         " links are added
@@ -28,7 +29,7 @@ function Followln()
         edit `=output[1]`
         wincmd b
     else
-        echo "Error following \"" . rname . "\": " . output . ""
+        echo "Error following \"" . rname . "\": " . output_full . ""
     endif
   endif
 endfunction
