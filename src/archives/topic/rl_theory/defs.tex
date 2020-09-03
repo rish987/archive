@@ -154,3 +154,17 @@
 \def\pactdefp{\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS)}
 \def\pactdefpp{\PACT\STT\TT\AA\SS}
 \def\pactdef{\pactdefp = \pactdefpp}
+\def\pactdeffull{when defined,
+  $$\pactdef$$
+  for all
+  \rchreqarng}
+\def\actcindpropfullg#1{for all \actcindrange, when defined, #1}
+\def\actcindpropfull{\actcindpropfullg{$$\actcindprop.$$}}
+\def\pactdefdef#1{
+  $$\PACT\STT\TT\AA\SS\defeq 
+    \begin{cases}
+      1 & \STT_\TT(\SS) = \AA\\
+      0 & \STT_\TT(\SS) \ne \AA#1\\
+    \end{cases}
+  $$
+}
