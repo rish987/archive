@@ -20,12 +20,7 @@
   For any $\SS \in \S$, denote
   \ctext{\lnnote{paramprob}{$\PIND(\SS)$} $\defeq$ the \ind\ probability of starting in \til\ $\SS$.}
   For any $\SS \in \S$, $\AA \in \A$, $\STT \in \ST$, $1 \le \TT \le \T - 1$, denote
-  $$\PACT\STT\TT\AA\SS\defeq 
-    \begin{cases}
-      1 & \STT_\TT(\SS) = \AA\\
-      0 & \STT_\TT(\SS) \ne \AA.\\
-    \end{cases}
-  $$
+  \pactdefdef{.}
   For any $\SS,\SS' \in \S$, $\AA \in \A$, denote
   \ctext{$\PTRD\SS\AA{\SS'} \defeq$ the \trd\ probability of going to \til\ $\SS$ after
     \act\ $\AA$\
@@ -42,16 +37,10 @@
   Let $\PSTT(\cdot)$ and $\ESTT[\cdot]$ denote the probability of an event
   and the expectation of a quantity
   when the \agt\ follows $\STT$.
-  Because we follow a fixed \str, we know that, when defined,
-  $$\pactdef$$
-  for all
-  \rchreqarng,
+  Because we follow a fixed \str, we know that, \pactdeffull,
   \lnproof{actcind}{from which it follows} that
-  $A_\TT$ is independent of all previous \til{}s and \act{}s given $\SV_\TT$.
-  Notationally, for all \actcindrange, when defined,
-  \ctext{
-  \lnnote{implgen}{$\actcindprop$}.
-  }
+  $\AV_\TT$ is independent of all previous \til{}s and \act{}s given $\SV_\TT$.
+  Notationally, \actcindpropfullg{\ctext{\lnnote{implgen}{$\actcindprop$}.}}
   For all $\SS \in \S$, we know that
   $$\PSTT(\SV_1 = \SS) = \PIND(\SS)$$
   is given by the \ind, and
