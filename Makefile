@@ -23,14 +23,17 @@ ARCHIVES_F_SRC := ${BUILD_SOURCE_DIR}/full.tex
 PROOFS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,proof)))
 NOTES := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,note)))
 TOPICS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,topic)))
+DEFINITIONS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,definition)))
+
+TREE := ${ARCHIVES} ${PROOFS} ${NOTES} ${TOPICS} ${DEFINITIONS}
 
 TREE_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/tree.m4
 FULL_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/full.m4
 
 scripts := $(addprefix ${BUILD_SOURCE_DIR}/scripts/,defs_inheritance.sh relpathln.py defs_inheritance.py path_fmt.py)
 
-all : ${ARCHIVES_F} ${ARCHIVES} ${PROOFS} ${NOTES} ${TOPICS}
-tree : ${ARCHIVES} ${PROOFS} ${NOTES} ${TOPICS}
+all : tree full
+tree : ${TREE}
 full : ${ARCHIVES_F}
 
 .SECONDEXPANSION :
@@ -48,7 +51,7 @@ ${ARCHIVES_F} : ${ARCHIVES_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_D
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
 
 ${ARCHIVES_F_SRC} : ${BUILD_SOURCE_LIST} | ${BUILD_SOURCE_DIR}
-	{ echo "\\\\fulltrue\n\includereference{archives}"; for path in $$(cd ${BUILD_SOURCE_DIR} && find . -type d -a \( -name proof -o -name note -o -name topic \) | xargs -i find "{}" -maxdepth 1 -mindepth 1); do echo "\includereference{$$(echo $$path | cut -f2- -d/)}"; done; } > ${ARCHIVES_F_SRC}
+	{ echo "\\\\fulltrue\n\includereference{archives}"; for path in $$(cd ${BUILD_SOURCE_DIR} && find . -type d -a \( -name proof -o -name note -o -name topic -o -name definition \) | xargs -i find "{}" -maxdepth 1 -mindepth 1); do echo "\includereference{$$(echo $$path | cut -f2- -d/)}"; done; } > ${ARCHIVES_F_SRC}
 
 ${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${BUILD_DIR}
 	mkdir -p $(dir $@)
@@ -57,9 +60,9 @@ ${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${
 ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}:
 	mkdir -p $@
 
-${ARCHIVES_F} ${ARCHIVES} ${PROOFS} ${NOTES} ${TOPICS} : ${BUILD_SOURCE_DIR}/archives.cls ${scripts}
+${ARCHIVES_F} ${TREE} : ${BUILD_SOURCE_DIR}/archives.cls ${scripts}
 ${ARCHIVES_F} : ${FULL_WRAPPER}
-${ARCHIVES} ${PROOFS} ${NOTES} ${TOPICS} : ${TREE_WRAPPER}
+${TREE} : ${TREE_WRAPPER}
 
 clean : 
 	-rm -rf build output

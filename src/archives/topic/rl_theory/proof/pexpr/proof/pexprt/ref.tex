@@ -39,7 +39,7 @@
   {\it Inductive step.}
   We want to show that the proposition holds for $\TT.$
 
-  We can consider two cases:
+  There are two cases to consider:
   \begin{itemize}
     \item Case 1: $\isa = 0$. 
       Then,
@@ -63,22 +63,35 @@
 
       There are two cases to consider:
       \begin{itemize}
-        \item Case 2.1: $\ismid = \isa > 0$.
-          Then, 
+        \item Case 2.1: $\isact = 1$.
+          Then,
+          \begin{align*}
+            \ismid &= \isbf \times \isa\\
+                   &= \isact \times \isa\\
+                   &= \isa\\
+                   &> 0.
+          \end{align*}
+          Therefore, 
           \ctext{$\iscf$ is defined,}
           and we have
-          $$\iscf = \isc = \istrd.$$
+          $$\iscf \noteop i = \isc \noteop ii = \istrd.$$
+          where (i) and (ii) follow by definition.
           Therefore,
           \begin{align*}
             \isjoint =\ & \isa \times \isbf \times\\& \iscf\\
             =\ & \isa \times \isb \times \isc\\
             =\ & \pexprg{\TT}{\TT'}.
           \end{align*}
-        \item Case 2.2: $\ismid = 0$.
+
+        \item Case 2.2: $\isact = 0$.
           Then,
-          $$\isjoint = 0$$
-          and
-          $$\isact = 0$$,
+          \begin{align*}
+            \ismid &= \isbf \times \isa\\
+                   &= \isact \times \isa\\
+                   &= 0.
+          \end{align*}
+          Therefore,
+          $$\isjoint = 0,$$
           so
           $$\isjoint = \pexprg{\TT}{\TT'} = 0.$$
       \end{itemize}

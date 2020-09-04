@@ -1,62 +1,43 @@
 \begin{part}{Notation}
   To answer this question, let's establish some notation.
 
-  Let's denote
-  $$\text{$\S \defeq$ the set of \til{}s},$$
-  and 
-  $$\text{$\A \defeq$ the set of \act{}s.}$$
-  Assume that $\S$ and $\A$ are finite.
-  Denote
-  $$\text{\lnnote{fnnot}{$\RW : \S \rightarrow \R$} $\defeq$ mapping from \til{}s to \rwd{}s.}$$
+  Let's \lndefinition{states}{define}
+  \statesdef{,}
+  and \lndefinition{actions}{define}
+  \actionsdef{,}
+  where $\S$ and $\A$ are finite.
+  \lndefinition{rewards}{Define}
+  \rewardsdefg{\lnnote{fnnot}{$\rewardsdefnot$} $\defeq$}{.}
 
-  Denote
-  $$\text{$\T \defeq$ the \lmt, where $\T \ge 1$},$$
-  $$\text{$\STT = \left(\edots\STT{1}{\T - 1}\right) \defeq$ an arbitrary \str, 
-  where each ``\stpstr'' {$\fnnot{\STT_\TT}{\S}{\A}$}},$$
-  and
-  $$\text{$\ST \defeq$ the set of all \strs\ $\pi$}.$$
+  \lndefinition{steplim}{Define}
+  \steplimdef{,}
+  \lndefinition{str}{define}
+  \strdef{,}
+  and \lndefinition{strs}{define}
+  \strsdef{.}
   Note that \lnproof{npol}{$|\ST| = \T \times |\S| \times |\A|$}.
 
-  For any $\SS \in \S$, denote
-  \ctext{\lnnote{paramprob}{$\PIND(\SS)$} $\defeq$ the \ind\ probability of starting in \til\ $\SS$.}
-  For any $\SS \in \S$, $\AA \in \A$, $\STT \in \ST$, $1 \le \TT \le \T - 1$, denote
-  \pactdefdef{.}
-  For any $\SS,\SS' \in \S$, $\AA \in \A$, denote
-  \ctext{$\PTRD\SS\AA{\SS'} \defeq$ the \trd\ probability of going to \til\ $\SS$ after
-    \act\ $\AA$\
-    in \til\ $\SS'$.}
+  \lndefinition{inddef}{Define} \inddefdefg{\lnnote{paramprob}{$\inddefp$} $\defeq$}{.}
+  \lndefinition{pactdef}{Define} \pactdefdef{.}
+  \lndefinition{trddef}{Define} \trddefdef{.}
 
   Now, suppose the \agt\ is following some \str\ $\STT$.
-  For all $1 \le \TT \le \T$,
-  denote
-  $$\text{$\SV_\TT \defeq$ random variable for the \til\ at \stp\ $\TT$},$$
-  and
-  $$\text{$\AV_\TT \defeq$ random variable for the \act\ at \stp\ $\TT$},$$
+  \lndefinition{rvst}{Define} \rvstdef{,}
+  and \lndefinition{rvat}{define} 
+  \rvatdef{,}
   whose distributions are dependent on $\STT$.
 
   Let $\PSTT(\cdot)$ and $\ESTT[\cdot]$ denote the probability of an event
   and the expectation of a quantity
   when the \agt\ follows $\STT$.
-  Because we follow a fixed \str, we know that, \pactdeffull,
+  Because we follow a fixed \str, \lndefinition{pact}{we know that}, \pactdeffull{,}
   \lnproof{actcind}{from which it follows} that
   $\AV_\TT$ is independent of all previous \til{}s and \act{}s given $\SV_\TT$.
   Notationally, \actcindpropfullg{\ctext{\lnnote{implgen}{$\actcindprop$}.}}
-  For all $\SS \in \S$, we know that
-  $$\PSTT(\SV_1 = \SS) = \PIND(\SS)$$
-  is given by the \ind, and
-  for all \rchreqsrng, when defined,
-  $$
-  \PSTT(\SV_\TT = \SS \mid \AV_\TTM = \AA, \SV_\TTM = \SS') =
-  \PTRD\SS\AA{\SS'}
-  $$
-  is given by the \trd, where
-  $\SV_\TT$ is independent of all previous \til{}s and \act{}s given $\AV_\TTM$ and $\SV_\TTM$.
-  Notationally, for all $2 \le \TT \le \T$, when defined,
-  \ctext{
-    $\PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1} \right)
-    = 
-    \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}\right)$.
-  }
+  \lndefinition{ind}{We know that} \inddef{,}
+  and
+  \lndefinition{trd}{we know that} \trddef{,}
+  \lndefinition{trdcind}{where} \trdcinddef{.}
 
   We can now write the \trwd\ as
   $$\sum_{\TT = 1}^\T \RW(\SV_\TT)$$

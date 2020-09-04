@@ -131,9 +131,11 @@
 \newcommand\lnproof[3][]{\lnl[#1]{#2}{#3}{proof}{P}}
 \newcommand\lnnote[3][]{\lnl[#1]{#2}{#3}{note}{N}}
 \newcommand\lntopic[3][]{\lnl[#1]{#2}{#3}{topic}{T}}
+\newcommand\lndefinition[3][]{\lnl[#1]{#2}{#3}{definition}{D}}
 \newcommand\lngproof[3][]{\lng[#1]{#2}{#3}{P}}
 \newcommand\lngnote[3][]{\lng[#1]{#2}{#3}{N}}
 \newcommand\lngtopic[3][]{\lng[#1]{#2}{#3}{T}}
+\newcommand\lngdefinition[3][]{\lng[#1]{#2}{#3}{D}}
 
 \newcommand\fmtln[3][]{%
   \ifthenelse{\equal{#1}{}}%
@@ -197,6 +199,7 @@
 \def\proofd{{\color{blue!80!black}P}}
 \def\noted{{\color{blue!80!black}N}}
 \def\topicd{{\color{blue!80!black}T}}
+\def\definitiond{{\color{blue!80!black}D}}
 
 \def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{__gray}{\temp}}
 % ---
@@ -225,9 +228,9 @@
 
 \newenvironment{proof}
 {
-    \begin{mytcb}[title={Proof.}, 
-        colbacktitle=___gray, coltitle=black, colback=white, colframe=gray!80!black,
-        arc=0.1mm]
+  \begin{mytcb}[title={Proof.}, 
+    colbacktitle=___gray, coltitle=black, colback=white, colframe=gray!80!black,
+    arc=0.1mm]
 }
 {
     \end{mytcb}
@@ -237,6 +240,16 @@
 {
   \begin{mytcb}[title={#1}, 
     colback=_gray!15, colbacktitle=_gray!30, coltitle=black, colframe=_gray!60!black,
+    arc=0.1mm]
+}
+{
+  \end{mytcb}
+}
+
+\newenvironment{definition}[1][Definition \currpath.]
+{
+  \begin{mytcb}[title={#1}, 
+    colback=blue!5, colbacktitle=blue!20, coltitle=black, colframe=blue!60!black,
     arc=0.1mm]
 }
 {
