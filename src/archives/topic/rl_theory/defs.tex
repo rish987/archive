@@ -134,10 +134,11 @@
 \def\pexprjointdistasn{\pexprjointdistasng\T}
 \def\pexprjointdistg#1{\PSTT(\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1})}
 \def\pexprjointdist{\pexprjointdistg\T}
-\def\pexprg#1#2{\PIND(\SS_1)\times
-       \prod_{{#2} = 1}^{#1 - 1}
-       \PACT{\STT}{{#2}}{\AA_{#2}}{\SS_{#2}}
-       \PTRD{\SS_{{#2} + 1}}{\AA_{#2}}{\SS_{#2}}}
+\def\pexprgg#1#2#3{\PIND(\SS_1)\times
+       \prod_{{#3} = 1}^{#2}
+       \PACT{\STT}{{#3}}{\AA_{#3}}{\SS_{#3}}
+       \PTRD{\SS_{{#3} + 1}}{\AA_{#3}}{\SS_{#3}}}
+\def\pexprg#1#2{\pexprgg{#1}{#1 - 1}{#2}}
 \def\pexpr{\pexprg\T\TT}
 \def\pexprdomg#1{any particular sequence of 
   \til{}s $\edots \SS 1 {#1} \in \S$ and
@@ -154,17 +155,48 @@
 \def\pactdefp{\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS)}
 \def\pactdefpp{\PACT\STT\TT\AA\SS}
 \def\pactdef{\pactdefp = \pactdefpp}
-\def\pactdeffull{when defined,
-  $$\pactdef$$
-  for all
-  \rchreqarng}
+\def\pactdeffull#1{for all
+  \rchreqarng, when defined,
+  $$\pactdef#1$$}
 \def\actcindpropfullg#1{for all \actcindrange, when defined, #1}
 \def\actcindpropfull{\actcindpropfullg{$$\actcindprop.$$}}
-\def\pactdefdef#1{
+\def\pactdefdef#1{for any $\SS \in \S$, $\AA \in \A$, $\STT \in \ST$, $1 \le \TT \le \T - 1$,
   $$\PACT\STT\TT\AA\SS\defeq 
     \begin{cases}
       1 & \STT_\TT(\SS) = \AA\\
-      0 & \STT_\TT(\SS) \ne \AA#1\\
-    \end{cases}
-  $$
-}
+      0 & \STT_\TT(\SS) \ne \AA#1
+    \end{cases}$$}
+\def\statesdef#1{$$\text{$\S \defeq$ the set of \til{}s}#1$$}
+\def\actionsdef#1{$$\text{$\A \defeq$ the set of \act{}s}#1$$}
+\def\rewardsdefnot{\RW : \S \rightarrow \R}
+\def\rewardsdefg#1#2{$$\text{#1 mapping from \til{}s to \rwd{}s#2}$$}
+\def\rewardsdef#1{\rewardsdefg{$\rewardsdefnot \defeq$}{#1}}
+\def\steplimdef#1{ $$\text{$\T \defeq$ the \lmt, where $\T \ge 1$}#1$$}
+\def\strdef#1{$$\text{$\STT = \left(\edots\STT{1}{\T - 1}\right) \defeq$ a \str, 
+where each ``\stpstr'' {$\fnnot{\STT_\TT}{\S}{\A}$}}#1$$}
+\def\strsdef#1{$$\text{$\ST \defeq$ the set of all \strs\ $\pi$}#1$$}
+\def\inddefdefg#1#2{for any $\SS \in \S$, \ctext{#1 the \ind\ probability of starting in \til\ $\SS$#2}}
+\def\inddefp{\PIND(\SS)}
+\def\inddefdef#1{\inddefdefg{$\inddefp \defeq$}{#1}}
+
+\def\whbdt{We have by definition that}
+\def\trddefdef#1{for any $\SS,\SS' \in \S$, $\AA \in \A$,
+  \ctext{$\PTRD\SS\AA{\SS'} \defeq$ the \trd\ probability of going to \til\ $\SS$ after
+    \act\ $\AA$\
+in \til\ $\SS'$#1}}
+
+\def\trddef#1{for all \rchreqsrng, when defined,
+  $$\PSTT(\SV_\TT = \SS \mid \AV_\TTM = \AA, \SV_\TTM = \SS') =
+  \PTRD\SS\AA{\SS'}#1$$}
+\def\rvstdef#1{for all $1 \le \TT \le \T$,
+$$\text{$\SV_\TT \defeq$ random variable for the \til\ at \stp\ $\TT$}#1$$}
+\def\rvatdef#1{for all $1 \le \TT \le \T - 1$, 
+$$\text{$\AV_\TT \defeq$ random variable for the \act\ at \stp\ $\TT$}#1$$}
+\def\inddef#1{for all $\SS \in \S$,
+    $$\PSTT(\SV_1 = \SS) = \PIND(\SS)#1$$}
+\def\trdcinddef#1{$\SV_\TT$ is independent of all previous \til{}s and \act{}s given $\AV_\TTM$ and $\SV_\TTM$.
+  Notationally, for all $2 \le \TT \le \T$, when defined,
+  \ctext{
+    $\PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1} \right)
+    = 
+  \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}\right)$#1}}

@@ -12,6 +12,8 @@ for dir_i, dir in enumerate(path_split):
         path_split_fmt.append("\\noted")
     elif dir == "topic":
         path_split_fmt.append("\\topicd")
+    elif dir == "definition":
+        path_split_fmt.append("\\definitiond")
     else:
         link = ""
         if dir == "archives":
