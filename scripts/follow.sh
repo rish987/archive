@@ -1,16 +1,16 @@
 TYPE="$1"
 NAME="$2"
 PARENT_DIR=`realpath "$3"`
+while ! scripts/is_root.sh $PARENT_DIR; do
+    PARENT_DIR=`dirname $PARENT_DIR`
+done
+
 TEMPLATE="scripts/templates/$TYPE.tex"
 
 if [[ ! -e "$TEMPLATE" ]]; then
     echo -n "No template found for type \"$TYPE\"."
     exit 1
 fi
-
-while ! scripts/is_root.sh $PARENT_DIR; do
-    PARENT_DIR=`dirname $PARENT_DIR`
-done
 
 NEW_PATH="$PARENT_DIR/$TYPE/$NAME"
 
