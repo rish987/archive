@@ -180,9 +180,20 @@
   %\setcounter{page}{1}
   \pagestyle{fancy}
   \fancyhead[R]{\currpath}
-  \inheritdefs
+  \inheritdefs{\curr}
 }
 {
+}
+
+\def\refenv#1#2#3{{\inheritdefs{\curr/#1/#2}#3}}
+
+\newenvironment{refenv}[2]
+{
+  \bgroup
+  \inheritdefs{\curr/#1/#2}
+}
+{
+  \egroup
 }
 
 \NewEnviron{ralign}{%
@@ -265,7 +276,7 @@
 \renewcommand{\headrulewidth}{0pt}
 % ---
 
-\def\inheritdefs{\readcmd{\root/scripts/defs_inheritance.sh "\curr"}{\defsinherited} \defsinherited}
+\def\inheritdefs#1{\readcmd{\root/scripts/defs_inheritance.sh "#1"}{\defsinherited} \defsinherited}
 
 \def\sc{\setcounter}
 \def\nc{\newcounter}
