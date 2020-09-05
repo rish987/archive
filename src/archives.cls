@@ -185,7 +185,7 @@
 {
 }
 
-\def\refenv#1#2#3{{\inheritdefs{\curr/#1/#2}#3}}
+\def\refenvl#1#2#3{{\inheritdefs{\curr/#1/#2}#3}}
 
 \newenvironment{refenv}[2]
 {
