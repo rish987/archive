@@ -38,6 +38,8 @@
 \def\PIND{\PP_{\rm I}}
 \def\PACT#1#2#3#4{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}
 \def\PTRD#1#2#3{\PP_{\rm T}\left(#1 \mid #2, #3\right)}
+
+\def\astr{{\STT \in \ST}}
 % ---
 
 \def\agent#1{\draw (center) node [rectangle, draw=black, fill=blue, inner sep=0.14cm, #1] {};}
@@ -126,72 +128,4 @@
 \pgfkeys{/tikz/strategyact/.style={strategy, draw opacity=0.7, draw=blue}}
 
 % ---
-
-\def\rchreqarng{${\SS \in \S}$, ${\AA \in \A}$, ${1 \le \TT \le \T - 1}$}
-\def\rchreqsrng{${\SS, \SS' \in \S}$, ${\AA \in \A}$, ${2 \le \TT \le \T}$}
-
-\def\pexprjointdistasng#1{\PSTT(\SV_1 = \SS_1, \AV_1 = \AA_1, \SV_2 = \SS_2, \ldots, \SV_{#1} = \SS_{#1})}
-\def\pexprjointdistasn{\pexprjointdistasng\T}
-\def\pexprjointdistg#1{\PSTT(\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1})}
-\def\pexprjointdist{\pexprjointdistg\T}
-\def\pexprgg#1#2#3{\PIND(\SS_1)\times
-       \prod_{{#3} = 1}^{#2}
-       \PACT{\STT}{{#3}}{\AA_{#3}}{\SS_{#3}}
-       \PTRD{\SS_{{#3} + 1}}{\AA_{#3}}{\SS_{#3}}}
-\def\pexprg#1#2{\pexprgg{#1}{#1 - 1}{#2}}
-\def\pexpr{\pexprg\T\TT}
-\def\pexprdomg#1{any particular sequence of 
-  \til{}s $\edots \SS 1 {#1} \in \S$ and
-  \act{}s $\edots \AA 1 {#1 - 1} \in \A$}
-\def\pexprdom{\pexprdomg{\T}}
-\def\pexprdompol{any \str~${\STT \in \ST}$}
-\def\actcindrange{$1 \le \TT \le \T - 1$}
-\def\actcindpreprelist{\AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1}}
-\def\actcindprelist{\SV_{\TT}, \actcindpreprelist}
-\def\actcindpre{\PSTT\left( \AV_\TT \mid \actcindprelist\right)}
-\def\actcindpostlist{\SV_{\TT}}
-\def\actcindpost{\PSTT\left( \AV_\TT \mid \actcindpostlist\right)}
-\def\actcindprop{\actcindpre = \actcindpost}
-\def\pactdefp{\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS)}
-\def\pactdefpp{\PACT\STT\TT\AA\SS}
-\def\pactdef{\pactdefp = \pactdefpp}
-\def\pactdeffull#1{for all
-  \rchreqarng, when defined,
-  $$\pactdef#1$$}
-\def\actcindpropfullg#1{for all \actcindrange, when defined, #1}
-\def\actcindpropfull{\actcindpropfullg{$$\actcindprop.$$}}
-\def\pactdefdef#1{for any $\SS \in \S$, $\AA \in \A$, $\STT \in \ST$, $1 \le \TT \le \T - 1$,
-  $$\PACT\STT\TT\AA\SS\defeq 
-    \begin{cases}
-      1 & \STT_\TT(\SS) = \AA\\
-      0 & \STT_\TT(\SS) \ne \AA#1
-    \end{cases}$$}
-\def\steplimdef#1{ $$\text{$\T \defeq$ the \lmt, where $\T \ge 1$}#1$$}
-\def\strdef#1{$$\text{$\STT = \left(\edots\STT{1}{\T - 1}\right) \defeq$ a \str, 
-where each ``\stpstr'' {$\fnnot{\STT_\TT}{\S}{\A}$}}#1$$}
-\def\strsdef#1{$$\text{$\ST \defeq$ the set of all \strs\ $\pi$}#1$$}
-\def\inddefdefg#1#2{for any $\SS \in \S$, \ctext{#1 the \ind\ probability of starting in \til\ $\SS$#2}}
-\def\inddefp{\PIND(\SS)}
-\def\inddefdef#1{\inddefdefg{$\inddefp \defeq$}{#1}}
-
 \def\whbdt{We have by definition that}
-\def\trddefdef#1{for any $\SS,\SS' \in \S$, $\AA \in \A$,
-  \ctext{$\PTRD\SS\AA{\SS'} \defeq$ the \trd\ probability of going to \til\ $\SS$ after
-    \act\ $\AA$\
-in \til\ $\SS'$#1}}
-
-\def\trddef#1{for all \rchreqsrng, when defined,
-  $$\PSTT(\SV_\TT = \SS \mid \AV_\TTM = \AA, \SV_\TTM = \SS') =
-  \PTRD\SS\AA{\SS'}#1$$}
-\def\rvstdef#1{for all $1 \le \TT \le \T$,
-$$\text{$\SV_\TT \defeq$ random variable for the \til\ at \stp\ $\TT$}#1$$}
-\def\rvatdef#1{for all $1 \le \TT \le \T - 1$, 
-$$\text{$\AV_\TT \defeq$ random variable for the \act\ at \stp\ $\TT$}#1$$}
-\def\inddef#1{for all $\SS \in \S$,
-    $$\PSTT(\SV_1 = \SS) = \PIND(\SS)#1$$}
-\def\trdcinddef#1{$\SV_\TT$ is independent of all previous \til{}s and \act{}s given $\AV_\TTM$ and $\SV_\TTM$.
-  Notationally, for all $2 \le \TT \le \T$, when defined,
-  \ctext{
-    $\PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1} \right)
-    = 
-  \PSTT\left( \SV_\TT \mid \AV_{\TTM}, \SV_{\TTM}\right)$#1}}

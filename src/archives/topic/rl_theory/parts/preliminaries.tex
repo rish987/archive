@@ -1,30 +1,32 @@
 \begin{part}{Preliminaries}
   Let's now describe some preliminary results using this notation.
 
-  One of the first questions we may ask is, does our notation completely describe
-  the distribution of \run{}s for a particular \str?
-  That is, 
-  \ctext{for \pexprdom,}
-  and
-  \ctext{for \pexprdompol,}
-  can we determine the value of
-  $$\pexprjointdistasn?$$
-  The answer to this question is: yes! 
-  We have all the information we need 
-  to completely describe 
-  this joint distribution. 
-  \refln{proof}{pexpr}{It can be written} as
-  \begin{align*}
-    \text{\refln{note}{implasn}{$\pexprjointdist$}}
-    =\ &\PIND(\SS_1)\times\\
-       &\PACT{\STT}{1}{\AA_1}{\SS_1}
-        \PTRD{\SS_2}{\AA_1}{\SS_1}\times\\
-       &\PACT{\STT}{2}{\AA_2}{\SS_2}
-        \PTRD{\SS_3}{\AA_2}{\SS_2}\times\\
-       &\ldots\times\\
-       &\PACT{\STT}{{\T - 1}}{\AA_{\T - 1}}{\SS_{\T - 1}}
-        \PTRD{\SS_\T}{\AA_{\T - 1}}{\SS_{\T - 1}},
-  \end{align*}
-  or, in more compact \refln{note}{prodnot}{product notation},
-  $$\pexprjointdist = \pexpr.$$
+  \begin{refenv}{proof}{pexpr}
+    One of the first questions we may ask is, does our notation completely describe
+    the distribution of \run{}s for a particular \str?
+    That is, 
+    \ctext{for \pexprdom,}
+    and
+    \ctext{for \pexprdompol,}
+    can we determine the value of
+    $$\pexprjointdistasn?$$
+    The answer to this question is: yes! 
+    We have all the information we need 
+    to completely describe 
+    this joint distribution. 
+    \refln{proof}{pexpr}{It can be written} as
+    \begin{align*}
+      \text{\refln{note}{implasn}{$\pexprjointdist$}}
+      =\ &\PIND(\SS_1)\times\\
+         &\PACT{\STT}{1}{\AA_1}{\SS_1}
+          \PTRD{\SS_2}{\AA_1}{\SS_1}\times\\
+         &\PACT{\STT}{2}{\AA_2}{\SS_2}
+          \PTRD{\SS_3}{\AA_2}{\SS_2}\times\\
+         &\ldots\times\\
+         &\PACT{\STT}{{\T - 1}}{\AA_{\T - 1}}{\SS_{\T - 1}}
+          \PTRD{\SS_\T}{\AA_{\T - 1}}{\SS_{\T - 1}},
+    \end{align*}
+    or, in more compact \refln{note}{prodnot}{product notation},
+    $$\pexprjointdist = \pexpr.$$
+  \end{refenv}
 \end{part}

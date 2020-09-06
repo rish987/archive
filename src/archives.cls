@@ -180,7 +180,7 @@
 {
 }
 
-\def\refenvl#1#2#3{{\inheritdefs{\curr/#1/#2}#3}}
+\def\refenvl#1#2#3{{\bnosp\inheritdefs{\curr/#1/#2}\enosp{}#3}}
 
 \newenvironment{refenv}[2]
 {
@@ -326,3 +326,6 @@
 \def\srulen{\hrule}
 \def\srule{\vspace{10pt}\srulen}
 \def\srulei{\vspace{4pt}\srule}
+
+\def\bnosp{\edef\xspaceskiporig{\the\xspaceskip}\edef\spacefactororig{\the\spacefactor}\let\parorig\par\spacefactor=10000\xspaceskip=0.00001pt\let\par\relax}
+\def\enosp{\spacefactor=\spacefactororig\xspaceskip=\xspaceskiporig\let\par\parorig}

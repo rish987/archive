@@ -116,7 +116,7 @@ map <leader>rh :call Backln()<CR>
 map <leader>rl :call Forwardln()<CR>
 map <leader>rd :call ChangeDef()<CR>
 
-map <leader>rs :set hlsearch<CR>/\\reflng\?{\w*}{[a-zA-Z_/]\{-}}/e<CR>
+map <leader>rs :set hlsearch<CR>/\\refln[a-zA-Z]*{\w*}{[a-zA-Z_/]\{-}}/e<CR>
 
 edit src/archives/ref.tex
 call InitWinBuff()
