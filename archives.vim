@@ -26,9 +26,9 @@ function ChangeDef()
 endfunction
 
 function Followln() 
-  let rpos = searchpos('refln', 'bn')
+  let rpos = searchpos('refln[a-zA-Z]*', 'bne')
   if rpos[0] == line(".")
-    let rlist = matchlist(strpart(getline('.'), rpos[1] + 1), '{\(.\{-}\)}{\(.\{-}\)}')
+    let rlist = matchlist(strpart(getline('.'), rpos[1]), '{\(.\{-}\)}{\(.\{-}\)}')
     let rtype = rlist[1]
     let rname = rlist[2]
     let rpath = expand('%:h')

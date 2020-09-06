@@ -129,6 +129,7 @@
 }
 
 \newcommand\refln[4][]{\lnl[#1]{#2}{#3}{#4}}
+\newcommand\reflnenv[5][]{\lnl[#1]{#2}{#3}{#4}\refenvl{#2}{#3}{#5}}
 \newcommand\reflng[4][]{\lng[#1]{#2}{#3}{#4}}
 
 \newcommand\fmtln[3][]{%
@@ -201,10 +202,11 @@
 % --- reference path formatting ---
 \def\getrelpathln#1#2{\readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}}
 
-\def\proofd{{\color{blue!80!black}P}}
-\def\noted{{\color{blue!80!black}N}}
-\def\topicd{{\color{blue!80!black}T}}
-\def\definitiond{{\color{blue!80!black}D}}
+\def\gend#1{{\color{blue!80!black} #1}}
+\def\proofd{\gend{P}}
+\def\noted{\gend{N}}
+\def\topicd{\gend{T}}
+\def\definitiond{\gend{D}}
 
 \def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{__gray}{\temp}}
 % ---
