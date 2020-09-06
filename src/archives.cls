@@ -111,31 +111,25 @@
 }
 
 % "local" reference link
-\newcommand\lnl[5][]{%
+\newcommand\lnl[4][]{%
 	\iffull%
-		\def\temppath{\currreference/#4/#2}%
+		\def\temppath{\currreference/#2/#3}%
     \global\edef\templabel{\temppath_}%
     \hypertarget{\templabel}{}%
-		\lnfmt[#1]{\temppath}{#3}{#5}%
+		\lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}%
 	\else%
-		\lnfmt[#1]{#4/#2/ref.pdf}{#3}{#5}%
+		\lnfmt[#1]{#2/#3/ref.pdf}{#4}{\csname #2d\endcsname}%
 	\fi%
 }
 
 % "global" reference link
 \newcommand\lng[4][]{%
-  \iffull\def\temp{#2}\else\getrelpathln{#2}{\temp}\fi%
-  \lnfmt[#1]{\temp}{#3}{#4}%
+  \iffull\def\temp{#3}\else\getrelpathln{#3}{\temp}\fi%
+  \lnfmt[#1]{\temp}{#4}{\csname #2d\endcsname}%
 }
 
-\newcommand\lnproof[3][]{\lnl[#1]{#2}{#3}{proof}{P}}
-\newcommand\lnnote[3][]{\lnl[#1]{#2}{#3}{note}{N}}
-\newcommand\lntopic[3][]{\lnl[#1]{#2}{#3}{topic}{T}}
-\newcommand\lndefinition[3][]{\lnl[#1]{#2}{#3}{definition}{D}}
-\newcommand\lngproof[3][]{\lng[#1]{#2}{#3}{P}}
-\newcommand\lngnote[3][]{\lng[#1]{#2}{#3}{N}}
-\newcommand\lngtopic[3][]{\lng[#1]{#2}{#3}{T}}
-\newcommand\lngdefinition[3][]{\lng[#1]{#2}{#3}{D}}
+\newcommand\refln[4][]{\lnl[#1]{#2}{#3}{#4}}
+\newcommand\reflng[4][]{\lng[#1]{#2}{#3}{#4}}
 
 \newcommand\fmtln[3][]{%
   \ifthenelse{\equal{#1}{}}%

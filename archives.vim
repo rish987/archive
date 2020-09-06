@@ -26,9 +26,9 @@ function ChangeDef()
 endfunction
 
 function Followln() 
-  let rpos = searchpos('ln', 'bn')
+  let rpos = searchpos('refln', 'bn')
   if rpos[0] == line(".")
-    let rlist = matchlist(strpart(getline('.'), rpos[1] + 1), '\(.\{-}\){\(.\{-}\)}')
+    let rlist = matchlist(strpart(getline('.'), rpos[1] + 1), '{\(.\{-}\)}{\(.\{-}\)}')
     let rtype = rlist[1]
     let rname = rlist[2]
     let rpath = expand('%:h')
@@ -116,7 +116,7 @@ map <leader>rh :call Backln()<CR>
 map <leader>rl :call Forwardln()<CR>
 map <leader>rd :call ChangeDef()<CR>
 
-map <leader>rs :set hlsearch<CR>/\\lng\?\w*{[a-zA-Z_/]\{-}}/e<CR>
+map <leader>rs :set hlsearch<CR>/\\reflng\?{\w*}{[a-zA-Z_/]\{-}}/e<CR>
 
 edit src/archives/ref.tex
 call InitWinBuff()
