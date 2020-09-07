@@ -110,13 +110,27 @@ func! StoreWinBuff()
     let g:window_buffers_idx[winid] = currind
 endfunc
 
-map <leader>rf :call Followln()<CR>
-map <leader>rgf :call Followfile()<CR>
-map <leader>rh :call Backln()<CR>
-map <leader>rl :call Forwardln()<CR>
-map <leader>rd :call ChangeDef()<CR>
+function FollowPDF()
+    wincmd b
+    let rpath = expand('%:h')
+    call system("./scripts/follow_pdf.sh " . rpath)   
+endfunction
 
-map <leader>rs :set hlsearch<CR>/\\refln[a-zA-Z]*{\w*}{[a-zA-Z_/]\{-}}/e<CR>
+function FormatPDF()
+    wincmd b
+    let rpath = expand('%:h')
+    call system("./scripts/format_pdf.sh " . rpath)   
+endfunction
+
+map <leader>f :call Followln()<CR>
+map <leader>gf :call Followfile()<CR>
+map <leader>H :call Backln()<CR>
+map <leader>L :call Forwardln()<CR>
+map <leader>d :call ChangeDef()<CR>
+map <leader>p :call FollowPDF()<CR>
+map <leader>m :call FormatPDF()<CR>
+
+map <leader>s :set hlsearch<CR>/\\refln[a-zA-Z]*{\w*}{[a-zA-Z_/]\{-}}/e<CR>
 
 edit src/archives/ref.tex
 call InitWinBuff()
