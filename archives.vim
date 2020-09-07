@@ -9,10 +9,26 @@ function Followfile()
   endif
 endfunction
 
+function ChangeDef()
+  if len(getbufinfo({'bufmodified': 1})) == 0
+    let rpos = searchpos('\\def\\', 'bne')
+    if rpos[0] == line(".")
+      let rlist = matchlist(strpart(getline('.'), rpos[1]), '\([a-zA-Z]*\)')
+      let orig = rlist[1]
+      let rpath = expand('%:h')
+      let new = input("Replace '" . orig  . "' with: ")
+      call system("./scripts/replace_def.sh " . rpath . " " . orig . " " . new)
+      set autoread | checktime | set noautoread
+    endif
+  else
+    echo "Close all modified buffers before changing defs."
+  endif
+endfunction
+
 function Followln() 
-  let rpos = searchpos('ln', 'bn')
+  let rpos = searchpos('refln[a-zA-Z]*', 'bne')
   if rpos[0] == line(".")
-    let rlist = matchlist(strpart(getline('.'), rpos[1] + 1), '\(.\{-}\){\(.\{-}\)}')
+    let rlist = matchlist(strpart(getline('.'), rpos[1]), '{\(.\{-}\)}{\(.\{-}\)}')
     let rtype = rlist[1]
     let rname = rlist[2]
     let rpath = expand('%:h')
@@ -98,8 +114,9 @@ map <leader>rf :call Followln()<CR>
 map <leader>rgf :call Followfile()<CR>
 map <leader>rh :call Backln()<CR>
 map <leader>rl :call Forwardln()<CR>
+map <leader>rd :call ChangeDef()<CR>
 
-map <leader>rs :set hlsearch<CR>/\\lng\?\w*{[a-zA-Z_/]\{-}}/e<CR>
+map <leader>rs :set hlsearch<CR>/\\refln[a-zA-Z]*{\w*}{[a-zA-Z_/]\{-}}/e<CR>
 
 edit src/archives/ref.tex
 call InitWinBuff()

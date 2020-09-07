@@ -111,31 +111,26 @@
 }
 
 % "local" reference link
-\newcommand\lnl[5][]{%
+\newcommand\lnl[4][]{%
 	\iffull%
-		\def\temppath{\currreference/#4/#2}%
+		\def\temppath{\currreference/#2/#3}%
     \global\edef\templabel{\temppath_}%
     \hypertarget{\templabel}{}%
-		\lnfmt[#1]{\temppath}{#3}{#5}%
+		\lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}%
 	\else%
-		\lnfmt[#1]{#4/#2/ref.pdf}{#3}{#5}%
+		\lnfmt[#1]{#2/#3/ref.pdf}{#4}{\csname #2d\endcsname}%
 	\fi%
 }
 
 % "global" reference link
 \newcommand\lng[4][]{%
-  \iffull\def\temp{#2}\else\getrelpathln{#2}{\temp}\fi%
-  \lnfmt[#1]{\temp}{#3}{#4}%
+  \iffull\def\temp{#3}\else\getrelpathln{#3}{\temp}\fi%
+  \lnfmt[#1]{\temp}{#4}{\csname #2d\endcsname}%
 }
 
-\newcommand\lnproof[3][]{\lnl[#1]{#2}{#3}{proof}{P}}
-\newcommand\lnnote[3][]{\lnl[#1]{#2}{#3}{note}{N}}
-\newcommand\lntopic[3][]{\lnl[#1]{#2}{#3}{topic}{T}}
-\newcommand\lndefinition[3][]{\lnl[#1]{#2}{#3}{definition}{D}}
-\newcommand\lngproof[3][]{\lng[#1]{#2}{#3}{P}}
-\newcommand\lngnote[3][]{\lng[#1]{#2}{#3}{N}}
-\newcommand\lngtopic[3][]{\lng[#1]{#2}{#3}{T}}
-\newcommand\lngdefinition[3][]{\lng[#1]{#2}{#3}{D}}
+\newcommand\refln[4][]{\lnl[#1]{#2}{#3}{#4}}
+\newcommand\reflnenv[5][]{\lnl[#1]{#2}{#3}{#4}\refenvl{#2}{#3}{#5}}
+\newcommand\reflng[4][]{\lng[#1]{#2}{#3}{#4}}
 
 \newcommand\fmtln[3][]{%
   \ifthenelse{\equal{#1}{}}%
@@ -180,9 +175,20 @@
   %\setcounter{page}{1}
   \pagestyle{fancy}
   \fancyhead[R]{\currpath}
-  \inheritdefs
+  \inheritdefs{\curr}
 }
 {
+}
+
+\def\refenvl#1#2#3{{\bnosp\inheritdefs{\curr/#1/#2}\enosp{}#3}}
+
+\newenvironment{refenv}[2]
+{
+  \bgroup
+  \inheritdefs{\curr/#1/#2}
+}
+{
+  \egroup
 }
 
 \NewEnviron{ralign}{%
@@ -196,10 +202,11 @@
 % --- reference path formatting ---
 \def\getrelpathln#1#2{\readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}}
 
-\def\proofd{{\color{blue!80!black}P}}
-\def\noted{{\color{blue!80!black}N}}
-\def\topicd{{\color{blue!80!black}T}}
-\def\definitiond{{\color{blue!80!black}D}}
+\def\gend#1{{\color{blue!80!black} #1}}
+\def\proofd{\gend{P}}
+\def\noted{\gend{N}}
+\def\topicd{\gend{T}}
+\def\definitiond{\gend{D}}
 
 \def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{__gray}{\temp}}
 % ---
@@ -265,7 +272,7 @@
 \renewcommand{\headrulewidth}{0pt}
 % ---
 
-\def\inheritdefs{\readcmd{\root/scripts/defs_inheritance.sh "\curr"}{\defsinherited} \defsinherited}
+\def\inheritdefs#1{\readcmd{\root/scripts/defs_inheritance.sh "#1"}{\defsinherited} \defsinherited}
 
 \def\sc{\setcounter}
 \def\nc{\newcounter}
@@ -319,3 +326,6 @@
 \def\srulen{\hrule}
 \def\srule{\vspace{10pt}\srulen}
 \def\srulei{\vspace{4pt}\srule}
+
+\def\bnosp{\edef\xspaceskiporig{\the\xspaceskip}\edef\spacefactororig{\the\spacefactor}\let\parorig\par\spacefactor=10000\xspaceskip=0.00001pt\let\par\relax}
+\def\enosp{\spacefactor=\spacefactororig\xspaceskip=\xspaceskiporig\let\par\parorig}

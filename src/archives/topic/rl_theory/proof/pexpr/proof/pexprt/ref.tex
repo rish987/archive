@@ -1,33 +1,12 @@
 \begin{proposition}
-  For any $1 \le \TT \le \T$, for
-  \ctext{\pexprdomg\TT} and for \ctext{\pexprdompol,} 
-  we can write
-  $$\pexprjointdistasng{\TT}$$ as
-  $$ \pexprjointdistg{\TT} = \pexprg{\TT}{\TT'}.$$%
+  We have that \pexprtprop{.}%
 \end{proposition}
 
 \begin{proof}
-  \def\last{\TT - 1}
-  \def\sslast{\SS_{\last}}
-  \def\aalast{\AA_{\last}}
-  \def\prelist{\SS_1, \AA_1, \SS_2, \ldots, \sslast}
-  \def\postlist{\SS_1, \AA_1, \SS_2, \ldots, \SS_\TT}
-  \def\pprelist{\PSTT(\prelist)}
-  \def\isact{\PACT{\STT}{\last}{\aalast}{\sslast}}
-  \def\istrd{\PTRD{\SS_\TT}{\aalast}{\sslast}}
-  \def\isjoint{\PSTT(\postlist)}
-  \def\isa{\pprelist}
-  \def\isbf{\PSTT(\aalast \mid \prelist)}
-  \def\isb{\PSTT(\aalast \mid \sslast)}
-  \def\ismid{\PSTT(\prelist, \aalast)}
-  \def\iscf{\PSTT(\SS_\TT \mid \aalast, \prelist)}
-  \def\isc{\PSTT(\SS_\TT \mid \AA_{\TT - 1}, \SS_{\TT - 1})}
-  \def\bcind{\PIND(\SS_1)}
-  \def\bca{\PSTT(\SS_1)}
   \hrule
   {\it Base case.}
   When $\TT = 1$,
-  we have \lngdefinition{archives/topic/rl_theory/definition/ind}{by definition} that
+  we have \reflng{definition}{archives/topic/rl_theory/definition/ind}{by definition} that
   $\bca = \bcind$.
 
   \srule
@@ -59,9 +38,9 @@
       \ctext{$\isbf$ and $\isb$ are defined,}
       and we have
       $$\isbf \noteop i = \isb \noteop ii = \isact,$$
-      where (i) is \lngproof{archives/topic/rl_theory/proof/actcind}{implied by definition}, and (ii) \lngdefinition{archives/topic/rl_theory/definition/pact}{follows by definition}.
+      where (i) is \reflng{proof}{archives/topic/rl_theory/proof/actcind}{implied by definition}, and (ii) \reflng{definition}{archives/topic/rl_theory/definition/pact}{follows by definition}.
 
-      \lngdefinition{archives/topic/rl_theory/definition/pactdef}{There are two cases} to consider:
+      \reflng{definition}{archives/topic/rl_theory/definition/pactdef}{There are two cases} to consider:
       \begin{itemize}
         \item Case 2.1: $\isact = 1$.
           Then,
@@ -75,8 +54,8 @@
           \ctext{$\iscf$ is defined,}
           and we have
           $$\iscf \noteop i = \isc \noteop ii = \istrd.$$
-          where \lngdefinition{archives/topic/rl_theory/definition/trdcind}{(i)} and 
-          \lngdefinition{archives/topic/rl_theory/definition/trd}{(ii)} follow by definition.
+          where \reflng{definition}{archives/topic/rl_theory/definition/trdcind}{(i)} and 
+          \reflng{definition}{archives/topic/rl_theory/definition/trd}{(ii)} follow by definition.
           Therefore,
           \begin{align*}
             \isjoint =\ & \isa \times \isbf \times\\& \iscf\\
