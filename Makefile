@@ -45,7 +45,7 @@ DEFS_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/defs.m4
 
 scripts := $(addprefix ${BUILD_SOURCE_DIR}/scripts/,defs_inheritance.sh relpathln.py defs_inheritance.py path_fmt.py format_defs.sh)
 
-all : tree full
+all : tree full defs
 tree : ${TREE}
 full : ${ARCHIVES_F}
 defs : ${DEFS}
