@@ -111,15 +111,23 @@ func! StoreWinBuff()
 endfunc
 
 function FollowPDF()
-    wincmd b
     let rpath = expand('%:h')
     call system("./scripts/follow_pdf.sh " . rpath)   
 endfunction
 
-function FormatPDF()
-    wincmd b
+function FollowDefs()
     let rpath = expand('%:h')
-    call system("./scripts/format_pdf.sh " . rpath)   
+    call system("./scripts/follow_defs.sh " . rpath)   
+endfunction
+
+function FormatDefs()
+    let rpath = expand('%:h')
+    call system("./scripts/format_pdf.sh " . rpath . " defs")
+endfunction
+
+function FormatPDF()
+    let rpath = expand('%:h')
+    call system("./scripts/format_pdf.sh " . rpath . " ref")
 endfunction
 
 map <leader>f :call Followln()<CR>
@@ -128,7 +136,9 @@ map <leader>H :call Backln()<CR>
 map <leader>L :call Forwardln()<CR>
 map <leader>d :call ChangeDef()<CR>
 map <leader>p :call FollowPDF()<CR>
-map <leader>m :call FormatPDF()<CR>
+map <leader>d :call FollowDefs()<CR>
+map <leader>P :call FormatPDF()<CR>
+map <leader>D :call FormatDefs()<CR>
 
 map <leader>s :set hlsearch<CR>/\\refln[a-zA-Z]*{\w*}{[a-zA-Z_/]\{-}}/e<CR>
 

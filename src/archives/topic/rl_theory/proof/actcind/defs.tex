@@ -3,22 +3,21 @@
 $\XV$ supported on $\X$,
 $\YV$ supported on $\Y$,
 $\ZV$ supported on $\Z$,}}
-\def\pcindpre#1{\P(\XV \mid \YV) = #1}
-\def\pcindpost#1{\P(\XV \mid \YV, \ZV) = #1}
-\def\pcindprop#1{\pcindpre#1\implies \pcindpost#1}
-\def\X{{\mathbf X}} \def\XV{{\rm X}} \def\XX{{\rm x}}
-\def\Y{{\mathbf Y}} \def\YV{{\rm Y}} \def\YY{{\rm y}}
-\def\Z{{\mathbf Z}} \def\ZV{{\rm Z}} \def\ZZ{{\rm z}}
-\def\pactdefp{\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS)}
-\def\pactdefpp{\PACT\STT\TT\AA\SS}
-\def\pactdef{\pactdefp = \pactdefpp}
+\def\pcindpre#1{\ensuremath{\P(\XV \mid \YV) = #1}}
+\def\pcindpost#1{\ensuremath{\P(\XV \mid \YV, \ZV) = #1}}
+\def\pcindprop#1{\ensuremath{\pcindpre#1\implies \pcindpost#1}}
+\def\X{\ensuremath{{\mathbf X}}} \def\XV{\ensuremath{{\rm X}}} \def\XX{\ensuremath{{\rm x}}}
+\def\Y{\ensuremath{{\mathbf Y}}} \def\YV{\ensuremath{{\rm Y}}} \def\YY{\ensuremath{{\rm y}}}
+\def\Z{\ensuremath{{\mathbf Z}}} \def\ZV{\ensuremath{{\rm Z}}} \def\ZZ{\ensuremath{{\rm z}}}
+\def\pactdefp{\ensuremath{\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS)}}
+\def\pactdefpp{\ensuremath{\PACT\STT\TT\AA\SS}}
+\def\pactdef{\ensuremath{\pactdefp = \pactdefpp}}
 \def\actcindrange{$\astr$, $1 \le \TT \le \T - 1$}
-\def\actcindpreprelist{\AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1}}
-\def\actcindprelist{\SV_{\TT}, \actcindpreprelist}
-\def\actcindpre{\PSTT\left( \AV_\TT \mid \actcindprelist\right)}
-\def\actcindpostlist{\SV_{\TT}}
-\def\actcindpost{\PSTT\left( \AV_\TT \mid \actcindpostlist\right)}
-\def\actcindprop{\actcindpre = \actcindpost}
+\def\actcindpreprelist{\ensuremath{\AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1}}}
+\def\actcindprelist{\ensuremath{\SV_{\TT}, \actcindpreprelist}}
+\def\actcindpre{\ensuremath{\PSTT\left( \AV_\TT \mid \actcindprelist\right)}}
+\def\actcindpostlist{\ensuremath{\SV_{\TT}}}
+\def\actcindpost{\ensuremath{\PSTT\left( \AV_\TT \mid \actcindpostlist\right)}}
+\def\actcindprop{\ensuremath{\actcindpre = \actcindpost}}
 \def\actcindpropfullg#1{for all \actcindrange, when defined, #1}
 \def\actcindpropfull{\actcindpropfullg{$$\actcindprop.$$}}
-

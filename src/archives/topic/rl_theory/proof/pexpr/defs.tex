@@ -1,13 +1,13 @@
-\def\pexprjointdistasng#1{\PSTT(\SV_1 = \SS_1, \AV_1 = \AA_1, \SV_2 = \SS_2, \ldots, \SV_{#1} = \SS_{#1})}
-\def\pexprjointdistasn{\pexprjointdistasng\T}
-\def\pexprjointdistg#1{\PSTT(\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1})}
-\def\pexprjointdist{\pexprjointdistg\T}
-\def\pexprgg#1#2#3{\PIND(\SS_1)\times
+\def\pexprjointdistasng#1{\ensuremath{\PSTT(\SV_1 = \SS_1, \AV_1 = \AA_1, \SV_2 = \SS_2, \ldots, \SV_{#1} = \SS_{#1})}}
+\def\pexprjointdistasn{\ensuremath{\pexprjointdistasng\T}}
+\def\pexprjointdistg#1{\ensuremath{\PSTT(\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1})}}
+\def\pexprjointdist{\ensuremath{\pexprjointdistg\T}}
+\def\pexprgg#1#2#3{\ensuremath{\PIND(\SS_1)\times
        \prod_{{#3} = 1}^{#2}
        \PACT{\STT}{{#3}}{\AA_{#3}}{\SS_{#3}}
-       \PTRD{\SS_{{#3} + 1}}{\AA_{#3}}{\SS_{#3}}}
-\def\pexprg#1#2{\pexprgg{#1}{#1 - 1}{#2}}
-\def\pexpr{\pexprg\T\TT}
+       \PTRD{\SS_{{#3} + 1}}{\AA_{#3}}{\SS_{#3}}}}
+\def\pexprg#1#2{\ensuremath{\pexprgg{#1}{#1 - 1}{#2}}}
+\def\pexpr{\ensuremath{\pexprg\T\TT}}
 \def\pexprdomg#1{any particular sequence of 
   \til{}s $\edots \SS 1 {#1} \in \S$ and
   \act{}s $\edots \AA 1 {#1 - 1} \in \A$}

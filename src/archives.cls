@@ -47,7 +47,8 @@
 \def\noteop #1 #2{\stackrel{\text{(#1)}}{#2}}
 \def\edots#1#2#3{#1_{#2},\ldots,#1_{#3}}
 
-\def\todo{\hskip 0pt {\color{gray}{[TODO]}}}
+\def\placeholder#1{\hskip 0pt {\color{gray}{[#1]}}}
+\def\todo{\placeholder{TODO}}
 \def\mtodo{\text{\todo}}
 
 \def\fnnot#1#2#3{#1 : #2 \rightarrow #3}
@@ -86,7 +87,7 @@
 }%
 
 \def\stripspace#1 \next{#1}
-\edef\root{src}
+\def\root{src}
 % ---
 
 % --- linking ---
@@ -161,6 +162,19 @@
   \begin{reference}{#1}
     \input{\curr/ref.tex}
   \end{reference}
+}
+
+\def\includedefs#1{
+  \begin{reference}{#1}
+    \CatchFileDef{\cftemp}{|"\root/scripts/format_defs.sh '\curr'"}{}%
+    \cftemp
+  \end{reference}
+}
+
+\def\defvisualizer#1#2{
+  \begin{tcolorbox}[title={\tt \char`\\#1}, colback=black!2, colbacktitle=white, coltitle=black, colframe=black!70, arc=0.1mm]
+    #2
+  \end{tcolorbox}
 }
 
 \newenvironment{reference}[1]
