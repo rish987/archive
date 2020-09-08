@@ -17,110 +17,110 @@
 
 % ---
 
-\def\S{{\mathbf S}}
-\def\SV{{\rm S}}
-\def\SS{{\rm s}}
-\def\AV{{\rm A}}
-\def\A{{\mathbf A}}
-\def\AA{{\rm a}}
-\def\RW{R}
+\def\S{\ensuremath{\mathbf S}}
+\def\SV{\ensuremath{\rm S}}
+\def\SS{\ensuremath{\rm s}}
+\def\AV{\ensuremath{\rm A}}
+\def\A{\ensuremath{\mathbf A}}
+\def\AA{\ensuremath{\rm a}}
+\def\RW{{R}}
 
-\def\T{T}
-\def\TT{t}
-\def\TTM{{\TT - 1}}
-\def\ST{{\mathbf \Pi}}
-\def\STT{\pi}
+\def\T{\ensuremath{T}}
+\def\TT{\ensuremath{t}}
+\def\TTM{\ensuremath{\TT - 1}}
+\def\ST{\ensuremath{\mathbf \Pi}}
+\def\STT{\ensuremath{\pi}}
 
-\def\PSTT{\P_{\STT}}
-\def\ESTT{{\mathbb E}_{\STT}}
+\def\PSTT{\ensuremath{\P_{\STT}}}
+\def\ESTT{\ensuremath{{\mathbb E}_{\STT}}}
 
-\def\PP{{\rm P}}
-\def\PIND{\PP_{\rm I}}
-\def\PACT#1#2#3#4{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}
-\def\PTRD#1#2#3{\PP_{\rm T}\left(#1 \mid #2, #3\right)}
+\def\PP{\ensuremath{\rm P}}
+\def\PIND{\ensuremath{\PP_{\rm I}}}
+\def\PACT#1#2#3#4{\ensuremath{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}}
+\def\PTRD#1#2#3{\ensuremath{\PP_{\rm T}\left(#1 \mid #2, #3\right)}}
 
-\def\astr{{\STT \in \ST}}
+\def\astr{\ensuremath{\STT \in \ST}}
 % ---
 
-\def\agent#1{\draw (center) node [rectangle, draw=black, fill=blue, inner sep=0.14cm, #1] {};}
+  \def\agent#1{\draw (center) node [rectangle, draw=black, fill=blue, inner sep=0.14cm, #1] {};}
 
-\def\tilecoords#1#2{\draw ($(#1 * \tilesep,#2 * \tilesep)$) node (center) {};}
-\def\tile#1{\draw (center) node (#1) [rectangle, draw=black, inner sep=1cm] {};}
-\def\tileidx#1{\draw ($(center) - (0.5, 0.5)$) node [rectangle, draw=black, minimum size=0.4cm] {{#1}};}
+  \def\tilecoords#1#2{\draw ($(#1 * \tilesep,#2 * \tilesep)$) node (center) {};}
+  \def\tile#1{\draw (center) node (#1) [rectangle, draw=black, inner sep=1cm] {};}
+  \def\tileidx#1{\draw ($(center) - (0.5, 0.5)$) node [rectangle, draw=black, minimum size=0.4cm] {{#1}};}
 
-\def\tileandidx#1{\tile{#1}\tileidx{#1}}
+  \def\tileandidx#1{\tile{#1}\tileidx{#1}}
 
-\def\tilecenter#1#2{\draw (#1, #2) node (center) {};}
-\def\tiledir#1#2{\draw [->, #1] (center) -- +#2;}
-\def\tileup#1{\tiledir{#1}{(0, -0.5)}}
-\def\tiledown#1{\tiledir{#1}{(0, 0.5)}}
-\def\tileright#1{\tiledir{#1}{(0.5, 0)}}
-\def\tileleft#1{\tiledir{#1}{(-0.5, 0)}}
+  \def\tilecenter#1#2{\draw (#1, #2) node (center) {};}
+  \def\tiledir#1#2{\draw [->, #1] (center) -- +#2;}
+  \def\tileup#1{\tiledir{#1}{(0, -0.5)}}
+  \def\tiledown#1{\tiledir{#1}{(0, 0.5)}}
+  \def\tileright#1{\tiledir{#1}{(0.5, 0)}}
+  \def\tileleft#1{\tiledir{#1}{(-0.5, 0)}}
 
-\def\tiletransition#1#2#3#4{\draw [->, opacity=#4] (#1) -- node [#3] {#4} (#2);}
+  \def\tiletransition#1#2#3#4{\draw [->, opacity=#4] (#1) -- node [#3] {#4} (#2);}
 
-\def\tilesep{2}
+  \def\tilesep{2}
 
-\def\actions{
-  \tileup{}
-  \tiledown{}
-  \tileright{}
-  \tileleft{}
-}
+  \def\actions{
+    \tileup{}
+    \tiledown{}
+    \tileright{}
+    \tileleft{}
+  }
 
-\def\tileloop#1{
-  \foreach \row in {0,1,...,2}
-  {\sc{a}{\row}
-    \foreach \col in {0,1,...,2}
-    {\sc{b}{\col}
-      \tilecoords{\col}{\row}
-      \setidx
+  \def\tileloop#1{
+    \foreach \row in {0,1,...,2}
+    {\sc{a}{\row}
+      \foreach \col in {0,1,...,2}
+      {\sc{b}{\col}
+        \tilecoords{\col}{\row}
+        \setidx
+        #1
+      }
+    }
+  }
+
+  \def\board#1{
+    \def\setidx{\sc{c}{(\value{b} + \value{a} * 3) + 1}}
+    \tileloop {\tileandidx{\thec}}
+    #1
+  }
+  
+  \def\tilerwdraw#1#2{
+      \draw #2 node [rectangle, fill=__gray, minimum size=0.4cm] {#1};
+  }
+  \def\tilerwd#1{
+    \tilerwdraw{#1}{($(center) - (-0.5, 0.5)$)}
+  }
+  \def\tileact#1{
+    \ifbool{#1 == 0}{ \tileup{strategyact} }{}
+    \ifbool{#1 == 1}{ \tileright{strategyact} }{}
+    \ifbool{#1 == 2}{ \tiledown{strategyact} }{}
+    \ifbool{#1 == 3}{ \tileleft{strategyact} }{}
+    \agent{strategyagt}
+  }
+  \def\fullboard#1{
+    \board
+    {
+      \input{\curr/_input/rewards.tex}
+      \tileloop 
+      {
+        \tilecoords{\col}{\row}
+        \tilerwd{\getl{reward\thec}};
+      }
       #1
     }
   }
-}
-
-\def\board#1{
-  \def\setidx{\sc{c}{(\value{b} + \value{a} * 3) + 1}}
-  \tileloop {\tileandidx{\thec}}
-  #1
-}
-
-\def\tilerwdraw#1#2{
-    \draw #2 node [rectangle, fill=__gray, minimum size=0.4cm] {#1};
-}
-\def\tilerwd#1{
-  \tilerwdraw{#1}{($(center) - (-0.5, 0.5)$)}
-}
-\def\tileact#1{
-  \ifbool{#1 == 0}{ \tileup{strategyact} }{}
-  \ifbool{#1 == 1}{ \tileright{strategyact} }{}
-  \ifbool{#1 == 2}{ \tiledown{strategyact} }{}
-  \ifbool{#1 == 3}{ \tileleft{strategyact} }{}
-  \agent{strategyagt}
-}
-\def\fullboard#1{
-  \board
-  {
-    \input{\curr/_input/rewards.tex}
-    \tileloop 
-    {
-      \tilecoords{\col}{\row}
-      \tilerwd{\getl{reward\thec}};
-    }
-    #1
-  }
-}
-\def\fullboardact#1{
-  \fullboard{
-    \input{\curr/_input/actions_#1.tex}
-    \tileloop 
-    {
-      \tilecoords{\col}{\row}
-      \tileact{\getl{action\thec}};
+  \def\fullboardact#1{
+    \fullboard{
+      \input{\curr/_input/actions_#1.tex}
+      \tileloop 
+      {
+        \tilecoords{\col}{\row}
+        \tileact{\getl{action\thec}};
+      }
     }
   }
-}
 
 \pgfkeys{/tikz/board/.style={y=-1cm, scale=1, every node/.style={transform shape}}}
 \pgfkeys{/tikz/strategy/.style={opacity=0.35}}

@@ -3,7 +3,7 @@ SOURCE_DIR := src
 OUTPUT_DIR := output
 BUILD_DIR := build
 BUILD_SOURCE_DIR := ${BUILD_DIR}/src
-BUILD_BASENAME := temp
+BUILD_BASENAME := ref
 
 # TODO wrapper
 
@@ -51,7 +51,7 @@ ${ARCHIVES_F} : ${ARCHIVES_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_D
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
 
 ${ARCHIVES_F_SRC} : ${BUILD_SOURCE_LIST} | ${BUILD_SOURCE_DIR}
-	{ echo "\\\\fulltrue\n\includereference{archives}"; for path in $$(cd ${BUILD_SOURCE_DIR} && find . -type d -a \( -name proof -o -name note -o -name topic -o -name definition \) | xargs -i find "{}" -maxdepth 1 -mindepth 1); do echo "\includereference{$$(echo $$path | cut -f2- -d/)}"; done; } > ${ARCHIVES_F_SRC}
+	{ echo "\includereference{archives}"; for path in $$(cd ${BUILD_SOURCE_DIR} && find . -type d -a \( -name proof -o -name note -o -name topic -o -name definition \) | xargs -i find "{}" -maxdepth 1 -mindepth 1); do echo "\includereference{$$(echo $$path | cut -f2- -d/)}"; done; } > ${ARCHIVES_F_SRC}
 
 ${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${BUILD_DIR}
 	mkdir -p $(dir $@)

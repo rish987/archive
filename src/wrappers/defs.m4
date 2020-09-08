@@ -1,6 +1,5 @@
 \documentclass{src/archives}
 
 \begin{document}
-\fulltrue
-undivert(input)
+\includedefs{input_ref}
 \end{document}

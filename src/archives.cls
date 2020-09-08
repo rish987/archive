@@ -86,7 +86,7 @@
 }%
 
 \def\stripspace#1 \next{#1}
-\edef\root{src}
+\def\root{src}
 % ---
 
 % --- linking ---
@@ -161,6 +161,19 @@
   \begin{reference}{#1}
     \input{\curr/ref.tex}
   \end{reference}
+}
+
+\def\includedefs#1{
+  \begin{reference}{#1}
+    \CatchFileDef{\cftemp}{|"\root/scripts/format_defs.sh '\curr'"}{}%
+    \cftemp
+  \end{reference}
+}
+
+\def\defvisualizer#1#2{
+  \begin{tcolorbox}[title={\tt \char`\\#1}, colback=black!2, colbacktitle=white, coltitle=black, colframe=black!70, arc=0.1mm]
+    #2
+  \end{tcolorbox}
 }
 
 \newenvironment{reference}[1]
