@@ -1,20 +1,20 @@
-\def\last{\TT - 1}
-\def\sslast{\SS_{\last}}
-\def\aalast{\AA_{\last}}
-\def\prelist{\SS_1, \AA_1, \SS_2, \ldots, \sslast}
-\def\postlist{\SS_1, \AA_1, \SS_2, \ldots, \SS_\TT}
-\def\pprelist{\PSTT(\prelist)}
-\def\isact{\PACT{\STT}{\last}{\aalast}{\sslast}}
-\def\istrd{\PTRD{\SS_\TT}{\aalast}{\sslast}}
-\def\isjoint{\PSTT(\postlist)}
-\def\isa{\pprelist}
-\def\isbf{\PSTT(\aalast \mid \prelist)}
-\def\isb{\PSTT(\aalast \mid \sslast)}
-\def\ismid{\PSTT(\prelist, \aalast)}
-\def\iscf{\PSTT(\SS_\TT \mid \aalast, \prelist)}
-\def\isc{\PSTT(\SS_\TT \mid \AA_{\TT - 1}, \SS_{\TT - 1})}
-\def\bcind{\PIND(\SS_1)}
-\def\bca{\PSTT(\SS_1)}
+\def\last{\ensuremath{\TT - 1}}
+\def\sslast{\ensuremath{\SS_{\last}}}
+\def\aalast{\ensuremath{\AA_{\last}}}
+\def\prelist{\ensuremath{\SS_1, \AA_1, \SS_2, \ldots, \sslast}}
+\def\postlist{\ensuremath{\SS_1, \AA_1, \SS_2, \ldots, \SS_\TT}}
+\def\pprelist{\ensuremath{\PSTT(\prelist)}}
+\def\isact{\ensuremath{\PACT{\STT}{\last}{\aalast}{\sslast}}}
+\def\istrd{\ensuremath{\PTRD{\SS_\TT}{\aalast}{\sslast}}}
+\def\isjoint{\ensuremath{\PSTT(\postlist)}}
+\def\isa{\ensuremath{\pprelist}}
+\def\isbf{\ensuremath{\PSTT(\aalast \mid \prelist)}}
+\def\isb{\ensuremath{\PSTT(\aalast \mid \sslast)}}
+\def\ismid{\ensuremath{\PSTT(\prelist, \aalast)}}
+\def\iscf{\ensuremath{\PSTT(\SS_\TT \mid \aalast, \prelist)}}
+\def\isc{\ensuremath{\PSTT(\SS_\TT \mid \AA_{\TT - 1}, \SS_{\TT - 1})}}
+\def\bcind{\ensuremath{\PIND(\SS_1)}}
+\def\bca{\ensuremath{\PSTT(\SS_1)}}
 
 \def\pexprtprop#1{for any $1 \le \TT \le \T$, for
   \ctext{\pexprdomg\TT} and for \ctext{\pexprdompol,} 

@@ -47,7 +47,8 @@
 \def\noteop #1 #2{\stackrel{\text{(#1)}}{#2}}
 \def\edots#1#2#3{#1_{#2},\ldots,#1_{#3}}
 
-\def\todo{\hskip 0pt {\color{gray}{[TODO]}}}
+\def\placeholder#1{\hskip 0pt {\color{gray}{[#1]}}}
+\def\todo{\placeholder{TODO}}
 \def\mtodo{\text{\todo}}
 
 \def\fnnot#1#2#3{#1 : #2 \rightarrow #3}

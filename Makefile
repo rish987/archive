@@ -4,6 +4,7 @@ OUTPUT_DIR := output
 BUILD_DIR := build
 BUILD_SOURCE_DIR := ${BUILD_DIR}/src
 BUILD_BASENAME := ref
+BUILD_DEFS_BASENAME := defs
 
 # TODO wrapper
 
@@ -12,29 +13,42 @@ BUILD_SOURCE_LIST = $(addprefix ${BUILD_SOURCE_DIR}/,${SOURCE_LIST})
 
 get_dir_list = $(subst ./,,$(subst .tex,,$(shell cd ${SOURCE_DIR} && { find \. -type d -name "$(1)" | xargs -i find "{}" -maxdepth 1 -mindepth 1; })))
 
+get_out_list = $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,$(1))))
+get_defs_list = $(addsuffix /defs.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,$(1))))
+
 D_TO = $(dir $@)
 D_ABV = $(dir $@)/..
 CD_TO = cd ${D_TO}
 CD_ABV = cd ${D_ABV}
 
 ARCHIVES := ${OUTPUT_DIR}/archives/ref.pdf
+PROOFS := $(call get_out_list,proof)
+NOTES := $(call get_out_list,note)
+TOPICS := $(call get_out_list,topic)
+DEFINITIONS := $(call get_out_list,definition)
+
+ARCHIVES_D := ${OUTPUT_DIR}/archives/defs.pdf
+PROOFS_D := $(call get_defs_list,proof)
+NOTES_D := $(call get_defs_list,note)
+TOPICS_D := $(call get_defs_list,topic)
+DEFINITIONS_D := $(call get_defs_list,definition)
+
 ARCHIVES_F := ${OUTPUT_DIR}/full.pdf
 ARCHIVES_F_SRC := ${BUILD_SOURCE_DIR}/full.tex
-PROOFS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,proof)))
-NOTES := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,note)))
-TOPICS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,topic)))
-DEFINITIONS := $(addsuffix /ref.pdf,$(addprefix ${OUTPUT_DIR}/,$(call get_dir_list,definition)))
 
 TREE := ${ARCHIVES} ${PROOFS} ${NOTES} ${TOPICS} ${DEFINITIONS}
+DEFS := ${ARCHIVES_D} ${PROOFS_D} ${NOTES_D} ${TOPICS_D} ${DEFINITIONS_D}
 
 TREE_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/tree.m4
 FULL_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/full.m4
+DEFS_WRAPPER := ${BUILD_SOURCE_DIR}/wrappers/defs.m4
 
-scripts := $(addprefix ${BUILD_SOURCE_DIR}/scripts/,defs_inheritance.sh relpathln.py defs_inheritance.py path_fmt.py)
+scripts := $(addprefix ${BUILD_SOURCE_DIR}/scripts/,defs_inheritance.sh relpathln.py defs_inheritance.py path_fmt.py format_defs.sh)
 
 all : tree full
 tree : ${TREE}
 full : ${ARCHIVES_F}
+defs : ${DEFS}
 
 .SECONDEXPANSION :
 
@@ -43,6 +57,12 @@ ${OUTPUT_DIR}/%/ref.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell scripts/get
 	m4 -Dinput_ref="$*" ${TREE_WRAPPER} > ${BUILD_DIR}/${BUILD_BASENAME}.tex
 	cd ${BUILD_DIR} && pdflatex --halt-on-error --shell-escape ${BUILD_BASENAME}.tex
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
+
+${OUTPUT_DIR}/%/defs.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell scripts/get_deps_defs.sh $$*)) | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
+	find ${BUILD_DIR} -maxdepth 1 -type f | xargs rm -f
+	m4 -Dinput_ref="$*" ${DEFS_WRAPPER} > ${BUILD_DIR}/${BUILD_DEFS_BASENAME}.tex
+	cd ${BUILD_DIR} && pdflatex --halt-on-error --shell-escape ${BUILD_DEFS_BASENAME}.tex
+	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_DEFS_BASENAME}.pdf $@
 
 ${ARCHIVES_F} : ${ARCHIVES_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
 	find ${BUILD_DIR} -maxdepth 1 -type f | xargs rm -f
@@ -60,9 +80,10 @@ ${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${
 ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}:
 	mkdir -p $@
 
-${ARCHIVES_F} ${TREE} : ${BUILD_SOURCE_DIR}/archives.cls ${scripts}
+${ARCHIVES_F} ${TREE} ${DEFS} : ${BUILD_SOURCE_DIR}/archives.cls ${scripts}
 ${ARCHIVES_F} : ${FULL_WRAPPER}
 ${TREE} : ${TREE_WRAPPER}
+${DEFS} : ${DEFS_WRAPPER}
 
 clean : 
 	-rm -rf build output
