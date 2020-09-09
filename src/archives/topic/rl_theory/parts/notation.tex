@@ -9,10 +9,10 @@
 
   \reflnenv{definition}{steplim}{Define}{ \steplimdef{,}}%
   \reflnenv{definition}{str}{define}{ \strdef{,}}%
-  and \reflnenv{definition}{strs}{define}{\strsdef{.}}%
-  Note that \refln{proof}{npol}{$|\ST| = \T \times |\S| \times |\A|$}.
+  and \reflnenv{definition}{strs}{define}{ \strsdef{.}}%
+  \reflnenv{proof}{npol}{Note that}{ \npolprop{.}}
 
-  \reflnenv{definition}{inddef}{Define}{ \inddefdefg{\refln{note}{paramprob}{$\inddefp$} $\defeq$}{.}}%
+  \reflnenv{definition}{inddef}{Define}{ \inddefdefg{\refln{note}{paramprob}{$\inddefdefp$} $\defeq$}{.}}%
   \reflnenv{definition}{pactdef}{Define}{ \pactdefdef{.}}%
   \reflnenv{definition}{trddef}{Define}{ \trddefdef{.}}%
 
@@ -20,14 +20,12 @@
   and \reflnenv{definition}{rvat}{define}{ \rvatdef{,}}%
   whose distributions are dependent on $\STT$.
 
-  Let $\PSTT(\cdot)$ and $\ESTT[\cdot]$ denote the probability of an event
-  and the expectation of a quantity
-  when the \agt\ follows a \str\ $\astr$.
+  \reflnenv{definition}{pstr}{Let}{ \pstrdef{,}}%
+  and
+  \reflnenv{definition}{estr}{let}{ \estrdef{.}}%
   Because we follow a fixed \str,
   \reflnenv{definition}{pact}{we know that}{, \pactdeffull{,}}%
-  \reflnenv{proof}{actcind}{from which it follows}{ that
-  $\AV_\TT$ is independent of all previous \til{}s and \act{}s given $\SV_\TT$.
-  Notationally, \actcindpropfullg{\ctext{\refln{note}{implgen}{$\actcindprop$}.}}}%
+  \reflnenv{proof}{actcind}{from which it follows}{ that \actcindpropg{\text{\refln{note}{implgen}{$\actcindeq$}}}{.}}%
   \reflnenv{definition}{ind}{We know that}{ \inddef{,}}%
   and
   \reflnenv{definition}{trd}{we know that}{ \trddef{,}}%

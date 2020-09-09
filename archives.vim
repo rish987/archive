@@ -134,7 +134,7 @@ map <leader>f :call Followln()<CR>
 map <leader>gf :call Followfile()<CR>
 map <leader>H :call Backln()<CR>
 map <leader>L :call Forwardln()<CR>
-map <leader>d :call ChangeDef()<CR>
+map <leader>c :call ChangeDef()<CR>
 map <leader>p :call FollowPDF()<CR>
 map <leader>d :call FollowDefs()<CR>
 map <leader>P :call FormatPDF()<CR>

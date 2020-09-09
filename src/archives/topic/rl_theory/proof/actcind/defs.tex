@@ -3,21 +3,28 @@
 $\XV$ supported on $\X$,
 $\YV$ supported on $\Y$,
 $\ZV$ supported on $\Z$,}}
-\def\pcindpre#1{\ensuremath{\P(\XV \mid \YV) = #1}}
-\def\pcindpost#1{\ensuremath{\P(\XV \mid \YV, \ZV) = #1}}
-\def\pcindprop#1{\ensuremath{\pcindpre#1\implies \pcindpost#1}}
-\def\X{\ensuremath{{\mathbf X}}} \def\XV{\ensuremath{{\rm X}}} \def\XX{\ensuremath{{\rm x}}}
-\def\Y{\ensuremath{{\mathbf Y}}} \def\YV{\ensuremath{{\rm Y}}} \def\YY{\ensuremath{{\rm y}}}
-\def\Z{\ensuremath{{\mathbf Z}}} \def\ZV{\ensuremath{{\rm Z}}} \def\ZZ{\ensuremath{{\rm z}}}
-\def\pactdefp{\ensuremath{\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS)}}
-\def\pactdefpp{\ensuremath{\PACT\STT\TT\AA\SS}}
-\def\pactdef{\ensuremath{\pactdefp = \pactdefpp}}
+\def\pcindpre#1{\enm{\P(\XV \mid \YV) = #1}}
+\def\pcindpost#1{\enm{\P(\XV \mid \YV, \ZV) = #1}}
+\def\pcindeq#1{\enm{\pcindpre{#1}\implies \pcindpost{#1}}}
+\def\pcindprop#1#2{
+      for any random variables 
+      \listrv
+      we have
+    $$\pcindeq{#1}#2$$}
+\def\X{\enm{{\mathbf X}}} \def\XV{\enm{{\rm X}}} \def\XX{\enm{{\rm x}}}
+\def\Y{\enm{{\mathbf Y}}} \def\YV{\enm{{\rm Y}}} \def\YY{\enm{{\rm y}}}
+\def\Z{\enm{{\mathbf Z}}} \def\ZV{\enm{{\rm Z}}} \def\ZZ{\enm{{\rm z}}}
+\def\pactdefp{\enm{\PSTT(\AV_\TT = \AA \mid \SV_\TT = \SS)}}
+\def\pactdefpp{\enm{\PACT\STT\TT\AA\SS}}
+\def\pactdef{\enm{\pactdefp = \pactdefpp}}
 \def\actcindrange{$\astr$, $1 \le \TT \le \T - 1$}
-\def\actcindpreprelist{\ensuremath{\AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1}}}
-\def\actcindprelist{\ensuremath{\SV_{\TT}, \actcindpreprelist}}
-\def\actcindpre{\ensuremath{\PSTT\left( \AV_\TT \mid \actcindprelist\right)}}
-\def\actcindpostlist{\ensuremath{\SV_{\TT}}}
-\def\actcindpost{\ensuremath{\PSTT\left( \AV_\TT \mid \actcindpostlist\right)}}
-\def\actcindprop{\ensuremath{\actcindpre = \actcindpost}}
-\def\actcindpropfullg#1{for all \actcindrange, when defined, #1}
-\def\actcindpropfull{\actcindpropfullg{$$\actcindprop.$$}}
+\def\actcindpreprelist{\enm{\AV_{\TTM}, \SV_{\TTM}, \ldots, \AV_{1}, \SV_{1}}}
+\def\actcindprelist{\enm{\SV_{\TT}, \actcindpreprelist}}
+\def\actcindpre{\enm{\PSTT\left( \AV_\TT \mid \actcindprelist\right)}}
+\def\actcindpostlist{\enm{\SV_{\TT}}}
+\def\actcindpost{\enm{\PSTT\left( \AV_\TT \mid \actcindpostlist\right)}}
+\def\actcindeq{\enm{\actcindpre = \actcindpost}}
+\def\actcindpropg#1#2{$\AV_\TT$ is independent of all previous \til{}s and \act{}s given $\SV_\TT$.
+Notationally, 
+for all \actcindrange, when defined, $$#1#2$$}
+\def\actcindprop#1{\actcindpropg{\actcindeq}{#1}}

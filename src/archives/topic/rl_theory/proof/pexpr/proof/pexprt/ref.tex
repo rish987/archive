@@ -13,27 +13,27 @@
   {\it Inductive hypothesis.}
   Assume that for $\TT - 1$ such that $1 \le \TT - 1 \le \T - 1$,
   the proposition holds. That is,
-  $$ \pexprjointdistg{\TT - 1} = \pexprgg{\TT - 1}{\TT - 2}{\TT'}.$$%
+  $$ \pexprtihp = \pexprtih.$$%
   \srule
   {\it Inductive step.}
   We want to show that the proposition holds for $\TT.$
 
   There are two cases to consider:
   \begin{itemize}
-    \item Case 1: $\isa = 0$. 
+    \item Case 1: $\pexprtihp = 0$. 
       Then,
-      $$\isa = 0 = \isjoint,$$
+      $$\pexprtihp = 0 = \pexprtp,$$
       and
       \begin{align*}
-      &\pexprg{\TT}{\TT'} \\
-      =\ &\pexprgg{\TT - 1}{\TT - 2}{\TT'} \times \\
-      &\isact \times \istrd\\
-      \noteop i = \ & \isa \times \isact \times \istrd \\
-      \noteop ii = \ & 0 = \isjoint,
+        &\pexprt \\
+        =\ &\pexprtih \times \\
+        &\isact \times \istrd\\
+        \noteop i = \ & \pexprtihp \times \isact \times \istrd \\
+        \noteop ii = \ & 0 = \pexprtp,
       \end{align*}
       where (i) follows from the inductive hypothesis,
-      and (ii) follows from the fact that $\isa = 0$.
-    \item Case 2: $\isa > 0$. 
+      and (ii) follows from the fact that $\pexprtihp = 0$.
+    \item Case 2: $\pexprtihp > 0$. 
       Then, 
       \ctext{$\isbf$ and $\isb$ are defined,}
       and we have
@@ -45,11 +45,16 @@
         \item Case 2.1: $\isact = 1$.
           Then,
           \begin{align*}
-            \ismid &= \isbf \times \isa\\
-                   &= \isact \times \isa\\
-                   &= \isa\\
-                   &> 0.
+            \ismid &\noteop i = \isbf \times \pexprtihp\\
+                   &\noteop ii = \isact \times \pexprtihp\\
+                   &\noteop iii = \pexprtihp\\
+                   &> 0,
           \end{align*}
+          where 
+          (i) follows from \todo,
+          (ii) follows from \todo, 
+          and
+          (iii) follows from \todo.
           Therefore, 
           \ctext{$\iscf$ is defined,}
           and we have
@@ -58,22 +63,36 @@
           \reflng{definition}{archives/topic/rl_theory/definition/trd}{(ii)} follow by definition.
           Therefore,
           \begin{align*}
-            \isjoint =\ & \isa \times \isbf \times\\& \iscf\\
-            =\ & \isa \times \isb \times \isc\\
-            =\ & \pexprg{\TT}{\TT'}.
+            \pexprtp \noteop i =\ & \pexprtihp \times \isbf \times\\& \iscf\\
+            \noteop ii =\ & \pexprtihp \times \isb \times \isc\\
+            \noteop iii =\ & \pexprg{\TT}{\TT'},
           \end{align*}
+          where 
+          (i) follows from \todo,
+          (ii) follows from \todo,
+          and
+          (iii) follows from \todo.
 
         \item Case 2.2: $\isact = 0$.
           Then,
           \begin{align*}
-            \ismid &= \isbf \times \isa\\
-                   &= \isact \times \isa\\
-                   &= 0.
+            \ismid &\noteop i = \isbf \times \pexprtihp\\
+                   &\noteop ii = \isact \times \pexprtihp\\
+                   &\noteop iii = 0,
           \end{align*}
+          where 
+          (i) follows from \todo,
+          (ii) follows from \todo,
+          and
+          (iii) follows from \todo.
           Therefore,
-          $$\isjoint = 0,$$
+          $$\pexprtp = 0,$$
           so
-          $$\isjoint = \pexprg{\TT}{\TT'} = 0.$$
+          $$\pexprtp \noteop i = \pexprt \noteop ii = 0,$$
+          where
+          (i) follows from \todo\ 
+          and
+          (ii) follows from \todo.
       \end{itemize}
   \end{itemize}
 \end{proof}

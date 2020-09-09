@@ -47,7 +47,7 @@
 \def\noteop #1 #2{\stackrel{\text{(#1)}}{#2}}
 \def\edots#1#2#3{#1_{#2},\ldots,#1_{#3}}
 
-\def\placeholder#1{\hskip 0pt {\color{gray}{[#1]}}}
+\def\placeholder#1{\hskip 0pt {\rm\color{gray}{[#1]}}}
 \def\todo{\placeholder{TODO}}
 \def\mtodo{\text{\todo}}
 
@@ -172,7 +172,7 @@
 }
 
 \def\defvisualizer#1#2{
-  \begin{tcolorbox}[title={\tt \char`\\#1}, colback=black!2, colbacktitle=white, coltitle=black, colframe=black!70, arc=0.1mm]
+  \begin{tcolorbox}[title={\tt \char`\\#1}, colback=black!1, colbacktitle=white, coltitle=black, colframe=black!70, arc=0.1mm, boxrule=0.1pt]
     #2
   \end{tcolorbox}
 }
@@ -343,3 +343,5 @@
 
 \def\bnosp{\edef\xspaceskiporig{\the\xspaceskip}\edef\spacefactororig{\the\spacefactor}\let\parorig\par\spacefactor=10000\xspaceskip=0.00001pt\let\par\relax}
 \def\enosp{\spacefactor=\spacefactororig\xspaceskip=\xspaceskiporig\let\par\parorig}
+
+\def\enm#1{\ensuremath{{#1}}}
