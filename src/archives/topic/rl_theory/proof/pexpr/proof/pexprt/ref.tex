@@ -13,86 +13,67 @@
   {\it Inductive hypothesis.}
   Assume that for $\TT - 1$ such that $1 \le \TT - 1 \le \T - 1$,
   the proposition holds. That is,
-  $$ \pexprtihp = \pexprtih.$$%
+  $$ \pexprtihp \rell = ih \pexprtih.$$%
   \srule
   {\it Inductive step.}
   We want to show that the proposition holds for $\TT.$
 
   There are two cases to consider:
   \begin{itemize}
-    \item Case 1: $\pexprtihp = 0$. 
+    \item Case 1: $\pexprtihp \rell = co 0$. 
       Then,
-      $$\pexprtihp = 0 = \pexprtp,$$
+      $$\pexprtihp \relr = co 0 \rell = coz \pexprtp,$$
       and
       \begin{align*}
         &\pexprt \\
         =\ &\pexprtih \times \\
         &\isact \times \istrd\\
-        \noteop i = \ & \pexprtihp \times \isact \times \istrd \\
-        \noteop ii = \ & 0 = \pexprtp,
+        \relr = ih \ & \pexprtihp \times \isact \times \istrd \\
+        \relr = co \ & 0 \relr = coz \pexprtp.
       \end{align*}
-      where (i) follows from the inductive hypothesis,
-      and (ii) follows from the fact that $\pexprtihp = 0$.
-    \item Case 2: $\pexprtihp > 0$. 
+    \item Case 2: $\pexprtihp \rell > ct 0$. 
       Then, 
-      \ctext{$\isbf$ and $\isb$ are defined,}
+      \ctext{$\isbf \rellf{\relis}{daf} \defined$, $\isb \rellf{\relis}{da} \defined$,}
       and we have
-      $$\isbf \noteop i = \isb \noteop ii = \isact,$$
-      where (i) is \reflng{proof}{archives/topic/rl_theory/proof/actcind}{implied by definition}, and (ii) \reflng{definition}{archives/topic/rl_theory/definition/pact}{follows by definition}.
+      $$\isbf \rellrlng = proof archives/topic/rl_theory/proof/actcind cia \isb 
+      \rellrlng = definition archives/topic/rl_theory/definition/pact ad \isact.$$
 
       \reflng{definition}{archives/topic/rl_theory/definition/pactdef}{There are two cases} to consider:
       \begin{itemize}
-        \item Case 2.1: $\isact = 1$.
+        \item Case 2.1: $\isact \rell = cto 1$.
           Then,
           \begin{align*}
-            \ismid &\noteop i = \isbf \times \pexprtihp\\
-                   &\noteop ii = \isact \times \pexprtihp\\
-                   &\noteop iii = \pexprtihp\\
-                   &> 0,
+            \ismid &\relr = daf \isbf \times \pexprtihp\\
+                   &\relr = cia,ad \isact \times \pexprtihp\\
+                   &\relr = cto \pexprtihp\\
+                   &\relr > ct 0.
           \end{align*}
-          where 
-          (i) follows from \todo,
-          (ii) follows from \todo, 
-          and
-          (iii) follows from \todo.
           Therefore, 
-          \ctext{$\iscf$ is defined,}
+          $$\iscf \rellf{\relis}{dsf} \defined,$$
           and we have
-          $$\iscf \noteop i = \isc \noteop ii = \istrd.$$
-          where \reflng{definition}{archives/topic/rl_theory/definition/trdcind}{(i)} and 
-          \reflng{definition}{archives/topic/rl_theory/definition/trd}{(ii)} follow by definition.
+          $$\iscf 
+          \rellrlng = definition archives/topic/rl_theory/definition/trdcind cis \isc 
+          \rellrlng = definition archives/topic/rl_theory/definition/trd sd \istrd.$$
           Therefore,
           \begin{align*}
-            \pexprtp \noteop i =\ & \pexprtihp \times \isbf \times\\& \iscf\\
-            \noteop ii =\ & \pexprtihp \times \isb \times \isc\\
-            \noteop iii =\ & \pexprg{\TT}{\TT'},
+            \pexprtp 
+            \relr = daf,dsf \ & \pexprtihp \times \isbf \times\\& \iscf\\
+            \relr = cia,cis \ & \pexprtihp \times \isb \times \isc\\
+            \relr = ih,ad,sd \ & \pexprg{\TT}{\TT'}.
           \end{align*}
-          where 
-          (i) follows from \todo,
-          (ii) follows from \todo,
-          and
-          (iii) follows from \todo.
-
-        \item Case 2.2: $\isact = 0$.
+        \item Case 2.2: $\isact \rell = ctt 0$.
           Then,
           \begin{align*}
-            \ismid &\noteop i = \isbf \times \pexprtihp\\
-                   &\noteop ii = \isact \times \pexprtihp\\
-                   &\noteop iii = 0,
+            \ismid &\relr = daf \isbf \times \pexprtihp\\
+                   &\relr = cia,ad \isact \times \pexprtihp\\
+                   &\relr = ctt 0.
           \end{align*}
-          where 
-          (i) follows from \todo,
-          (ii) follows from \todo,
-          and
-          (iii) follows from \todo.
           Therefore,
-          $$\pexprtp = 0,$$
+          $$\pexprtp \rell = cttz 0,$$
           so
-          $$\pexprtp \noteop i = \pexprt \noteop ii = 0,$$
-          where
-          (i) follows from \todo\ 
-          and
-          (ii) follows from \todo.
+          $$\pexprtp
+          \relr = cttz \ 0 \ 
+          \relr = ctt \pexprt.$$
       \end{itemize}
   \end{itemize}
 \end{proof}

@@ -44,7 +44,7 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
-\def\noteop #1 #2{\stackrel{\text{(#1)}}{#2}}
+\def\noteop #1 #2{\overset{\text{(#1)}}{#2}}
 \def\edots#1#2#3{#1_{#2},\ldots,#1_{#3}}
 
 \def\placeholder#1{\hskip 0pt {\rm\color{gray}{[#1]}}}
@@ -345,3 +345,16 @@
 \def\enosp{\spacefactor=\spacefactororig\xspaceskip=\xspaceskiporig\let\par\parorig}
 
 \def\enm#1{\ensuremath{{#1}}}
+
+\def\rellf#1#2{\underset{\raisebox{-5pt}{\makebox[0pt]{\scriptsize \tt \colorbox{blue!30}{#2}}}}{#1}}
+\def\relrf#1#2{\overset{\raisebox{8pt}{\makebox[0pt]{\scriptsize \tt \colorbox{red!30}{#2}}}}{#1}}
+\def\rellrf#1#2#3{\relrf{\rellf{#1}{#2}}{#3}}
+\def\rell #1 #2 {\rellf{#1}{#2}}
+\def\relr #1 #2 {\relrf{#1}{#2}}
+\def\rellr #1 #2 #3 {\rellrf{#1}{#2}{#3}}
+\def\relrlngf#1#2#3{\relrf{#1}{\reflng{#2}{#3}{$\ldots$}}}
+\def\rellrlngf#1#2#3#4{\rellf{\relrlngf{#1}{#2}{#3}}{#4}}
+\def\relrlng #1 #2 #3 {\relrlngf{#1}{#2}{#3}}
+\def\rellrlng #1 #2 #3 #4 {\rellrlngf{#1}{#2}{#3}{#4}}
+\def\relis{\text{ is }}
+\def\defined{\text{defined}}
