@@ -4,12 +4,13 @@ $\XV$ supported on $\X$,
 $\YV$ supported on $\Y$,
 $\ZV$ supported on $\Z$,}}
 \def\pcindpre#1{\enm{\P(\XV \mid \YV) = #1}}
-\def\pcindpost#1{\enm{\P(\XV \mid \YV, \ZV) = #1}}
+\def\pcindpostp{\enm{\P(\XV \mid \YV, \ZV)}}
+\def\pcindpost#1{\enm{\pcindpostp = #1}}
 \def\pcindeq#1{\enm{\pcindpre{#1}\implies \pcindpost{#1}}}
-\def\pcindprop#1#2{
+\def\pcindprop#1#2{%
       for any random variables 
       \listrv
-      we have
+      we have that, when \pcindpostp\ is defined,
     $$\pcindeq{#1}#2$$}
 \def\X{\enm{{\mathbf X}}} \def\XV{\enm{{\rm X}}} \def\XX{\enm{{\rm x}}}
 \def\Y{\enm{{\mathbf Y}}} \def\YV{\enm{{\rm Y}}} \def\YY{\enm{{\rm y}}}

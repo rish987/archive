@@ -132,6 +132,8 @@
 \newcommand\refln[4][]{\lnl[#1]{#2}{#3}{#4}}
 \newcommand\reflnenv[5][]{\lnl[#1]{#2}{#3}{#4}\refenvl{#2}{#3}{#5}}
 \newcommand\reflng[4][]{\lng[#1]{#2}{#3}{#4}}
+\newcommand\mreflng[3][]{\lng[#1]{#2}{#3}{\enm{\ldots}}}
+\newcommand\reflnm[3][]{\lnl[#1]{#2}{#3}{\enm{\ldots}}}
 
 \newcommand\fmtln[3][]{%
   \ifthenelse{\equal{#1}{}}%
@@ -239,7 +241,7 @@
 {
   \begin{mytcb}[title={#1}, 
     colback=blue!5, colbacktitle=blue!20, coltitle=black, colframe=blue!60!black,
-    arc=0.1mm]
+    arc=0.1mm, boxrule=0.5pt]
 }
 {
   \end{mytcb}
@@ -251,7 +253,7 @@
 {
   \begin{mytcb}[title={Proof.}, 
     colbacktitle=___gray, coltitle=black, colback=white, colframe=gray!80!black,
-    arc=0.1mm]
+    arc=0.1mm, boxrule=0.5pt]
 }
 {
     \end{mytcb}
@@ -261,7 +263,7 @@
 {
   \begin{mytcb}[title={#1}, 
     colback=_gray!15, colbacktitle=_gray!30, coltitle=black, colframe=_gray!60!black,
-    arc=0.1mm]
+    arc=0.1mm, boxrule=0.5pt]
 }
 {
   \end{mytcb}
@@ -271,7 +273,7 @@
 {
   \begin{mytcb}[title={#1}, 
     colback=blue!5, colbacktitle=blue!20, coltitle=black, colframe=blue!60!black,
-    arc=0.1mm]
+    arc=0.1mm, boxrule=0.5pt]
 }
 {
   \end{mytcb}
@@ -346,15 +348,13 @@
 
 \def\enm#1{\ensuremath{{#1}}}
 
+\def\relrgf#1#2#3{\overset{\raisebox{#3}{\makebox[0pt]{\scriptsize \tt \colorbox{___gray}{#2}}}}{#1}}
 \def\rellf#1#2{\underset{\raisebox{-5pt}{\makebox[0pt]{\scriptsize \tt \colorbox{blue!30}{#2}}}}{#1}}
-\def\relrf#1#2{\overset{\raisebox{8pt}{\makebox[0pt]{\scriptsize \tt \colorbox{red!30}{#2}}}}{#1}}
+\def\relrf#1#2{\relrgf{#1}{#2}{8pt}}
 \def\rellrf#1#2#3{\relrf{\rellf{#1}{#2}}{#3}}
 \def\rell #1 #2 {\rellf{#1}{#2}}
 \def\relr #1 #2 {\relrf{#1}{#2}}
+\def\relrg #1 #2 #3 {\relrgf{#1}{#2}{#3}}
 \def\rellr #1 #2 #3 {\rellrf{#1}{#2}{#3}}
-\def\relrlngf#1#2#3{\relrf{#1}{\reflng{#2}{#3}{$\ldots$}}}
-\def\rellrlngf#1#2#3#4{\rellf{\relrlngf{#1}{#2}{#3}}{#4}}
-\def\relrlng #1 #2 #3 {\relrlngf{#1}{#2}{#3}}
-\def\rellrlng #1 #2 #3 #4 {\rellrlngf{#1}{#2}{#3}{#4}}
 \def\relis{\text{ is }}
 \def\defined{\text{defined}}
