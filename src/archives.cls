@@ -348,8 +348,10 @@
 
 \def\enm#1{\ensuremath{{#1}}}
 
+\def\rellrgf#1#2#3#4#5{\relrgf{\rellgf{#1}{#2}{#3}}{#4}{#5}}
+\def\rellgf#1#2#3{\underset{\raisebox{#3}{\makebox[0pt]{\scriptsize \tt \colorbox{blue!30}{#2}}}}{#1}}
 \def\relrgf#1#2#3{\overset{\raisebox{#3}{\makebox[0pt]{\scriptsize \tt \colorbox{___gray}{#2}}}}{#1}}
-\def\rellf#1#2{\underset{\raisebox{-5pt}{\makebox[0pt]{\scriptsize \tt \colorbox{blue!30}{#2}}}}{#1}}
+\def\rellf#1#2{\rellgf{#1}{#2}{-5pt}}
 \def\relrf#1#2{\relrgf{#1}{#2}{8pt}}
 \def\rellrf#1#2#3{\relrf{\rellf{#1}{#2}}{#3}}
 \def\rell #1 #2 {\rellf{#1}{#2}}

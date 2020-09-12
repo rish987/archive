@@ -1,0 +1,15 @@
+\begin{proposition}
+  For random variables 
+  \ctext{$\XV$ supported on $\X$ and
+  $\YV$ supported on $\Y$,}
+  we have for all $\XX \in \X$, $\YY \in \Y$,
+  $$\P(\XV = \XX)  = 0 \implies \P(\XV = \XX, \YV = \YY) = 0.$$%
+\end{proposition}
+
+\begin{proof}
+  Assume that $\P(\XX) \rell = lz 0.$
+  We have that
+  $$0 \relr = lz \P(\XX) \relrg = \mreflng{definition}{\margprobpath} 12pt \sum_{\YY' \in \Y}\P(\XX, \YY'),$$
+  so in particular
+  $$\P(\XX, \YY) = 0.$$%
+\end{proof}
