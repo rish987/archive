@@ -8,8 +8,10 @@ BUILD_DEFS_BASENAME := defs
 
 # TODO wrapper
 
-SOURCE_LIST = $(subst ./,,$(shell cd ${SOURCE_DIR} && find \. -type f \( ! -name '.*.sw*' \)))
+SOURCE_LIST = $(subst ./,,$(shell cd ${SOURCE_DIR} && find \. -type f \( ! -name '.*.sw*' \) -a \( ! -name 'refnum' \)))
+REFNUMS_LIST = $(subst ./,,$(shell cd ${SOURCE_DIR} && find \. -type f \( -name 'refnum' \)))
 BUILD_SOURCE_LIST = $(addprefix ${BUILD_SOURCE_DIR}/,${SOURCE_LIST})
+BUILD_REFNUMS_LIST = $(addprefix ${BUILD_SOURCE_DIR}/,${REFNUMS_LIST})
 
 get_dir_list = $(subst ./,,$(subst .tex,,$(shell cd ${SOURCE_DIR} && { find \. -type d -name "$(1)" | xargs -i find "{}" -maxdepth 1 -mindepth 1; })))
 
@@ -52,19 +54,19 @@ defs : ${DEFS}
 
 .SECONDEXPANSION :
 
-${OUTPUT_DIR}/%/ref.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell scripts/get_deps.sh $$*)) | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
+${OUTPUT_DIR}/%/ref.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell scripts/get_deps.sh $$*)) ${BUILD_REFNUMS_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
 	find ${BUILD_DIR} -maxdepth 1 -type f | xargs rm -f
 	m4 -Dinput_ref="$*" ${TREE_WRAPPER} > ${BUILD_DIR}/${BUILD_BASENAME}.tex
 	cd ${BUILD_DIR} && pdflatex --halt-on-error --shell-escape ${BUILD_BASENAME}.tex
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_BASENAME}.pdf $@
 
-${OUTPUT_DIR}/%/defs.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell scripts/get_deps_defs.sh $$*)) | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
+${OUTPUT_DIR}/%/defs.pdf: $$(addprefix $${BUILD_SOURCE_DIR}/,$$(shell scripts/get_deps_defs.sh $$*)) ${BUILD_REFNUMS_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
 	find ${BUILD_DIR} -maxdepth 1 -type f | xargs rm -f
 	m4 -Dinput_ref="$*" ${DEFS_WRAPPER} > ${BUILD_DIR}/${BUILD_DEFS_BASENAME}.tex
 	cd ${BUILD_DIR} && pdflatex --halt-on-error --shell-escape ${BUILD_DEFS_BASENAME}.tex
 	mkdir -p $(dir $@) && cp ${BUILD_DIR}/${BUILD_DEFS_BASENAME}.pdf $@
 
-${ARCHIVES_F} : ${ARCHIVES_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
+${ARCHIVES_F} : ${ARCHIVES_F_SRC} ${BUILD_SOURCE_LIST} ${BUILD_REFNUMS_LIST} | ${BUILD_DIR} ${OUTPUT_DIR} ${BUILD_SOURCE_DIR}
 	find ${BUILD_DIR} -maxdepth 1 -type f | xargs rm -f
 	m4 -Dinput=${ARCHIVES_F_SRC} ${FULL_WRAPPER} > ${BUILD_DIR}/${BUILD_BASENAME}.tex
 	cd ${BUILD_DIR} && latexmk --halt-on-error --pdf --shell-escape ${BUILD_BASENAME}.tex
@@ -73,7 +75,7 @@ ${ARCHIVES_F} : ${ARCHIVES_F_SRC} ${BUILD_SOURCE_LIST} | ${BUILD_DIR} ${OUTPUT_D
 ${ARCHIVES_F_SRC} : ${BUILD_SOURCE_LIST} | ${BUILD_SOURCE_DIR}
 	{ echo "\includereference{archives}"; for path in $$(cd ${BUILD_SOURCE_DIR} && find . -type d -a \( -name proof -o -name note -o -name topic -o -name definition \) | xargs -i find "{}" -maxdepth 1 -mindepth 1); do echo "\includereference{$$(echo $$path | cut -f2- -d/)}"; done; } > ${ARCHIVES_F_SRC}
 
-${BUILD_SOURCE_LIST} : $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${BUILD_DIR}
+${BUILD_SOURCE_LIST} ${BUILD_REFNUMS_LIST}: $${SOURCE_DIR}/$$(shell echo "$$@" | cut -d'/' -f3-) | ${BUILD_DIR}
 	mkdir -p $(dir $@)
 	cp $< $(dir $@)
 

@@ -106,27 +106,29 @@
 }
 
 % specially formatted link 
-\newcommand\lnfmt[4][]{%
-  \def\templntext{\fmtln[#1]{#3}{#4}}%
+\newcommand\lnfmt[5][]{%
+  \def\templntext{\fmtln[#1]{#3}{#4}{#5}}%
   \ln{#2}{\templntext}%
 }
 
 % "local" reference link
 \newcommand\lnl[4][]{%
+    \readcmd{cat \curr/#2/#3/metadata/refnum}{\refnum}%
 	\iffull%
 		\def\temppath{\currreference/#2/#3}%
     \global\edef\templabel{\temppath_}%
     \hypertarget{\templabel}{}%
-		\lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}%
+		\lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}{\refnum}%
 	\else%
-		\lnfmt[#1]{#2/#3/ref.pdf}{#4}{\csname #2d\endcsname}%
+		\lnfmt[#1]{#2/#3/ref.pdf}{#4}{\csname #2d\endcsname}{\refnum}%
 	\fi%
 }
 
 % "global" reference link
 \newcommand\lng[4][]{%
+  \readcmd{cat \root/#3/metadata/refnum}{\refnum}%
   \iffull\def\temp{#3}\else\getrelpathln{#3}{\temp}\fi%
-  \lnfmt[#1]{\temp}{#4}{\csname #2d\endcsname}%
+  \lnfmt[#1]{\temp}{#4}{\csname #2d\endcsname}{\refnum}%
 }
 
 \newcommand\refln[4][]{\lnl[#1]{#2}{#3}{#4}}
@@ -135,13 +137,13 @@
 \newcommand\mreflng[3][]{\lng[#1]{#2}{#3}{\enm{\ldots}}}
 \newcommand\reflnm[3][]{\lnl[#1]{#2}{#3}{\enm{\ldots}}}
 
-\newcommand\fmtln[3][]{%
+\newcommand\fmtln[4][]{%
   \ifthenelse{\equal{#1}{}}%
   {%
-    $\color{blue}[$\color{black}#2$\color{blue}]_{\rm{}#3}$%
+    $\color{blue}[$\color{black}#2$\color{blue}]_{\rm{}#3}^{\tt #4}$%
   }%
   {%
-    $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]\!_{\rm{}#3}$%
+    $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]\!_{\rm{}#3}^{\tt #4}$%
   }%
 }
 
@@ -224,7 +226,7 @@
 \def\topicd{\gend{T}}
 \def\definitiond{\gend{D}}
 
-\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\colorbox{__gray}{\temp}}
+\def\pathfmt#1{\readcmd{python \root/scripts/path_fmt.py "#1" "\iffull F\else N\fi"}{\temp}\temp}
 % ---
 
 % --- boxes ---
