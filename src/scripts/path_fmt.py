@@ -33,5 +33,5 @@ rn=0
 with open("src/{}/metadata/refnum".format(sys.argv[1])) as file:
     rn = int(file.read()[:-1])
 
-path = "\colorbox{{__gray}}{{{{\\tt{{}}[{1}]:\\hspace{{0.2em}}{0}}}}}".format(path_split_fmt[0] + "/".join(path_split_fmt[1:]), rn)
+path = "\colorbox{{__gray}}{{{{\\tt{{}}{0}\\hspace{{0.2em}}[{1}]}}}}".format(path_split_fmt[0] + "/".join(path_split_fmt[1:]), rn)
 print(path)
