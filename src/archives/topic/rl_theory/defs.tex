@@ -17,27 +17,28 @@
 
 % ---
 
-\def\S{\enm{\mathbf S}}
-\def\SV{\enm{\rm S}}
-\def\SS{\enm{\rm s}}
-\def\AV{\enm{\rm A}}
-\def\A{\enm{\mathbf A}}
-\def\AA{\enm{\rm a}}
-\def\RW{{R}}
+\def\S{\enm{\lngraw{archives/topic/rl_theory/definition/states}{{\mathbf S}}}}
+\def\SV#1{\lngraw{archives/topic/rl_theory/definition/rvst}{\enm{\rm S}_{#1}}}
+\def\SS{\enm{\lngraw{archives/topic/rl_theory/definition/states}{\rm s}}}
+\def\AV#1{\lngraw{archives/topic/rl_theory/definition/rvat}{\enm{\rm A}_{#1}}}
+\def\A{\enm{\lngraw{archives/topic/rl_theory/definition/actions}{\mathbf A}}}
+\def\AA{\enm{\lngraw{archives/topic/rl_theory/definition/actions}{\rm a}}}
+\def\RW{\enm{\lngraw{archives/topic/rl_theory/definition/rewards}{R}}}
 
-\def\T{\enm{T}}
-\def\TT{\enm{t}}
+\def\T{\enm{\lngraw{archives/topic/rl_theory/definition/steplim}{T}}}
+\def\TT{\enm{\lngraw{archives/topic/rl_theory/definition/steplim}{t}}}
 \def\TTM{\enm{\TT - 1}}
-\def\ST{\enm{\mathbf \Pi}}
-\def\STT{\enm{\pi}}
+\def\ST{\enm{\lngraw{archives/topic/rl_theory/definition/strs}{\mathbf \Pi}}}
+\def\STT{\enm{\lngraw{archives/topic/rl_theory/definition/strs}{\pi}}}
+\def\STTS#1{\enm{\lngraw{archives/topic/rl_theory/definition/strs}{\pi_{#1}}}}
 
-\def\PSTT{\enm{\P_{\STT}}}
-\def\ESTT{\enm{{\mathbb E}_{\STT}}}
+\def\PSTT#1{\enm{\lngraw{archives/topic/rl_theory/definition/pstr}{\P_{\STT}\left(#1\right)}}}
+\def\ESTT#1{\enm{\lngraw{archives/topic/rl_theory/definition/estr}{{\mathbb E}_{\STT}\left[#1\right]}}}
 
-\def\PP{\enm{\rm P}}
-\def\PIND{\enm{\PP_{\rm I}}}
-\def\PACT#1#2#3#4{\enm{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}}
-\def\PTRD#1#2#3{\enm{\PP_{\rm T}\left(#1 \mid #2, #3\right)}}
+\def\PP{\enm{\lngraw{archives/topic/rl_theory/note/paramprob}{\rm P}}}
+\def\PIND#1{\enm{\lngraw{archives/topic/rl_theory/definition/inddef}{\PP_{\rm I}\left(#1\right)}}}
+\def\PACT#1#2#3#4{\enm{\lngraw{archives/topic/rl_theory/definition/pactdef}{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}}}
+\def\PTRD#1#2#3{\enm{\lngraw{archives/topic/rl_theory/definition/trddef}{\PP_{\rm T}\left(#1 \mid #2, #3\right)}}}
 
 \def\astr{\enm{\STT \in \ST}}
 % ---
@@ -143,3 +144,5 @@
 \def\X{\enm{{\mathbf X}}} \def\XV{\enm{{\rm X}}} \def\XX{\enm{{\rm x}}}
 \def\Y{\enm{{\mathbf Y}}} \def\YV{\enm{{\rm Y}}} \def\YY{\enm{{\rm y}}}
 \def\Z{\enm{{\mathbf Z}}} \def\ZV{\enm{{\rm Z}}} \def\ZZ{\enm{{\rm z}}}
+
+\def\fnnot#1#2#3{\lngraw{archives/topic/rl_theory/note/fnnot}{#1 : #2 \rightarrow #3}}

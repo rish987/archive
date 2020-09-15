@@ -1,24 +1,27 @@
 \begin{part}{Notation}
   To answer this question, let's establish some notation.
 
-  Let's 
-  \reflnenv{definition}{states}{define}{ \statesdef}, 
-  and 
-  \reflnenv{definition}{actions}{define}{ \actionsdef}.
+  \reflnenv{definition}{states}{Define}{ \statesdef}.
+
+  \reflnenv{definition}{actions}{Define}{ \actionsdef}.
+  
   \reflnenv{definition}{rewards}{Define}{ \rewardsdefg{\refln{note}{fnnot}{$\rewardsdefnot$} $\defeq$}{.}}
 
-  \reflnenv{definition}{steplim}{Define}{ \steplimdef{,}}%
-  \reflnenv{definition}{str}{define}{ \strdef{,}}%
-  and \reflnenv{definition}{strs}{define}{ \strsdef{.}}%
-  \reflnenv{proof}{npol}{Note that}{ \npolprop{.}}
+  \reflnenv{definition}{steplim}{Define}{ \steplimdef{.}}%
+
+  \reflnenv{definition}{strs}{Define}{ \strsdef{.}}%
+
+  \reflnenv{proof}{npol}{Note that}{ \npolprop{.}}%
 
   \reflnenv{definition}{inddef}{Define}{ \inddefdefg{\refln{note}{paramprob}{$\inddefdefp$} $\defeq$}{.}}%
+
   \reflnenv{definition}{pactdef}{Define}{ \pactdefdef{.}}%
+
   \reflnenv{definition}{trddef}{Define}{ \trddefdef{.}}%
 
-  \reflnenv{definition}{rvst}{Define}{ \rvstdef{,}}%
-  and \reflnenv{definition}{rvat}{define}{ \rvatdef{,}}%
-  whose distributions are dependent on $\STT$.
+  \reflnenv{definition}{rvst}{Define}{ \rvstdef{.}}%
+
+  \reflnenv{definition}{rvat}{Define}{ \rvatdef{.}}%
 
   \reflnenv{definition}{pstr}{Let}{ \pstrdef{,}}%
   and
@@ -32,7 +35,7 @@
   \reflnenv{definition}{trdcind}{where}{ \trdcinddef{.}}
 
   We can now write the \trwd\ as
-  $$\sum_{\TT = 1}^\T \RW(\SV_\TT)$$
+  $$\sum_{\TT = 1}^\T \RW(\SV\TT)$$
   and the \atrwd\ as
-  $$\ESTT\left[\sum_{\TT = 1}^\T \RW(\SV_\TT)\right].$$
+  $$\ESTT{\sum_{\TT = 1}^\T \RW(\SV\TT)}.$$
 \end{part}

@@ -51,8 +51,6 @@
 \def\todo{\placeholder{TODO}}
 \def\mtodo{\text{\todo}}
 
-\def\fnnot#1#2#3{#1 : #2 \rightarrow #3}
-
 \def\ctext#1{$$\text{#1}$$}
 % ---
 
@@ -92,9 +90,9 @@
 
 % --- linking ---
 \def\ln#1#2{%
-  \ifln%
-    #2%
-  \else%
+  %\ifln%
+  %  #2%
+  %\else%
     \lntrue
     \iffull%
     \hyperlink{#1}{#2}%
@@ -102,7 +100,7 @@
     \href{#1}{#2}%
     \fi%
     \lnfalse
-  \fi%
+  %\fi%
 }
 
 % specially formatted link 
@@ -125,6 +123,12 @@
 }
 
 % "global" reference link
+\def\lngraw#1#2{%
+  \iffull\def\temp{#1}\else\getrelpathln{#1}{\temp}\fi%
+  \ln{\temp}{#2}%
+}
+
+% "global" reference link
 \newcommand\lng[4][]{%
   \readcmd{cat \root/#3/metadata/refnum}{\refnum}%
   \iffull\def\temp{#3}\else\getrelpathln{#3}{\temp}\fi%
@@ -140,10 +144,10 @@
 \newcommand\fmtln[4][]{%
   \ifthenelse{\equal{#1}{}}%
   {%
-    $\color{blue}[$\color{black}#2$\color{blue}]_{\rm{}#3}^{\tt #4}$%
+    $\color{blue}[$\color{black}#2$\color{blue}]_{\tt{}#3}^{\tt{}#4}$%
   }%
   {%
-    $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]\!_{\rm{}#3}^{\tt #4}$%
+    $\color{blue}\left[\text{\color{black}#2}\color{blue}\right]\!_{\tt{}#3}^{\tt{}#4}$%
   }%
 }
 
@@ -220,7 +224,7 @@
 % --- reference path formatting ---
 \def\getrelpathln#1#2{\readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}}
 
-\def\gend#1{{\color{blue!80!black} #1}}
+\def\gend#1{{\color{blue!90!black} #1}}
 \def\proofd{\gend{P}}
 \def\noted{\gend{N}}
 \def\topicd{\gend{T}}
