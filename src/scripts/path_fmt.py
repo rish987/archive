@@ -4,34 +4,25 @@ path = sys.argv[1]
 path_split_fmt = []
 path_split = path.split("/")
 
+types = {"proof", "note", "topic", "definition"}
+
 links = []
+curr_type = ""
 for dir_i, dir in enumerate(path_split):
-    if dir == "proof":
-        path_split_fmt.append("\\proofd")
-    elif dir == "note":
-        path_split_fmt.append("\\noted")
-    elif dir == "topic":
-        path_split_fmt.append("\\topicd")
-    elif dir == "definition":
-        path_split_fmt.append("\\definitiond")
+    if dir_i == 0:
+        continue
+    if dir in types:
+        curr_type = dir
     else:
-        link = ""
-        if dir == "archives":
-            link = "/"
-        else:
-            link = dir.replace("_", "\\_")
-        if sys.argv[2] == "F":
-            if dir_i < len(path_split) - 1:
-                link_path = "/".join(path_split[0:dir_i + 3]) + "_"
-            else:
-                link_path = "/".join(path_split[0:dir_i + 1])
-            link = "\\ln{{{}}}{{{}}}".format(link_path, link)
+        link_str = dir.replace("_", "\\_")
+        this_path = ref_path = "/".join(path_split[0:dir_i + 1])
+        if dir_i < len(path_split) - 1:
+            ref_path = "/".join(path_split[0:dir_i + 3]) + "_"
+        link_str = "\\lngh{{{}}}{{{}}}{{{}}}{{{}}}".format(curr_type, this_path, ref_path, link_str)
 
-        path_split_fmt.append(link)
+        path_split_fmt.append("\\{}d/".format(curr_type) + link_str)
 
-rn=0
-with open("src/{}/metadata/refnum".format(sys.argv[1])) as file:
-    rn = int(file.read()[:-1])
+archives_link = "\\lngraw{{{}}}{{{}}}".format("archives", "/")
 
-path = "\colorbox{{__gray}}{{{{\\tt{{}}{0}\\hspace{{0.2em}}[{1}]}}}}".format(path_split_fmt[0] + "/".join(path_split_fmt[1:]), rn)
+path = "\colorbox{{__gray}}{{{{\\tt{{}}{0}}}}}".format(archives_link + "/".join(path_split_fmt))
 print(path)

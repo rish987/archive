@@ -10,7 +10,7 @@
 \makeatother
 
 \newcommand{\tsectionfmt}[3]{#1{\bf #2.\nobreak}#3\mynobreakpar}
-\renewenvironment{part}[1]{\tsectionfmt{\underline}{#1}{}}{}
+\renewenvironment{part}[1]{\newpage\tsectionfmt{\underline}{#1}{}}{}
 
 \RequirePackage{soul}
 \RequirePackage{environ}
@@ -29,7 +29,7 @@
 \RequirePackage{catchfile}
 \RequirePackage{xifthen}
 \RequirePackage[top=0.5in, bottom=0.7in, left=1in, right=1in, includeheadfoot, headsep=20pt]{geometry}
-\setlength{\headheight}{16pt}
+\setlength{\headheight}{17pt}
 
 \usetikzlibrary{calc}
 % --- general notation ---
@@ -61,7 +61,7 @@
 
 % --- colors ---
 \definecolor{___gray}{rgb}{0.95, 0.95, 0.95}
-\definecolor{__gray}{rgb}{0.85, 0.85, 0.85}
+\definecolor{__gray}{rgb}{0.90, 0.90, 0.90}
 \definecolor{_gray}{rgb}{0.70, 0.70, 0.70}
 \definecolor{gray}{rgb}{0.50, 0.50, 0.50}
 \definecolor{blue}{rgb}{0.56, 0.74, 0.86}
@@ -111,15 +111,15 @@
 
 % "local" reference link
 \newcommand\lnl[4][]{%
-    \readcmd{cat \curr/#2/#3/metadata/refnum}{\refnum}%
-	\iffull%
-		\def\temppath{\currreference/#2/#3}%
+    \getrefnum{\currreference/#2/#3}{\refnum}%
+  \iffull%
+    \def\temppath{\currreference/#2/#3}%
     \global\edef\templabel{\temppath_}%
     \hypertarget{\templabel}{}%
-		\lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}{\refnum}%
-	\else%
-		\lnfmt[#1]{#2/#3/ref.pdf}{#4}{\csname #2d\endcsname}{\refnum}%
-	\fi%
+    \lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}{\refnum}%
+  \else%
+    \lnfmt[#1]{#2/#3/ref.pdf}{#4}{\csname #2d\endcsname}{\refnum}%
+  \fi%
 }
 
 % "global" reference link
@@ -128,9 +128,18 @@
   \ln{\temp}{#2}%
 }
 
+\def\getrefnum#1#2{\readcmd{cat \root/#1/metadata/refnum}{#2}}
+
 % "global" reference link
-\newcommand\lng[4][]{%
+\newcommand\lngh[5][]{%
+  \getrefnum{#3}{\refnum}%
   \readcmd{cat \root/#3/metadata/refnum}{\refnum}%
+  \iffull\def\temp{#4}\else\getrelpathln{#3}{\temp}\fi%
+  \lnfmt[#1]{\temp}{#5}{\csname #2d\endcsname}{\refnum}%
+}
+
+\newcommand\lng[4][]{%
+  \getrefnum{#3}{\refnum}%
   \iffull\def\temp{#3}\else\getrelpathln{#3}{\temp}\fi%
   \lnfmt[#1]{\temp}{#4}{\csname #2d\endcsname}{\refnum}%
 }
@@ -186,20 +195,24 @@
 }
 
 \newenvironment{reference}[1]
+{%
+  \def\currreference{#1}%
+  \newpage%
+  \iffull%
+    \hypertarget{#1}{}%
+  \fi%
+  \gdef\curr{\root/#1}%
+  \gdef\currpathfmt{\pathfmt{#1}}%
+  \getrefnum{\currreference}{\currrefnum}%
+  \gdef\currrefnumfmt{\colorbox{__gray}{\tt [\currrefnum]}}
+  %\setcounter{page}{1}%
+  \expandafter\gdef\expandafter\currrefnum\expandafter{\currrefnum}%
+  \inheritdefs{\curr}%
+  \hrule
+  \currrefnumfmt \hfill \currpathfmt\\\vspace{-8pt}
+}%
 {
-  \def\currreference{#1}
-  \newpage
-  \iffull
-    \hypertarget{#1}{}
-  \fi
-  \def\curr{\root/#1}
-  \gdef\currpath{\pathfmt{#1}}
-  %\setcounter{page}{1}
-  \pagestyle{fancy}
-  \fancyhead[R]{\currpath}
-  \inheritdefs{\curr}
-}
-{
+  \erule
 }
 
 \def\refenvl#1#2#3{{\bnosp\inheritdefs{\curr/#1/#2}\enosp{}#3}}
@@ -214,7 +227,7 @@
 }
 
 \NewEnviron{ralign}{%
-	\def\n{\nonumber}
+  \def\n{\nonumber}
   \begin{align}
     \BODY \nonumber
   \end{align}
@@ -243,7 +256,7 @@
   \end{tcolorbox}
 }
 
-\newenvironment{proposition}[1][Proposition \currpath.]
+\newenvironment{proposition}[1][Proposition.]
 {
   \begin{mytcb}[title={#1}, 
     colback=blue!5, colbacktitle=blue!20, coltitle=black, colframe=blue!60!black,
@@ -252,8 +265,6 @@
 {
   \end{mytcb}
 }
-
-\def\propfmtrel#1{Proposition \pathfmt{\currreference/proof/#1}.}
 
 \newenvironment{proof}
 {
@@ -265,7 +276,7 @@
     \end{mytcb}
 }
 
-\newenvironment{note}[1][Note \currpath.]
+\newenvironment{note}[1][Note.]
 {
   \begin{mytcb}[title={#1}, 
     colback=_gray!15, colbacktitle=_gray!30, coltitle=black, colframe=_gray!60!black,
@@ -275,7 +286,7 @@
   \end{mytcb}
 }
 
-\newenvironment{definition}[1][Definition \currpath.]
+\newenvironment{definition}[1][Definition.]
 {
   \begin{mytcb}[title={#1}, 
     colback=blue!5, colbacktitle=blue!20, coltitle=black, colframe=blue!60!black,
@@ -327,7 +338,7 @@
 }
 \makeatother
 
-\def\rinclude#1{\include{\curr/#1}}
+\def\rinclude#1{\input{\curr/#1}}
 
 \newenvironment{rtitlepage}
 {
@@ -346,7 +357,8 @@
 }
 
 \def\srulen{\hrule}
-\def\srule{\vspace{10pt}\srulen}
+\def\srule{\srulen\vspace{7pt}}
+\def\erule{\vspace{8pt}\srulen}
 \def\srulei{\vspace{4pt}\srule}
 
 \def\bnosp{\edef\xspaceskiporig{\the\xspaceskip}\edef\spacefactororig{\the\spacefactor}\let\parorig\par\spacefactor=10000\xspaceskip=0.00001pt\let\par\relax}
