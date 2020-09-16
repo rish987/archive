@@ -97,7 +97,7 @@
     \iffull%
     \hyperlink{#1}{#2}%
     \else%
-    \href{#1}{#2}%
+    \href[page=1]{#1}{#2}%
     \fi%
     \lnfalse
   %\fi%

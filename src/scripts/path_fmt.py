@@ -26,3 +26,12 @@ archives_link = "\\lngraw{{{}}}{{{}}}".format("archives", "/")
 
 path = "\colorbox{{__gray}}{{{{\\tt{{}}{0}}}}}".format(archives_link + "/".join(path_split_fmt))
 print(path)
+
+try:
+    sys.stdout.close()
+except:
+    pass
+try:
+    sys.stderr.close()
+except:
+    pass
