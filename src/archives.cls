@@ -357,7 +357,8 @@
 }
 
 \def\srulen{\hrule}
-\def\srule{\srulen\vspace{7pt}}
+\def\srule{\srulen\vspace{2pt}}
+\def\serule{\vspace{8pt}\srulen\vspace{2pt}}
 \def\erule{\vspace{8pt}\srulen}
 \def\srulei{\vspace{4pt}\srule}
 
