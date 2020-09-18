@@ -5,13 +5,6 @@
 
 \LoadClass[a4paper]{report}  
 
-\makeatletter
-\newcommand\mynobreakpar{\par\nobreak\@afterheading} 
-\makeatother
-
-\newcommand{\tsectionfmt}[3]{#1{\bf #2.\nobreak}#3\mynobreakpar}
-\renewenvironment{part}[1]{\newpage\tsectionfmt{\underline}{#1}{}}{}
-
 \RequirePackage{soul}
 \RequirePackage{environ}
 \RequirePackage{mathtools}
@@ -32,6 +25,14 @@
 \setlength{\headheight}{17pt}
 
 \usetikzlibrary{calc}
+
+\makeatletter
+\newcommand\mynobreakpar{\par\nobreak\@afterheading} 
+\makeatother
+
+\newcommand{\tsectionfmt}[3]{#1{\bf #2.\nobreak}#3\mynobreakpar}
+\renewenvironment{part}[1]{\newpage\tsectionfmt{\underline}{#1}{}}{}
+
 % --- general notation ---
 \newcommand{\listgen}[3]{\ensuremath{#1_#2, \ldots, #1_{#3}}}
 \newcommand{\listof}[2]{\listgen{#1}{1}{#2}}
@@ -55,8 +56,11 @@
 % ---
 
 \newif\iffull
+\newif\ifonline
+\newif\ifcompact
 \newif\ifln
 \fullfalse
+\compactfalse
 \lnfalse
 
 % --- colors ---
@@ -97,7 +101,11 @@
     \iffull%
     \hyperlink{#1}{#2}%
     \else%
-    \href[page=1]{#1}{#2}%
+    \ifonline%
+      \href[page=1]{https://rish987.github.io/files/archives/tree/#1}{#2}%
+    \else%
+      \href[page=1]{#1}{#2}%
+    \fi%
     \fi%
     \lnfalse
   %\fi%
@@ -111,15 +119,20 @@
 
 % "local" reference link
 \newcommand\lnl[4][]{%
-    \getrefnum{\currreference/#2/#3}{\refnum}%
+  \getrefnum{\currreference/#2/#3}{\refnum}%
+  \gdef\temppath{}%
   \iffull%
-    \def\temppath{\currreference/#2/#3}%
+    \gdef\temppath{\currreference/#2/#3}%
     \global\edef\templabel{\temppath_}%
     \hypertarget{\templabel}{}%
-    \lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}{\refnum}%
   \else%
-    \lnfmt[#1]{#2/#3/ref.pdf}{#4}{\csname #2d\endcsname}{\refnum}%
+    \ifonline%
+      \gdef\temppath{\currreference/#2/#3/ref.pdf}%
+    \else%
+      \gdef\temppath{#2/#3/ref.pdf}%
+    \fi%
   \fi%
+  \lnfmt[#1]{\temppath}{#4}{\csname #2d\endcsname}{\refnum}%
 }
 
 % "global" reference link
@@ -197,7 +210,7 @@
 \newenvironment{reference}[1]
 {%
   \def\currreference{#1}%
-  \newpage%
+  \ifcompact\else\newpage\fi%
   \iffull%
     \hypertarget{#1}{}%
   \fi%
@@ -208,11 +221,14 @@
   %\setcounter{page}{1}%
   \expandafter\gdef\expandafter\currrefnum\expandafter{\currrefnum}%
   \inheritdefs{\curr}%
-  \hrule
-  \currrefnumfmt \hfill \currpathfmt\\\vspace{-8pt}
+  \hrule \nopagebreak%
+  \currrefnumfmt \hfill \currpathfmt\\\nopagebreak\vspace{-8pt}\nopagebreak%
 }%
 {
-  \erule
+  \nopagebreak%
+  \erule%
+  \vspace{10pt}
+  \pagebreak[3]
 }
 
 \def\refenvl#1#2#3{{\bnosp\inheritdefs{\curr/#1/#2}\enosp{}#3}}
@@ -235,7 +251,13 @@
 % ---
 
 % --- reference path formatting ---
-\def\getrelpathln#1#2{\readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}}
+\def\getrelpathln#1#2{%
+  \ifonline%
+    \def#2{#1/ref.pdf}%
+  \else%
+    \readcmd{python \root/scripts/relpathln.py "\curr" "\root/#1"}{#2}%
+  \fi%
+  }
 
 \def\gend#1{{\color{blue!90!black} #1}}
 \def\proofd{\gend{P}}
