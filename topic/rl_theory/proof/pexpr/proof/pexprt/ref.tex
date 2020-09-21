@@ -11,7 +11,7 @@
 
   \serule
   {\it Inductive hypothesis.}
-  Assume that for $\TT - 1$ such that $1 \le \TT - 1 \le \T - 1$,
+  Assume that for $\TT - 1$ such that $1 \rell {\le} tmg \TT - 1 \rell {\le} tml \T - 1$,
   the proposition holds. That is,
   $$ \pexprtihp \rell = ih \pexprtih.$$%
   \srule
@@ -22,7 +22,7 @@
   \begin{itemize}
     \item Case 1: $\pexprtihp \rell = co 0$. 
       Then,
-      $$\pexprtihp \relr = co \ 0\  \rellrf{=}{coz}{\mrefmargzimpl} \pexprtp,$$
+      $$\pexprtp  \rellrf{=}{coz}{(co)->\mrefmargzimpl} 0,$$
       and
       \begin{align*}
         &\pexprt \\
@@ -33,10 +33,10 @@
       \end{align*}
     \item Case 2: $\pexprtihp \rell > ct 0$. 
       Then, 
-      \ctext{$\isbf \rellrf{\relis}{daf}{ct,\mrefcondprob} \defined$, $\isb \rellrf{\relis}{da}{ct,\reflnm{proof}{marggimpl},\mrefcondprob} \defined$,}
+      \ctext{$\isbf \rellrf{\relis}{daf}{(ct)->\mrefcondprob} \defined$, $\isb \rellrf{\relis}{da}{((ct)->\reflnm{proof}{marggimpl})->\mrefcondprob} \defined$,}
       and we have
-      $$\isbf \rellr = cia daf,\mreflng{proof}{archive/topic/rl_theory/proof/actcind} \isb 
-      \rellr = ad da,\mreflng{definition}{archive/topic/rl_theory/definition/pact} \isact.$$
+      $$\isbf \rellr = cia (daf,tmg,tml)->\mreflng{proof}{archive/topic/rl_theory/proof/actcind} \isb 
+      \rellr = ad (da,tmg,tml)->\mreflng{definition}{archive/topic/rl_theory/definition/pact} \isact.$$
 
       \reflng{definition}{archive/topic/rl_theory/definition/pactdef}{There are two cases} to consider:
       \begin{itemize}
@@ -49,11 +49,11 @@
                    &\rellr > mg ct 0.
           \end{align*}
           Therefore, 
-          $$\iscf \rellrf{\relis}{dsf}{md-mg,\mrefcondprob} \defined,\isc \rellrf{\relis}{ds}{md-mg,\mrefmarggimpl,\mrefcondprob} \defined$$
+          $$\iscf \rellrf{\relis}{dsf}{(md-mg)->\mrefcondprob} \defined,\isc \rellrf{\relis}{ds}{((md-mg)->\mrefmarggimpl)->\mrefcondprob} \defined$$
           and we have
           $$\iscf 
-          \rellr = cis dsf,\mreflng{definition}{archive/topic/rl_theory/definition/trdcind} \isc 
-          \rellr = sd ds,\mreflng{definition}{archive/topic/rl_theory/definition/trd} \istrd.$$
+          \rellr = cis (dsf,tmg,tml)->\mreflng{definition}{archive/topic/rl_theory/definition/trdcind} \isc 
+          \rellr = sd (ds,tmg,tml)->\mreflng{definition}{archive/topic/rl_theory/definition/trd} \istrd.$$
           Therefore,
           \begin{align*}
             \pexprtp 
@@ -64,12 +64,12 @@
         \item Case 2.2: $\isact \rell = ctt 0$.
           Then,
           \begin{align*}
-            \ismid &\relr = daf \isbf \times \pexprtihp\\
+            \ismid &\rellr = afd daf \isbf \times \pexprtihp\\
                    &\relr = cia-ad \isact \times \pexprtihp\\
-                   &\relr = ctt 0.
+                   &\rellr = afz ctt 0.
           \end{align*}
           Therefore,
-          $$\pexprtp \rell = cttz 0,$$
+          $$\pexprtp \rellr = cttz {(afd-afz)->\mrefmargzimpl} 0,$$
           so
           $$\pexprtp
           \relr = cttz \ 0 \ 
