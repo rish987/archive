@@ -1,0 +1,34 @@
+\begin{center}
+{\LARGE \hlc[___gray]{Probability Theory}}\\
+\end{center}
+\begin{part} {Physical intuition}
+  \def\AV{{\rm A}}
+  \def\BV{{\rm B}}
+  \def\R{\colorbox{red}{\rm R}}
+  \def\B{\colorbox{blue}{\rm B}}
+  Suppose that we have a \var\ with a finite \dmn:
+  \def\tvar#1#2#3#4{
+    \node[draw=black,inner sep=8mm,rectangle] (#1) at (#2) {};
+    \node[anchor=north west] at (#1.north west) {$#3$};
+    \node[fill=___gray,minimum size=6mm,rectangle] at (#2) {#4};
+  }
+  \begin{center}
+    \begin{tikzpicture}
+      \tvar{AR}{0,0}{\AV}{}
+      \node[anchor=south] at (AR.north) {\var};
+
+      \node[draw=black,minimum height=10mm,minimum width=15mm,rectangle] (DM) at (2,0) {};
+      \node at ($(DM.west)!0.5!(DM.center)$) {\R};
+      \node at ($(DM.east)!0.5!(DM.center)$) {\B};
+      \node[anchor=south] at (DM.north) {\dmn};
+    \end{tikzpicture},
+  \end{center}
+  where an \asn\ consists of associating a \var\ 
+  with something from its \dmn:
+  \begin{center}
+    \begin{tikzpicture}
+      \tvar{AR}{0,2}{\AV}{\B}
+      \node[anchor=south] at (AR.north) {\asn};
+    \end{tikzpicture}
+  \end{center}
+\end{part}
