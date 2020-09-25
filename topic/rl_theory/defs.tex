@@ -33,13 +33,18 @@
 \def\STTSF#1#2{\enm{\lngraw{archive/topic/rl_theory/definition/strs}{\pi_{#1}\left(#2\right)}}}
 \def\STTS#1{{\STTSF{#1}{\cdot}}}
 
-\def\PSTT#1{\enm{\lngraw{archive/topic/rl_theory/definition/pstr}{\P_{\STT}\left(#1\right)}}}
+\def\PSTTP{\enm{\lngraw{archive/topic/rl_theory/definition/pstr}{\P_{\STT}}}}
+\def\PSTT#1{\enm{\lngraw{archive/topic/prob/definition/prob}{\PSTTP\left(#1\right)}}}
+\def\MPSTT#1{\enm{\lngraw{archive/topic/prob/definition/mprob}{\PSTTP\left(#1\right)}}}
+\def\CPSTT#1#2{\enm{\lngraw{archive/topic/prob/definition/cprob}{\PSTTP\left(#1 \mid #2\right)}}}
 \def\ESTT#1{\enm{\lngraw{archive/topic/rl_theory/definition/estr}{{\mathbb E}_{\STT}\left[#1\right]}}}
 
 \def\PP{\enm{\lngraw{archive/topic/rl_theory/note/paramprob}{\rm P}}}
 \def\PIND#1{\enm{\lngraw{archive/topic/rl_theory/definition/inddef}{\PP_{\rm I}\left(#1\right)}}}
 \def\PACT#1#2#3#4{\enm{\lngraw{archive/topic/rl_theory/definition/pactdef}{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}}}
 \def\PTRD#1#2#3{\enm{\lngraw{archive/topic/rl_theory/definition/trddef}{\PP_{\rm T}\left(#1 \mid #2, #3\right)}}}
+
+\def\DDSTT{\enm{\lngraw{archive/topic/rl_theory/definition/psp}{\DD_{\STT}}}}
 
 \def\astr{\enm{\STT \in \ST}}
 % ---

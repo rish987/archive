@@ -1,19 +1,19 @@
 \def\last{\enm{\TT - 1}}
 \def\sslast{\enm{\SS_{\last}}}
 \def\aalast{\enm{\AA_{\last}}}
-\def\prelist{\enm{\implasn{\SS_1, \AA_1, \SS_2, \ldots, \sslast}}}
-\def\postlist{\enm{\implasn{\SS_1, \AA_1, \SS_2, \ldots, \SS_\TT}}}
-\def\pprelist{\enm{\PSTT{\prelist}}}
+\def\prelist{\enm{\SS_1, \AA_1, \SS_2, \ldots, \sslast}}
+\def\postlist{\enm{\SS_1, \AA_1, \SS_2, \ldots, \SS_\TT}}
+\def\pprelist{\enm{\MPSTT{\prelist}}}
 \def\isact{\enm{\PACT{\STT}{\last}{\aalast}{\sslast}}}
 \def\istrd{\enm{\PTRD{\SS_\TT}{\aalast}{\sslast}}}
 \def\isa{\enm{\pprelist}}
-\def\isbf{\enm{\PSTT{\implasn{\aalast \mid \prelist}}}}
-\def\isb{\enm{\PSTT{\implasn{\aalast \mid \sslast}}}}
-\def\ismid{\enm{\PSTT{\implasn{\prelist, \aalast}}}}
-\def\iscf{\enm{\PSTT{\implasn{\SS_\TT \mid \aalast, \prelist}}}}
-\def\isc{\enm{\PSTT{\implasn{\SS_\TT \mid \AA_{\TT - 1}, \SS_{\TT - 1}}}}}
-\def\bcind{\enm{\PIND{\implasn{\SS_1}}}}
-\def\bca{\enm{\PSTT{\implasn{\SS_1}}}}
+\def\isbf{\enm{\CPSTT{\aalast}{\prelist}}}
+\def\isb{\enm{\CPSTT{\aalast}{\sslast}}}
+\def\ismid{\enm{\MPSTT{\prelist, \aalast}}}
+\def\iscf{\enm{\CPSTT{\SS_\TT}{\aalast, \prelist}}}
+\def\isc{\enm{\CPSTT{\SS_\TT}{\AA_{\TT - 1}, \SS_{\TT - 1}}}}
+\def\bcind{\enm{\PIND{\SS_1}}}
+\def\bca{\enm{\MPSTT{\SS_1}}}
 \def\pexprtp{\enm{\pexprjointdistg{\TT}}}
 \def\pexprt{\enm{\pexprg{\TT}{\TT'}}}
 \def\pexprtih{\enm{\pexprgg{\TT - 1}{\TT - 2}{\TT'}}}

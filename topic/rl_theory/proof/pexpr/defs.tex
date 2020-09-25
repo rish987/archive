@@ -1,7 +1,7 @@
-\def\pexprjointdistasng#1{\enm{\PSTT{\SV1 = \SS_1, \AV1 = \AA_1, \SV2 = \SS_2, \ldots, \SV{#1} = \SS_{#1}}}}
-\def\pexprjointdistasn{\enm{\pexprjointdistasng\T}}
-\def\pexprjointdistg#1{\enm{\PSTT{\implasn{\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1}}}}}
-\def\pexprjointdist{\enm{\pexprjointdistg\T}}
+\def\pexprjointdistasng#1{\enm{\MPSTT{\SV1 = \SS_1, \AV1 = \AA_1, \SV2 = \SS_2, \ldots, \SV{#1} = \SS_{#1}}}}
+\def\pexprjointdistasn{\enm{\PSTT{\SV1 = \SS_1, \AV1 = \AA_1, \SV2 = \SS_2, \ldots, \SV\T = \SS_\T}}}
+\def\pexprjointdistg#1{\enm{\MPSTT{\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1}}}}
+\def\pexprjointdist{\enm{\PSTT{\SS_1, \AA_1, \SS_2, \ldots, \SS_\T}}}
 \def\pexprgg#1#2#3{\enm{\PIND{\SS_1}\times
        \aprod{{#3} = 1}{#2}{
        \PACT{\STT}{{#3}}{\AA_{#3}}{\SS_{#3}}

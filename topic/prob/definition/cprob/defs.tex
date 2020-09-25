@@ -1,9 +1,9 @@
 \def\cprobdef#1{%
-  for \ctx\ $\SSPT{\S}{(\XV,\X), (\YV,\Y)}$, $\DD \in \D$, and all $\XX \in \X$, $\YY \in \Y$,
+  for \ctx\ $\SSPT{\SPT}{(\XV,\X), (\YV,\Y)}$, $\DD \in \D$, and all $\XX \in \X$, $\YY \in \Y$,
   $$\CPr{\XV = \XX}{\YV = \YY} = \frac{\Pr{\XV = \XX, \YV = \YY}}{\MPr{\YV = \YY}},$$
   and undefined when $\MPr{\YV = \YY} = 0$; that is, a \cprb.
 
-  Similarly, we define for \ctx\ $\SSPT{\S}{(\XV,\X), (\YV,\Y), (\ZV,\Z)}$, $\DD \in \D$, and all $\XX \in \X$, $\YY \in \Y$,
+  Similarly, we define for \ctx\ $\SSPT{\SPT}{(\XV,\X), (\YV,\Y), (\ZV,\Z)}$, $\DD \in \D$, and all $\XX \in \X$, $\YY \in \Y$,
   $$\CPr{\XV = \XX}{\YV = \YY} = \frac{\MPr{\XV = \XX, \YV = \YY}}{\MPr{\YV = \YY}},$$
   and undefined when $\MPr{\YV = \YY} = 0$; the only difference being that the numerator is now a \mprb\ instead of a \jprb#1%
 }

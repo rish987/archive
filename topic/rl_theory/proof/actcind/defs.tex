@@ -3,24 +3,26 @@
 $\XV$ supported on $\X$,
 $\YV$ supported on $\Y$,
 $\ZV$ supported on $\Z$,}}
-\def\pcindpre#1{\enm{\PSTT(\XV \mid \YV) = #1}}
-\def\pcindpostp{\enm{\PSTT(\XV \mid \YV, \ZV)}}
+\def\pcindpre#1{\enm{\CPSTT{\XV}{\YV} = #1}}
+\def\pcindpostp{\enm{\CPSTT{\XV}{\YV, \ZV}}}
 \def\pcindpost#1{\enm{\pcindpostp = #1}}
 \def\pcindeq#1{\enm{\pcindpre{#1}\implies \pcindpost{#1}}}
 \def\pcindprop#1#2{%
+      \ntodo{out of date; to be reworded and put under {\tt /T/prob}.}
+
       for any random variables 
       \listrv
       we have that, when \pcindpostp\ is defined,
     $$\pcindeq{#1}#2$$}
-\def\pactdefp{\enm{\PSTT{\AV\TT = \AA \mid \SV\TT = \SS}}}
+\def\pactdefp{\enm{\CPSTT{\AV\TT = \AA}{\SV\TT = \SS}}}
 \def\pactdefpp{\enm{\PACT\STT\TT\AA\SS}}
 \def\pactdef{\enm{\pactdefp = \pactdefpp}}
 \def\actcindrange{$\astr$, $1 \le \TT \le \T - 1$}
 \def\actcindpreprelist{\enm{\implgen{\AV{\TTM}, \SV{\TTM}, \ldots, \AV{1}, \SV{1}}}}
 \def\actcindprelist{\enm{\implgen{\SV{\TT}, \actcindpreprelist}}}
-\def\actcindpre{\enm{\PSTT{\implgen{\AV\TT \mid \actcindprelist}}}}
+\def\actcindpre{\enm{\CPSTT{\AV\TT}{\actcindprelist}}}
 \def\actcindpostlist{\enm{\implgen{\SV{\TT}}}}
-\def\actcindpost{\enm{\PSTT{\implgen{\AV\TT \mid \actcindpostlist}}}}
+\def\actcindpost{\enm{\CPSTT{\AV\TT}{\actcindpostlist}}}
 \def\actcindeq{\enm{\actcindpre = \actcindpost}}
 \def\actcindpropg#1#2{$\AV\TT$ is independent of all previous \til{}s and \act{}s given $\SV\TT$.
 Notationally, 
