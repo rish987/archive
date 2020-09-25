@@ -79,28 +79,32 @@
   \jasn\ to \trl{}s so far becomes arbitrarily close to 
   some positive number. 
   Otherwise, if an \jasn\ never occurs, the ratio remains at zero.
-  Let's call this ratio the ``\prb'' of the \jasn.
+  Let's call this ratio the ``\sprb'' of the \jasn.
   Let's refer to such a \seq\ as a \pseq.
 
   \newpage
-  For example, if the \seq\ above repeated the first five \trl{}s, it would be a \pseq\ defining the \prbs:
+  For example, if the \seq\ above repeated the first five \trl{}s, it would be a \pseq\ defining the \sprbs:
   \begin{center}
     \begin{tikzpicture}
-      \tjasn{A1}{B1}{\B}{\1}{(0,0)}
-      \tjasn{A2}{B2}{\B}{\0}{($(A1.east) + (2,0)$)}
-      \tjasn{A3}{B3}{\R}{\1}{($(A2.east) + (2,0)$)}
-      \tjasn{A4}{B4}{\R}{\0}{($(A3.east) + (2,0)$)}
+      \node (F) at (0,0) {\tikz{
+        \tjasn{A1}{B1}{\B}{\1}{(0,0)}
+        \tjasn{A2}{B2}{\B}{\0}{($(A1.east) + (2,0)$)}
+        \tjasn{A3}{B3}{\R}{\1}{($(A2.east) + (2,0)$)}
+        \tjasn{A4}{B4}{\R}{\0}{($(A3.east) + (2,0)$)}
 
-      \node[anchor=south] at (A1.north) {\prb: 0.4};
-      \node[anchor=south] at (A2.north) {\prb: 0.2};
-      \node[anchor=south] at (A3.north) {\prb: 0.4};
-      \node[anchor=south] at (A4.north) {\prb: 0.0};
+        \node[anchor=south] at (A1.north) {0.4};
+        \node[anchor=south] at (A2.north) {0.2};
+        \node[anchor=south] at (A3.north) {0.4};
+        \node[anchor=south] at (A4.north) {0.0};
+        }};
+      \node[anchor=south] at (F.north) {\sprbs};
     \end{tikzpicture}
   \end{center}
 
-  For any assignment of \prbs\ to all possible \jasn{}s,
-  let a ``\dist'' be the set of all \seq{}s
-  that define those \prbs.
+  Let a ``\dist'' be a set of \pseq{}s with the same 
+  \sprb\ for every \asn, which,
+  in the context of a \dist, we will simply refer to as the ``\jprb'' (``\prb'' for short)
+  of that \asn.
 \end{part}
 
 \begin{part}{Notation}
@@ -117,11 +121,17 @@
 
   \reflnenv{definition}{seq}{Let}{, \seqdef}
 
-  \reflnenv{definition}{prsq}{Define}{, \prsqdef}
+  \reflnenv{definition}{prsq}{Define}{, \prsqdef.}
 
   \reflnenv{definition}{seqp}{Let}{, \seqpdef.}
 
   \reflnenv{definition}{dist}{Define}{, \distdef.}
 
   \reflnenv{definition}{prob}{Define}{, \probdef.}
+
+  \reflnenv{definition}{mprob}{Define}{, \mprobdef.}
+
+  \reflnenv{proof}{mprobg}{It can be shown}{ that, \mprobgprop.}
+
+  \reflnenv{definition}{cprob}{Define}{, \cprobdef.}
 \end{part}

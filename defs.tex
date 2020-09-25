@@ -1,6 +1,12 @@
 \def\whbdt{We have by definition that}
 \def\P{\enm{{\rm Pr}}}
-\def\Pr#1{\enm{\P\left(#1\right)}}
+\def\JASN#1{\enm{#1}}
+\def\MASN#1{\enm{#1}}
+\def\Pr#1{\enm{\P\left(\JASN{#1}\right)}}
+\def\MPr#1{\enm{\P\left(\MASN{#1}\right)}}
+\def\CPr#1#2{\enm{\P\left(\MASN{#1}\mid\MASN{#2}\right)}}
 \def\R{\enm{{\mathbb R}}}
 \def\E{\enm{{\mathbb E}}}
 \def\ctx{contextual}
+
+\def\mrefmargprob{\mreflng{definition}{archive/topic/prob/definition/mprob}}
