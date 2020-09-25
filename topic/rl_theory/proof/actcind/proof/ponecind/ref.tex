@@ -6,10 +6,10 @@
   Suppose 
   $\XV = \XX \in \X$,
   $\YV = \YY \in \Y$, and
-  $\ZV = \ZZ \in \Z$. Assume that $\P(\XX \mid \YY) \rell = lo 1$ and $\P(\YY, \ZZ) \rell > rpg 0$.
+  $\ZV = \ZZ \in \Z$. Assume that $\Pr{\XX \mid \YY} \rell = lo 1$ and $\Pr{\YY, \ZZ} \rell > rpg 0$.
 
   By assumption,
-  $$\ppre\XX \relrf{=}{lo,\reflnm{definition}{condprob}} \P(\YY) 
+  $$\ppre\XX \relrf{=}{lo,\reflnm{definition}{condprob}} \Pr{\YY} 
   \relrf{=}{\reflnm{definition}{margprob}} \ppre\XX + \sum_{\others}\ppre{\XX'},$$
     so
     $$\forall \others,\ \ppre{\XX'} = 0,$$
@@ -17,8 +17,8 @@
   $$\forall \others,\ \ppost{\XX'} \rell = az 0.$$
 
   Therefore, $$\ppost{\XX} \rellr = arm az \ppost{\XX} + \sum_{\others}\ppost{\XX'} 
-  \rellrf{=}{rm}{\mrefmargprob} \P(\YY, \ZZ) \rellr > gf rpg 0,$$
-  so $$\P(\XX \mid \YY, \ZZ) 
-  \relrgf{=}{(rpg)->\mrefcondprob}{15pt} \frac{\P(\XX, \YY, \ZZ)}{\P(\YY, \ZZ)} 
+  \rellrf{=}{rm}{\mrefmargprob} \Pr{\YY, \ZZ} \rellr > gf rpg 0,$$
+  so $$\Pr{\XX \mid \YY, \ZZ} 
+  \relrgf{=}{(rpg)->\mrefcondprob}{15pt} \frac{\Pr{\XX, \YY, \ZZ}}{\Pr{\YY, \ZZ}} 
   \relrg = arm-rm,gf 15pt 1.$$%
 \end{proof}

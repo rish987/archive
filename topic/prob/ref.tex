@@ -6,29 +6,122 @@
   \def\BV{{\rm B}}
   \def\R{\colorbox{red}{\rm R}}
   \def\B{\colorbox{blue}{\rm B}}
-  Suppose that we have a \var\ with a finite \dmn:
+  \def\1{\colorbox{__gray}{1}}
+  \def\0{\colorbox{__gray}{0}}
+  Suppose that we have a set of ``\var{}s,''
+  each with their own finite ``\dmn{}s'',
+  which we'll collectively refer to as the ``\spt'':
   \def\tvar#1#2#3#4{
-    \node[draw=black,inner sep=8mm,rectangle] (#1) at (#2) {};
+    \node[draw=black,inner sep=8mm,rectangle] (#1) at #2 {};
     \node[anchor=north west] at (#1.north west) {$#3$};
-    \node[fill=___gray,minimum size=6mm,rectangle] at (#2) {#4};
+    \node[fill=___gray,minimum size=6mm,rectangle] at #2 {#4};
   }
   \begin{center}
     \begin{tikzpicture}
-      \tvar{AR}{0,0}{\AV}{}
+
+      \tvar{AR}{(0,0)}{\AV}{}
       \node[anchor=south] at (AR.north) {\var};
 
-      \node[draw=black,minimum height=10mm,minimum width=15mm,rectangle] (DM) at (2,0) {};
-      \node at ($(DM.west)!0.5!(DM.center)$) {\R};
-      \node at ($(DM.east)!0.5!(DM.center)$) {\B};
-      \node[anchor=south] at (DM.north) {\dmn};
+      \node[draw=black,minimum height=10mm,minimum width=15mm,rectangle] (DA) at (2,0) {};
+      \node at ($(DA.west)!0.5!(DA.center)$) {\R};
+      \node at ($(DA.east)!0.5!(DA.center)$) {\B};
+      \node[anchor=south] at (DA.north) {\dmn};
+
+      \tvar{BR}{(0,-2.5)}{\BV}{}
+      \node[anchor=south] at (BR.north) {\var};
+
+      \node[anchor=east] at ($(AR.west)!0.5!(BR.west) + (-0.6, 0)$) {\spt:};
+
+      \node[draw=black,minimum height=10mm,minimum width=15mm,rectangle] (BD) at (2,-2.5) {};
+      \node at ($(BD.west)!0.5!(BD.center)$) {\1};
+      \node at ($(BD.east)!0.5!(BD.center)$) {\0};
+      \node[anchor=south] at (BD.north) {\dmn};
     \end{tikzpicture},
   \end{center}
-  where an \asn\ consists of associating a \var\ 
-  with something from its \dmn:
+  where a ``\masn'' consists of associating some (but not all) of the \var{}s of the \spt\ 
+  with something from their \dmn{}s:
   \begin{center}
     \begin{tikzpicture}
-      \tvar{AR}{0,2}{\AV}{\B}
-      \node[anchor=south] at (AR.north) {\asn};
+      \tvar{AR}{(0,0)}{\AV}{\B}
+      \node[anchor=south] at (AR.north) {\masn};
+    \end{tikzpicture},
+  \end{center}
+  a ``\jasn'' (``\asn'' for short) consists of associating each \var\ of the \spt\ with something from its \dmn:
+  \def\tjasn#1#2#3#4#5{
+    \tvar{#1}{#5}   {\AV}{#3}
+    \tvar{#2}{($#5 + (0,-1.6)$)}{\BV}{#4}
+  }
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south] at (AR.north) {\jasn};
+      \tjasn{A}{B}{\B}{\1}{(0,0)}
+    \end{tikzpicture},
+  \end{center}
+  a ``\seq'' consists of an infinite, ordered list of such \jasn{}s:
+  \begin{center}
+    \begin{tikzpicture}
+      \node (F) at (0,0) {\tikz{
+      \tjasn{A1}{B1}{\B}{\1}{(0,0)}
+      \tjasn{A2}{B2}{\B}{\0}{($(A1.east) + (0.8,0)$)}
+      \tjasn{A3}{B3}{\R}{\1}{($(A2.east) + (0.8,0)$)}
+      \tjasn{A4}{B4}{\B}{\1}{($(A3.east) + (0.8,0)$)}
+      \tjasn{A5}{B5}{\R}{\1}{($(A4.east) + (0.8,0)$)}
+      \node[anchor=west] at ($(A5.south east) + (0.3,0)$) {$\cdots$};
+      }};
+      \node[anchor=south] at (F.north) {\seq};
+    \end{tikzpicture},
+  \end{center}
+  and a ``\trl'' denotes a particular item (i.e. an indexed \jasn) of this \seq.
+
+  Now, suppose something in particular about this \seq:
+  if an \jasn\ occurs at any \trl, it will occur in infinitely many \trl{}s,
+  and, additionally, as we the traverse \seq\ in order, the ratio of occurrences of the
+  \jasn\ to \trl{}s so far becomes arbitrarily close to 
+  some positive number. 
+  Otherwise, if an \jasn\ never occurs, the ratio remains at zero.
+  Let's call this ratio the ``\prb'' of the \jasn.
+  Let's refer to such a \seq\ as a \pseq.
+
+  \newpage
+  For example, if the \seq\ above repeated the first five \trl{}s, it would be a \pseq\ defining the \prbs:
+  \begin{center}
+    \begin{tikzpicture}
+      \tjasn{A1}{B1}{\B}{\1}{(0,0)}
+      \tjasn{A2}{B2}{\B}{\0}{($(A1.east) + (2,0)$)}
+      \tjasn{A3}{B3}{\R}{\1}{($(A2.east) + (2,0)$)}
+      \tjasn{A4}{B4}{\R}{\0}{($(A3.east) + (2,0)$)}
+
+      \node[anchor=south] at (A1.north) {\prb: 0.4};
+      \node[anchor=south] at (A2.north) {\prb: 0.2};
+      \node[anchor=south] at (A3.north) {\prb: 0.4};
+      \node[anchor=south] at (A4.north) {\prb: 0.0};
     \end{tikzpicture}
   \end{center}
+
+  For any assignment of \prbs\ to all possible \jasn{}s,
+  let a ``\dist'' be the set of all \seq{}s
+  that define those \prbs.
+\end{part}
+
+\begin{part}{Notation}
+  Let's correspond this intuition with some notation, and use this 
+  notation to arrive at a few more definitions.
+
+  \reflnenv{definition}{xyz}{Define}{ \xyzdef}
+
+  \reflnenv{definition}{spt}{We let the notation}{ \sptdef.}
+
+  \reflnenv{definition}{jasn}{Let}{, \jasndef.}
+
+  \reflnenv{definition}{masn}{Let}{, \masndef.}
+
+  \reflnenv{definition}{seq}{Let}{, \seqdef}
+
+  \reflnenv{definition}{prsq}{Define}{, \prsqdef}
+
+  \reflnenv{definition}{seqp}{Let}{, \seqpdef.}
+
+  \reflnenv{definition}{dist}{Define}{, \distdef.}
+
+  \reflnenv{definition}{prob}{Define}{, \probdef.}
 \end{part}
