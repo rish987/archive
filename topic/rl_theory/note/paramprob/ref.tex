@@ -12,19 +12,13 @@
   when it is a conditional probability.
 
   When we correspond a probability with a \paramprob,
-  we almost always mean to say that, for a particular input, 
+  we mean to say that, for a particular input, 
   they are equal when the probability is defined.
 
-  \def\X{{\mathbf X}}
-  \def\XV{{\rm X}}
-  \def\XX{{\rm x}}
+  For example, suppose $\SSPT{\S}{(\XV,\X),(\YV,\Y)}$ with any $\DD$.
 
-  \def\Y{{\mathbf Y}}
-  \def\YV{{\rm Y}}
-  \def\YY{{\rm y}}
-  For example, consider the random variables $\XV$, $\YV$,
-  supported on $\X$ and $\Y$ respectively. For $\XX \in \X$, $\YY \in \Y$,
-  if we correspond $\Pr{\XV = \XX \mid \YV = \YY}$ with $\PP(\XX \mid \YY)$,
-  we mean to say that when $\Pr{\XV = \XX \mid \YV = \YY}$ is defined (that is, when $\Pr{\YV = \YY} > 0$),
-  $$\Pr{\XV = \XX \mid \YV = \YY} = \PP(\XX \mid \YY).$$%
+  For all $\XX \in \X$, $\YY \in \Y$,
+  if we correspond $\CPr{\XV = \XX}{\YV = \YY}$ with $\PP(\XX \mid \YY)$,
+  we mean to say that when $\CPr{\XV = \XX}{\YV = \YY}$ is defined (that is, when $\MPr{\YV = \YY} > 0$),
+  $$\CPr{\XV = \XX}{\YV = \YY} = \PP(\XX \mid \YY).$$%
 \end{note}
