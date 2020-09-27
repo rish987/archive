@@ -1,6 +1,6 @@
 # --- auxilliary dependencies ---
 # --- --- rl_theory --- ---
-RL_T_D_R := archive/topic/prob/topic/rl_theory
+RL_T_D_R := archive/topic/prob/topic/rl
 RL_T_D := ${BUILD_SOURCE_DIR}/${RL_T_D_R}
 RL_T_INP := ${RL_T_D}/_input/
 RL_T_CODE := ${RL_T_D}/code/
