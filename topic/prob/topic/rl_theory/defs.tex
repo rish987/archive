@@ -1,3 +1,5 @@
+\def\rltpath{archive/topic/prob/topic/rl_theory}
+
 \def\brd{\hlg{environment}}
 \def\agt{\hlg{agent}}
 \def\til{\hlg{state}}
@@ -17,34 +19,34 @@
 
 % ---
 
-\def\S{\enm{\lngraw{archive/topic/rl_theory/definition/states}{{\mathbf S}}}}
-\def\SV#1{\enm{\lngraw{archive/topic/rl_theory/definition/rvst}{{\rm S}_{#1}}}}
-\def\SS{\enm{\lngraw{archive/topic/rl_theory/definition/states}{\rm s}}}
-\def\AV#1{\enm{\lngraw{archive/topic/rl_theory/definition/rvat}{{\rm A}_{#1}}}}
-\def\A{\enm{\lngraw{archive/topic/rl_theory/definition/actions}{\mathbf A}}}
-\def\AA{\enm{\lngraw{archive/topic/rl_theory/definition/actions}{\rm a}}}
-\def\RW#1{\enm{\lngraw{archive/topic/rl_theory/definition/rewards}{R\left(#1\right)}}}
+\def\S{\enm{\lngraw{\rltpath/definition/states}{{\mathbf S}}}}
+\def\SV#1{\enm{\lngraw{\rltpath/definition/rvst}{{\rm S}_{#1}}}}
+\def\SS{\enm{\lngraw{\rltpath/definition/states}{\rm s}}}
+\def\AV#1{\enm{\lngraw{\rltpath/definition/rvat}{{\rm A}_{#1}}}}
+\def\A{\enm{\lngraw{\rltpath/definition/actions}{\mathbf A}}}
+\def\AA{\enm{\lngraw{\rltpath/definition/actions}{\rm a}}}
+\def\RW#1{\enm{\lngraw{\rltpath/definition/rewards}{R\left(#1\right)}}}
 
-\def\T{\enm{\lngraw{archive/topic/rl_theory/definition/steplim}{T}}}
-\def\TT{\enm{\lngraw{archive/topic/rl_theory/definition/steplim}{t}}}
+\def\T{\enm{\lngraw{\rltpath/definition/steplim}{T}}}
+\def\TT{\enm{\lngraw{\rltpath/definition/steplim}{t}}}
 \def\TTM{\enm{\TT - 1}}
-\def\ST{\enm{\lngraw{archive/topic/rl_theory/definition/strs}{\mathbf \Pi}}}
-\def\STT{\enm{\lngraw{archive/topic/rl_theory/definition/strs}{\pi}}}
-\def\STTSF#1#2{\enm{\lngraw{archive/topic/rl_theory/definition/strs}{\pi_{#1}\left(#2\right)}}}
+\def\ST{\enm{\lngraw{\rltpath/definition/strs}{\mathbf \Pi}}}
+\def\STT{\enm{\lngraw{\rltpath/definition/strs}{\pi}}}
+\def\STTSF#1#2{\enm{\lngraw{\rltpath/definition/strs}{\pi_{#1}\left(#2\right)}}}
 \def\STTS#1{{\STTSF{#1}{\cdot}}}
 
-\def\PSTTP{\enm{\lngraw{archive/topic/rl_theory/definition/pstr}{\P_{\STT}}}}
+\def\PSTTP{\enm{\lngraw{\rltpath/definition/pstr}{\P_{\STT}}}}
 \def\PSTT#1{\enm{\lngraw{archive/topic/prob/definition/prob}{\PSTTP\left(\JASN{#1}\right)}}}
 \def\MPSTT#1{\enm{\lngraw{archive/topic/prob/definition/mprob}{\PSTTP\left(\MASN{#1}\right)}}}
 \def\CPSTT#1#2{\enm{\lngraw{archive/topic/prob/definition/cprob}{\PSTTP\left(\MASN{#1} \mid \MASN{#2}\right)}}}
-\def\ESTT#1{\enm{\lngraw{archive/topic/rl_theory/definition/estr}{{\mathbb E}_{\STT}\left[#1\right]}}}
+\def\ESTT#1{\enm{\lngraw{\rltpath/definition/estr}{{\mathbb E}_{\STT}\left[#1\right]}}}
 
-\def\PP{\enm{\lngraw{archive/topic/rl_theory/note/paramprob}{\rm P}}}
-\def\PIND#1{\enm{\lngraw{archive/topic/rl_theory/definition/inddef}{\PP_{\rm I}\left(#1\right)}}}
-\def\PACT#1#2#3#4{\enm{\lngraw{archive/topic/rl_theory/definition/pactdef}{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}}}
-\def\PTRD#1#2#3{\enm{\lngraw{archive/topic/rl_theory/definition/trddef}{\PP_{\rm T}\left(#1 \mid #2, #3\right)}}}
+\def\PP{\enm{\lngraw{\rltpath/note/paramprob}{\rm P}}}
+\def\PIND#1{\enm{\lngraw{\rltpath/definition/inddef}{\PP_{\rm I}\left(#1\right)}}}
+\def\PACT#1#2#3#4{\enm{\lngraw{\rltpath/definition/pactdef}{\PP_{{\rm A}}\left(#1, #2 : #3 \mid #4\right)}}}
+\def\PTRD#1#2#3{\enm{\lngraw{\rltpath/definition/trddef}{\PP_{\rm T}\left(#1 \mid #2, #3\right)}}}
 
-\def\DDSTT{\enm{\lngraw{archive/topic/rl_theory/definition/psp}{\DD_{\STT}}}}
+\def\DDSTT{\enm{\lngraw{\rltpath/definition/psp}{\DD_{\STT}}}}
 
 \def\astr{\enm{\STT \in \ST}}
 % ---
@@ -140,6 +142,6 @@
   \def\condprobpath{archive/topic/prob/definition/cprob}
   \def\margprobpath{archive/topic/prob/proof/mprobg}
 
-\def\fnnot#1#2#3{\enm{\lngraw{archive/topic/rl_theory/note/fnnot}{#1 : #2 \rightarrow #3}}}
+\def\fnnot#1#2#3{\enm{\lngraw{\rltpath/note/fnnot}{#1 : #2 \rightarrow #3}}}
 
-\def\aprod#1#2#3{\enm{\lngraw{archive/topic/rl_theory/note/prodnot}{\prod_{#1}^{#2}#3}}}
+\def\aprod#1#2#3{\enm{\lngraw{\rltpath/note/prodnot}{\prod_{#1}^{#2}#3}}}
