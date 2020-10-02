@@ -6,6 +6,146 @@
   \vspace{7pt}
   \today
 \end{center}
+\begin{part}{Introduction}
+  This is my personal archive,
+  a place where I plan to record
+  what I've learned in the fields of 
+  mathematics, computer science, and more.
+
+  A continual work in progress, the intent is 
+  for it to be a completely self-contained repository,
+  with descriptions that are as concise as physically possible.
+
+  The archive is free and open-source, 
+  together with the archiver, the tool I use to build archives.
+  You can find them below:
+
+  \href{https://github.com/rish987/archive}{\tt github.com/rish987/archive}
+
+  \href{https://github.com/rish987/archiver}{\tt github.com/rish987/archiver}.
+
+\end{part}
+
+\begin{part}{Navigation}
+  It's organized hierarchically into units called ``\refr{}s,''
+  which can be one of the following types:
+  \begin{itemize}
+    \item ``\refroot.'' The \refr\ you're currently on!
+      There's only one \refr\ of this type. 
+      It's reserved for descriptions that apply to the entire archive.
+    \item ``\tpc{}'' (denoted by \topicd). These repeat a general format:
+    \begin{itemize}
+      \item Describe a simple concept that relies on a simple physical intuition.
+      \item Correspond this intuition with some initial notation, and 
+        possibly define some more notation using this initial notation.
+      \item Use this notation to describe some facts that follow from it.
+        These facts are merely stated, not proven.
+    \end{itemize}
+    \item ``\defn'' (denoted by \definitiond). 
+      These introduce notation that depend on a previously described
+      physical intuition, previously defined notation, or a combination of both.
+    \item ``\proofl{}'' (denoted by \proofd). 
+      These state a fact and show why it is true, using previously defined notation.
+    \item ``\notel{}'' (denoted by \noted). 
+      These may be one of the following:
+      \begin{itemize}
+        \item A visual/verbal interpretation of a concept that isn't strictly 
+          necessary for understanding, but could be helpful.
+        \item A temporary stand-in for a \refr\ that will be properly integrated 
+          into its own topic at a later time.
+      \end{itemize}
+  \end{itemize}
+
+  Each \refr\ is delimited by a pair of horizontal rules.
+
+  At the upper-left corner of each \refr\ is a ``\refrnum'' (``RN'' for short),
+  a unique ID that will never, ever change. 
+  When verbally referring to a particular \refr, we say ``RN'' followed by 
+  the \refrnum, e.g. ``RN53.'' 
+  The numbers themselves don't actually mean anything,
+  other than roughly tracking the order in which I created the \refr{}s.
+  In fact, some \refrnum{}s may not actually exist, if I decided to delete its former \refr!
+
+  At the upper-right corner of each \refr\ is a ``\refrpat,'' 
+  a unique path that identifies this \refr's place in the hierarchy of \refr{}s.
+  It's written in UNIX-SHELL path style.
+
+  A \refr\ is linked to either explicitly or implicitly.
+  These links may either be ``local'' or ``global.'' 
+  The difference is contextual -- the 
+  first link to a \refr\ in the hierarchy
+  is a ``local'' link, in that following it will append to the current \refrpat.
+  All other links are ``global,'' in that the current \refrpat\ has
+  no relation to that of the linked \refr.
+  \begin{itemize}
+    \item  An explicit link has the form \exampleln.
+    \item An implicit link is present in the notation, 
+      and links to the \refr\ where the notation was originally defined.
+      Just as notation is nested, so too are the corresponding implicit links.
+
+      We follow the convention that implicit links are always global;
+      it follows that the first link to a \refr\ is always explicit.
+  \end{itemize}
+\end{part}
+
+\begin{part}{Annotations}
+  Equations may be annotated as, for example,:
+  $$a \rellr = x i b \rell = y c \rellr {\ge} z j d,$$
+  followed by
+  $$g \relr = {(x-z)->\exampleln} h,$$
+  where blue underset boxes define ``\labell{}s,''
+  and grey overset boxes provide ``\explnl{}s'' that explain why an (in)equality follows, 
+  using previously defined \labell{}s and other \refr{}s.
+  An \explnl\ is formatted as follows:
+  \begin{itemize}
+    \item {\tt x} indicates to consider the single (in)equality labeled by {\tt x}.
+
+      In the example above, {\tt x} refers to $a = b$.
+    \item {\tt (x-y)} indicates that, when {\tt x} and {\tt y} appear in a chain (in)equality,
+      to consider the equation that results from cropping out what appears 
+      in between the (in)equalities labeled by {\tt x} and {\tt y}.
+
+      In the example above, {\tt(x-z)} refers to $a \ge d$.
+    \item {\tt x->\exampleln} indicates to use (in)equality {\tt x}
+      as the antecendent of the \refr\ linked to by \exampleln.
+
+      In the example above, {\tt(x-z)->\exampleln} refers to use $a \ge d$
+      as an antecedent of the \refr\ with RN {\tt[RN]}.
+  \end{itemize}
+\end{part}
+
+\begin{part}{Formats}
+  The archive is available in the following formats:
+  \begin{itemize}
+    \item \href{https://rish987.github.io/files/archives/tree_online/archive/tree_online.pdf}{\tt {tree\_online}}:
+      Each \refr\ has its own online link in a ``\refr\ tree'' and corresponding PDF. 
+      
+      Links are online hyperlinks.
+    \item \href{https://rish987.github.io/files/archives/tree/archive.tar.gz}{\tt {tree}}:
+      Local download of the \refr\ tree.
+
+      Links are remote PDF links.
+    \item \href{https://rish987.github.io/files/archives/full/archive/full.pdf}{\tt {full}}:
+      All \refr{}s are combined into a single PDF, ordered by depth (i.e., a linearized DAG),
+      where each \refr\ starts on a new page.
+
+      Links are cross-referencing links within the same PDF.
+    \item \href{https://rish987.github.io/files/archives/full_compact/archive/full_compact.pdf}{\tt {full\_compact}}:
+      Identical to {\tt full}, except \refr{}s may start on the same page.
+
+      Links are cross-referencing links within the same PDF.
+  \end{itemize}
+
+  For the best experience, I highly recommend using \href{https://mozilla.github.io/pdf.js/}{\tt pdf.js} 
+  (native to the \href{https://www.mozilla.org/en-US/firefox/new/}{Firefox web browser},
+  but also \href{https://chrome.google.com/webstore/detail/pdf-viewer/oemmndcbldboiebfnladdacbdfmadadm}{available on Chrome})
+  as your PDF viewer, in ``presentation mode'' ({\tt ctrl+alt+p}) on a vertical monitor.
+  Note that with {\tt pdf.js}, you can use your browser's history navigation functionality
+  to traverse your link history ({\tt alt+rightarrow} and {\tt alt+leftarrow}).
+
+  For offline viewing, I highly recommend 
+  \href{http://manpages.ubuntu.com/manpages/xenial/man1/atril.1.html}{Atril Document Viewer}.
+\end{part}
 
 \begin{part}{Topics}
 \refln{topic}{prob}{Probability Theory}
