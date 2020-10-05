@@ -1,4 +1,5 @@
 \begin{center}
+  \nrp
   {\LARGE \hlc[___gray]{The Archive}}\\
   \vspace{10pt}
   \large 
@@ -7,6 +8,7 @@
   \today
 \end{center}
 \begin{part}{Introduction}
+  \nrp
   This is my personal archive,
   a place where I plan to record
   what I've learned in the fields of 
@@ -27,13 +29,14 @@
 \end{part}
 
 \begin{part}{Navigation}
+  \nrp
   It's organized hierarchically into units called ``\refr{}s,''
   which can be one of the following types:
   \begin{itemize}
-    \item ``\refroot.'' The \refr\ you're currently on!
+    \item \nrp ``\refroot.'' The \refr\ you're currently on!
       There's only one \refr\ of this type. 
       It's reserved for descriptions that apply to the entire archive.
-    \item ``\tpc{}'' (denoted by \topicd). These repeat a general format:
+    \item \nrp ``\tpc{}'' (denoted by \topicd). These repeat a general format:
     \begin{itemize}
       \item Describe a simple concept that relies on a simple physical intuition.
       \item Correspond this intuition with some initial notation, and 
@@ -41,12 +44,12 @@
       \item Use this notation to describe some facts that follow from it.
         These facts are merely stated, not proven.
     \end{itemize}
-    \item ``\defn'' (denoted by \definitiond). 
+    \item \nrp ``\defn'' (denoted by \definitiond). 
       These introduce notation that depend on a previously described
       physical intuition, previously defined notation, or a combination of both.
-    \item ``\proofl{}'' (denoted by \proofd). 
+    \item \nrp ``\proofl{}'' (denoted by \proofd). 
       These state a fact and show why it is true, using previously defined notation.
-    \item ``\notel{}'' (denoted by \noted). 
+    \item \nrp ``\notel{}'' (denoted by \noted). 
       These may be one of the following:
       \begin{itemize}
         \item A visual/verbal interpretation of a concept that isn't strictly 
@@ -56,6 +59,7 @@
       \end{itemize}
   \end{itemize}
 
+  \nrp
   Each \refr\ is delimited by a pair of horizontal rules.
 
   At the upper-left corner of each \refr\ is a ``\refrnum'' (``RN'' for short),
@@ -70,6 +74,7 @@
   a unique path that identifies this \refr's place in the hierarchy of \refr{}s.
   It's written in UNIX-SHELL path style.
 
+  \nrp
   A \refr\ is linked to either explicitly or implicitly.
   These links may either be ``local'' or ``global.'' 
   The difference is contextual -- the 
@@ -78,8 +83,8 @@
   All other links are ``global,'' in that the current \refrpat\ has
   no relation to that of the linked \refr.
   \begin{itemize}
-    \item  An explicit link has the form \exampleln.
-    \item An implicit link is present in the notation, 
+    \item \nrp An explicit link has the form \exampleln.
+    \item \nrp An implicit link is present in the notation, 
       and links to the \refr\ where the notation was originally defined.
       Just as notation is nested, so too are the corresponding implicit links.
 
@@ -89,7 +94,8 @@
 \end{part}
 
 \begin{part}{Annotations}
-  Equations may be annotated as, for example,:
+  \nrp
+  Equations may be annotated as, for example:
   $$a \rellr = x i b \rell = y c \rellr {\ge} z j d,$$
   followed by
   $$g \relr = {(x-z)->\exampleln} h,$$
@@ -98,15 +104,15 @@
   using previously defined \labell{}s and other \refr{}s.
   An \explnl\ is formatted as follows:
   \begin{itemize}
-    \item {\tt x} indicates to consider the single (in)equality labeled by {\tt x}.
+    \item \nrp {\tt x} indicates to consider the single (in)equality labeled by {\tt x}.
 
       In the example above, {\tt x} refers to $a = b$.
-    \item {\tt (x-y)} indicates that, when {\tt x} and {\tt y} appear in a chain (in)equality,
+    \item \nrp {\tt (x-y)} indicates that, when {\tt x} and {\tt y} appear in a chain (in)equality,
       to consider the equation that results from cropping out what appears 
       in between the (in)equalities labeled by {\tt x} and {\tt y}.
 
       In the example above, {\tt(x-z)} refers to $a \ge d$.
-    \item {\tt x->\exampleln} indicates to use (in)equality {\tt x}
+    \item \nrp {\tt x->\exampleln} indicates to use (in)equality {\tt x}
       as the antecendent of the \refr\ linked to by \exampleln.
 
       In the example above, {\tt(x-z)->\exampleln} refers to use $a \ge d$
@@ -115,27 +121,29 @@
 \end{part}
 
 \begin{part}{Formats}
+  \nrp
   The archive is available in the following formats:
   \begin{itemize}
-    \item \href{https://rish987.github.io/files/archives/tree_online/archive/tree_online.pdf}{\tt {tree\_online}}:
+    \item \nrp \href{https://rish987.github.io/files/archives/tree_online/archive/tree_online.pdf}{\tt {tree\_online}}:
       Each \refr\ has its own online link in a ``\refr\ tree'' and corresponding PDF. 
       
       Links are online hyperlinks.
-    \item \href{https://rish987.github.io/files/archives/tree/archive.tar.gz}{\tt {tree}}:
+    \item \nrp \href{https://rish987.github.io/files/archives/tree/archive.tar.gz}{\tt {tree}}:
       Local download of the \refr\ tree.
 
       Links are remote PDF links.
-    \item \href{https://rish987.github.io/files/archives/full/archive/full.pdf}{\tt {full}}:
+    \item \nrp \href{https://rish987.github.io/files/archives/full/archive/full.pdf}{\tt {full}}:
       All \refr{}s are combined into a single PDF, ordered by depth (i.e., a linearized DAG),
       where each \refr\ starts on a new page.
 
       Links are cross-referencing links within the same PDF.
-    \item \href{https://rish987.github.io/files/archives/full_compact/archive/full_compact.pdf}{\tt {full\_compact}}:
+    \item \nrp \href{https://rish987.github.io/files/archives/full_compact/archive/full_compact.pdf}{\tt {full\_compact}}:
       Identical to {\tt full}, except \refr{}s may start on the same page.
 
       Links are cross-referencing links within the same PDF.
   \end{itemize}
 
+  \nrp
   For the best experience, I highly recommend using \href{https://mozilla.github.io/pdf.js/}{\tt pdf.js} 
   (native to the \href{https://www.mozilla.org/en-US/firefox/new/}{Firefox web browser},
   but also \href{https://chrome.google.com/webstore/detail/pdf-viewer/oemmndcbldboiebfnladdacbdfmadadm}{available on Chrome})
@@ -143,6 +151,7 @@
   Note that with {\tt pdf.js}, you can use your browser's history navigation functionality
   to traverse your link history ({\tt alt+rightarrow} and {\tt alt+leftarrow}).
 
+  \nrp
   For offline viewing, I highly recommend 
   \href{http://manpages.ubuntu.com/manpages/xenial/man1/atril.1.html}{Atril Document Viewer}.
 \end{part}
