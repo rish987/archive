@@ -24,7 +24,7 @@ __*
 /build/
 /output/
 !/scripts/templates
-videos/
-videos/*
+video/
+video/*
 scripts/record_video.sh
 *.mp4
