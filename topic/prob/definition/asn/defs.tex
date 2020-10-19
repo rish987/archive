@@ -1,13 +1,15 @@
-\def\asndef#1{%
+\def\asndefa{%
   for \ctx\ $\SSPT{\SPT}{(\XV,\X)}$ [or, $\SSPT{\SPT}{(\XV,\X), (\YV,\Y)}$] and all $\pin\XX\X$,
   \ctext{$\JASN{\XV = \XX}$}
   denote a \jasn\ (\asn\ for short) [or, \masn\ (in simple English, a list of equalities that doesn't cover the entire \spt\ is a \masn)].
-
+}
+\def\asndefb{%
   If a \jasn\ or \masn\ was previously specified, we may later drop ``$\XV =$'', for ``implied assignment'':
   $$\JASN{\XX}.$$
   If a \jasn\ or \masn\ was never specified, we assume an arbitrary $\pin\XX\X$ for ``implied generality'':
-  $$\JASN{\XV}.$$
-
+  $$\JASN{\XV}.$$%
+}
+\def\asndefc#1{%
   For \ctx\ $\SSPT{\SPT}{(\XV,\X),\ldots,(\XV',\X')}$ [or, $\SSPT{\SPT}{(\XV,\X),\ldots,(\XV',\X'),(\YV,\Y),\ldots,(\YV',\Y')}$] and all $\pinw{\XX \in \X, \ldots, \XX' \in \X'}$,
   This \expa
   $$\JASN{\XV = \XX,\ldots,\XV' = \XX'},$$
@@ -16,4 +18,11 @@
   and 
   with implied generality as
   $$\JASN{\XV, \ldots, \XV'}#1$$%
+}
+\def\asndef#1{%
+  \asndefa
+
+  \asndefb
+
+  \asndefc{#1}%
 }

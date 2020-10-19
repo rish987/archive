@@ -1,4 +1,5 @@
 \begin{part} {Physical intuition}
+  \nrp
   Consider the following ``\brd'':\\
   \begin{center}
     \begin{tikzpicture}[board]
@@ -11,9 +12,11 @@
   an ``\agt'' (\tikz[board, scale=0.7]{\tilecoords{0}{0}\agent{}}), and
   a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can take at any \til.
 
+  \nrp
   At every ``\stp'' in time, the agent is in one of the \til{}s,
   and must take one of the \act{}s. 
 
+  \nrp
   At any \stp, if the \agt\ takes an \act\ in a \til, 
   it will be in a \til\ at the next \stp\ according to a ``\trd''
   (that only depends on the current \til\ and \act, not the current \stp).
@@ -72,11 +75,13 @@
   being in another \til\ at 
   the next \stp\ according to the \trd.
 
+  \nrp
   However, this begs the question, 
   what \til\ is the \agt\ at initially (\stp\ 1)? 
   To decide this, there is also an \ind\ over the \til{}s.
 
   \newpage
+  \nrp
   Now, let's make things a bit more interesting. 
 
   Let every \til\ also have a \rwd\ that 
@@ -93,9 +98,11 @@
   with the \rwd{}s 
   (\tikz[board, scale=0.5]{\tilecoords{0}{0}\tilerwdraw{$\cdot$}{(0,0)}}) shown.
 
+  \nrp
   Also, let there be some fixed ``\lmt'' such that,
   when the current \stp\ reaches it, everything ends.
 
+  \nrp
   Now, suppose you can ``program'' the \agt\ as follows: 
   for every \til\ and \stp, you can fix the \act\ that the \agt\ takes.
   For example, here's what you might program the \agt\ to do 
@@ -111,6 +118,7 @@
   \end{center}
   We'll call each such programming a ``\str''. 
 
+  \nrp
   We know that the \agt\ starts in some \til\ according to the \ind.
   After this, we follow the \str, 
   transitioning \til{}s according to the \trd, recieving \rwd{}s 
@@ -119,11 +127,13 @@
   the sum of the \rwd{}s over all a \run's \til{}s
   as the ``\trwd''.
 
+  \nrp
   Because there is some \ind\ and \trd\ 
   that are fixed over \run{}s, 
   we know there must be 
   some \atrwd\ for every \str.
 
+  \nrp
   Now, consider the following question: 
   what \str\ has the greatest \atrwd?
 \end{part}

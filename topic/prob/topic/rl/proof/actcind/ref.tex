@@ -1,28 +1,34 @@
 \begin{proposition}
+  \nrp
   We have that \actcindprop{.}%
 \end{proposition}
 
 \begin{proof}
+  \nrp
   Because $\actcindpre$ is defined,
   we have that 
-  $$\PSTT{\actcindprelist} > 0,$$ 
+  $$\PSTT{\actcindprelist} \rell > cg 0,$$ 
   implying that
-  $$\PSTT{\actcindpostlist} > 0.$$
-  Therefore,
-  $\actcindpost$ is also defined.
+  \nrp
+  $$\PSTT{\actcindpostlist} \rellr > rcg {cg->\mrefmarggimpl} 0.$$
   Suppose 
+  \nrp
   $\AV\TT = \pin{\AA}{\A}$
   and
-  $\SV\TT = \pin{\SS}{\S}$.
-  \reflng{definition}{\rltpath/definition/pact}{It follows by definition} that 
-  $$\pactdef,$$
+  $\SV\TT = \pin{\SS}{\S}$. Therefore,
+  $$\pactdefp \rellr = ap {rcg->\mreflng{definition}{\rltpath/definition/pact}} \pactdefpp,$$
+  \nrp
   so \reflng{definition}{\rltpath/definition/pactdef}{there are two cases} to consider:
   \begin{itemize}
-    \item Case 1: $\actcindpost \rell = po 1$.
+    \item \nrp Case 1: $\pactdefpp \rell = po 1$.
+
+      \nrp
       Then,
-      $$\actcindpre \relr = (po)->{\mrefponecind} \ \ 1\ \ \relr = po \actcindpost.$$
-    \item Case 2: $\actcindpost \rell = pz 0$.
+      $$\actcindpre \relr = (po)->{\mrefponecind} \ \ \ \ 1\ \ \ \ \relr = po,ap \actcindpost.$$
+    \item \nrp Case 2: $\pactdefpp \rell = pz 0$.
+
+      \nrp
       Then,
-      $$\actcindpre \relr = (pz)->{\mrefpzerocind} \ \ 0\ \ \relr = pz \actcindpost.$$
+      $$\actcindpre \relr = (pz)->{\mrefpzerocind} \ \ \ \ 0\ \ \ \ \relr = pz,ap \actcindpost.$$
   \end{itemize}
 \end{proof}

@@ -1,28 +1,36 @@
 \begin{proposition}
+  \nrp
   We have that \pexprtprop{.}%
 \end{proposition}
 
 \begin{proof}
   \hrule
+  \nrp
   {\it Base case.}
   When $\TT = 1$,
   we have \reflng{definition}{\rltpath/definition/ind}{by definition} that
   $\bca = \bcind$.
 
   \serule
+  \nrp
   {\it Inductive hypothesis.}
   Assume that for $\TT - 1$ such that $1 \rell {\le} tmg \TT - 1 \rell {\le} tml \T - 1$,
   the proposition holds. That is,
   $$ \pexprtihp \rell = ih \pexprtih.$$%
   \srule
+  \nrp
   {\it Inductive step.}
   We want to show that the proposition holds for $\TT.$
 
+  \nrp
   There are two cases to consider:
   \begin{itemize}
-    \item Case 1: $\pexprtihp \rell = co 0$. 
+    \item \nrp Case 1: $\pexprtihp \rell = co 0$. 
+
+      \nrp
       Then,
       $$\pexprtp  \rellrf{=}{coz}{(co)->\mrefmargzimpl} 0,$$
+      \nrp
       and
       \begin{align*}
         &\pexprt \\
@@ -31,16 +39,22 @@
         \relr = ih \ & \pexprtihp \times \isact \times \istrd \\
         \relr = co \ & 0 \relr = coz \pexprtp.
       \end{align*}
-    \item Case 2: $\pexprtihp \rell > ct 0$. 
+    \item \nrp Case 2: $\pexprtihp \rell > ct 0$. 
+
+      \nrp
       Then, 
       \ctext{$\isbf \rellrf{\relis}{daf}{(ct)->\mrefcondprob} \defined$, $\isb \rellrf{\relis}{da}{((ct)->\mrefmarggimpl)->\mrefcondprob} \defined$,}
+      \nrp
       and we have
       $$\isbf \rellr = cia (daf,tmg,tml)->\mreflng{proof}{\rltpath/proof/actcind} \isb 
       \rellr = ad (da,tmg,tml)->\mreflng{definition}{\rltpath/definition/pact} \isact.$$
 
+      \nrp
       \reflng{definition}{\rltpath/definition/pactdef}{There are two cases} to consider:
       \begin{itemize}
-        \item Case 2.1: $\isact \rell = cto 1$.
+        \item \nrp Case 2.1: $\isact \rell = cto 1$.
+
+          \nrp
           Then,
           \begin{align*}
             \ismid &\rellr = md daf \isbf \times \pexprtihp\\
@@ -48,12 +62,15 @@
                    &\relr = cto \pexprtihp\\
                    &\rellr > mg ct 0.
           \end{align*}
+          \nrp
           Therefore, 
           $$\iscf \rellrf{\relis}{dsf}{(md-mg)->\mrefcondprob} \defined,\isc \rellrf{\relis}{ds}{((md-mg)->\mrefmarggimpl)->\mrefcondprob} \defined$$
+          \nrp
           and we have
           $$\iscf 
           \rellr = cis (dsf,tmg,tml)->\mreflng{definition}{\rltpath/definition/trdcind} \isc 
           \rellr = sd (ds,tmg,tml)->\mreflng{definition}{\rltpath/definition/trd} \istrd.$$
+          \nrp
           Therefore,
           \begin{align*}
             \pexprtp 
@@ -61,15 +78,19 @@
             \relr = cia,cis \ & \pexprtihp \times \isb \times \isc\\
             \relr = ih,ad,sd \ & \pexprg{\TT}{\TT'}.
           \end{align*}
-        \item Case 2.2: $\isact \rell = ctt 0$.
+        \item \nrp Case 2.2: $\isact \rell = ctt 0$.
+
+          \nrp
           Then,
           \begin{align*}
             \ismid &\rellr = afd daf \isbf \times \pexprtihp\\
                    &\relr = cia-ad \isact \times \pexprtihp\\
                    &\rellr = afz ctt 0.
           \end{align*}
+          \nrp
           Therefore,
           $$\pexprtp \rellr = cttz {(afd-afz)->\mrefmargzimpl} 0,$$
+          \nrp
           so
           $$\pexprtp
           \relr = cttz \ 0 \ 

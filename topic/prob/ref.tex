@@ -1,4 +1,5 @@
 \begin{center}
+\nrp
 {\LARGE \hlc[___gray]{Probability Theory}}\\
 \end{center}
 \begin{part} {Physical intuition}
@@ -8,6 +9,7 @@
   \def\B{\colorbox{blue}{\rm B}}
   \def\1{\colorbox{__gray}{1}}
   \def\0{\colorbox{__gray}{0}}
+  \nrp
   Suppose that we have a set of ``\var{}s,''
   each with their own finite ``\dmn{}s'',
   which we'll collectively refer to as the ``\spt'':
@@ -38,6 +40,7 @@
       \node[anchor=south] at (BD.north) {\dmn};
     \end{tikzpicture},
   \end{center}
+  \nrp
   where a ``\masn'' consists of associating some (but not all) of the \var{}s of the \spt\ 
   with something from their \dmn{}s:
   \begin{center}
@@ -46,6 +49,7 @@
       \node[anchor=south] at (AR.north) {\masn};
     \end{tikzpicture},
   \end{center}
+  \nrp
   a ``\jasn'' (``\asn'' for short) consists of associating each \var\ of the \spt\ with something from its \dmn:
   \def\tjasn#1#2#3#4#5{
     \tvar{#1}{#5}   {\AV}{#3}
@@ -57,6 +61,7 @@
       \tjasn{A}{B}{\B}{\1}{(0,0)}
     \end{tikzpicture},
   \end{center}
+  \nrp
   a ``\seq'' consists of an infinite, ordered list of such \jasn{}s:
   \begin{center}
     \begin{tikzpicture}
@@ -73,8 +78,9 @@
   \end{center}
   and a ``\trl'' denotes a particular item (i.e. an indexed \jasn) of this \seq.
 
+  \nrp
   Now, suppose something in particular about this \seq:
-  if an \jasn\ occurs at any \trl, it will occur in infinitely many \trl{}s,
+  if a \jasn\ occurs at any \trl, it will occur in infinitely many \trl{}s,
   and, additionally, as we the traverse \seq\ in order, the ratio of occurrences of the
   \jasn\ to \trl{}s so far becomes arbitrarily close to 
   some positive number. 
@@ -83,6 +89,7 @@
   Let's refer to such a \seq\ as a \pseq.
 
   \newpage
+  \nrp
   For example, if the \seq\ above repeated the first five \trl{}s, it would be a \pseq\ defining the \sprbs:
   \begin{center}
     \begin{tikzpicture}
@@ -101,6 +108,7 @@
     \end{tikzpicture}
   \end{center}
 
+  \nrp
   Let a ``\dist'' be a set of \pseq{}s with the same 
   \sprb\ for every \asn, which,
   in the context of a \dist, we will simply refer to as the ``\jprb'' (``\prb'' for short)
@@ -108,41 +116,58 @@
 \end{part}
 
 \begin{part}{Notation}
+  \nrp
   Let's correspond this intuition with some notation, and use this 
   notation to arrive at a few more definitions.
 
+  \nrp
   \reflnenv{definition}{xyz}{Define}{ \xyzdef}
 
+  \nrp
   \reflnenv{definition}{spt}{We let the notation}{ \sptdef.}
 
+  \nrp
   \reflnenv{definition}{pin}{Let}{, \pindef.}
 
+  \nrp
   \reflnenv{definition}{asn}{Let}{, \asndef.}
 
+  \nrp
   \reflnenv{definition}{seq}{Let}{, \seqdef}
 
+  \nrp
   \reflnenv{definition}{prsq}{Define}{, \prsqdef.}
 
+  \nrp
   \reflnenv{definition}{seqp}{Let}{, \seqpdef.}
 
+  \nrp
   \reflnenv{definition}{dist}{Define}{, \distdef.}
 
+  \nrp
   \reflnenv{definition}{prob}{Define}{, \probdef.}
 
+  \nrp
   \reflnenv{definition}{mprob}{Define}{, \mprobdef.}
 
+  \nrp
   \reflnenv{proof}{mprobg}{It can be shown}{ that, \mprobgprop.}
 
+  \nrp
   \reflnenv{definition}{cprob}{Define}{, \cprobdef.}%
 \end{part}
 
 \begin{part}{Propositions}
+  \nrp
   \reflnenv{proof}{margzimpl}{It can be shown that}{, \margzimplprop.}
 
+  \nrp
   \reflnenv{proof}{marggimpl}{It can be shown that}{, \marggimplprop.}
 
+  \nrp
   \reflnenv{proof}{ponecind}{It can be shown that}{, \ponecindprop.}
 
+  \nrp
   \reflnenv{proof}{pzerocind}{It can be shown that}{, \pzerocindprop.}
 \end{part}
 
