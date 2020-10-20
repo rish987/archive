@@ -1,7 +1,7 @@
-\def\pexprjointdistasng#1{\enm{\MPSTT{\SV1 = \SS_1, \AV1 = \AA_1, \SV2 = \SS_2, \ldots, \SV{#1} = \SS_{#1}}}}
-\def\pexprjointdistasn{\enm{\PSTT{\SV1 = \SS_1, \AV1 = \AA_1, \SV2 = \SS_2, \ldots, \SV\T = \SS_\T}}}
-\def\pexprjointdistg#1{\enm{\MPSTT{\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1}}}}
-\def\pexprjointdist{\enm{\PSTT{\SS_1, \AA_1, \SS_2, \ldots, \SS_\T}}}
+\def\pexprjointdistasng#1{\enm{\MPr{\SV1 = \SS_1, \AV1 = \AA_1, \SV2 = \SS_2, \ldots, \SV{#1} = \SS_{#1}}}}
+\def\pexprjointdistasn{\enm{\Pr{\SV1 = \SS_1, \AV1 = \AA_1, \SV2 = \SS_2, \ldots, \SV\T = \SS_\T}}}
+\def\pexprjointdistg#1{\enm{\MPr{\SS_1, \AA_1, \SS_2, \ldots, \SS_{#1}}}}
+\def\pexprjointdist{\enm{\Pr{\SS_1, \AA_1, \SS_2, \ldots, \SS_\T}}}
 \def\pexprgg#1#2#3{\enm{\PIND{\SS_1}\times
        \aprod{{#3} = 1}{#2}{
        \PACT{\STT}{{#3}}{\AA_{#3}}{\SS_{#3}}
@@ -11,9 +11,9 @@
 \def\pexprdomg#1{any
   $\pinw{\edots \SS 1 {#1} \in \S, \edots \AA 1 {#1 - 1}\in \A}$}
 \def\pexprdom{\pexprdomg{\T}}
-\def\pexprdompol{any \str~${\STT \in \ST}$}
+\def\pexprdompol{$\astr$}
 \def\pexpreq{\enm{\pexprjointdist = \pexpr}}
-\def\pexprprop#1{for \ctext{\pexprdom} and for \ctext{\pexprdompol,} 
+\def\pexprprop#1{for \ctext{\pexprdompol} and for \ctext{\pexprdom}
   we can write
   $$\pexprjointdistasn$$ as
 $$\pexpreq#1$$}

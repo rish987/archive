@@ -1,14 +1,14 @@
-\def\pactdefp{\enm{\CPSTT{\AV\TT = \AA}{\SV\TT = \SS}}}
+\def\pactdefp{\enm{\CPr{\AV\TT = \AA}{\SV\TT = \SS}}}
 \def\pactdefpp{\enm{\PACT\STT\TT\AA\SS}}
 \def\pactdef{\enm{\pactdefp = \pactdefpp}}
-\def\actcindrange{$\astr$, $1 \le \TT \le \T - 1$}
+\def\actcindrange{$1 \le \TT \le \T - 1$}
 \def\actcindpreprelist{\enm{\AV{\TTM}, \SV{\TTM}, \ldots, \AV{1}, \SV{1}}}
 \def\actcindprelist{\enm{\SV{\TT}, \actcindpreprelist}}
-\def\actcindpre{\enm{\CPSTT{\AV\TT}{\actcindprelist}}}
+\def\actcindpre{\enm{\CPr{\AV\TT}{\actcindprelist}}}
 \def\actcindpostlist{\enm{\SV{\TT}}}
-\def\actcindpost{\enm{\CPSTT{\AV\TT}{\actcindpostlist}}}
+\def\actcindpost{\enm{\CPr{\AV\TT}{\actcindpostlist}}}
 \def\actcindeq{\enm{\actcindpre = \actcindpost}}
 \def\actcindpropg#1#2{$\AV\TT$ is independent of all previous \til{}s and \act{}s given $\SV\TT$.
-Notationally, 
+Notationally, for $\astr$ and
 for all \actcindrange, when defined, $$#1#2$$}
 \def\actcindprop#1{\actcindpropg{\actcindeq}{#1}}
