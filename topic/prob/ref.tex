@@ -1,5 +1,5 @@
 \begin{center}
-\nrp
+\nrp 1
 {\LARGE \hlc[___gray]{Probability Theory}}\\
 \end{center}
 \begin{part} {Physical intuition}
@@ -9,7 +9,7 @@
   \def\B{\colorbox{blue}{\rm B}}
   \def\1{\colorbox{__gray}{1}}
   \def\0{\colorbox{__gray}{0}}
-  \nrp
+  \nrp 2
   Suppose that we have a set of ``\var{}s,''
   each with their own finite ``\dmn{}s'',
   which we'll collectively refer to as the ``\spt'':
@@ -40,7 +40,7 @@
       \node[anchor=south] at (BD.north) {\dmn};
     \end{tikzpicture},
   \end{center}
-  \nrp
+  \nrp 3
   where a ``\masn'' consists of associating some (but not all) of the \var{}s of the \spt\ 
   with something from their \dmn{}s:
   \begin{center}
@@ -49,7 +49,7 @@
       \node[anchor=south] at (AR.north) {\masn};
     \end{tikzpicture},
   \end{center}
-  \nrp
+  \nrp 4
   a ``\jasn'' (``\asn'' for short) consists of associating each \var\ of the \spt\ with something from its \dmn:
   \def\tjasn#1#2#3#4#5{
     \tvar{#1}{#5}   {\AV}{#3}
@@ -61,7 +61,7 @@
       \tjasn{A}{B}{\B}{\1}{(0,0)}
     \end{tikzpicture},
   \end{center}
-  \nrp
+  \nrp 5
   a ``\seq'' consists of an infinite, ordered list of such \jasn{}s:
   \begin{center}
     \begin{tikzpicture}
@@ -78,7 +78,7 @@
   \end{center}
   and a ``\trl'' denotes a particular item (i.e. an indexed \jasn) of this \seq.
 
-  \nrp
+  \nrp 6
   Now, suppose something in particular about this \seq:
   if a \jasn\ occurs at any \trl, it will occur in infinitely many \trl{}s,
   and, additionally, as we the traverse \seq\ in order, the ratio of occurrences of the
@@ -89,7 +89,7 @@
   Let's refer to such a \seq\ as a \pseq.
 
   \newpage
-  \nrp
+  \nrp 7
   For example, if the \seq\ above repeated the first five \trl{}s, it would be a \pseq\ defining the \sprbs:
   \begin{center}
     \begin{tikzpicture}
@@ -108,7 +108,7 @@
     \end{tikzpicture}
   \end{center}
 
-  \nrp
+  \nrp 8
   Let a ``\dist'' be a set of \pseq{}s with the same 
   \sprb\ for every \asn, which,
   in the context of a \dist, we will simply refer to as the ``\jprb'' (``\prb'' for short)
@@ -116,58 +116,58 @@
 \end{part}
 
 \begin{part}{Notation}
-  \nrp
+  \nrp 9
   Let's correspond this intuition with some notation, and use this 
   notation to arrive at a few more definitions.
 
-  \nrp
+  \nrp 10
   \reflnenv{definition}{xyz}{Define}{ \xyzdef}
 
-  \nrp
+  \nrp 11
   \reflnenv{definition}{spt}{We let the notation}{ \sptdef.}
 
-  \nrp
+  \nrp 12
   \reflnenv{definition}{pin}{Let}{, \pindef.}
 
-  \nrp
+  \nrp 13
   \reflnenv{definition}{asn}{Let}{, \asndef.}
 
-  \nrp
+  \nrp 14
   \reflnenv{definition}{seq}{Let}{, \seqdef}
 
-  \nrp
+  \nrp 15
   \reflnenv{definition}{prsq}{Define}{, \prsqdef.}
 
-  \nrp
+  \nrp 16
   \reflnenv{definition}{seqp}{Let}{, \seqpdef.}
 
-  \nrp
+  \nrp 17
   \reflnenv{definition}{dist}{Define}{, \distdef.}
 
-  \nrp
+  \nrp 18
   \reflnenv{definition}{prob}{Define}{, \probdef.}
 
-  \nrp
+  \nrp 19
   \reflnenv{definition}{mprob}{Define}{, \mprobdef.}
 
-  \nrp
+  \nrp 20
   \reflnenv{proof}{mprobg}{It can be shown}{ that, \mprobgprop.}
 
-  \nrp
+  \nrp 21
   \reflnenv{definition}{cprob}{Define}{, \cprobdef.}%
 \end{part}
 
 \begin{part}{Propositions}
-  \nrp
+  \nrp 22
   \reflnenv{proof}{margzimpl}{It can be shown that}{, \margzimplprop.}
 
-  \nrp
+  \nrp 23
   \reflnenv{proof}{marggimpl}{It can be shown that}{, \marggimplprop.}
 
-  \nrp
+  \nrp 24
   \reflnenv{proof}{ponecind}{It can be shown that}{, \ponecindprop.}
 
-  \nrp
+  \nrp 25
   \reflnenv{proof}{pzerocind}{It can be shown that}{, \pzerocindprop.}
 \end{part}
 

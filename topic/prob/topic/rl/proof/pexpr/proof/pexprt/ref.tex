@@ -1,36 +1,36 @@
 \begin{proposition}
-  \nrp
+  \nrp 1
   We have that \pexprtprop{.}%
 \end{proposition}
 
 \begin{proof}
   \hrule
-  \nrp
+  \nrp 2
   {\it Base case.}
   When $\TT = 1$,
   we have \reflng{definition}{\rltpath/definition/ind}{by definition} that
   $\bca = \bcind$.
 
   \serule
-  \nrp
+  \nrp 3
   {\it Inductive hypothesis.}
   Assume that for $\TT - 1$ such that $1 \rell {\le} tmg \TT - 1 \rell {\le} tml \T - 1$,
   the proposition holds. That is,
   $$ \pexprtihp \rell = ih \pexprtih.$$%
   \srule
-  \nrp
+  \nrp 4
   {\it Inductive step.}
   We want to show that the proposition holds for $\TT.$
 
-  \nrp
+  \nrp 5
   There are two cases to consider:
   \begin{itemize}
-    \item \nrp Case 1: $\pexprtihp \rell = co 0$. 
+    \item \nrp 6 Case 1: $\pexprtihp \rell = co 0$. 
 
-      \nrp
+      \nrp 7
       Then,
       $$\pexprtp  \rellrf{=}{coz}{(co)->\mrefmargzimpl} 0,$$
-      \nrp
+      \nrp 8
       and
       \begin{align*}
         &\pexprt \\
@@ -39,22 +39,22 @@
         \relr = ih \ & \pexprtihp \times \isact \times \istrd \\
         \relr = co \ & 0 \relr = coz \pexprtp.
       \end{align*}
-    \item \nrp Case 2: $\pexprtihp \rell > ct 0$. 
+    \item \nrp 9 Case 2: $\pexprtihp \rell > ct 0$. 
 
-      \nrp
+      \nrp 10
       Then, 
       \ctext{$\isbf \rellrf{\relis}{daf}{(ct)->\mrefcondprob} \defined$, $\isb \rellrf{\relis}{da}{((ct)->\mrefmarggimpl)->\mrefcondprob} \defined$,}
-      \nrp
+      \nrp 11
       and we have
       $$\isbf \rellr = cia (daf,tmg,tml)->\mreflng{proof}{\rltpath/proof/actcind} \isb 
       \rellr = ad (da,tmg,tml)->\mreflng{definition}{\rltpath/definition/pact} \isact.$$
 
-      \nrp
+      \nrp 12
       \reflng{definition}{\rltpath/definition/pactdef}{There are two cases} to consider:
       \begin{itemize}
-        \item \nrp Case 2.1: $\isact \rell = cto 1$.
+        \item \nrp 13 Case 2.1: $\isact \rell = cto 1$.
 
-          \nrp
+          \nrp 14
           Then,
           \begin{align*}
             \ismid &\rellr = md daf \isbf \times \pexprtihp\\
@@ -62,15 +62,15 @@
                    &\relr = cto \pexprtihp\\
                    &\rellr > mg ct 0.
           \end{align*}
-          \nrp
+          \nrp 15
           Therefore, 
           $$\iscf \rellrf{\relis}{dsf}{(md-mg)->\mrefcondprob} \defined,\isc \rellrf{\relis}{ds}{((md-mg)->\mrefmarggimpl)->\mrefcondprob} \defined$$
-          \nrp
+          \nrp 16
           and we have
           $$\iscf 
           \rellr = cis (dsf,tmg,tml)->\mreflng{definition}{\rltpath/definition/trdcind} \isc 
           \rellr = sd (ds,tmg,tml)->\mreflng{definition}{\rltpath/definition/trd} \istrd.$$
-          \nrp
+          \nrp 17
           Therefore,
           \begin{align*}
             \pexprtp 
@@ -78,19 +78,19 @@
             \relr = cia,cis \ & \pexprtihp \times \isb \times \isc\\
             \relr = ih,ad,sd \ & \pexprg{\TT}{\TT'}.
           \end{align*}
-        \item \nrp Case 2.2: $\isact \rell = ctt 0$.
+        \item \nrp 18 Case 2.2: $\isact \rell = ctt 0$.
 
-          \nrp
+          \nrp 19
           Then,
           \begin{align*}
             \ismid &\rellr = afd daf \isbf \times \pexprtihp\\
                    &\relr = cia-ad \isact \times \pexprtihp\\
                    &\rellr = afz ctt 0.
           \end{align*}
-          \nrp
+          \nrp 20
           Therefore,
           $$\pexprtp \rellr = cttz {(afd-afz)->\mrefmargzimpl} 0,$$
-          \nrp
+          \nrp 21
           so
           $$\pexprtp
           \relr = cttz \ 0 \ 

@@ -1,5 +1,5 @@
 \begin{center}
-\nrp
+\nrp 1
 {\LARGE \hlc[___gray]{Reinforcement Learning Theory}}\\
 \vspace{10pt}
 \normalsize 
@@ -11,6 +11,233 @@ and
 John N. Tsitsiklis.
 \end{center}
 
-\rinclude{parts/example}
-\rinclude{parts/notation}
-\rinclude{parts/preliminaries}
+\begin{part} {Physical intuition}
+  \nrp 2
+  Consider the following ``\brd'':\\
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \board{
+        \tilecoords{0}{0}\actions\agent{}
+      }
+    \end{tikzpicture},
+  \end{center}
+  where there are a total of 9 ``\til{}s'' (\tikz[board, scale=0.1]{\tilecoords{0}{0}\tile{0}\tileidx{$\cdot$}}), 
+  an ``\agt'' (\tikz[board, scale=0.7]{\tilecoords{0}{0}\agent{}}), and
+  a set of ``\act{}s'' ($\rightarrow$) that the \agt\ can take at any \til.
+
+  \nrp 3
+  At every ``\stp'' in time, the agent is in one of the \til{}s,
+  and must take one of the \act{}s. 
+
+  \nrp 4
+  At any \stp, if the \agt\ takes an \act\ in a \til, 
+  it will be in a \til\ at the next \stp\ according to a ``\trd''
+  (that only depends on the current \til\ and \act, not the current \stp).
+
+  For example, the \agt\ could
+  \begin{itemize}
+    \def\tilesep{3.2}
+    \def\tscale{0.6}
+    \item take \act\ $\uparrow$ at \til\ $7$:
+      \begin{center}
+        \begin{tikzpicture}[board, scale=\tscale]
+          \tilecoords{0}{1}
+          \tileandidx{7}
+          \tileup{draw=blue}
+          \agent{}
+
+          \tilecoords{0}{0}
+          \tileandidx{4}
+
+          \tilecoords{1}{1}
+          \tileandidx{8}
+
+          \tiletransition{7}{8}{below}{0.25}
+          \tiletransition{7}{4}{left}{0.75}
+        \end{tikzpicture},
+      \end{center}
+      and
+    \item take \act\ $\rightarrow$ at \til\ $5$:
+      \begin{center}
+        \begin{tikzpicture}[board, scale=\tscale]
+          \tilecoords{1}{1}
+          \tileandidx{5}
+          \tileright{draw=blue}
+          \agent{}
+
+          \tilecoords{0}{1}
+          \tileandidx{4}
+
+          \tilecoords{2}{1}
+          \tileandidx{6}
+
+          \tilecoords{1}{0}
+          \tileandidx{2}
+
+          \tilecoords{1}{2}
+          \tileandidx{8}
+
+          \tiletransition{5}{6}{below}{0.75}
+          \tiletransition{5}{4}{above}{0.05}
+          \tiletransition{5}{2}{left}{0.10}
+          \tiletransition{5}{8}{right}{0.10}
+        \end{tikzpicture},
+      \end{center}
+  \end{itemize}
+  showing the \cprb\ of 
+  being in another \til\ at 
+  the next \stp\ according to the \trd.
+
+  \nrp 5
+  However, this begs the question, 
+  what \til\ is the \agt\ at initially (\stp\ 1)? 
+  To decide this, there is also an \ind\ over the \til{}s.
+
+  \newpage
+  \nrp 6
+  Now, let's make things a bit more interesting. 
+
+  Let every \til\ also have a \rwd\ that 
+  the \agt\ recieves from it, 
+  leaving our \brd\ looking something like:
+
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \fullboard{
+        \tilecoords{0}{0}\actions\agent{}
+      }
+    \end{tikzpicture},
+  \end{center}
+  with the \rwd{}s 
+  (\tikz[board, scale=0.5]{\tilecoords{0}{0}\tilerwdraw{$\cdot$}{(0,0)}}) shown.
+
+  \nrp 7
+  Also, let there be some fixed ``\lmt'' such that,
+  when the current \stp\ reaches it, everything ends.
+
+  \nrp 8
+  Now, suppose you can ``program'' the \agt\ as follows: 
+  for every \til\ and \stp, you can fix the \act\ that the \agt\ takes.
+  For example, here's what you might program the \agt\ to do 
+  at every \til\ for two different \stp{}s:
+  \begin{center}
+    \begin{tikzpicture}[board]
+      \fullboardact{1}{} 3
+    \end{tikzpicture}
+    \hspace{1cm}
+    \begin{tikzpicture}[board]
+      \fullboardact{2}{.}
+    \end{tikzpicture}.
+  \end{center}
+  We'll call each such programming a ``\str''. 
+
+  \nrp 9
+  We know that the \agt\ starts in some \til\ according to the \ind.
+  After this, we follow the \str, 
+  transitioning \til{}s according to the \trd, recieving \rwd{}s 
+  at every \til\ until
+  we reach the \lmt. Let's refer to this process as a ``\run'', and
+  the sum of the \rwd{}s over all a \run's \til{}s
+  as the ``\trwd''.
+
+  \nrp 10
+  Because there is some \ind\ and \trd\ 
+  that are fixed over \run{}s, 
+  we know there must be 
+  some \atrwd\ for every \str.
+
+  \nrp 11
+  Now, consider the following question: 
+  what \str\ has the greatest \atrwd?
+\end{part}
+
+\begin{part}{Notation}
+  \nrp 12
+  To answer this question, let's establish some notation.
+
+  \nrp 13
+  \reflnenv{definition}{states}{Define}{ \statesdef}.
+
+  \nrp 14
+  \reflnenv{definition}{actions}{Define}{ \actionsdef}.
+  
+  \nrp 15
+  \reflnenv{definition}{rewards}{Define}{ \rewardsdefg{\refln{note}{fnnot}{$\rewardsdefnot$} $\defeq$}{.}}
+
+  \nrp 16
+  \reflnenv{definition}{steplim}{Define}{ \steplimdef{.}}%
+
+  \nrp 17
+  \reflnenv{definition}{strs}{Define}{ \strsdef{.}}%
+
+  \nrp 18
+  \reflnenv{proof}{npol}{Note that}{ \npolprop{.}}%
+
+  \nrp 19
+  \reflnenv{definition}{inddef}{Define}{ \inddefdefg{\refln{note}{paramprob}{$\inddefdefp$} $\defeq$}{.}}%
+
+  \nrp 20
+  \reflnenv{definition}{pactdef}{Define}{ \pactdefdef{.}}%
+
+  \nrp 21
+  \reflnenv{definition}{trddef}{Define}{ \trddefdef{.}}%
+
+  \nrp 22
+  \reflnenv{definition}{rvst}{Define}{ \rvstdef{.}}%
+
+  \nrp 23
+  \reflnenv{definition}{rvat}{Define}{ \rvatdef{.}}%
+
+  \nrp 24
+  \reflnenv{definition}{psp}{Let}{ \pspdef{.}}%
+
+  \nrp 25
+  \reflnenv{definition}{pact}{We know that}{, \pactdeffull{,}}%
+  \nrp 26
+  \reflnenv{proof}{actcind}{from which it follows}{ that \actcindpropg{\text{$\actcindeq$}}{.}}%
+
+  \nrp 27
+  \reflnenv{definition}{ind}{We know that}{ \inddef{,}}%
+
+  \nrp 28
+  \reflnenv{definition}{trd}{We know that}{ \trddef{,}}%
+  \nrp 29
+  \reflnenv{definition}{trdcind}{where}{ \trdcinddef{.}}
+\end{part}
+
+\begin{part}{Propositions}
+  \nrp 30
+  Let's now describe some preliminary results using this notation.
+
+  \begin{refenv}{proof}{pexpr}
+    \nrp 31
+    One of the first questions we may ask is, does our notation completely describe
+    the distribution of \run{}s for a particular \str?
+    That is, 
+    \ctext{for \pexprdom,}
+    and
+    \ctext{for \pexprdompol,}
+    can we determine the value of
+    $$\pexprjointdistasn?$$
+    The answer to this question is: yes! 
+    We have all the information we need 
+    to completely describe 
+    this joint distribution. 
+
+    \nrp 32
+    \refln{proof}{pexpr}{It can be written} as
+    \begin{align*}
+      \pexprjointdist
+      =\ &\PIND{\SS_1}\times\\
+         &\PACT{\STT}{1}{\AA_1}{\SS_1}
+          \PTRD{\SS_2}{\AA_1}{\SS_1}\times\\
+         &\PACT{\STT}{2}{\AA_2}{\SS_2}
+          \PTRD{\SS_3}{\AA_2}{\SS_2}\times\\
+         &\ldots\times\\
+         &\PACT{\STT}{{\T - 1}}{\AA_{\T - 1}}{\SS_{\T - 1}}
+          \PTRD{\SS_\T}{\AA_{\T - 1}}{\SS_{\T - 1}},
+    \end{align*}
+    or, in more compact \refln{note}{prodnot}{product notation},
+    $$\pexprjointdist = \pexpr.$$
+  \end{refenv}
+\end{part}
