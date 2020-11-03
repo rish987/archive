@@ -1,13 +1,18 @@
 \def\P{\enm{{\rm Pr}}}
+
+\def\fnnot#1#2#3{\enm{#1 : #2 \rightarrow #3}}
 \def\JASN#1{\enm{\lngraw{archive/topic/prob/definition/asn}{#1}}}
 \def\MASN#1{\enm{\lngraw{archive/topic/prob/definition/asn}{#1}}}
 \def\Pr#1{\enm{\lngraw{archive/topic/prob/definition/prob}{\P\left(\JASN{#1}\right)}}}
 \def\MPr#1{\enm{\lngraw{archive/topic/prob/definition/mprob}{\P\left(\MASN{#1}\right)}}}
 \def\CPr#1#2{\enm{\lngraw{archive/topic/prob/definition/cprob}{\P\left(\MASN{#1}\mid\MASN{#2}\right)}}}
 \def\R{\enm{{\mathbb R}}}
-\def\E{\enm{{\mathbb E}}}
+\def\E#1{\enm{\lngraw{archive/topic/prob/definition/ev}{{\mathbb E}\left[#1\right]}}}
+\def\ESQ#1#2{\enm{\lngraw{archive/topic/prob/definition/evsq}{{\mathbb E}\left[#1; #2\right]}}}
 \def\ctx{contextual}
 
+\def\mrefevd{\mreflng{definition}{archive/topic/prob/definition/ev}}
+\def\mrefev{\mreflng{definition}{archive/topic/prob/proof/evexpr}}
 \def\mrefmargprobd{\mreflng{definition}{archive/topic/prob/definition/mprob}}
 \def\mrefmargprob{\mreflng{proof}{archive/topic/prob/proof/mprobg}}
 \def\mrefcondprob{\mreflng{definition}{archive/topic/prob/definition/cprob}}
@@ -15,6 +20,8 @@
 \def\mrefmarggimpl{\mreflng{proof}{archive/topic/prob/proof/marggimpl}}
 \def\mrefpzerocind{\mreflng{proof}{archive/topic/prob/proof/pzerocind}}
 \def\mrefponecind{\mreflng{proof}{archive/topic/prob/proof/ponecind}}
+\def\mrefsqpr{\mreflng{proof}{archive/topic/prob/definition/prsq}}
+\def\mrefpr{\mreflng{proof}{archive/topic/prob/definition/prob}}
 
 \def\var{\hlg{variable}}
 \def\dmn{\hlg{domain}}

@@ -1,0 +1,16 @@
+\begin{proposition}
+  We have that, \evexprprop.%
+\end{proposition}
+
+\begin{proof}
+  We have that
+  \begin{align*}
+    \ESQ{d}{f} \relrg = {\mrefevd} 10pt &
+    \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\sum_{\XX \in \X}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}\times f(\XX)}{\TR}\right)\\
+          = & \lim_{\TR \rightarrow \infty}\left(\sum_{\XX \in \X}\frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}\times f(\XX)}{\TR}\right)\\
+          = & \sum_{\XX \in \X}\lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}\times f(\XX)}{\TR}\right)\\
+          = & \sum_{\XX \in \X}f(\XX) \times \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}}{\TR}\right)\\
+      \relrg = {\mrefsqpr} 10pt & \sum_{\XX \in \X}f(\XX) \times \PRSQ{\DDD}{\XV = \XX}\\
+      \relrg = {\mrefpr} 10pt & \sum_{\XX \in \X}f(\XX) \times \Pr{\XV = \XX}.
+  \end{align*}
+\end{proof}
