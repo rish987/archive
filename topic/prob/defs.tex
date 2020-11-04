@@ -1,27 +1,30 @@
 \def\P{\enm{{\rm Pr}}}
 
+\def\probpath{archive/topic/prob}
+
 \def\fnnot#1#2#3{\enm{#1 : #2 \rightarrow #3}}
-\def\JASN#1{\enm{\lngraw{archive/topic/prob/definition/asn}{#1}}}
-\def\MASN#1{\enm{\lngraw{archive/topic/prob/definition/asn}{#1}}}
-\def\Pr#1{\enm{\lngraw{archive/topic/prob/definition/prob}{\P\left(\JASN{#1}\right)}}}
-\def\MPr#1{\enm{\lngraw{archive/topic/prob/definition/mprob}{\P\left(\MASN{#1}\right)}}}
-\def\CPr#1#2{\enm{\lngraw{archive/topic/prob/definition/cprob}{\P\left(\MASN{#1}\mid\MASN{#2}\right)}}}
+\def\JASN#1{\enm{\lngraw{\probpath/definition/asn}{#1}}}
+\def\MASN#1{\enm{\lngraw{\probpath/definition/asn}{#1}}}
+\def\Pr#1{\enm{\lngraw{\probpath/definition/prob}{\P\left(\JASN{#1}\right)}}}
+\def\MPr#1{\enm{\lngraw{\probpath/definition/mprob}{\P\left(\MASN{#1}\right)}}}
+\def\CPr#1#2{\enm{\lngraw{\probpath/definition/cprob}{\P\left(\MASN{#1}\mid\MASN{#2}\right)}}}
 \def\R{\enm{{\mathbb R}}}
-\def\E#1{\enm{\lngraw{archive/topic/prob/definition/ev}{{\mathbb E}\left[#1\right]}}}
-\def\ESQ#1#2{\enm{\lngraw{archive/topic/prob/definition/evsq}{{\mathbb E}\left[#1; #2\right]}}}
+\def\E#1{\enm{\lngraw{\probpath/definition/ev}{{\mathbb E}\left[#1\right]}}}
+\def\ESQ#1#2{\enm{\lngraw{\probpath/definition/evsq}{{\mathbb E}\left[#1; #2\right]}}}
+\def\ESQC#1#2#3{\enm{\lngraw{\probpath/definition/evsq}{{\mathbb E}\left[#1; #2 \mid \MASN{#3}\right]}}}
 \def\ctx{contextual}
 
-\def\mrefevd{\mreflng{definition}{archive/topic/prob/definition/ev}}
-\def\mrefev{\mreflng{definition}{archive/topic/prob/proof/evexpr}}
-\def\mrefmargprobd{\mreflng{definition}{archive/topic/prob/definition/mprob}}
-\def\mrefmargprob{\mreflng{proof}{archive/topic/prob/proof/mprobg}}
-\def\mrefcondprob{\mreflng{definition}{archive/topic/prob/definition/cprob}}
-\def\mrefmargzimpl{\mreflng{proof}{archive/topic/prob/proof/margzimpl}}
-\def\mrefmarggimpl{\mreflng{proof}{archive/topic/prob/proof/marggimpl}}
-\def\mrefpzerocind{\mreflng{proof}{archive/topic/prob/proof/pzerocind}}
-\def\mrefponecind{\mreflng{proof}{archive/topic/prob/proof/ponecind}}
-\def\mrefsqpr{\mreflng{proof}{archive/topic/prob/definition/prsq}}
-\def\mrefpr{\mreflng{proof}{archive/topic/prob/definition/prob}}
+\def\mrefevd{\mreflng{definition}{\probpath/definition/ev}}
+\def\mrefev{\mreflng{definition}{\probpath/proof/evexpr}}
+\def\mrefmargprobd{\mreflng{definition}{\probpath/proof/mprobsqi}}
+\def\mrefmargprob{\mreflng{proof}{\probpath/proof/mprobg}}
+\def\mrefcondprob{\mreflng{definition}{\probpath/definition/cprob}}
+\def\mrefmargzimpl{\mreflng{proof}{\probpath/proof/margzimpl}}
+\def\mrefmarggimpl{\mreflng{proof}{\probpath/proof/marggimpl}}
+\def\mrefpzerocind{\mreflng{proof}{\probpath/proof/pzerocind}}
+\def\mrefponecind{\mreflng{proof}{\probpath/proof/ponecind}}
+\def\mrefsqpr{\mreflng{proof}{\probpath/definition/prsq}}
+\def\mrefpr{\mreflng{proof}{\probpath/definition/prob}}
 
 \def\var{\hlg{variable}}
 \def\dmn{\hlg{domain}}
@@ -43,8 +46,12 @@
 \def\cprbs{\hlg{conditional probabilit}ies}
 \def\dist{\hlg{distribution}}
 \def\spt{\hlg{support}}
+\def\expvsq{\hlg{sequence expectation}}
+\def\expv{\hlg{expectation}}
+\def\expvsqc{\hlg{conditional sequence expectation}}
+\def\expvc{\hlg{conditional expectation}}
 
-\def\refxyz#1{\lngraw{archive/topic/prob/definition/xyz}{#1}}
+\def\refxyz#1{\lngraw{\probpath/definition/xyz}{#1}}
 \def\XV{\enm{\refxyz{\rm X}}}
 \def\X{\enm{\refxyz{\bf X}}}
 \def\XX{\enm{\refxyz{\rm x}}}
@@ -60,24 +67,26 @@
 \def\QQ{\enm{\refxyz{\text{\smaller ?}}}}
 
 \def\SPT{\enm{{\rm S}}}
-\def\TR{\enm{\lngraw{archive/topic/prob/definition/seq}{t}}}
+\def\TR{\enm{\lngraw{\probpath/definition/seq}{t}}}
 
-\def\SQ{\enm{\lngraw{archive/topic/prob/definition/seq}{\bf SQ}}}
-\def\SQQ{\enm{\lngraw{archive/topic/prob/definition/seq}{\rm sq}}}
+\def\SQ{\enm{\lngraw{\probpath/definition/seq}{\bf SQ}}}
+\def\SQQ{\enm{\lngraw{\probpath/definition/seq}{\rm sq}}}
 
-\def\SQP{\enm{\lngraw{archive/topic/prob/definition/seqp}{\bf SQP}}}
-\def\SQPP{\enm{\lngraw{archive/topic/prob/definition/seqp}{\rm sqp}}}
+\def\SQP{\enm{\lngraw{\probpath/definition/seqp}{\bf SQP}}}
+\def\SQPP{\enm{\lngraw{\probpath/definition/seqp}{\rm sqp}}}
 
-\def\SQI#1#2#3{\enm{\lngraw{archive/topic/prob/definition/seq}{{\rm SQI}\left(#1, #2, #3\right)}}}
-\def\PRSQ#1#2{\enm{\lngraw{archive/topic/prob/definition/prsq}{\P\left(#1; #2\right)}}}
+\def\SQI#1#2#3{\enm{\lngraw{\probpath/definition/seqi}{I\left(#1, #2, \JASN{#3}\right)}}}
+\def\SQIM#1#2#3{\enm{\lngraw{\probpath/definition/seqim}{I\left(#1, #2, \MASN{#3}\right)}}}
+\def\PRSQ#1#2{\enm{\lngraw{\probpath/definition/prsq}{\P\left(#1; #2\right)}}}
+\def\MPRSQ#1#2{\enm{\lngraw{\probpath/definition/mprsq}{\P\left(#1; #2\right)}}}
 \def\ASN#1#2{\enm{#1 = #2}}
 
-\def\SSPT#1#2{\enm{\lngraw{archive/topic/prob/definition/spt}{#1 \gets \{#2\}}}}
-\def\D{\enm{\lngraw{archive/topic/prob/definition/dist}{\bf D}}}
-\def\DD{\enm{\lngraw{archive/topic/prob/definition/dist}{\rm D}}}
-\def\DDD{\enm{\lngraw{archive/topic/prob/definition/dist}{\rm d}}}
+\def\SSPT#1#2{\enm{\lngraw{\probpath/definition/spt}{#1 \gets \{#2\}}}}
+\def\D{\enm{\lngraw{\probpath/definition/dist}{\bf D}}}
+\def\DD{\enm{\lngraw{\probpath/definition/dist}{\rm D}}}
+\def\DDD{\enm{\lngraw{\probpath/definition/dist}{\rm d}}}
 
 \def\expa{expands as}
 
-\def\pin#1#2{\enm{\lngraw{archive/topic/prob/definition/pin}{#1 \in #2}}}
-\def\pinw#1{\enm{\lngraw{archive/topic/prob/definition/pin}{#1}}}
+\def\pin#1#2{\enm{\lngraw{\probpath/definition/pin}{#1 \in #2}}}
+\def\pinw#1{\enm{\lngraw{\probpath/definition/pin}{#1}}}

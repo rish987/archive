@@ -1,5 +1,7 @@
-\def\mprobdef#1{%
+\def\mprobdef#1{
   for \ctx\ $\SSPT{\SPT}{(\XV,\X), (\YV,\Y)}$, $\DD \in \D$, and all $\pin\XX\X$,
-  $$\MPr{\XV = \XX} = \sum_{\pin\YY\Y}\Pr{\XV = \XX, \YV = \YY},$$
-  that is, a \mprb#1
+  \ctext{$\MPr{\XV = \XX}$}
+  such that
+  $$\forall \DDD \in \DD, \MPr{\XV = \XX} = \MPRSQ{\DDD}{\XV = \XX},$$%
+  that is, a \mprb#1%
 }

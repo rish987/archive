@@ -1,0 +1,23 @@
+\begin{proposition}
+  We have that \mprobsqiprop.%
+\end{proposition}
+
+\begin{proof}
+  We have that, for all $\DDD \in \DD$,
+  \begin{align*}
+    \MPr{\XV = \XX} \relr = {\mreflng{definition}{archive/topic/prob/definition/mprob}} \ &
+                    \MPRSQ{\DDD}{\XV = \XX}\\
+                    \relr = {\mreflng{definition}{archive/topic/prob/definition/mprsq}} \ & 
+                    \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\XV = \XX}}{\TR}\right)\\
+                    \relr = {\mreflng{definition}{archive/topic/prob/definition/seqim}} \ & 
+                    \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\sum_{\pin\YY\Y} \SQI{\DDD}{\TR}{\XV = \XX, \YV = \YY}}{\TR}\right)\\
+                    = \ & 
+                    \lim_{\TR \rightarrow \infty}\left(\sum_{\pin\YY\Y} \frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR}{\XV = \XX, \YV = \YY}}{\TR}\right)\\
+                    = \ & 
+                    \sum_{\pin\YY\Y} \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR}{\XV = \XX, \YV = \YY}}{\TR}\right)\\
+                    \relrg = {\mreflng{definition}{archive/topic/prob/definition/prsq}} 10pt \ & 
+                    \sum_{\pin\YY\Y}\PRSQ{\DDD}{\XV = \XX, \YV = \YY}\\
+                    \relrg = {\mreflng{definition}{archive/topic/prob/definition/prob}} 10pt \ & 
+                    \sum_{\pin\YY\Y}\Pr{\XV = \XX, \YV = \YY}.
+  \end{align*}
+\end{proof}
