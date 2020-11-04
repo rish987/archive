@@ -1,0 +1,20 @@
+\begin{proposition}
+  We have that\ \mprsqexprprop.%
+\end{proposition}
+
+\begin{proof}
+  We have that
+  \begin{align*}
+  \MPRSQ{\SQQ}{\XV = \XX}
+                    \relr = {\mreflng{definition}{archive/topic/prob/definition/mprsq}} \ & 
+                    \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQIM{\SQQ}{\TR'}{\XV = \XX}}{\TR}\right)\\
+                    \relr = {\mreflng{definition}{archive/topic/prob/definition/seqim}} \ & 
+                    \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\sum_{\pin\YY\Y} \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY}}{\TR}\right)\\
+                    = \ & 
+                    \lim_{\TR \rightarrow \infty}\left(\sum_{\pin\YY\Y} \frac{\sum_{\TR' = 1}^{\TR}\SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY}}{\TR}\right)\\
+                    = \ & 
+                    \sum_{\pin\YY\Y} \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY}}{\TR}\right)\\
+                    \relrg = {\mreflng{definition}{archive/topic/prob/definition/prsq}} 10pt \ & 
+                    \sum_{\pin\YY\Y}\PRSQ{\SQQ}{\XV = \XX, \YV = \YY}
+  \end{align*}
+\end{proof}

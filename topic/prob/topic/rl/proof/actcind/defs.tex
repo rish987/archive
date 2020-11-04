@@ -8,7 +8,7 @@
 \def\actcindpostlist{\enm{\SV{\TT}}}
 \def\actcindpost{\enm{\CPr{\AV\TT}{\actcindpostlist}}}
 \def\actcindeq{\enm{\actcindpre = \actcindpost}}
-\def\actcindpropg#1#2{$\AV\TT$ is independent of all previous \til{}s and \act{}s given $\SV\TT$.
+\def\actcindpropg#1#2#3{$\AV\TT$ is independent of all previous \til{}s and \act{}s given $\SV\TT$.
 Notationally, for $\astr$ and
-for all \actcindrange, when defined, $$#1#2$$}
-\def\actcindprop#1{\actcindpropg{\actcindeq}{#1}}
+for all \actcindrange, when $#1 \rell {\ne} def \undef$, $$#1=#2#3$$}
+\def\actcindprop#1{\actcindpropg{\actcindpre}{\actcindpost}{#1}}
