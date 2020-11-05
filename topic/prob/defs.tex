@@ -11,14 +11,15 @@
 \def\R{\enm{{\mathbb R}}}
 \def\E#1{\enm{\lngraw{\probpath/definition/ev}{{\mathbb E}\left[#1\right]}}}
 \def\ESQ#1#2{\enm{\lngraw{\probpath/definition/evsq}{{\mathbb E}\left[#1; #2\right]}}}
-\def\ESQC#1#2#3{\enm{\lngraw{\probpath/definition/evsq}{{\mathbb E}\left[#1; #2 \mid \MASN{#3}\right]}}}
+\def\EC#1#2{\enm{\lngraw{\probpath/definition/evc}{{\mathbb E}\left[#1 \mid #2\right]}}}
+\def\ESQC#1#2#3{\enm{\lngraw{\probpath/definition/evsqc}{{\mathbb E}\left[#1; #2 \mid \MASN{#3}\right]}}}
 \def\ctx{contextual}
 
 \def\mrefevd{\mreflng{definition}{\probpath/definition/ev}}
 \def\mrefev{\mreflng{definition}{\probpath/proof/evexpr}}
 \def\mrefmargprobd{\mreflng{definition}{\probpath/proof/mprobexpr}}
 \def\mrefmargprob{\mreflng{proof}{\probpath/proof/mprobg}}
-\def\mrefcondprob{\mreflng{definition}{\probpath/definition/cprob}}
+\def\mrefcondprob{\mreflng{definition}{\probpath/proof/cprobexpr}}
 \def\mrefmargzimpl{\mreflng{proof}{\probpath/proof/margzimpl}}
 \def\mrefmarggimpl{\mreflng{proof}{\probpath/proof/marggimpl}}
 \def\mrefpzerocind{\mreflng{proof}{\probpath/proof/pzerocind}}
@@ -35,6 +36,8 @@
 \def\pseq{\hlg{probability sequence}}
 \def\trl{\hlg{trial}}
 \def\sprb{\hlg{sequence probability}}
+\def\smprb{\hlg{marginal sequence probability}}
+\def\scprb{\hlg{conditional sequence probability}}
 \def\sprbs{\hlg{sequence probabilit}ies}
 \def\prb{\hlg{probability}}
 \def\prbs{\hlg{probabilit}ies}
@@ -79,6 +82,7 @@
 \def\SQIM#1#2#3{\enm{\lngraw{\probpath/definition/seqim}{I\left(#1, #2, \MASN{#3}\right)}}}
 \def\PRSQ#1#2{\enm{\lngraw{\probpath/definition/prsq}{\P\left(#1; #2\right)}}}
 \def\MPRSQ#1#2{\enm{\lngraw{\probpath/definition/mprsq}{\P\left(#1; #2\right)}}}
+\def\CPRSQ#1#2#3{\enm{\lngraw{\probpath/definition/cprsq}{\P\left(#1; #2 \mid #3\right)}}}
 \def\ASN#1#2{\enm{#1 = #2}}
 
 \def\SSPT#1#2{\enm{\lngraw{\probpath/definition/spt}{#1 \gets \{#2\}}}}
