@@ -8,14 +8,14 @@
     \ESQC{\DDD}{f}{\YV = \YY} \relr = {\mreflng{\probpath/definition/evsqc}} \ &\lim_{\TR \rightarrow \infty}
     \left(
     \frac
-    {\sum_{\TR' = 1}^{\TR}\sum_{\pin{\XX}{\X}}\SQI{\DDD}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+    {\sum_{\TR' = 1}^{\TR}\sum_{\pin{\XX}{\X}}\SQIM{\DDD}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
     {\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\YV = \YY}}
     \right)\\
     = \ &\lim_{\TR \rightarrow \infty}
     \left(
     \sum_{\pin{\XX}{\X}}
     \frac
-    {\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+    {\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
     {\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\YV = \YY}}
     \right)\\
     = \ &
@@ -23,7 +23,7 @@
     \lim_{\TR \rightarrow \infty}
     \left(
     \frac
-    {\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+    {\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
     {\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\YV = \YY}}
     \right)\\
     = \ &
@@ -31,27 +31,25 @@
     \lim_{\TR \rightarrow \infty}
     \left(
     \frac
-    {\left({\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}}
+    {\left({\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}}
     {\left(\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\YV = \YY}\right)/\TR}
     \times f(\XX, \YY)
     \right)\\
-    \relrg = {\mreflng{\probpath/proof/sqpproblimdef},\mreflng{\probpath/proof/sqpmproblimdef}} 10pt \ & 
+    \relrg = {\mreflng{\probpath/proof/sqpmproblimdef},\mreflng{\probpath/definition/mprsq}} 10pt \ & 
     \sum_{\pin{\XX}{\X}}
     \frac
     {
       \lim_{\TR \rightarrow \infty}\left(
-    \left({\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}\right)}
+    \left({\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}\right)}
     {
       \lim_{\TR \rightarrow \infty}\left(
     \left(\sum_{\TR' = 1}^{\TR}\SQIM{\DDD}{\TR'}{\YV = \YY}\right)/\TR\right)}
     \times f(\XX, \YY)
     \\
-    \relrg = {\mreflng{\probpath/definition/prsq},\mreflng{\probpath/definition/mprsq}} 10pt \ & 
+    \relrg = {\mreflng{\probpath/definition/mprsq}} 10pt \ & 
     \sum_{\pin{\XX}{\X}} \frac { \PRSQ{\DDD}{\XV = \XX, \YV = \YY} } { \MPRSQ{\DDD}{\YV = \YY} } 
     \times f(\XX, \YY) \\
-    \relrg = {\mreflng{\probpath/definition/prob},\mreflng{\probpath/definition/mprob}} 10pt \ & 
-    \sum_{\pin{\XX}{\X}} \frac { \Pr{\XV = \XX, \YV = \YY} } { \MPr{\YV = \YY} } \times f(\XX, \YY) \\
-    \relrg = {\mrefcondprob} 10pt \ & 
-    \sum_{\pin{\XX}{\X}} \CPr{\XV = \XX}{\YV = \YY} \times f(\XX, \YY).
+    \relrg = {\mreflng{\probpath/proof/cprsqexpr}} 10pt \ & 
+    \sum_{\pin\XX\X}\CPRSQ{\DDD}{\XV = \XX}{\YV = \YY}\times f(\XX, \YY).
   \end{align*}
 \end{proof}

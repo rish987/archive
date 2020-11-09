@@ -3,14 +3,14 @@
 \end{proposition}
 
 \begin{proof}
-  We have that
+  We have that, for all $\DDD \in \DD$,
   \begin{align*}
-    \ESQ{\DDD}{f} \relrg = {\mrefevd} 10pt &
-    \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\sum_{\pin\XX\X}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}\times f(\XX)}{\TR}\right)\\
-          = & \lim_{\TR \rightarrow \infty}\left(\sum_{\pin\XX\X}\frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}\times f(\XX)}{\TR}\right)\\
-          = & \sum_{\pin\XX\X}\lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}\times f(\XX)}{\TR}\right)\\
-          = & \sum_{\pin\XX\X}f(\XX) \times \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQI{\DDD}{\TR'}{\JASN{\ASN\XV\XX}}}{\TR}\right)\\
-      \relrg = {\mrefsqpr} 10pt & \sum_{\pin\XX\X}f(\XX) \times \PRSQ{\DDD}{\XV = \XX}\\
-      \relrg = {\mrefpr} 10pt & \sum_{\pin\XX\X}f(\XX) \times \Pr{\XV = \XX}.
+    \E{f}
+    \relrg = {\mreflng{\probpath/definition/ev}} 10pt
+    \ESQ{\DDD}{f} 
+    \relrg = {\mreflng{\probpath/proof/evsqexpr}} 10pt
+    \sum_{\pin\XX\X}\PRSQ{\DDD}{\XV = \XX}\times f(\XX)
+    \relrg = {\mreflng{\probpath/definition/prob}} 10pt
+    \sum_{\pin\XX\X}\Pr{\XV = \XX}\times f(\XX)
   \end{align*}
 \end{proof}
