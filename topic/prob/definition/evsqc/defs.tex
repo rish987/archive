@@ -1,9 +1,9 @@
 \def\evsqcdef#1{%
-for \ctx\ $\SSPT{\SPT}{(\XV,\X),(\YV,\Y),(\QV,\Q)}$, and all $\SQQ \in \SQ$, $\fnnot{f}{\X \times \Y \times \Q}{\R}$ and $\pin\YY\Y$,
+for \ctx\ $\SSPT{\SPT}{(\XV,\X),(\YV,\Y)}$, and all $\SQQ \in \SQ$, $\fnnot{f}{\X \times \Y}{\R}$ and $\pin\YY\Y$,
   $$\ESQC{\SQQ}{f}{\YV = \YY} = \lim_{\TR \rightarrow \infty}
   \left(
   \frac
-  {\sum_{\TR' = 1}^{\TR}\sum_{\pin{\XX}{\X}}\SQIM{\SQQ}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+  {\sum_{\TR' = 1}^{\TR}\sum_{\pin{\XX}{\X}}\SQI{\SQQ}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
   {\sum_{\TR' = 1}^{\TR}\SQIM{\SQQ}{\TR'}{\YV = \YY}}
   \right).$$
   This is verbally referred to as the ``\expvsqc'' of $f$ under $\SQQ$ given $\YV = \YY$#1%

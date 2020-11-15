@@ -14,7 +14,7 @@
   \serule
   \nrp 3
   {\it Inductive hypothesis.}
-  Assume that for $\TT - 1$ such that $1 \rell {\le} tmg \TT - 1 \rell {\le} tml \T - 1$,
+  Assume that for $\TT - 1$ such that $1 \le \TT - 1 \le \T - 1$,
   the proposition holds. That is,
   $$ \pexprtihp \rell = ih \pexprtih.$$%
   \srule
@@ -43,11 +43,11 @@
 
       \nrp 10
       Then, 
-      \ctext{$\isbf \rellrf{\ne}{daf}{(ct)->\mrefcondprob} \undef$, $\isb \rellrf{\ne}{da}{((ct)->\mrefmarggimpl)->\mrefcondprob} \undef $,}
+      \ctext{$\isbf \rellrf{\ne}{daf}{(ct)->\mrefconddef} \undef$, $\isb \rellrf{\ne}{da}{(daf)->\mrefconddefimpl} \undef $,}
       \nrp 11
       and we have
-      $$\isbf \rellr = cia (daf,tmg,tml)->\mreflng{\rltpath/proof/actcind} \isb 
-      \rellr = ad (da,tmg,tml)->\mreflng{\rltpath/definition/pact} \isact.$$
+      $$\isbf \rellr = cia (daf)->\mreflng{\rltpath/proof/actcind} \isb 
+      \rellr = ad (da)->\mreflng{\rltpath/definition/pact} \isact.$$
 
       \nrp 12
       \reflng{\rltpath/definition/pactdef}{There are two cases} to consider:
@@ -57,24 +57,24 @@
           \nrp 14
           Then,
           \begin{align*}
-            \ismid &\rellr = md daf \isbf \times \pexprtihp\\
+            \ismid &\rellr = md {(ct)->\mrefcprtompr} \isbf \times \pexprtihp\\
                    &\relr = cia-ad \isact \times \pexprtihp\\
                    &\relr = cto \pexprtihp\\
                    &\rellr > mg ct 0.
           \end{align*}
           \nrp 15
           Therefore, 
-          $$\iscf \rellrf{\ne}{dsf}{(md-mg)->\mrefcondprob} \undef,\isc \rellrf{\ne}{ds}{((md-mg)->\mrefmarggimpl)->\mrefcondprob} \undef$$
+          $$\iscf \rellrf{\ne}{dsf}{(md-mg)->\mrefconddef} \undef,\isc \rellrf{\ne}{ds}{(dsf)->\mrefconddefimpl} \undef$$
           \nrp 16
           and we have
           $$\iscf 
-          \rellr = cis (dsf,tmg,tml)->\mreflng{\rltpath/definition/trdcind} \isc 
-          \rellr = sd (ds,tmg,tml)->\mreflng{\rltpath/definition/trd} \istrd.$$
+          \rellr = cis (dsf)->\mreflng{\rltpath/definition/trdcind} \isc 
+          \rellr = sd (ds)->\mreflng{\rltpath/definition/trd} \istrd.$$
           \nrp 17
           Therefore,
           \begin{align*}
             \pexprtp 
-            \relr = daf,dsf \ & \pexprtihp \times \isbf \times\\& \iscf\\
+            \relr = {(md-mg)->\mrefcprtompr,(ct)->\mrefcprtompr} \ & \pexprtihp \times \isbf \times\\& \iscf\\
             \relr = cia,cis \ & \pexprtihp \times \isb \times \isc\\
             \relr = ih,ad,sd \ & \pexprg{\TT}{\TT'}.
           \end{align*}
@@ -83,7 +83,7 @@
           \nrp 19
           Then,
           \begin{align*}
-            \ismid &\rellr = afd daf \isbf \times \pexprtihp\\
+            \ismid &\rellr = afd {(ct)->\mrefcprtompr} \isbf \times \pexprtihp\\
                    &\relr = cia-ad \isact \times \pexprtihp\\
                    &\rellr = afz ctt 0.
           \end{align*}

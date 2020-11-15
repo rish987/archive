@@ -4,18 +4,15 @@
 \end{proposition}
 
 \begin{proof}
-  \nrp 2
-  We have that 
-  $$\Pr{\actcindprelist} \rellr > cg {def->\mrefcondprob} 0,$$ 
-  implying that
   \nrp 3
-  $$\Pr{\actcindpostlist} \rellr > rcg {cg->\mrefmarggimpl} 0.$$
-  Suppose 
+  We have that
+  $$\CPr{\AV\TT}{\SV\TT} \relr {\ne} {(def)->\mreflng{\probpath/proof/cpproblimdefimpl}} \undef,$$
   \nrp 4
+  Suppose 
   $\AV\TT = \pin{\AA}{\A}$
   and
-  $\SV\TT = \pin{\SS}{\S}$. Therefore,
-  $$\pactdefp \rellr = ap {rcg->\mreflng{\rltpath/definition/pact}} \pactdefpp,$$
+  $\SV\TT = \pin{\SS}{\S}$. We have
+  $$\pactdefp \rellr = ap {\mreflng{\rltpath/definition/pact}} \pactdefpp,$$
   \nrp 5
   so \reflng{\rltpath/definition/pactdef}{there are two cases} to consider:
   \begin{itemize}
@@ -26,7 +23,7 @@
       $$\actcindpost \rellr = poi po,ap 1,$$
       \nrp 8
       so
-      $$\actcindpre \relr = (poi)->{\mrefponecind} \ \ \ \ 1\ \ \ \ \relr = poi \actcindpost.$$
+      $$\actcindpre \relr = (mg,poi)->{\mrefponecind} \ \ \ \ 1\ \ \ \ \relr = poi \actcindpost.$$
     \item \nrp 9 Case 2: $\pactdefpp \rell = pz 0$.
 
       \nrp 10
