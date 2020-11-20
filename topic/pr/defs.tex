@@ -10,24 +10,24 @@
 \def\CPr#1#2{\enm{\lngraw{\probpath/definition/cprob}{\P\left(\MASN{#1}\mid\MASN{#2}\right)}}}
 \def\R{\enm{{\mathbb R}}}
 \def\E#1{\enm{\lngraw{\probpath/definition/ev}{{\mathbb E}\left[#1\right]}}}
-\def\ESQ#1#2{\enm{\lngraw{\probpath/definition/evsq}{{\mathbb E}\left[#1; #2\right]}}}
+\def\ESQ#1#2{\enm{\lngraw{\probpath/definition/sqev}{{\mathbb E}\left[#1; #2\right]}}}
 \def\EC#1#2{\enm{\lngraw{\probpath/definition/evc}{{\mathbb E}\left[#1 \mid #2\right]}}}
-\def\ESQC#1#2#3{\enm{\lngraw{\probpath/definition/evsqc}{{\mathbb E}\left[#1; #2 \mid \MASN{#3}\right]}}}
+\def\ESQC#1#2#3{\enm{\lngraw{\probpath/definition/sqevc}{{\mathbb E}\left[#1; #2 \mid \MASN{#3}\right]}}}
 \def\ctx{contextual}
 
 \def\mrefevd{\mreflng{\probpath/definition/ev}}
-\def\mrefev{\mreflng{\probpath/proof/evsqexpr}}
-\def\mrefmargprobd{\mreflng{\probpath/proof/mprsqexpr}}
-\def\mrefmargprob{\mreflng{\probpath/proof/sqpmprobgexpr}}
-\def\mrefcondprob{\mreflng{\probpath/proof/cprsqexpr}}
-\def\mrefconddef{\mreflng{\probpath/proof/sqcpproblimdef}}
-\def\mrefconddefimpl{\mreflng{\probpath/proof/sqpcpproblimdefimpl}}
-\def\mrefmargzimpl{\mreflng{\probpath/proof/sqpmargzimpl}}
-\def\mrefcprtompr{\mreflng{\probpath/proof/sqpcprobtomprob}}
-\def\mrefmarggimpl{\mreflng{\probpath/proof/sqpmarggimpl}}
-\def\mrefpzerocind{\mreflng{\probpath/proof/sqppzerocind}}
-\def\mrefponecind{\mreflng{\probpath/proof/sqpponecind}}
-\def\mrefsqpr{\mreflng{\probpath/definition/prsq}}
+\def\mrefev{\mreflng{\probpath/proof/sqevexpr}}
+\def\mrefmargprobd{\mreflng{\probpath/proof/sqmprobexpr}}
+\def\mrefmargprob{\mreflng{\probpath/proof/sqmprobgexpr}}
+\def\mrefcondprob{\mreflng{\probpath/proof/sqcprobexpr}}
+\def\mrefconddef{\mreflng{\probpath/proof/sqcprobdef}}
+\def\mrefconddefimpl{\mreflng{\probpath/proof/sqcprobdefimpl}}
+\def\mrefmargzimpl{\mreflng{\probpath/proof/sqmargzimpl}}
+\def\mrefcprtompr{\mreflng{\probpath/proof/sqcprobtomprob}}
+\def\mrefmarggimpl{\mreflng{\probpath/proof/sqmarggimpl}}
+\def\mrefpzerocind{\mreflng{\probpath/proof/sqpzerocind}}
+\def\mrefponecind{\mreflng{\probpath/proof/sqponecind}}
+\def\mrefsqpr{\mreflng{\probpath/definition/sqprob}}
 \def\mrefpr{\mreflng{\probpath/definition/prob}}
 
 \def\var{\hlg{variable}}
@@ -83,9 +83,9 @@
 
 \def\SQI#1#2#3{\enm{\lngraw{\probpath/definition/seqi}{I\left(#1, #2, \JASN{#3}\right)}}}
 \def\SQIM#1#2#3{\enm{\lngraw{\probpath/definition/seqim}{I\left(#1, #2, \MASN{#3}\right)}}}
-\def\PRSQ#1#2{\enm{\lngraw{\probpath/definition/prsq}{\P\left(#1; #2\right)}}}
-\def\MPRSQ#1#2{\enm{\lngraw{\probpath/definition/mprsq}{\P\left(#1; #2\right)}}}
-\def\CPRSQ#1#2#3{\enm{\lngraw{\probpath/definition/cprsq}{\P\left(#1; #2 \mid #3\right)}}}
+\def\PRSQ#1#2{\enm{\lngraw{\probpath/definition/sqprob}{\P\left(#1; #2\right)}}}
+\def\MPRSQ#1#2{\enm{\lngraw{\probpath/definition/sqmprob}{\P\left(#1; #2\right)}}}
+\def\CPRSQ#1#2#3{\enm{\lngraw{\probpath/definition/sqcprob}{\P\left(#1; #2 \mid #3\right)}}}
 \def\ASN#1#2{\enm{#1 = #2}}
 
 \def\SSPT#1#2{\enm{\lngraw{\probpath/definition/spt}{#1 \gets \{#2\}}}}

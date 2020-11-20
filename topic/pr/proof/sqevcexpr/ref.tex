@@ -1,0 +1,57 @@
+\begin{proposition}
+  \nrp 1
+  We have that, \evsqcexprprop.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 2
+  We have that
+  \begin{align*}
+    \ESQC{\SQPP}{f}{\YV = \YY} \relr = {\mreflng{\probpath/definition/sqevc}} \ &\lim_{\TR \rightarrow \infty}
+    \left(
+    \frac
+    {\sum_{\TR' = 1}^{\TR}\sum_{\pin{\XX}{\X}}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+    {\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}}
+    \right)\\
+    = \ &\lim_{\TR \rightarrow \infty}
+    \left(
+    \sum_{\pin{\XX}{\X}}
+    \frac
+    {\sum_{\TR' = 1}^{\TR}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+    {\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}}
+    \right)\\
+    = \ &
+    \sum_{\pin{\XX}{\X}}
+    \lim_{\TR \rightarrow \infty}
+    \left(
+    \frac
+    {\sum_{\TR' = 1}^{\TR}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+    {\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}}
+    \right)\\
+    = \ &
+    \sum_{\pin{\XX}{\X}}
+    \lim_{\TR \rightarrow \infty}
+    \left(
+    \frac
+    {\left({\sum_{\TR' = 1}^{\TR}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}}
+    {\left(\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}\right)/\TR}
+    \right)
+    \times f(\XX, \YY)\\
+    \relrg = {\mreflng{\probpath/proof/sqcprobexpr/proof/seqimqlim}} 10pt \ & 
+    \sum_{\pin{\XX}{\X}}
+    \frac
+    {
+      \lim_{\TR \rightarrow \infty}\left(
+    \left({\sum_{\TR' = 1}^{\TR}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}\right)}
+    {
+      \lim_{\TR \rightarrow \infty}\left(
+    \left(\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}\right)/\TR\right)}
+    \times f(\XX, \YY)
+    \\
+    \relrg = {\mreflng{\probpath/definition/sqmprob}} 10pt \ & 
+    \sum_{\pin{\XX}{\X}} \frac { \PRSQ{\SQPP}{\XV = \XX, \YV = \YY} } { \MPRSQ{\SQPP}{\YV = \YY} } 
+    \times f(\XX, \YY) \\
+    \relrg = {\mreflng{\probpath/proof/sqcprobexpr}} 10pt \ & 
+    \sum_{\pin\XX\X}\CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY}\times f(\XX, \YY).
+  \end{align*}
+\end{proof}

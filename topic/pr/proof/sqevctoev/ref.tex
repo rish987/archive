@@ -1,0 +1,21 @@
+\begin{proposition}
+  \nrp 1
+  We have that, \sqpevctoevexprprop.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 2
+  We have that
+  \begin{align*}
+    \ESQ{\SQPP}{f} \relrg = {\mreflng{\probpath/proof/sqevexpr}} 12pt &
+    \sum_{\pin\XX\X}\sum_{\pin\YY\Y}f(\XV = \XX,\YV = \YY)\times \MPRSQ{\SQPP}{\XV = \XX,\YV = \YY}\\
+    \relrg = {\mrefmargzimpl} 12pt &
+    \sum_{\pin\XX\X}\ \sum_{\pin\YY\Y : \MPRSQ{\SQPP}{\YV = \YY} > 0}f(\XV = \XX,\YV = \YY)\times \MPRSQ{\SQPP}{\XV = \XX,\YV = \YY}\\
+    \relrg = {\mrefcprtompr} 12pt &
+        \sum_{\pin\XX\X}\ \sum_{\pin\YY\Y : \MPRSQ{\SQPP}{\YV = \YY} > 0}f(\XV = \XX,\YV = \YY)\times \MPRSQ{\SQPP}{\YV = \YY}\times \CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY}\\
+      = &
+        \sum_{\pin\YY\Y : \MPRSQ{\SQPP}{\YV = \YY} > 0}\MPRSQ{\SQPP}{\YV = \YY}\times \sum_{\pin\XX\X}\CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY}f(\XV = \XX,\YV = \YY)\\
+      \relrg = {\mreflng{\probpath/proof/sqevcexpr}} 12pt &
+      \sum_{\pin\YY\Y : \MPRSQ{\SQPP}{\YV = \YY} > 0}\MPRSQ{\SQPP}{\YV = \YY} \times \ESQC{\SQPP}{f}{\YV = \YY}.
+  \end{align*}
+\end{proof}
