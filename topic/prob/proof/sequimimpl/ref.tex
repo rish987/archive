@@ -1,0 +1,41 @@
+\begin{proposition}
+  We have that \sequimimplprop.%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  $\implies$ suppose $\exists\ 1 \le \TR < \infty : \SQIM{\SQPP}{\TR}{\XV = \XX} = 1$.
+
+  We have that
+  $$1 = \SQIM{\SQPP}{\TR}{\XV = \XX} 
+  \relrg = {\mreflng{\probpath/definition/seqim}} 12pt
+  \sum_{\QQ \in \Q}
+  \SQI{\SQPP}{\TR}{\XV = \XX, \QV = \QQ},$$
+  so we have
+  $$\exists \QQ \in \Q, \exists\ 1 \le \TR < \infty : \SQI{\SQPP}{\TR}{\XV = \XX, \QV = \QQ} = 1.$$
+  and therefore
+  $$
+  \PRSQ{\SQPP}{\XV = \XX, \QV = \QQ}
+  \relr > {\mreflng{\probpath/definition/seqp}} 
+  0,
+  $$
+  so
+  $$
+  \MPRSQ{\SQPP}{\XV = \XX}
+  \relr > {\mreflng{\probpath/proof/sqpmarggimpl}} 
+  0.
+  $$
+  \hrule
+  $\impliedby$ suppose $\forall \ 1 \le \TR < \infty, \SQIM{\SQPP}{\TR}{\XV = \XX} \ne 1$.
+
+  %TODO prove
+  Then, $$\forall \ 1 \le \TR < \infty, \SQIM{\SQPP}{\TR}{\XV = \XX} \relr = {\mreflng{\probpath/proof/seqimzo}} 0,$$
+  so
+  $$\MPRSQ{\SQPP}{\XV=\XX} 
+  \relr = {\mreflng{\probpath/definition/mprsq}} 
+  \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\XV = \XX}}{\TR}\right)
+  =
+  \lim_{\TR \rightarrow \infty}\frac{0}{\TR} = 0.
+  $$
+  \hrule
+\end{proof}

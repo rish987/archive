@@ -1,0 +1,17 @@
+\def\seqimqlimprop#1{%
+  for \ctx\ $\SSPT{\SPT}{(\XV,\X), (\YV, \Q)}$, and all $\SQPP \in \SQP$ and $\pinw{\XX, \YY \in \X \times \Q}$,
+    $$\lim_{\TR \rightarrow \infty}
+    \left(
+    \frac
+    {\left({\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}}
+    {\left(\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}\right)/\TR}
+    \right)
+    = 
+    \frac
+    {
+      \lim_{\TR \rightarrow \infty}\left(
+    \left({\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}}\right)/{\TR}\right)}
+    {
+      \lim_{\TR \rightarrow \infty}\left(
+    \left(\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}\right)/\TR\right)}#1$$%
+}

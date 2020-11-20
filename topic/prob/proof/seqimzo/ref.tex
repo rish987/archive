@@ -1,0 +1,45 @@
+\begin{proposition}
+  We have that \seqimzoprop.%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  $\implies$ suppose $\exists\ \QQ \in \Q : \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} = 1$.
+
+  Then,
+  $$\forall\ \QQ' \in \Q : \QQ' \ne \QQ, \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ'} 
+  \relr = {\mreflng{\probpath/definition/seqi}} 
+  0,$$
+  so
+  $$\SQIM{\SQQ}{\TR}{\XV = \XX} 
+  \relr = {\mreflng{\probpath/definition/seqim}} 
+  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ}
+  +
+  \sum_{\QQ' \in \Q : \QQ' \ne \QQ}
+  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ'} = 1.
+  $$
+  \hrule
+  $\impliedby$ suppose $\forall\ \QQ \in \Q, \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} \ne 1$.
+
+  Then,
+  $$\forall\ \QQ \in \Q, \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} \relr = {\mreflng{\probpath/definition/seqi}} 0,$$
+  so
+  $$\SQIM{\SQQ}{\TR}{\XV = \XX} 
+  \relrg = {\mreflng{\probpath/definition/seqim}} 12pt
+  \sum_{\QQ \in \Q}
+  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} = 0.
+  $$
+  \hrule
+
+  We have that
+  $$
+  \sum_{\XX \in \X}
+  \SQIM{\SQQ}{\TR}{\XV = \XX} 
+  \relrg = {\mreflng{\probpath/definition/seqim}} 12pt
+  \sum_{\XX \in \X}
+  \sum_{\QQ \in \Q}
+  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ}
+  \relrg = {\mreflng{\probpath/definition/seqi}} 12pt
+  1.
+  $$
+\end{proof}
