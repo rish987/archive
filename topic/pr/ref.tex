@@ -1,0 +1,206 @@
+\begin{center}
+\nrp 1
+{\LARGE \hlc[___gray]{Probability Theory}}\\
+\end{center}
+\begin{part} {Physical intuition}
+  \def\AV{{\rm A}}
+  \def\BV{{\rm B}}
+  \def\R{\colorbox{red}{\rm R}}
+  \def\B{\colorbox{blue}{\rm B}}
+  \def\1{\colorbox{__gray}{1}}
+  \def\0{\colorbox{__gray}{0}}
+  \nrp 2
+  Suppose that we have a set of ``\var{}s,''
+  each with their own finite ``\dmn{}s'',
+  which we'll collectively refer to as the ``\spt'':
+  \def\tvar#1#2#3#4{
+    \node[draw=black,inner sep=8mm,rectangle] (#1) at #2 {};
+    \node[anchor=north west] at (#1.north west) {$#3$};
+    \node[fill=___gray,minimum size=6mm,rectangle] at #2 {#4};
+  }
+  \begin{center}
+    \begin{tikzpicture}
+
+      \tvar{AR}{(0,0)}{\AV}{}
+      \node[anchor=south] at (AR.north) {\var};
+
+      \node[draw=black,minimum height=10mm,minimum width=15mm,rectangle] (DA) at (2,0) {};
+      \node at ($(DA.west)!0.5!(DA.center)$) {\R};
+      \node at ($(DA.east)!0.5!(DA.center)$) {\B};
+      \node[anchor=south] at (DA.north) {\dmn};
+
+      \tvar{BR}{(0,-2.5)}{\BV}{}
+      \node[anchor=south] at (BR.north) {\var};
+
+      \node[anchor=east] at ($(AR.west)!0.5!(BR.west) + (-0.6, 0)$) {\spt:};
+
+      \node[draw=black,minimum height=10mm,minimum width=15mm,rectangle] (BD) at (2,-2.5) {};
+      \node at ($(BD.west)!0.5!(BD.center)$) {\1};
+      \node at ($(BD.east)!0.5!(BD.center)$) {\0};
+      \node[anchor=south] at (BD.north) {\dmn};
+    \end{tikzpicture},
+  \end{center}
+  \nrp 3
+  where a ``\masn'' consists of associating some (but not all) of the \var{}s of the \spt\ 
+  with something from their \dmn{}s:
+  \begin{center}
+    \begin{tikzpicture}
+      \tvar{AR}{(0,0)}{\AV}{\B}
+      \node[anchor=south] at (AR.north) {\masn};
+    \end{tikzpicture},
+  \end{center}
+  \nrp 4
+  a ``\jasn'' (``\asn'' for short) consists of associating each \var\ of the \spt\ with something from its \dmn:
+  \def\tjasn#1#2#3#4#5{
+    \tvar{#1}{#5}   {\AV}{#3}
+    \tvar{#2}{($#5 + (0,-1.6)$)}{\BV}{#4}
+  }
+  \begin{center}
+    \begin{tikzpicture}
+      \node[anchor=south] at (AR.north) {\jasn};
+      \tjasn{A}{B}{\B}{\1}{(0,0)}
+    \end{tikzpicture},
+  \end{center}
+  \nrp 5
+  a ``\seq'' consists of an infinite, ordered list of such \jasn{}s:
+  \begin{center}
+    \begin{tikzpicture}
+      \node (F) at (0,0) {\tikz{
+      \tjasn{A1}{B1}{\B}{\1}{(0,0)}
+      \tjasn{A2}{B2}{\B}{\0}{($(A1.east) + (0.8,0)$)}
+      \tjasn{A3}{B3}{\R}{\1}{($(A2.east) + (0.8,0)$)}
+      \tjasn{A4}{B4}{\B}{\1}{($(A3.east) + (0.8,0)$)}
+      \tjasn{A5}{B5}{\R}{\1}{($(A4.east) + (0.8,0)$)}
+      \node[anchor=west] at ($(A5.south east) + (0.3,0)$) {$\cdots$};
+      }};
+      \node[anchor=south] at (F.north) {\seq};
+    \end{tikzpicture},
+  \end{center}
+  and a ``\trl'' denotes a particular item (i.e. an indexed \jasn) of this \seq.
+
+  \nrp 6
+  Now, suppose something in particular about this \seq:
+  if a \jasn\ occurs at any \trl, it will occur in infinitely many \trl{}s,
+  and, additionally, as we the traverse \seq\ in order, the ratio of occurrences of the
+  \jasn\ to \trl{}s so far becomes arbitrarily close to 
+  some positive number. 
+  Otherwise, if an \jasn\ never occurs, the ratio remains at zero.
+  Let's call this ratio the ``\sprb'' of the \jasn.
+  Let's refer to such a \seq\ as a \pseq.
+
+  \newpage
+  \nrp 7
+  For example, if the \seq\ above repeated the first five \trl{}s, it would be a \pseq\ defining the \sprbs:
+  \begin{center}
+    \begin{tikzpicture}
+      \node (F) at (0,0) {\tikz{
+        \tjasn{A1}{B1}{\B}{\1}{(0,0)}
+        \tjasn{A2}{B2}{\B}{\0}{($(A1.east) + (2,0)$)}
+        \tjasn{A3}{B3}{\R}{\1}{($(A2.east) + (2,0)$)}
+        \tjasn{A4}{B4}{\R}{\0}{($(A3.east) + (2,0)$)}
+
+        \node[anchor=south] at (A1.north) {0.4};
+        \node[anchor=south] at (A2.north) {0.2};
+        \node[anchor=south] at (A3.north) {0.4};
+        \node[anchor=south] at (A4.north) {0.0};
+        }};
+      \node[anchor=south] at (F.north) {\sprbs};
+    \end{tikzpicture}
+  \end{center}
+
+  \nrp 8
+  Let a ``\dist'' be a set of \pseq{}s with the same 
+  \sprb\ for every \asn, which,
+  in the context of a \dist, we will simply refer to as the ``\jprb'' (``\prb'' for short)
+  of that \asn.
+\end{part}
+
+\begin{part}{Notation}
+  Let's correspond this intuition with some notation, and use this 
+  notation to arrive at a few more definitions.
+  
+  \reflnenv{definition}{xyz}{Define}{ \xyzdef}
+  
+  \reflnenv{definition}{spt}{We let the notation}{ \sptdef.}
+  
+  \reflnenv{definition}{asn}{Let}{, \asndef.}
+  
+  \reflnenv{definition}{seq}{Let}{, \seqdef.}
+  
+  \reflnenv{definition}{seqi}{Use}{, \seqidef.}
+  
+  \reflnenv{definition}{seqim}{Let}{, \seqimdef.}
+  
+  \reflnenv{definition}{prsq}{Define}{, \prsqdef.}
+  
+  \reflnenv{definition}{mprsq}{Define}{, \mprsqdef.}
+  
+  \reflnenv{definition}{cprsq}{Define}{, \cprsqdef.}
+  
+  \reflnenv{definition}{seqp}{Let}{, \seqpdef.}
+\end{part}
+
+% TODO rename
+\begin{part}{Propositions}
+  \reflnenv{proof}{sqpproblimdef}{It can be shown}{ that, \sqpproblimdefprop.}
+  
+  \reflnenv{proof}{mprsqexpr}{It can be shown}{ that, \mprsqexprprop.}
+
+  \reflnenv{proof}{sqpmprobgexpr}{It can be shown}{ that, \sqpmprobgexprprop.}
+  
+  \reflnenv{proof}{sqpmproblimdef}{It can be shown}{ that, \sqpmproblimdefprop.}
+
+  \reflnenv{proof}{sqpmargzimpl}{It can be shown}{ that, \sqpmargzimplprop.}
+
+  \reflnenv{proof}{sqpmarggimpl}{It can be shown}{ that, \sqpmarggimplprop.}
+
+  \reflnenv{proof}{seqimzo}{It can be shown}{ that, \seqimzoprop.}
+
+  \reflnenv{proof}{sequimimpl}{It can be shown}{ that, \sequimimplprop.}
+  
+  \reflnenv{proof}{cprsqexpr}{It can be shown}{ that, \cprsqexprprop.}
+
+  \reflnenv{proof}{sqcpproblimdef}{It can be shown}{ that, \sqcpproblimdefprop.}
+
+  \reflnenv{proof}{sqpcpproblimdefimpl}{It can be shown}{ that, \sqpcpproblimdefimplprop.}
+
+  \reflnenv{proof}{sqpcprobtomprob}{It can be shown}{ that, \sqpcprobtomprobprop.}
+
+  \reflnenv{proof}{sqpponecind}{It can be shown}{ that, \sqpponecindprop.}
+  
+  \reflnenv{proof}{sqppzerocind}{It can be shown}{ that, \sqppzerocindprop.}
+\end{part}
+
+\begin{part} {Notation}
+  \reflnenv{definition}{dist}{Define}{, \distdef.}
+  
+  \reflnenv{definition}{prob}{Define}{, \probdef.}
+  
+  \reflnenv{definition}{mprob}{Define}{, \mprobdef.}
+  
+  \reflnenv{definition}{cprob}{Define}{, \cprobdef.}%
+\end{part}
+
+\begin{part}{Notation}
+  \reflnenv{definition}{evsq}{Define}{, \evsqdef.}%
+  
+  \reflnenv{definition}{evsqc}{Define}{, \evsqcdef.}%
+\end{part}
+
+\begin{part} {Propositions}
+  \reflnenv{proof}{evsqexpr}{It can be shown}{ that, \evsqexprprop.}
+  
+  \reflnenv{proof}{evsqcexpr}{It can be shown}{ that, \evsqcexprprop.}
+
+  \reflnenv{proof}{sqpevctoevexpr}{It can be shown}{ that, \sqpevctoevexprprop.}
+\end{part}
+
+\begin{part} {Notation}
+  \reflnenv{definition}{ev}{Define}{, \evdef.}%
+  
+  \reflnenv{definition}{evc}{Define}{, \evcdef.}%
+\end{part}
+
+\begin{part}{Topics}
+  \refln{topic}{rl}{Reinforcement Learning Theory}
+\end{part}

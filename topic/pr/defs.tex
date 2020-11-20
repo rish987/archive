@@ -1,0 +1,99 @@
+\def\P{\enm{{\rm Pr}}}
+
+\def\probpath{archive/topic/pr}
+
+\def\fnnot#1#2#3{\enm{#1 : #2 \rightarrow #3}}
+\def\JASN#1{\enm{\lngraw{\probpath/definition/asn}{#1}}}
+\def\MASN#1{\enm{\lngraw{\probpath/definition/masn}{#1}}}
+\def\Pr#1{\enm{\lngraw{\probpath/definition/prob}{\P\left(\JASN{#1}\right)}}}
+\def\MPr#1{\enm{\lngraw{\probpath/definition/mprob}{\P\left(\MASN{#1}\right)}}}
+\def\CPr#1#2{\enm{\lngraw{\probpath/definition/cprob}{\P\left(\MASN{#1}\mid\MASN{#2}\right)}}}
+\def\R{\enm{{\mathbb R}}}
+\def\E#1{\enm{\lngraw{\probpath/definition/ev}{{\mathbb E}\left[#1\right]}}}
+\def\ESQ#1#2{\enm{\lngraw{\probpath/definition/evsq}{{\mathbb E}\left[#1; #2\right]}}}
+\def\EC#1#2{\enm{\lngraw{\probpath/definition/evc}{{\mathbb E}\left[#1 \mid #2\right]}}}
+\def\ESQC#1#2#3{\enm{\lngraw{\probpath/definition/evsqc}{{\mathbb E}\left[#1; #2 \mid \MASN{#3}\right]}}}
+\def\ctx{contextual}
+
+\def\mrefevd{\mreflng{\probpath/definition/ev}}
+\def\mrefev{\mreflng{\probpath/proof/evsqexpr}}
+\def\mrefmargprobd{\mreflng{\probpath/proof/mprsqexpr}}
+\def\mrefmargprob{\mreflng{\probpath/proof/sqpmprobgexpr}}
+\def\mrefcondprob{\mreflng{\probpath/proof/cprsqexpr}}
+\def\mrefconddef{\mreflng{\probpath/proof/sqcpproblimdef}}
+\def\mrefconddefimpl{\mreflng{\probpath/proof/sqpcpproblimdefimpl}}
+\def\mrefmargzimpl{\mreflng{\probpath/proof/sqpmargzimpl}}
+\def\mrefcprtompr{\mreflng{\probpath/proof/sqpcprobtomprob}}
+\def\mrefmarggimpl{\mreflng{\probpath/proof/sqpmarggimpl}}
+\def\mrefpzerocind{\mreflng{\probpath/proof/sqppzerocind}}
+\def\mrefponecind{\mreflng{\probpath/proof/sqpponecind}}
+\def\mrefsqpr{\mreflng{\probpath/definition/prsq}}
+\def\mrefpr{\mreflng{\probpath/definition/prob}}
+
+\def\var{\hlg{variable}}
+\def\dmn{\hlg{domain}}
+\def\masn{\hlg{marginal assignment}}
+\def\jasn{\hlg{joint assignment}}
+\def\asn{\hlg{assignment}}
+\def\seq{\hlg{sequence}}
+\def\pseq{\hlg{probability sequence}}
+\def\trl{\hlg{trial}}
+\def\sprb{\hlg{sequence probability}}
+\def\smprb{\hlg{marginal sequence probability}}
+\def\scprb{\hlg{conditional sequence probability}}
+\def\sprbs{\hlg{sequence probabilit}ies}
+\def\prb{\hlg{probability}}
+\def\prbs{\hlg{probabilit}ies}
+\def\jprb{\hlg{joint probability}}
+\def\jprbs{\hlg{joint probabilit}ies}
+\def\mprb{\hlg{marginal probability}}
+\def\mprbs{\hlg{marginal probabilit}ies}
+\def\cprb{\hlg{conditional probability}}
+\def\cprbs{\hlg{conditional probabilit}ies}
+\def\dist{\hlg{distribution}}
+\def\spt{\hlg{support}}
+\def\expvsq{\hlg{sequence expectation}}
+\def\expv{\hlg{expectation}}
+\def\expvsqc{\hlg{conditional sequence expectation}}
+\def\expvc{\hlg{conditional expectation}}
+
+\def\refxyz#1{\lngraw{\probpath/definition/xyz}{#1}}
+\def\XV{\enm{\refxyz{\rm X}}}
+\def\X{\enm{\refxyz{\bf X}}}
+\def\XX{\enm{\refxyz{\rm x}}}
+\def\YV{\enm{\refxyz{\rm Y}}}
+\def\Y{\enm{\refxyz{\bf Y}}}
+\def\YY{\enm{\refxyz{\rm y}}}
+\def\ZV{\enm{\refxyz{\rm Z}}}
+\def\Z{\enm{\refxyz{\bf Z}}}
+\def\ZZ{\enm{\refxyz{\rm z}}}
+
+\def\QV{\enm{\refxyz{\rm ?}}}
+\def\Q{\enm{\refxyz{\text{\bf ?}}}}
+\def\QQ{\enm{\refxyz{\text{\smaller ?}}}}
+
+\def\SPT{\enm{{\rm S}}}
+\def\TR{\enm{{t}}}
+
+\def\SQ{\enm{\lngraw{\probpath/definition/seq}{\bf SQ}}}
+\def\SQQ{\enm{\lngraw{\probpath/definition/seq}{\rm sq}}}
+
+\def\SQP{\enm{\lngraw{\probpath/definition/seqp}{\bf SQP}}}
+\def\SQPP{\enm{\lngraw{\probpath/definition/seqp}{\rm sqp}}}
+
+\def\SQI#1#2#3{\enm{\lngraw{\probpath/definition/seqi}{I\left(#1, #2, \JASN{#3}\right)}}}
+\def\SQIM#1#2#3{\enm{\lngraw{\probpath/definition/seqim}{I\left(#1, #2, \MASN{#3}\right)}}}
+\def\PRSQ#1#2{\enm{\lngraw{\probpath/definition/prsq}{\P\left(#1; #2\right)}}}
+\def\MPRSQ#1#2{\enm{\lngraw{\probpath/definition/mprsq}{\P\left(#1; #2\right)}}}
+\def\CPRSQ#1#2#3{\enm{\lngraw{\probpath/definition/cprsq}{\P\left(#1; #2 \mid #3\right)}}}
+\def\ASN#1#2{\enm{#1 = #2}}
+
+\def\SSPT#1#2{\enm{\lngraw{\probpath/definition/spt}{#1 \gets \{#2\}}}}
+\def\D{\enm{\lngraw{\probpath/definition/dist}{\bf D}}}
+\def\DD{\enm{\lngraw{\probpath/definition/dist}{\rm D}}}
+\def\DDD{\enm{\lngraw{\probpath/definition/dist}{\rm d}}}
+
+\def\expa{expands as}
+
+\def\pin#1#2{\enm{{#1 \in #2}}}
+\def\pinw#1{\enm{{#1}}}
