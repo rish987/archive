@@ -1,44 +1,52 @@
 \begin{proposition}
+  \nrp 1
   We have that \seqimzoprop.%
 \end{proposition}
 
 \begin{proof}
   \hrule
-  $\implies$ suppose $\exists\ \QQ \in \Q : \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} = 1$.
+  \nrp 2
+  $\implies$ suppose $\exists\ \YY \in \Y : \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY} = 1$.
 
+  \nrp 3
   Then,
-  $$\forall\ \QQ' \in \Q : \QQ' \ne \QQ, \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ'} 
+  $$\forall\ \YY' \in \Y : \YY' \ne \YY, \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY'} 
   \relr = {\mreflng{\probpath/definition/seqi}} 
   0,$$
+  \nrp 4
   so
   $$\SQIM{\SQQ}{\TR}{\XV = \XX} 
   \relr = {\mreflng{\probpath/definition/seqim}} 
-  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ}
+  \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY}
   +
-  \sum_{\QQ' \in \Q : \QQ' \ne \QQ}
-  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ'} = 1.
+  \sum_{\YY' \in \Y : \YY' \ne \YY}
+  \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY'} = 1.
   $$
   \hrule
-  $\impliedby$ suppose $\forall\ \QQ \in \Q, \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} \ne 1$.
+  \nrp 5
+  $\impliedby$ suppose $\forall\ \YY \in \Y, \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY} \ne 1$.
 
+  \nrp 6
   Then,
-  $$\forall\ \QQ \in \Q, \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} \relr = {\mreflng{\probpath/definition/seqi}} 0,$$
+  $$\forall\ \YY \in \Y, \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY} \relr = {\mreflng{\probpath/definition/seqi}} 0,$$
+  \nrp 7
   so
   $$\SQIM{\SQQ}{\TR}{\XV = \XX} 
   \relrg = {\mreflng{\probpath/definition/seqim}} 12pt
-  \sum_{\QQ \in \Q}
-  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ} = 0.
+  \sum_{\YY \in \Y}
+  \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY} = 0.
   $$
   \hrule
 
+  \nrp 8
   We have that
   $$
   \sum_{\XX \in \X}
   \SQIM{\SQQ}{\TR}{\XV = \XX} 
   \relrg = {\mreflng{\probpath/definition/seqim}} 12pt
   \sum_{\XX \in \X}
-  \sum_{\QQ \in \Q}
-  \SQI{\SQQ}{\TR}{\XV = \XX, \QV = \QQ}
+  \sum_{\YY \in \Y}
+  \SQI{\SQQ}{\TR}{\XV = \XX, \YV = \YY}
   \relrg = {\mreflng{\probpath/definition/seqi}} 12pt
   1.
   $$
