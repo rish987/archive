@@ -1,0 +1,7 @@
+\def\evexprprop#1{for $\astr$\ and for all $1 \le \TT \le \T - 1$ and $\SS_\TT \in \S$,
+  letting $\AA_\TT = \STTSF{\TT}{\SS_\TT}$, if $\MPr{\SV\TT = \SS_\TT} > 0$,
+  $$\EC{\RRW{\TT}{\cdot}}{\SV\TT = \SS_\TT} = 
+  \RW{\SS_\TT} + \smashoperator{\sum_{\SS_{\TT + 1} \in \S : \PTRD{\SS_{\TT + 1}}{\AA_\TT}{\SS_\TT} > 0}}
+  \PTRD{\SS_{\TT + 1}}{\AA_\TT}{\SS_\TT}
+  \times 
+  \EC{\RRW{\TT + 1}{\cdot}}{\SV{\TT + 1} = \SS_{\TT + 1}}#1$$}

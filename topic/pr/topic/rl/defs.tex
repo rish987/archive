@@ -26,7 +26,7 @@
 \def\A{\enm{\lngraw{\rltpath/definition/actions}{\mathbf A}}}
 \def\AA{\enm{\lngraw{\rltpath/definition/actions}{\rm a}}}
 \def\RW#1{\enm{\lngraw{\rltpath/definition/rewards}{R\left(#1\right)}}}
-\def\RRW#1#2{\enm{\lngraw{\rltpath/definition/remret}{R^{#1}\left(#2\right)}}}
+\def\RRW#1#2{\enm{\lngraw{\rltpath/definition/remret}{R\left({#1}; #2\right)}}}
 
 \def\T{\enm{\lngraw{\rltpath/definition/steplim}{T}}}
 \def\TT{\enm{\lngraw{\rltpath/definition/steplim}{t}}}
@@ -138,3 +138,6 @@
   \def\margprobpath{archive/topic/pr/proof/sqmprobgexpr}
 
 \def\aprod#1#2#3{\enm{\prod_{#1}^{#2}#3}}
+
+\def\varsellist{\SS_1, \AA_1, \SS_2, \ldots, \SS_\T}
+\def\vardomlist{(\S \times \A)^{\T - 1} \times \S}
