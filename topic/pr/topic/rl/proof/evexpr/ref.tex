@@ -3,5 +3,63 @@
 \end{proposition}
 
 \begin{proof}
-  \todo
+  We have that
+  \begin{align*}
+    \EC{\RRW{\TT}{\cdot}}{\SVS{\TT}} = &\ 
+    \cpsum
+    \\
+      & \phantom{\sum} \times
+        \sum_{\TT' = \TT}^{\T}\RW{\SS_\TT'}
+    \\
+      = &\ 
+    \cpsuma \times \RW{\SS_\TT}\ + \\
+      &\ \cpsuma \times \sum_{\TT' = \TT + 1}^{\T}\RW{\SS_\TT'}\\
+      = &\ 
+      \RW{\SS_\TT}\cpsuma + \\
+        &\ 
+        \sum_{\othersb}
+        \ 
+        \sum_{\TT' = \TT + 1}^{\T}\RW{\SS_\TT'}
+        \times 
+        \sum_{\othersa}
+        \cpa \\
+      = &\ 
+      \RW{\SS_\TT}+ 
+        \sum_{\othersb}
+        \CPr{\othersb}{\SS_{\TT}}
+        \times 
+        \sum_{\TT' = \TT + 1}^{\T}\RW{\SS_\TT'}\\
+      = &\ 
+      \RW{\SS_\TT}+ \\
+        &\smashoperator{\sum_{\othersb}}
+        \CPr{\SS_{\TT + 1}}{\AA_{\TT}, \SS_{\TT}}
+        \times
+        \CPr{\AA_{\TT}}{\SS_{\TT}}
+        \times
+        \CPr{\AA_{\TT + 1}, \SS_{\TT + 2}, \ldots, \SS_{\T}}{\AA_{\TT}, \SS_{\TT + 1}, \SS_\TT}
+        \times 
+        \smashoperator{\sum_{\TT' = \TT + 1}^{\T}}\RW{\SS_\TT'}\\
+      = &\ 
+      \RW{\SS_\TT}+ \\
+        &\smashoperator{\sum_{\othersb}}
+        \CPr{\SS_{\TT + 1}}{\AA_{\TT}, \SS_{\TT}}
+        \times
+        \CPr{\AA_{\TT}}{\SS_{\TT}}
+        \times
+        \CPr{\AA_{\TT + 1}, \SS_{\TT + 2}, \ldots, \SS_{\T}}{\SS_{\TT + 1}}
+        \times 
+        \smashoperator{\sum_{\TT' = \TT + 1}^{\T}}\RW{\SS_\TT'}\\
+      = &\ 
+      \RW{\SS_\TT}+ \\
+        &
+        \smashoperator{\sum_{\AA_\TT, \SS_{\TT + 1}}}
+        \CPr{\SS_{\TT + 1}}{\AA_{\TT}, \SS_{\TT}}
+        \times
+        \CPr{\AA_{\TT}}{\SS_{\TT}}
+        \times
+        \smashoperator{\sum_{\AA_{\TT + 1}, \SS_{\TT + 2},\ldots,\SS_{\T}}}
+        \CPr{\AA_{\TT + 1}, \SS_{\TT + 2}, \ldots, \SS_{\T}}{\SS_{\TT + 1}}
+        \times 
+        \smashoperator{\sum_{\TT' = \TT + 1}^{\T}}\RW{\SS_\TT'}\\
+  \end{align*}
 \end{proof}
