@@ -31,6 +31,7 @@
 \def\mrefpr{\mreflng{\probpath/definition/prob}}
 
 \def\var{\hlg{variable}}
+\def\vvar{\hlg{vector variable}}
 \def\dmn{\hlg{domain}}
 \def\masn{\hlg{marginal assignment}}
 \def\jasn{\hlg{joint assignment}}
@@ -58,19 +59,50 @@
 \def\expvc{\hlg{conditional expectation}}
 
 \def\refxyz#1{\lngraw{\probpath/definition/xyz}{#1}}
-\def\XV{\enm{\refxyz{\rm X}}}
-\def\X{\enm{\refxyz{\bf X}}}
-\def\XX{\enm{\refxyz{\rm x}}}
-\def\YV{\enm{\refxyz{\rm Y}}}
-\def\Y{\enm{\refxyz{\bf Y}}}
-\def\YY{\enm{\refxyz{\rm y}}}
-\def\ZV{\enm{\refxyz{\rm Z}}}
-\def\Z{\enm{\refxyz{\bf Z}}}
-\def\ZZ{\enm{\refxyz{\rm z}}}
+\def\refxyzv#1{\lngraw{\probpath/definition/xyzv}{#1}}
 
-\def\QV{\enm{\refxyz{\rm ?}}}
-\def\Q{\enm{\refxyz{\text{\bf ?}}}}
-\def\QQ{\enm{\refxyz{\text{\smaller ?}}}}
+\def\OXV{\enm{\refxyz{\rm {X}}}}
+\def\OX{\enm{\refxyz{\bf X}}}
+\def\OXX{\enm{\refxyz{\rm x}}}
+\def\OYV{\enm{\refxyz{\rm Y}}}
+\def\OY{\enm{\refxyz{\bf Y}}}
+\def\OYY{\enm{\refxyz{\rm y}}}
+\def\OZV{\enm{\refxyz{\rm Z}}}
+\def\OZ{\enm{\refxyz{\bf Z}}}
+\def\OZZ{\enm{\refxyz{\rm z}}}
+\def\OQV{\enm{\refxyz{\rm ?}}}
+\def\OQ{\enm{\refxyz{\bf ?}}}
+\def\OQQ{\enm{\refxyz{\text{\smaller ?}}}}
+
+\def\LXV#1{\enm{\refxyz{{\rm X}_{#1}}}}
+\def\LX#1{\enm{\refxyz{{\bf X}_{#1}}}}
+\def\LXX#1{\enm{\refxyz{{\rm x}_{#1}}}}
+\def\LYV#1{\enm{\refxyz{{\rm Y}_{#1}}}}
+\def\LY#1{\enm{\refxyz{{\bf Y}_{#1}}}}
+\def\LYY#1{\enm{\refxyz{{\rm y}_{#1}}}}
+\def\LZV#1{\enm{\refxyz{{\rm Z}_{#1}}}}
+\def\LZ#1{\enm{\refxyz{{\bf Z}_{#1}}}}
+\def\LZZ#1{\enm{\refxyz{{\rm z}_{#1}}}}
+\def\LQV#1{\enm{\refxyz{{\rm ?}_{#1}}}}
+\def\LQ#1{\enm{\refxyz{\text{\bf ?}_{#1}}}}
+\def\LQQ#1{\enm{\refxyz{\text{\smaller ?}_{#1}}}}
+\def\NX{\enm{\refxyz{N_{\rm X}}}}
+\def\NY{\enm{\refxyz{N_{\rm Y}}}}
+\def\NZ{\enm{\refxyz{N_{\rm Z}}}}
+\def\NQ{\enm{\refxyz{N_{\rm ?}}}}
+
+\def\XV{\enm{\refxyzv{\VV{{\rm X}}}}}
+\def\X{\enm{\refxyzv{\VV{{\bf X}}}}}
+\def\XX{\enm{\refxyzv{\VV{{\rm x}}}}}
+\def\YV{\enm{\refxyzv{\VV{{\rm Y}}}}}
+\def\Y{\enm{\refxyzv{\VV{{\bf Y}}}}}
+\def\YY{\enm{\refxyzv{\VV{{\rm y}}}}}
+\def\ZV{\enm{\refxyzv{\VV{{\rm Z}}}}}
+\def\Z{\enm{\refxyzv{\VV{{\bf Z}}}}}
+\def\ZZ{\enm{\refxyzv{\VV{{\rm z}}}}}
+\def\QV{\enm{\refxyzv{\VV{{\rm ?}}}}}
+\def\Q{\enm{\refxyzv{\VV{\text{{\bf ?}}}}}}
+\def\QQ{\enm{\refxyzv{\VV{\text{\smaller ?}}}}}
 
 \def\SPT{\enm{{\rm S}}}
 \def\TR{\enm{{t}}}
@@ -97,3 +129,8 @@
 
 \def\pin#1#2{\enm{{#1 \in #2}}}
 \def\pinw#1{\enm{{#1}}}
+
+\def\vec#1{\enm{\oset{$\rightharpoonup$}{#1}}}
+\def\OS#1{\enm{\left\langle#1\right\rangle}}
+\def\OSS#1{\enm{\left\|#1\right\|}}
+\def\VV#1{\enm{\vec{#1}}}

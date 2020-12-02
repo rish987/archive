@@ -1,28 +1,13 @@
-\def\asndefa{%
-  for \ctx\ $\SSPT{\SPT}{(\XV,\X)}$ [or, $\SSPT{\SPT}{(\XV,\X), (\YV,\Y)}$] and all $\pin\XX\X$,
-  \ctext{$\JASN{\XV = \XX}$}
-  denote a \jasn\ (\asn\ for short) [or, \masn\ (in simple English, a list of equalities that doesn't cover the entire \spt\ is a \masn)].
-}
-\def\asndefb{%
-  If a \jasn\ or \masn\ was previously specified, we may later drop ``$\XV =$'', for ``implied assignment'':
-  $$\JASN{\XX}.$$
-  If a \jasn\ or \masn\ was never specified, we assume an arbitrary $\pin\XX\X$ for ``implied generality'':
-  $$\JASN{\XV}.$$%
-}
-\def\asndefc#1{%
-  For \ctx\ $\SSPT{\SPT}{(\XV,\X),\ldots,(\XV',\X')}$ [or, $\SSPT{\SPT}{(\XV,\X),\ldots,(\XV',\X'),(\YV,\Y),\ldots,(\YV',\Y')}$] and all $\pinw{\XX, \ldots, \XX' \in \X \times \ldots \times \X'}$,
-  this \expa
-  $$\JASN{\XV = \XX,\ldots,\XV' = \XX'},$$
-  with implied assignment as
-  $$\JASN{\XX, \ldots, \XX'},$$
-  and 
-  with implied generality as
-  $$\JASN{\XV, \ldots, \XV'}#1$$%
-}
 \def\asndef#1{%
-  \asndefa
+  for \ctx\ $\SSPT{\SPT}{(\XV,\X)}$ [or, $\SSPT{\SPT}{(\XV,\X), (\YV,\Y)}$] and all $\XX = \OS{\LXX 1, \LXX 2, \ldots, \LXX{\NX}} \in \X$,
+  \ctext{$\JASN{\XV = \XX}$}
+  denote a \jasn\ (\asn\ for short) [or, \masn], which \expa
+  \ctext{$\JASN{\LXV 1 = \LXX 1, \LXV 2 = \LXX 2, \ldots, \LXV{\NX} = \LXX{\NX}}$.}
 
-  \asndefb
-
-  \asndefc{#1}%
+  If a \jasn\ [or, \masn] was previously specified, we may later drop ``$\XV =$'', for ``implied assignment'':
+  $$\JASN{\XX},$$ which \expa
+  $$\JASN{\LXX 1, \LXX 2, \ldots, \LXX{\NX}}.$$
+  If a \jasn\ [or, \masn] was never specified, we assume an arbitrary $\pin\XX\X$ for ``implied generality'':
+  $$\JASN{\XV},$$ which \expa
+  $$\JASN{\LXV 1, \LXV 2, \ldots, \LXV{\NX}}#1$$%
 }

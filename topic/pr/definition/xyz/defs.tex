@@ -1,21 +1,13 @@
-\def\xyzdef{%
-  \ctext{$\XV \defeq$ an arbitrary \var\ with domain $\X$.}
-
-  We implicitly maintain that 
-  anything we describe using $\XV$ and $\X$
-  also applies when these are replaced with one or more
-  \var{}s/\dmn{}s: $\XV$/$\X$, \ldots, $\XV'$/$\X'$. 
-  Notational expansions are described where applicable.
-
-  Define 
-  $\YV, \Y$
+\def\xyzdef#1{%
+  \ctext{$\LXV{1}, \LXV{2}, \ldots, \LXV{\NX}\defeq$ an arbitrary set of \var{}(s) with $\NX \ge 1$ and \dmn{}s $\LX{1}, \LX{2}, \ldots, \LX{\NX}$,}
+  and we
+  define 
+  $\LYV{1}, \LYV{2}, \ldots, \LYV{\NY}$/$\LY{1}, \LY{2}, \ldots, \LY{\NY}$/$\NY$
   and
-  $\ZV, \Z$
+  $\LZV{1}, \LZV{2}, \ldots, \LZV{\NZ}$/$\LZ{1}, \LZ{2}, \ldots, \LZ{\NZ}$/$\NZ$
+
   similarly.
 
-  Define 
-  $\QV, \Q$ similarly, but instead implicitly maintain that
-  anything we describe using $\QV$ and $\Q$
-  also applies when these are replaced with {\em zero} or more
-  \var{}s/\dmn{}s.
+  Define
+  \ctext{$\LQV{1}, \LQV{2}, \ldots, \LQV{\NQ}\defeq$ an arbitrary set of \var{}(s) with $\NQ \ge 0$ and \dmn{}s $\LQ{1}, \LQ{2}, \ldots, \LQ{\NQ}$#1}%
 }
