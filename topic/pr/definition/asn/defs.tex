@@ -1,5 +1,5 @@
 \def\asndef#1{%
-  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X}}$ [or, $\SSPT{\SPT}{\M{\XV}{\X}, \M{\YV}{\Y}}$] and all $\XX = \OS{\LXX 1, \LXX 2, \ldots, \LXX{\NX}} \in \X$,
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X}}$ [or, $\SSPT{\SPT}{\M{\XV}{\X}, \M{\YV}{\Y}}$] and all $\XX = \OS{\LXX 1, \LXX 2, \ldots, \LXX{\NX}} \in \TOS{\X}$,
   \ctext{$\JASN{\XV = \XX}$}
   denote a \jasn\ (\asn\ for short) [or, \masn], which \expa
   \ctext{$\JASN{\LXV 1 = \LXX 1, \LXV 2 = \LXX 2, \ldots, \LXV{\NX} = \LXX{\NX}}$.}
@@ -7,7 +7,7 @@
   If a \jasn\ [or, \masn] was previously specified, we may later drop ``$\XV =$'', for ``implied assignment'':
   $$\JASN{\XX},$$ which \expa
   $$\JASN{\LXX 1, \LXX 2, \ldots, \LXX{\NX}}.$$
-  If a \jasn\ [or, \masn] was never specified, we assume an arbitrary $\pin\XX\X$ for ``implied generality'':
+  If a \jasn\ [or, \masn] was never specified, we assume an arbitrary $\XX \in \TOS{\X}$ for ``implied generality'':
   $$\JASN{\XV},$$ which \expa
   $$\JASN{\LXV 1, \LXV 2, \ldots, \LXV{\NX}}#1$$%
 }

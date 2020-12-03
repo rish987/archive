@@ -10,18 +10,18 @@
     \ESQC{\SQPP}{f}{\YV = \YY} \relr = {\mreflng{\probpath/definition/sqevc}} \ &\lim_{\TR \rightarrow \infty}
     \left(
     \frac
-    {\sum_{\TR' = 1}^{\TR}\sum_{\pin{\XX}{\X}}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
+    {\sum_{\TR' = 1}^{\TR}\sum_{\XX\in\TOS{\X}}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
     {\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}}
     \right)\\
     = \ &\lim_{\TR \rightarrow \infty}
     \left(
-    \sum_{\pin{\XX}{\X}}
+    \sum_{\XX\in\TOS{\X}}
     \frac
     {\sum_{\TR' = 1}^{\TR}\SQI{\SQPP}{\TR'}{\XV = \XX, \YV = \YY}\times f(\XX, \YY)}
     {\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}}
     \right)\\
     = \ &
-    \sum_{\pin{\XX}{\X}}
+    \sum_{\XX\in\TOS{\X}}
     \lim_{\TR \rightarrow \infty}
     \left(
     \frac
@@ -29,7 +29,7 @@
     {\sum_{\TR' = 1}^{\TR}\SQIM{\SQPP}{\TR'}{\YV = \YY}}
     \right)\\
     = \ &
-    \sum_{\pin{\XX}{\X}}
+    \sum_{\XX\in\TOS{\X}}
     \lim_{\TR \rightarrow \infty}
     \left(
     \frac
@@ -38,7 +38,7 @@
     \right)
     \times f(\XX, \YY)\\
     \relrg = {\mreflng{\probpath/proof/sqcprobexpr/proof/seqimqlim}} 10pt \ & 
-    \sum_{\pin{\XX}{\X}}
+    \sum_{\XX\in\TOS{\X}}
     \frac
     {
       \lim_{\TR \rightarrow \infty}\left(
@@ -49,9 +49,9 @@
     \times f(\XX, \YY)
     \\
     \relrg = {\mreflng{\probpath/definition/sqmprob}} 10pt \ & 
-    \sum_{\pin{\XX}{\X}} \frac { \PRSQ{\SQPP}{\XV = \XX, \YV = \YY} } { \MPRSQ{\SQPP}{\YV = \YY} } 
+    \sum_{\XX\in\TOS{\X}} \frac { \PRSQ{\SQPP}{\XV = \XX, \YV = \YY} } { \MPRSQ{\SQPP}{\YV = \YY} } 
     \times f(\XX, \YY) \\
     \relrg = {\mreflng{\probpath/proof/sqcprobexpr}} 10pt \ & 
-    \sum_{\pin\XX\X}\CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY}\times f(\XX, \YY).
+    \sum_{\XX \in \TOS{\X}}\CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY}\times f(\XX, \YY).
   \end{align*}
 \end{proof}
