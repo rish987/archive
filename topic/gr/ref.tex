@@ -1,0 +1,39 @@
+\begin{center}
+{\LARGE \hlc[___gray]{Graph Theory}}\\
+\end{center}
+\begin{part}{Physical Intuition}
+  Suppose that we have a ``\gr'' consisting of a set of ``\vtx{}s''
+  and a set of ``\edg{}s'' between the \vtx{}s:
+  \def\A{\rm A}
+  \def\B{\rm B}
+  \def\C{\rm C}
+  \def\D{\rm D}
+  \begin{center}
+    \begin{tikzpicture}
+      \node[draw=black, fill=blue!70,inner sep=3mm,circle] (A) at (0,0) {\A};
+      \node[draw=black, fill=blue!70,inner sep=3mm,circle] (B) at (5,0) {\B};
+      \node[draw=black, fill=blue!70,inner sep=3mm,circle] (C) at (5,-5) {\C};
+      \node[draw=black, fill=blue!70,inner sep=3mm,circle] (D) at (0,-5) {\D};
+      \draw[-{>[length=3mm,width=3mm]}, thick] (A) -- (B);
+      \draw[-{>[length=3mm,width=3mm]}, thick] (B) -- (C);
+      \draw[-{>[length=3mm,width=3mm]}, thick] (C) -- (D);
+      \draw[-{>[length=3mm,width=3mm]}, thick] (D) -- (A);
+    \end{tikzpicture}.
+  \end{center}
+  Here, our \gr\ has the \vtx{}s  $\{\rm \A, \B, \C, \D\}$ and \edg{}s
+  $\{ 
+  \OS{\A, \B}, 
+  \OS{\B, \C}, 
+  \OS{\C, \D}, 
+  \OS{\D, \A}
+  \}$.
+\end{part}
+\begin{part}{Notation}
+  \reflnenv{definition}{node}{Define}{ \nodedef.}
+  \reflnenv{definition}{edge}{Define}{ \edgedef.}
+  \reflnenv{definition}{graph}{Define}{ \graphdef.}
+  \reflnenv{definition}{paths}{Define}{ \pathsdef.}
+\end{part}
+\begin{part}{Topics}
+  \refln{topic}{pr}{Probability Theory}
+\end{part}
