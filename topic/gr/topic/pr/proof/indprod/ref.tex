@@ -1,0 +1,78 @@
+\begin{proposition}
+  We have that, \indproddef.%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  $\implies$ suppose $\CIND{\XV}{\YV}{\ZV}$.
+
+  Then, for all $\xyzchoice$, there are two cases to consider:
+  \begin{itemize}
+    \item $\CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} = \undef$.
+
+      Then, 
+      $\CPr{\XX}{\ZZ} = \undef$
+      and
+      $\CPr{\YY}{\ZZ} = \undef$, so
+      \begin{align*}
+        \CPr{\XX, \YY}{\ZZ}  = \undef =
+        \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
+      \end{align*}
+    \item $\CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} \ne \undef$.
+
+      Then, we have $\MPr{\YY} > 0$, and there are two cases to consider:
+      \begin{itemize}
+        \item $\CPr{\YY}{\ZZ} > 0$.
+
+        Then,
+        \begin{align*}
+          \CPr{\XX, \YY}{\ZZ} 
+          &= \CPr{\XX}{\YY, \ZZ} \times \CPr{\YY}{\ZZ}\\
+          &= \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
+        \end{align*}
+
+        \item $\CPr{\YY}{\ZZ} = 0$.
+
+        Then,
+        \begin{align*}
+          \CPr{\XX, \YY}{\ZZ} = 0 
+          = \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
+        \end{align*}
+      \end{itemize}
+  \end{itemize}
+
+  \hrule
+  $\impliedby$ suppose 
+  $$\forall \xyzchoice,
+  \CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} = 
+  \CPr{\XV = \XX}{\ZV = \ZZ}
+  \times
+  \CPr{\YV = \YY}{\ZV = \ZZ}.$$
+
+  Then, for all $\xyzchoice$, supposing $\CPr{\XV = \XX}{\YV = \YY, \ZV = \ZZ} \ne \undef$, there are two cases to consider:
+  \begin{itemize}
+    \item $\MPr{\ZZ} > 0$.
+
+      Then, we have that
+      $$\CPr{\YY}{\ZZ} = \frac{\MPr{ \YY, \ZZ}}{\MPr{\ZZ}} > 0.$$
+      so
+      \begin{align*}
+        \CPr{\XX}{\YY, \ZZ}
+        &= 
+        \frac{\CPr{\XX, \YY}{\ZZ}}{\CPr{\YY}{\ZZ}}
+        \\
+        &= \frac{\CPr{\XX}{\YY} \times \CPr{\YY}{\ZZ}}{\CPr{\YY}{\ZZ}}\\
+        &= \CPr{\XX}{\ZZ}.
+      \end{align*}
+    \item $\MPr{\ZZ} = 0$.
+
+      Then,
+      \begin{align*}
+        \CPr{\XX}{\YY, \ZZ}
+        = 
+        \undef
+        = \CPr{\XX}{\ZZ}.
+      \end{align*}
+  \end{itemize}
+  \hrule
+\end{proof}

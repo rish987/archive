@@ -1,0 +1,34 @@
+\begin{proposition}
+  We have that\ \sqcpcprobexprprop.%
+\end{proposition}
+
+\begin{proof}
+  There are two cases to consider:
+  \begin{itemize}
+    \item $\MPRSQ{\SQPP}{\ZV = \ZZ} \rell = co 0$.
+
+      Then,
+      $$\CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY, \ZV = \ZZ} \relr = {((co)->\mrefmargzimpl)->\mrefconddef} \undef,$$
+      $$\CPRSQ{\SQPP}{\XV = \XX, \YV = \YY}{\ZV = \ZZ} \relr = {(co)->\mrefconddef} \undef,$$
+      and
+      $$\CPRSQ{\SQPP}{\YV = \YY}{\ZV = \ZZ} \relr = {(co)->\mrefconddef} \undef,$$
+      so
+      \begin{align*}
+        \CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY, \ZV = \ZZ} 
+        = \undef =
+        \frac{\CPRSQ{\SQPP}{\XV = \XX, \YV = \YY}{\ZV = \ZZ}}{\CPRSQ{\SQPP}{\YV = \YY}{\ZV = \ZZ}}.
+      \end{align*}
+    \item $\MPRSQ{\SQPP}{\ZV = \ZZ} \rell > ct 0$.
+      
+      Then,
+      \begin{align*}
+        \CPRSQ{\SQPP}{\XV = \XX}{\YV = \YY, \ZV = \ZZ} 
+        \relrg = {\mrefcondprob} 15pt \ & 
+        \frac{\MPRSQ{\SQPP}{\XV = \XX, \YV = \YY, \ZV = \ZZ}}{\MPRSQ{\SQPP}{\YV = \YY, \ZV = \ZZ}}\\
+        \relrg = {(ct)->\mrefcprtompr} 15pt \ &
+        \frac{\CPRSQ{\SQPP}{\XV = \XX, \YV = \YY}{\ZV = \ZZ}\times\MPRSQ{\SQPP}{\ZV =\ZZ}}{\CPRSQ{\SQPP}{\YV = \YY}{\ZV = \ZZ}\times\MPRSQ{\SQPP}{\ZV =\ZZ}}\\
+        =\ &
+        \frac{\CPRSQ{\SQPP}{\XV = \XX, \YV = \YY}{\ZV = \ZZ}}{\CPRSQ{\SQPP}{\YV = \YY}{\ZV = \ZZ}}.
+      \end{align*}
+  \end{itemize}
+\end{proof}

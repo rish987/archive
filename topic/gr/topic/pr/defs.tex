@@ -71,12 +71,16 @@
 \def\LZ#1{\enm{\refxyz{{\bf Z}_{#1}}}}
 \def\LZZ#1{\enm{\refxyz{{\rm z}_{#1}}}}
 \def\LQV#1{\enm{\refxyz{{\rm ?}_{#1}}}}
+\def\LQVP#1#2{\enm{\refxyz{{\rm ?}_{#1}^{#2}}}}
 \def\LQ#1{\enm{\refxyz{\text{\bf ?}_{#1}}}}
+\def\LQP#1#2{\enm{\refxyz{\text{\bf ?}_{#1}^{#2}}}}
 \def\LQQ#1{\enm{\refxyz{\text{\smaller ?}_{#1}}}}
-\def\NX{\enm{\refxyz{N_{\rm X}}}}
-\def\NY{\enm{\refxyz{N_{\rm Y}}}}
-\def\NZ{\enm{\refxyz{N_{\rm Z}}}}
-\def\NQ{\enm{\refxyz{N_{\rm ?}}}}
+\def\NX{\enm{\NV{\X}}}
+\def\NY{\enm{\NV{\Y}}}
+\def\NZ{\enm{\NV{\Z}}}
+\def\NQ{\enm{\NV{\Q}}}
+\def\NQP{\enm{\NV{\QP}}}
+\def\NV#1{\enm{\refxyz{N_{#1}}}}
 
 \def\XV{\enm{\refxyzv{{{\rm X}}}}}
 \def\X{\enm{\refxyzv{{{\bf X}}}}}
@@ -90,6 +94,9 @@
 \def\QV{\enm{\refxyzv{{{\rm ?}}}}}
 \def\Q{\enm{\refxyzv{{\text{{\bf ?}}}}}}
 \def\QQ{\enm{\refxyzv{{\text{\smaller ?}}}}}
+\def\QVP{\enm{\refxyzv{{{\rm ?'}}}}}
+\def\QP{\enm{\refxyzv{{\text{{\bf ?}}'}}}}
+\def\QQP{\enm{\refxyzv{{\text{\smaller ?'}}}}}
 
 \def\SPT{\enm{{\rm S}}}
 \def\TR{\enm{{t}}}
@@ -118,3 +125,10 @@
 \def\pinw#1{\enm{{#1}}}
 
 \def\M#1#2{\enm{\lngraw{\probpath/definition/match}{\left(#1, #2\right)}}}
+
+\def\indep{\enm\protect{\mathpalette{\protect\indeP}{\perp}}}
+\def\indeP#1#2{\enm{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}}
+\def\CIND#1#2#3{\enm{\lngraw{\probpath/definition/indep}{#1\ {\indep}\ #2 \mid #3}}}
+\def\IND#1#2{\enm{\lngraw{\probpath/definition/indep}{#1\ {\indep}\ #2}}}
+\def\xyzchoice{\enm{\XX, \YY,\ZZ \in \TOS{\X} \times \TOS{\Y} \times \TOS{\Z}}}
+\def\xychoice{\enm{\XX, \YY \in \TOS{\X} \times \TOS{\Y}}}

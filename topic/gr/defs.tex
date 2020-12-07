@@ -16,5 +16,21 @@
 \def\EDGG{\enm{\lngraw{\grpath/definition/edgedef}{\rm e}}}
 \def\GR{\enm{\lngraw{\grpath/definition/graphdef}{\rm G}}}
 \def\GRDEF#1#2#3{\enm{\lngraw{\grpath/definition/graphdef}{#1 \gets #2, #3}}}
-\def\PATHS#1#2{\enm{\lngraw{\grpath/definition/paths}{#1\underset{\{\ldots\}}{\bf \longrightarrow}#2}}}
+\def\GRSUB#1#2{\enm{\lngraw{\grpath/definition/graphsub}{#1\setminus#2}}}
+
+\def\PATHS#1#2{\enm{\lngraw{\grpath/definition/paths}{#1\ \contour{black}{$\longrightarrow$}\ #2}}}
+\def\PATHSSUB#1#2#3{\enm{\lngraw{\grpath/definition/pathssub}{#2\ \overset{\setminus #1}{\contour{black}{$\longrightarrow$}}\ #3}}}
+\def\PATHSGR#1#2#3{\enm{\lngraw{\grpath/definition/paths}{#1\left(\PATHS{#2}{#3}\right)}}}
+\def\PATHSGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathssub}{#1\left(\PATHSSUB{#2}{#3}{#4}\right)}}}
+
+\def\PATH#1#2{\enm{\lngraw{\grpath/definition/path}{#1\ \longrightarrow\ #2}}}
+\def\PATHSUB#1#2#3{\enm{\lngraw{\grpath/definition/pathsub}{#2\ \overset{\setminus #1}{\longrightarrow}\ #3}}}
+\def\PATHGR#1#2#3{\enm{\lngraw{\grpath/definition/path}{#1\left(\PATH{#2}{#3}\right)}}}
+\def\PATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathsub}{#1\left(\PATHSUB{#2}{#3}{#4}\right)}}}
+
+\def\NPATH#1#2{\enm{\lngraw{\grpath/definition/path}{#1\ \centernot\longrightarrow\ #2}}}
+\def\NPATHSUB#1#2#3{\enm{\lngraw{\grpath/definition/pathsub}{#2\ \overset{\setminus #1}{\centernot\longrightarrow}\ #3}}}
+\def\NPATHGR#1#2#3{\enm{\lngraw{\grpath/definition/path}{#1\left(\NPATH{#2}{#3}\right)}}}
+\def\NPATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathsub}{#1\left(\NPATHSUB{#2}{#3}{#4}\right)}}}
+
 \def\PERMREP#1{\enm{#1^{*}}}

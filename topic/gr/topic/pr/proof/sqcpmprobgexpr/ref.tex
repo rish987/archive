@@ -1,0 +1,25 @@
+\begin{proposition}
+  We have that, \sqcpmprobgexprprop.%
+\end{proposition}
+
+\begin{proof}
+  We have that
+  \begin{align*}
+    \CPRSQ{\SQPP}{\XV = \XX}{\ZV = \ZZ} 
+    \relrg = {\mrefcondprob} 15pt \ &
+    \frac
+    {\MPRSQ{\SQPP}{\XV = \XX,\ZV = \ZZ}}
+    {\MPRSQ{\SQPP}{\ZV = \ZZ}}\\
+    \relrg = {\mrefmargprob} 17pt \ &
+    \frac
+    {\sum_{\YY \in \TOS{\Y}}\MPRSQ{\SQPP}{\XV = \XX, \YV = \YY,\ZV = \ZZ}}
+    {\MPRSQ{\SQPP}{\ZV = \ZZ}}\\
+    =\ & 
+    \sum_{\YY \in \TOS{\Y}}
+    \frac
+    {\MPRSQ{\SQPP}{\XV = \XX, \YV = \YY,\ZV = \ZZ}}
+    {\MPRSQ{\SQPP}{\ZV = \ZZ}}\\
+    \relrg = {\mrefcondprob} 13pt \ &
+    \sum_{\YY \in \TOS{\Y}}\CPRSQ{\SQPP}{\XV = \XX, \YV = \YY}{\ZV = \ZZ}.
+  \end{align*}
+\end{proof}
