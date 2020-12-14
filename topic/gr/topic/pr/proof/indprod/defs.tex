@@ -1,20 +1,23 @@
-\def\indproddef#1{%
+\def\indproddefa#1{%
   for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
-  {\small$$
+  $$
   \CIND{\XV}{\YV}{\ZV} \iff 
   \forall \xyzchoice,
   \CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} = 
   \CPr{\XX}{\ZZ}
   \times
-  \CPr{\YY}{\ZZ},$$%
-}%
-and, for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\QV}{\Q}}$, $\DD \in \D$,
-  {\small$$
-  \IND{\XV}{\YV} \iff 
-  \forall \xychoice,
-  \MPr{\XV = \XX, \YV = \YY} = 
-  \MPr{\XX}
-  \times
-  \MPr{\YY}#1$$%
-}%
+  \CPr{\YY}{\ZZ}#1$$%
+}
+\def\indproddefb#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$
+    \IND{\XV}{\YV} \iff 
+    \forall \xychoice,
+    \MPr{\XV = \XX, \YV = \YY} = 
+    \MPr{\XX}
+    \times
+    \MPr{\YY}#1$$%
+}
+\def\indproddef#1{%
+  \indproddefa, and, \indproddefb#1%
 }
