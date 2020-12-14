@@ -1,7 +1,19 @@
-\def\indsymmdef#1{%
+\def\indsymmdefa#1{%
   for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
   $$
   \CIND{\XV}{\YV}{\ZV} \iff 
   \CIND{\YV}{\XV}{\ZV}#1
   $$%
+}
+\def\indsymmdefb#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$
+  \IND{\XV}{\YV} \iff 
+  \IND{\YV}{\XV}#1
+  $$%
+}
+\def\indsymmdef#1{%
+  \indsymmdefa,
+  and,
+  \indsymmdefb,
 }

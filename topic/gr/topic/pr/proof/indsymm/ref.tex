@@ -1,18 +1,41 @@
 \begin{proposition}
-  We have that, \indsymmdef.%
+  \nrp 1
+  We have that, \indsymmdefa.%
 \end{proposition}
 
 \begin{proof}
-  \hrule
-  $\implies$ suppose $\CIND{\XV}{\YV}{\ZV}$.
-
-  Then, for all $\xyzchoice$,
+  \nrp 2
+  We have that
   \begin{align*}
-    \CPr{\YV = \YY}{\XV = \XX, \ZV = \ZZ} &= 
-    \frac{\CPr{\XV = \XX}{\YV = \YY, \ZV = \ZZ}} 
-    {\MPr{\XV = \XX, \ZV = \ZZ}}
-    \times 
-    \MPr{\YV = \YY, \ZV = \ZZ}
-    a\\
-  \end{align*}
+    \CIND{\XV}{\YV}{\ZV} 
+    \relr {\iff} {\mrefindprod} &\ 
+    \forall \xyzchoice,
+    \CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} = 
+    \CPr{\XX}{\ZZ}
+    \times
+    \CPr{\YY}{\ZZ}\\
+    \relr {\iff} {\mrefindprod} &\ 
+    \CIND{\YV}{\XV}{\ZV}.
+  \end{align*}%
+\end{proof}
+
+\begin{proposition}
+  \nrp 3
+  We have that, \indsymmdefb.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 4
+  We have that
+  \begin{align*}
+    \IND{\XV}{\YV} 
+    \relr {\iff} {\mrefindprod} &\ 
+    \forall \xyzchoice,
+    \MPr{\XV = \XX, \YV = \YY} = 
+    \MPr{\XX}
+    \times
+    \MPr{\YY}\\
+    \relr {\iff} {\mrefindprod} &\ 
+    \IND{\YV}{\XV}.
+  \end{align*}%
 \end{proof}
