@@ -4,39 +4,46 @@
 
 \begin{proof}
   \hrule
-  $\implies$ suppose $\CIND{\XV}{\YV}{\ZV}$.
+  $\implies$ suppose $\rell {\CIND{\XV}{\YV}{\ZV}} f $.
 
   Then, for all $\xyzchoice$, there are two cases to consider:
   \begin{itemize}
-    \item $\CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} = \undef$.
+    \item $\CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} \rell = fco \undef$.
 
       Then, 
-      $\CPr{\XX}{\ZZ} = \undef$
+      $\MPr{\ZZ} \rellr = zz {\mrefconddef} 0$,
+      so
+      $\CPr{\XX}{\ZZ} \relr = {\mrefconddef} \undef$
       and
-      $\CPr{\YY}{\ZZ} = \undef$, so
+      $\CPr{\YY}{\ZZ} \relr = {(zz)->\mrefconddef} \undef$, so
       \begin{align*}
-        \CPr{\XX, \YY}{\ZZ}  = \undef =
+        \CPr{\XX, \YY}{\ZZ}  \relr = fco \undef =
         \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
       \end{align*}
-    \item $\CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} \ne \undef$.
+    \item $\CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} \rell {\ne} fct \undef$.
 
-      Then, we have $\MPr{\YY} > 0$, and there are two cases to consider:
+      Then, we have $\MPr{\ZZ} \rellr > zg {\mrefconddef} 0$, so $\CPr{\YY}{\ZZ} \relr {\ne} {\mrefconddef} \undef$, and there are two cases to consider:
       \begin{itemize}
-        \item $\CPr{\YY}{\ZZ} > 0$.
+        \item $\CPr{\YY}{\ZZ} \rell > fcto 0$.
 
         Then,
+        \begin{align*}
+          \MPr{\YY, \ZZ} \relr = {(zg)->\mrefcprtompr}
+          \CPr{\YY}{\ZZ} \times \MPr{\ZZ} \rellr > yzg {fcto,zg} 0,
+        \end{align*}
+        so
         \begin{align*}
           \CPr{\XX, \YY}{\ZZ} 
-          &= \CPr{\XX}{\YY, \ZZ} \times \CPr{\YY}{\ZZ}\\
-          &= \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
+          \relr = {(fcto)->\mrefccprtompr} &\ \CPr{\XX}{\YY, \ZZ} \times \CPr{\YY}{\ZZ}\\
+          \relr = {((-yzg)->\mrefconddef)->f} &\ \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
         \end{align*}
 
-        \item $\CPr{\YY}{\ZZ} = 0$.
+        \item $\CPr{\YY}{\ZZ} \rell = fctt 0$.
 
         Then,
         \begin{align*}
-          \CPr{\XX, \YY}{\ZZ} = 0 
-          = \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
+          \CPr{\XX, \YY}{\ZZ} \relr = {\mrefcmarggimpl} \ \ 0\ \ 
+          \relr = fctt \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}.
         \end{align*}
       \end{itemize}
   \end{itemize}
@@ -44,35 +51,81 @@
   \hrule
   $\impliedby$ suppose 
   $$\forall \xyzchoice,
-  \CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} = 
+  \CPr{\XV = \XX, \YV = \YY}{\ZV = \ZZ} \rell = b 
   \CPr{\XV = \XX}{\ZV = \ZZ}
   \times
   \CPr{\YV = \YY}{\ZV = \ZZ}.$$
 
-  Then, for all $\xyzchoice$, supposing $\CPr{\XV = \XX}{\YV = \YY, \ZV = \ZZ} \ne \undef$, there are two cases to consider:
+  Then, for all $\xyzchoice$, supposing $\CPr{\XV = \XX}{\YV = \YY, \ZV = \ZZ} \rell {\ne} ba \undef$, there are two cases to consider:
   \begin{itemize}
-    \item $\MPr{\ZZ} > 0$.
+    \item $\MPr{\ZZ} \rell > bco 0$.
 
       Then, we have that
-      $$\CPr{\YY}{\ZZ} = \frac{\MPr{ \YY, \ZZ}}{\MPr{\ZZ}} > 0.$$
+      $$\CPr{\YY}{\ZZ} \relrg = {\mrefcondprob} 15pt \frac{\MPr{ \YY, \ZZ}}{\MPr{\ZZ}} \rellrg > ygzg -10pt {bco,(ba)->\mrefconddef} 15pt 0.$$
       so
       \begin{align*}
         \CPr{\XX}{\YY, \ZZ}
-        &= 
+        \relrg = {\mrefccondprob} 15pt \ & 
         \frac{\CPr{\XX, \YY}{\ZZ}}{\CPr{\YY}{\ZZ}}
         \\
-        &= \frac{\CPr{\XX}{\YY} \times \CPr{\YY}{\ZZ}}{\CPr{\YY}{\ZZ}}\\
-        &= \CPr{\XX}{\ZZ}.
+        \relr = b \ & \frac{\CPr{\XX}{\YY} \times \CPr{\YY}{\ZZ}}{\CPr{\YY}{\ZZ}}\\
+        \relr = -ygzg \ & \CPr{\XX}{\ZZ}.
       \end{align*}
-    \item $\MPr{\ZZ} = 0$.
+    \item $\MPr{\ZZ} \relr = bct 0$.
 
       Then,
       \begin{align*}
         \CPr{\XX}{\YY, \ZZ}
-        = 
+        \relr = {((bct)->\mrefmargzimpl)->\mrefconddef}
+        \ \ \ \ 
+        \ \ 
         \undef
-        = \CPr{\XX}{\ZZ}.
+        \ \ \ \ 
+        \ \ 
+        \relr = {(bct)->\mrefconddef} \CPr{\XX}{\ZZ}.
       \end{align*}
   \end{itemize}
+  \hrule
+  $\implies$ suppose $\rell {\IND{\XV}{\YV}} ff $.
+
+  Then, for all $\xychoice$, there are two cases to consider:
+  \begin{itemize}
+    \item $\MPr{\YY} \rell > ffco 0$.
+
+    Then,
+    \begin{align*}
+      \MPr{\XX, \YY}
+      \relr = {\mrefcprtompr} &\ \CPr{\XX}{\YY} \times \MPr{\YY}\\
+      \relr = {((ffco)->\mrefconddef)->ff} &\ \MPr{\XX} \times \MPr{\YY}.
+    \end{align*}
+
+    \item $\MPr{\YY} \rell = ffct 0$.
+
+    Then,
+    \begin{align*}
+      \MPr{\XX, \YY} \relr = {\mrefmarggimpl} \ \ 0\ \ 
+      \relr = ffct \MPr{\XX} \times \MPr{\YY}.
+    \end{align*}
+  \end{itemize}
+
+  \hrule
+  $\impliedby$ suppose 
+  $$\forall \xychoice,
+  \MPr{\XV = \XX, \YV = \YY} \rell = bb
+  \MPr{\XV = \XX}
+  \times
+  \MPr{\YV = \YY}.$$
+
+  Then, for all $\xychoice$, supposing $\CPr{\XV = \XX}{\YV = \YY} \rell {\ne} bba \undef$, we have that
+  $$\MPr{\YY} \rellr > yg {(bba)->\mrefconddef} 0.$$
+  so
+  \begin{align*}
+    \CPr{\XX}{\YY}
+    \relrg = {\mrefcondprob} 15pt \ & 
+    \frac{\MPr{\XX, \YY}}{\MPr{\YY}}
+    \\
+    \relr = bb \ & \frac{\MPr{\XX} \times \MPr{\YY}}{\MPr{\YY}}\\
+    \relr = yg \ & \MPr{\XX}.
+  \end{align*}
   \hrule
 \end{proof}

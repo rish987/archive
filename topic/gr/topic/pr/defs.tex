@@ -19,12 +19,17 @@
 \def\mrefev{\mreflng{\probpath/proof/sqevexpr}}
 \def\mrefmargprobd{\mreflng{\probpath/proof/sqmprobexpr}}
 \def\mrefmargprob{\mreflng{\probpath/proof/sqmprobgexpr}}
+\def\mrefcmargprob{\mreflng{\probpath/proof/sqcpmprobgexpr}}
 \def\mrefcondprob{\mreflng{\probpath/proof/sqcprobexpr}}
+\def\mrefccondprob{\mreflng{\probpath/proof/sqcpcprobexpr}}
 \def\mrefconddef{\mreflng{\probpath/proof/sqcprobdef}}
 \def\mrefconddefimpl{\mreflng{\probpath/proof/sqcprobdefimpl}}
 \def\mrefmargzimpl{\mreflng{\probpath/proof/sqmargzimpl}}
+\def\mrefcmargzimpl{\mreflng{\probpath/proof/sqcpmargzimpl}}
 \def\mrefcprtompr{\mreflng{\probpath/proof/sqcprobtomprob}}
+\def\mrefccprtompr{\mreflng{\probpath/proof/sqcpcprobtomprob}}
 \def\mrefmarggimpl{\mreflng{\probpath/proof/sqmarggimpl}}
+\def\mrefcmarggimpl{\mreflng{\probpath/proof/sqcpmarggimpl}}
 \def\mrefpzerocind{\mreflng{\probpath/proof/sqpzerocind}}
 \def\mrefponecind{\mreflng{\probpath/proof/sqponecind}}
 \def\mrefsqpr{\mreflng{\probpath/definition/sqprob}}
@@ -128,7 +133,7 @@
 
 \def\indep{\enm\protect{\mathpalette{\protect\indeP}{\perp}}}
 \def\indeP#1#2{\enm{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}}
-\def\CIND#1#2#3{\enm{\lngraw{\probpath/definition/indep}{#1\ {\indep}\ #2 \mid #3}}}
-\def\IND#1#2{\enm{\lngraw{\probpath/definition/indep}{#1\ {\indep}\ #2}}}
+\def\CIND#1#2#3{\enm{\lngraw{\probpath/definition/ind}{#1\ {\indep}\ #2 \mid #3}}}
+\def\IND#1#2{\enm{\lngraw{\probpath/definition/ind}{#1\ {\indep}\ #2}}}
 \def\xyzchoice{\enm{\XX, \YY,\ZZ \in \TOS{\X} \times \TOS{\Y} \times \TOS{\Z}}}
 \def\xychoice{\enm{\XX, \YY \in \TOS{\X} \times \TOS{\Y}}}
