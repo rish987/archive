@@ -101,25 +101,25 @@
 \begin{proof}
   \hrule
   \nrp 15
-  $\implies$ suppose $\rell {\IND{\XV}{\YV}} ff $.
+  $\implies$ suppose $\rell {\IND{\XV}{\YV}} f $.
 
   Then, for all $\xychoice$, there are two cases to consider:
   \begin{itemize}
-    \item \nrp 16 $\MPr{\YY} \rell > ffco 0$.
+    \item \nrp 16 $\MPr{\YY} \rell > fco 0$.
 
     Then,
     \begin{align*}
       \MPr{\XX, \YY}
       \relr = {\mrefcprtompr} &\ \CPr{\XX}{\YY} \times \MPr{\YY}\\
-      \relr = {((ffco)->\mrefconddef)->ff} &\ \MPr{\XX} \times \MPr{\YY}.
+      \relr = {((fco)->\mrefconddef)->f} &\ \MPr{\XX} \times \MPr{\YY}.
     \end{align*}
 
-    \item \nrp 17 $\MPr{\YY} \rell = ffct 0$.
+    \item \nrp 17 $\MPr{\YY} \rell = fct 0$.
 
     Then,
     \begin{align*}
       \MPr{\XX, \YY} \relr = {\mrefmarggimpl} \ \ 0\ \ 
-      \relr = ffct \MPr{\XX} \times \MPr{\YY}.
+      \relr = fct \MPr{\XX} \times \MPr{\YY}.
     \end{align*}
   \end{itemize}
 
@@ -127,7 +127,7 @@
   \nrp 18
   $\impliedby$ suppose 
   $$\forall \xychoice,
-  \MPr{\XV = \XX, \YV = \YY} \rell = bb
+  \MPr{\XV = \XX, \YV = \YY} \rell = b
   \MPr{\XV = \XX}
   \times
   \MPr{\YV = \YY}.$$
@@ -141,7 +141,7 @@
     \relrg = {\mrefcondprob} 15pt \ & 
     \frac{\MPr{\XX, \YY}}{\MPr{\YY}}
     \\
-    \relr = bb \ & \frac{\MPr{\XX} \times \MPr{\YY}}{\MPr{\YY}}\\
+    \relr = b \ & \frac{\MPr{\XX} \times \MPr{\YY}}{\MPr{\YY}}\\
     \relr = yg \ & \MPr{\XX}.
   \end{align*}
   \hrule

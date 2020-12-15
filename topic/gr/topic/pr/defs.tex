@@ -35,6 +35,7 @@
 \def\mrefsqpr{\mreflng{\probpath/definition/sqprob}}
 \def\mrefpr{\mreflng{\probpath/definition/prob}}
 \def\mrefindprod{\mreflng{\probpath/proof/indprod}}
+\def\mrefindcptomp{\mreflng{\probpath/proof/indcptomp}}
 \def\mrefindsymm{\mreflng{\probpath/proof/indsymm}}
 
 \def\var{\hlg{variable}}
@@ -77,6 +78,9 @@
 \def\LZV#1{\enm{\refxyz{{\rm Z}_{#1}}}}
 \def\LZ#1{\enm{\refxyz{{\bf Z}_{#1}}}}
 \def\LZZ#1{\enm{\refxyz{{\rm z}_{#1}}}}
+\def\LWV#1{\enm{\refxyz{{\rm W}_{#1}}}}
+\def\LW#1{\enm{\refxyz{{\bf W}_{#1}}}}
+\def\LWW#1{\enm{\refxyz{{\rm w}_{#1}}}}
 \def\LQV#1{\enm{\refxyz{{\rm ?}_{#1}}}}
 \def\LQVP#1#2{\enm{\refxyz{{\rm ?}_{#1}^{#2}}}}
 \def\LQ#1{\enm{\refxyz{\text{\bf ?}_{#1}}}}
@@ -85,6 +89,7 @@
 \def\NX{\enm{\NV{\X}}}
 \def\NY{\enm{\NV{\Y}}}
 \def\NZ{\enm{\NV{\Z}}}
+\def\NW{\enm{\NV{\W}}}
 \def\NQ{\enm{\NV{\Q}}}
 \def\NQP{\enm{\NV{\QP}}}
 \def\NV#1{\enm{\refxyz{N_{#1}}}}
@@ -98,6 +103,9 @@
 \def\ZV{\enm{\refxyzv{{{\rm Z}}}}}
 \def\Z{\enm{\refxyzv{{{\bf Z}}}}}
 \def\ZZ{\enm{\refxyzv{{{\rm z}}}}}
+\def\WV{\enm{\refxyzv{{{\rm W}}}}}
+\def\W{\enm{\refxyzv{{{\bf W}}}}}
+\def\WW{\enm{\refxyzv{{{\rm w}}}}}
 \def\QV{\enm{\refxyzv{{{\rm ?}}}}}
 \def\Q{\enm{\refxyzv{{\text{{\bf ?}}}}}}
 \def\QQ{\enm{\refxyzv{{\text{\smaller ?}}}}}
@@ -137,5 +145,10 @@
 \def\indeP#1#2{\enm{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}}
 \def\CIND#1#2#3{\enm{\lngraw{\probpath/definition/ind}{#1\ {\indep}\ #2 \mid #3}}}
 \def\IND#1#2{\enm{\lngraw{\probpath/definition/ind}{#1\ {\indep}\ #2}}}
+\def\xyzwchoice{\enm{\XX,\YY,\ZZ,\WW \in \TOS{\X} \times \TOS{\Y} \times \TOS{\Z} \times \TOS{\W}}}
 \def\xyzchoice{\enm{\XX, \YY,\ZZ \in \TOS{\X} \times \TOS{\Y} \times \TOS{\Z}}}
 \def\xychoice{\enm{\XX, \YY \in \TOS{\X} \times \TOS{\Y}}}
+\def\XVX{\XV = \XX}
+\def\YVY{\YV = \YY}
+\def\ZVZ{\ZV = \ZZ}
+\def\WVW{\WV = \WW}

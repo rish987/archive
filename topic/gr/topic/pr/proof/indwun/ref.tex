@@ -1,0 +1,42 @@
+\begin{proposition}
+  \nrp 1
+  We have that, \indwundefa.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 2
+  Let $\xyzwchoice$.
+
+  Suppose $\CPr{\XV = \XX}{\YV = \YY,\ZV = \ZZ,\WVW} \rell {\ne} xgyzw \undef$. We have that
+  \begin{align*}
+    \CPr{\XX}{\YY,\ZZ,\WW} \relrg = {\mrefcondprob} 15pt &\ \frac{\CPr{\XX,\YY,\WW}{\ZZ}}{\CPr{\YY,\WW}{\ZZ}}\\
+    \relrg = {\mrefcondprob} 15pt &\ \frac{\CPr{\XX,\YY}{\ZZ,\WW}\times\CPr{\WW}{\ZZ}}{\CPr{\YY,\WW}{\ZZ}}\\
+%    \CPr{\XX}{\YY,\ZZ,\WW} \relrg = {\mrefcondprob} 15pt &\ \frac{\MPr{\XX,\YY,\ZZ,\WW}}{\MPr{\YY,\ZZ,\WW}}\\
+%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\CPr{\XX}{\ZZ}\times \MPr{\YY,\ZZ,\WW}}{\MPr{\YY,\ZZ,\WW}}\\
+%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\CPr{\XX}{\ZZ}\times \CPr{\YY}{\ZZ,\WW} \times \MPr{\ZZ,\WW}}{\CPr{\YY}{\ZZ,\WW} \times \MPr{\ZZ,\WW}}\\
+%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\CPr{\XX,\WW}{\ZZ}}{\CPr{\WW}{\ZZ}}\\
+%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\MPr{\XX,\ZZ,\WW}}{\MPr{\ZZ,\WW}}\\
+  \end{align*}
+\end{proof}
+
+\begin{proposition}
+  \nrp 4
+  We have that, \indwundefb.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 5
+  Let $\xyzchoice$.
+
+  Suppose $\CPr{\XV = \XX}{\YV = \YY} \rell {\ne} xgy \undef$. We have that
+  \begin{align*}
+    \CPr{\XX}{\YY} \relrg = {\mrefcondprob} 15pt &\ \frac{\MPr{\XX,\YY}}{\MPr{\YY}}\\
+    \relrg = {\mrefmargprob} 15pt &\ \frac{\sum_{\ZZ \in \TOS{\Z}}\MPr{\XX,\YY,\ZVZ}}{\MPr{\YY}}\\
+    \relrg = {(ici)->\mrefindprod} 15pt &\ \frac{\sum_{\ZZ \in \TOS{\Z}}\MPr{\XX}\times \MPr{\YY, \ZZ}}{\MPr{\YY}}\\
+    = &\ \frac{\MPr{\XX}\times \sum_{\ZZ \in \TOS{\Z}}\MPr{\YY, \ZZ}}{\MPr{\YY}}\\
+    \relrg = {\mrefmargprob} 15pt &\ \frac{\MPr{\XX}\times \MPr{\YY}}{\MPr{\YY}}\\
+    \relr = {(xgy)->\mrefconddef} &\ \MPr{\XX}.
+  \end{align*}
+  \nrp 6
+  We can similarly show $\IND{\XV}{\ZV}$.
+\end{proof}

@@ -1,0 +1,17 @@
+\def\indwundefa#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$
+  \rell {\CIND{\XV}{\YV\cup\WV}{\ZV}} ici \implies \CIND{\XV}{\YV}{\ZV\cup\WV}#1
+  $$%
+}
+\def\indwundefb#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$
+  \rell {\IND{\XV}{\YV\cup\ZV}} ici \implies \CIND{\XV}{\YV}{\ZV}#1
+  $$%
+}
+\def\indwundef#1{%
+  \indwundefa,
+  and,
+  \indwundefb#1
+}

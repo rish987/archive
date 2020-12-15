@@ -1,0 +1,21 @@
+\def\inddecompdefa#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$
+  \rell {\CIND{\XV}{\YV\cup\WV}{\ZV}} ici \implies 
+  \CIND{\XV}{\YV}{\ZV},\ 
+  \CIND{\XV}{\WV}{\ZV}#1
+  $$%
+}
+\def\inddecompdefb#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$
+  \rell {\IND{\XV}{\YV\cup\ZV}} ici \implies 
+  \IND{\XV}{\YV},\ 
+  \IND{\XV}{\ZV}#1
+  $$%
+}
+\def\inddecompdef#1{%
+  \inddecompdefa,
+  and,
+  \inddecompdefb#1
+}

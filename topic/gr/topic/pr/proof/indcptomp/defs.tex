@@ -1,0 +1,12 @@
+\def\indcptompdef#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  \begin{align*}
+    \CIND{\XV}{\YV}{\ZV} \iff &\ 
+    \forall \xyzchoice,\\&\  
+    \MPr{\ZV = \ZZ} > 0 \implies 
+    \MPr{\XV = \XX, \YV = \YY, \ZV = \ZZ} = 
+    \CPr{\XX}{\ZZ}
+    \times
+    \MPr{\YY, \ZZ}#1
+  \end{align*}%
+}

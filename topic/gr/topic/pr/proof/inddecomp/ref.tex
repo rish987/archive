@@ -1,0 +1,43 @@
+\begin{proposition}
+  \nrp 1
+  We have that, \inddecompdefa.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 2
+  Let $\xyzwchoice$.
+
+  Suppose $\CPr{\XV = \XX}{\YV = \YY,\ZV = \ZZ} \rell {\ne} xgyz \undef$. We have that
+  \begin{align*}
+    \CPr{\XX}{\YY,\ZZ} \relrg = {\mrefcondprob} 15pt &\ \frac{\MPr{\XX,\YY,\ZZ}}{\MPr{\YY,\ZZ}}\\
+    \relrg = {\mrefmargprob} 15pt &\ \frac{\sum_{\WW \in \TOS{\W}}\MPr{\XX,\YY,\ZZ,\WVW}}{\MPr{\YY,\ZZ}}\\
+    \relrg = {(ici)->\mrefindcptomp} 15pt &\ \frac{\sum_{\WW \in \TOS{\W}}\CPr{\XX}{\ZZ}\times \MPr{\YY, \ZZ, \WW}}{\MPr{\YY,\ZZ}}\\
+    = &\ \frac{\CPr{\XX}{\ZZ}\times \sum_{\WW \in \TOS{\W}}\MPr{\YY, \ZZ, \WW}}{\MPr{\YY,\ZZ}}\\
+    \relrg = {\mrefmargprob} 15pt &\ \frac{\CPr{\XX}{\ZZ}\times \MPr{\YY, \ZZ}}{\MPr{\YY,\ZZ}}\\
+    \relr = {(xgyz)->\mrefconddef} &\ \CPr{\XX}{\ZZ}.
+  \end{align*}
+  \nrp 3
+  We can similarly show $\CIND{\XV}{\WV}{\ZV}$.
+\end{proof}
+
+\begin{proposition}
+  \nrp 4
+  We have that, \inddecompdefb.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 5
+  Let $\xyzchoice$.
+
+  Suppose $\CPr{\XV = \XX}{\YV = \YY} \rell {\ne} xgy \undef$. We have that
+  \begin{align*}
+    \CPr{\XX}{\YY} \relrg = {\mrefcondprob} 15pt &\ \frac{\MPr{\XX,\YY}}{\MPr{\YY}}\\
+    \relrg = {\mrefmargprob} 15pt &\ \frac{\sum_{\ZZ \in \TOS{\Z}}\MPr{\XX,\YY,\ZVZ}}{\MPr{\YY}}\\
+    \relrg = {(ici)->\mrefindprod} 15pt &\ \frac{\sum_{\ZZ \in \TOS{\Z}}\MPr{\XX}\times \MPr{\YY, \ZZ}}{\MPr{\YY}}\\
+    = &\ \frac{\MPr{\XX}\times \sum_{\ZZ \in \TOS{\Z}}\MPr{\YY, \ZZ}}{\MPr{\YY}}\\
+    \relrg = {\mrefmargprob} 15pt &\ \frac{\MPr{\XX}\times \MPr{\YY}}{\MPr{\YY}}\\
+    \relr = {(xgy)->\mrefconddef} &\ \MPr{\XX}.
+  \end{align*}
+  \nrp 6
+  We can similarly show $\IND{\XV}{\ZV}$.
+\end{proof}
