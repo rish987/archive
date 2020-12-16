@@ -5,38 +5,69 @@
 
 \begin{proof}
   \nrp 2
-  Let $\xyzwchoice$.
+  For all $\xyzwchoice$, there are two cases to consider:
+  \begin{itemize}
+    \item \nrp 3 $\CPr{\YVY}{\ZVZ, \WVW} = \undef$. In this case, $\MPr{\ZZ, \WW} \rellr = zwz {\mrefconddef} 0$, so
+      \begin{align*}
+        \CPr{\XVX, \YY}{\ZZ, \WW} \relr = {(zwz)->\mrefconddef} \ \ \ \ \undef\ \ \ \  
+        \relr = {(zwz)->\mrefconddef} \CPr{\XX}{\ZZ, \WW}\times \CPr{\YY}{\ZZ, \WW}.
+      \end{align*}
+    \item \nrp 4 $\CPr{\YVY}{\ZVZ, \WVW} {\ne} \undef$. Then, $\MPr{\ZZ, \WW} \rellr > zwg {\mrefconddef} 0$, and there are two cases to consider:
+      \begin{itemize}
+        \item \nrp 5 $\CPr{\YY}{\ZZ, \WW} \rell = ygzwz 0$. Then, we have:
+        \begin{align*}
+          \CPr{\XVX, \YY}{\ZZ, \WW} \relr = {\mrefcmargzimpl} \ \ \ \ \ \ 0 \ \ \ \ \ \ 
+          \relr = {(zwg)->\mrefconddef,ygzwz} \CPr{\XX}{\ZZ, \WW}\times \CPr{\YY}{\ZZ, \WW}.
+        \end{align*}
+      \item \nrp 6 $\CPr{\YY}{\ZZ, \WW} \rell > ygzwg 0$. 
+        Then, we have $\MPr{\YY, \ZZ, \WW}  \relr = {(zwg)->\mrefcprtompr} \CPr{\YY}{\ZZ, \WW} \times \MPr{\ZZ, \WW} \rellr > yzwg {ygzwg,zwg} 0$.
 
-  Suppose $\CPr{\XV = \XX}{\YV = \YY,\ZV = \ZZ,\WVW} \rell {\ne} xgyzw \undef$. We have that
-  \begin{align*}
-    \CPr{\XX}{\YY,\ZZ,\WW} \relrg = {\mrefcondprob} 15pt &\ \frac{\CPr{\XX,\YY,\WW}{\ZZ}}{\CPr{\YY,\WW}{\ZZ}}\\
-    \relrg = {\mrefcondprob} 15pt &\ \frac{\CPr{\XX,\YY}{\ZZ,\WW}\times\CPr{\WW}{\ZZ}}{\CPr{\YY,\WW}{\ZZ}}\\
-%    \CPr{\XX}{\YY,\ZZ,\WW} \relrg = {\mrefcondprob} 15pt &\ \frac{\MPr{\XX,\YY,\ZZ,\WW}}{\MPr{\YY,\ZZ,\WW}}\\
-%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\CPr{\XX}{\ZZ}\times \MPr{\YY,\ZZ,\WW}}{\MPr{\YY,\ZZ,\WW}}\\
-%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\CPr{\XX}{\ZZ}\times \CPr{\YY}{\ZZ,\WW} \times \MPr{\ZZ,\WW}}{\CPr{\YY}{\ZZ,\WW} \times \MPr{\ZZ,\WW}}\\
-%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\CPr{\XX,\WW}{\ZZ}}{\CPr{\WW}{\ZZ}}\\
-%  \relrg = {\mrefindcptomp} 15pt &\ \frac{\MPr{\XX,\ZZ,\WW}}{\MPr{\ZZ,\WW}}\\
-  \end{align*}
+        \nrp 7
+        Therefore, noting that $\rellr {\CIND{\XV}{\WV}{\ZV}} icii {(ici)->\mrefinddecomp} $,
+        \begin{align*}
+          \CPr{\XVX, \YY}{\ZZ, \WW} \relr = {(ygzwg)->\mrefcmargzimpl} &\ \CPr{\XX}{\YY, \ZZ, \WW} \times \CPr{\YY}{\ZZ, \WW}\\
+          \relr = {((-yzwg)->\mrefconddef)->ici} &\ \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ, \WW}\\
+          \relr = {((zwg)->\mrefconddef)->icii} &\ \CPr{\XX}{\ZZ, \WW}\times \CPr{\YY}{\ZZ, \WW}.
+        \end{align*}
+      \end{itemize}
+  \end{itemize}
+  \nrp 8
+  $\relr {\implies} {\mrefindprod} \CIND{\XV}{\YV}{\ZV, \WV}$.
 \end{proof}
 
 \begin{proposition}
-  \nrp 4
+  \nrp 9
   We have that, \indwundefb.%
 \end{proposition}
 
 \begin{proof}
-  \nrp 5
-  Let $\xyzchoice$.
+  \nrp 10
+  For all $\xyzchoice$, there are two cases to consider:
+  \begin{itemize}
+    \item \nrp 11 $\CPr{\YVY}{\ZVZ} = \undef$. In this case, $\MPr{\ZZ} \rellr = zz {\mrefconddef} 0$, so
+      \begin{align*}
+        \CPr{\XVX, \YY}{\ZZ} \relr = {(zz)->\mrefconddef} \ \ \ \ \undef\ \ \ \  
+        \relr = {(zz)->\mrefconddef} \CPr{\XX}{\ZZ}\times \CPr{\YY}{\ZZ}.
+      \end{align*}
+    \item \nrp 12 $\CPr{\YVY}{\ZVZ} {\ne} \undef$. Then, $\MPr{\ZZ} \rellr > zg {\mrefconddef} 0$, and there are two cases to consider:
+      \begin{itemize}
+        \item \nrp 13 $\CPr{\YY}{\ZZ} \rell = ygzz 0$. Then, we have:
+        \begin{align*}
+          \CPr{\XVX, \YY}{\ZZ} \relr = {\mrefcmargzimpl} \ \ \ \ \ \ 0 \ \ \ \ \ \ 
+          \relr = {(zg)->\mrefconddef,ygzz} \CPr{\XX}{\ZZ}\times \CPr{\YY}{\ZZ}.
+        \end{align*}
+        \item \nrp 14 $\CPr{\YY}{\ZZ} \rell > ygzg 0$. 
+        Then, we have $\MPr{\YY, \ZZ}  \relr = {(zg)->\mrefcprtompr} \CPr{\YY}{\ZZ} \times \MPr{\ZZ} \rellr > yzg {ygzg,zg} 0$.
 
-  Suppose $\CPr{\XV = \XX}{\YV = \YY} \rell {\ne} xgy \undef$. We have that
-  \begin{align*}
-    \CPr{\XX}{\YY} \relrg = {\mrefcondprob} 15pt &\ \frac{\MPr{\XX,\YY}}{\MPr{\YY}}\\
-    \relrg = {\mrefmargprob} 15pt &\ \frac{\sum_{\ZZ \in \TOS{\Z}}\MPr{\XX,\YY,\ZVZ}}{\MPr{\YY}}\\
-    \relrg = {(ici)->\mrefindprod} 15pt &\ \frac{\sum_{\ZZ \in \TOS{\Z}}\MPr{\XX}\times \MPr{\YY, \ZZ}}{\MPr{\YY}}\\
-    = &\ \frac{\MPr{\XX}\times \sum_{\ZZ \in \TOS{\Z}}\MPr{\YY, \ZZ}}{\MPr{\YY}}\\
-    \relrg = {\mrefmargprob} 15pt &\ \frac{\MPr{\XX}\times \MPr{\YY}}{\MPr{\YY}}\\
-    \relr = {(xgy)->\mrefconddef} &\ \MPr{\XX}.
-  \end{align*}
-  \nrp 6
-  We can similarly show $\IND{\XV}{\ZV}$.
+        \nrp 15
+        Therefore, noting that $\rellr {\IND{\XV}{\ZV}} icii {(ici)->\mrefinddecomp} $,
+        \begin{align*}
+          \CPr{\XVX, \YY}{\ZZ} \relr = {(ygzg)->\mrefcmargzimpl} &\ \CPr{\XX}{\YY, \ZZ} \times \CPr{\YY}{\ZZ}\\
+          \relr = {((-yzg)->\mrefconddef)->ici} &\ \MPr{\XX} \times \CPr{\YY}{\ZZ}\\
+          \relr = {((zg)->\mrefconddef)->icii} &\ \CPr{\XX}{\ZZ}\times \CPr{\YY}{\ZZ}.
+        \end{align*}
+      \end{itemize}
+  \end{itemize}
+  \nrp 16
+  $\relr {\implies} {\mrefindprod} \CIND{\XV}{\YV}{\ZV}$.
 \end{proof}
