@@ -1,0 +1,50 @@
+\begin{proposition}
+  \nrp 1
+  We have that, \indinterdefa.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 2
+  We have that, for all $\xyzchoice$,
+  \def\cmnmref{(yzwg)->\mrefmarggimplcond}
+  \def\cmnmrefb{(yzwg)->\mrefconddef}
+  \begin{align*}
+    \CPr{\XVX, \YVY}{\ZVZ} 
+    \relr = {((yzwg)->\mrefmarggimpl)->\mreflng{\probpath/proof/sqcprobsumone}} &\ \CPr{\XX, \YY}{\ZZ} \times \sum_{\wchoice} \CPr{\WVW}{\ZZ}\\
+    =  &\ \sum_{\wchoice} \CPr{\XX, \YY}{\ZZ} \times \CPr{\WW}{\ZZ}\\
+    \relrg = {(\cmnmref)->\mrefccprtompr} 12pt &\ \sum_{\wchoice} \CPr{\XX}{\YY, \ZZ} \times \CPr{\YY}{\ZZ} \times \CPr{\WW}{\ZZ}\\
+    \relrg = {(\cmnmrefb)->icib} 12pt &\ \sum_{\wchoice} \CPr{\XX}{\YY, \ZZ, \WW} \times \CPr{\YY}{\ZZ} \times \CPr{\WW}{\ZZ}\\
+    \relrg = {(\cmnmrefb)->icia} 12pt &\ \sum_{\wchoice} \CPr{\XX}{\ZZ, \WW} \times \CPr{\YY}{\ZZ} \times \CPr{\WW}{\ZZ}\\
+    \relrg = {\mrefccondprob} 12pt &\ \sum_{\wchoice} \frac{\CPr{\XX, \WW}{\ZZ}}{\CPr{\WW}{\ZZ}} \times \CPr{\YY}{\ZZ} \times \CPr{\WW}{\ZZ}\\
+    \relrg = {\cmnmref} 12pt &\ \sum_{\wchoice} \CPr{\XX, \WW}{\ZZ} \times \CPr{\YY}{\ZZ}\\
+    \relr = {\mrefcmargprob} &\ \CPr{\XX}{\ZZ} \times \CPr{\YY}{\ZZ}
+  \end{align*}
+  \nrp 3
+  $\relr {\implies} {\mrefindprod} \CIND{\XV}{\YV}{\ZV}
+  \relr {\implies} {(!,icib)->\mrefindcontr} \CIND{\XV}{\WV,\YV}{\ZV}$.
+\end{proof}
+
+\begin{proposition}
+  \nrp 4
+  We have that, \indinterdefb.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 5
+  We have that, for all $\xychoice$,
+  \def\cmnmref{(yzg)->\mrefmarggimpl}
+  \def\cmnmrefb{(yzg)->\mrefconddef}
+  \begin{align*}
+    \MPr{\XVX, \YVY} \relr = {\mrefprobsumone} &\ \MPr{\XX, \YY} \times \sum_{\wchoice} \MPr{\ZVZ}\\
+    =  &\ \sum_{\wchoice} \MPr{\XX, \YY} \times \MPr{\ZZ}\\
+    \relrg = {(\cmnmref)->\mrefcprtompr} 12pt &\ \sum_{\zchoice} \CPr{\XX}{\YY} \times \MPr{\YY} \times \MPr{\ZZ}\\
+    \relrg = {(\cmnmrefb)->icib} 12pt &\ \sum_{\zchoice} \CPr{\XX}{\YY, \ZZ} \times \MPr{\YY} \times \MPr{\ZZ}\\
+    \relrg = {(\cmnmrefb)->icia} 12pt &\ \sum_{\zchoice} \CPr{\XX}{\ZZ} \times \MPr{\YY} \times \MPr{\ZZ}\\
+    \relrg = {\mrefcondprob} 12pt &\ \sum_{\zchoice} \frac{\MPr{\XX, \ZZ}}{\MPr{\ZZ}} \times \MPr{\YY} \times \MPr{\ZZ}\\
+    \relrg = {\cmnmref} 12pt &\ \sum_{\zchoice} \MPr{\XX, \ZZ} \times \MPr{\YY}\\
+    \relr = {\mrefmargprob} &\ \MPr{\XX} \times \MPr{\YY}.
+  \end{align*}
+  \nrp 6
+  $\relr {\implies} {\mrefindprod} \IND{\XV}{\YV}
+  \relr {\implies} {(!,icib)->\mrefindcontr} \IND{\XV}{\YV,\ZV}$.
+\end{proof}

@@ -1,0 +1,18 @@
+\def\indinterdefa#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  \begin{align*}
+    \rell {\CIND{\XV}{\YV}{\ZV, \WV}} icia ,\ \  \rell {\CIND{\XV}{\WV}{\ZV,\YV}} icib ,\ \ \forall \yzwchoice, \MPr{\YVY, \ZVZ, \WVW} \rell > yzwg 0 
+  \end{align*}
+  $\implies \CIND{\XV}{\YV,\WV}{\ZV}#1$%
+}
+\def\indinterdefb#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$
+  \rell {\CIND{\XV}{\YV}{\ZV}} icia ,\ \  \rell {\CIND{\XV}{\ZV}{\YV}} icib ,\ \ \forall \yzchoice, \MPr{\YVY, \ZVZ} \rell > yzg 0\implies \IND{\XV}{\YV,\ZV}#1
+  $$%
+}
+\def\indinterdef#1{%
+  \indinterdefa,
+  and,
+  \indinterdefb#1
+}

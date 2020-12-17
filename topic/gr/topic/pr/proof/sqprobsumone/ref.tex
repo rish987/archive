@@ -1,0 +1,16 @@
+\begin{proposition}
+  \nrp 1
+  We have that \sqprobsumone.%
+\end{proposition}
+
+\begin{proof}
+  \nrp 2
+  We have that
+  \begin{align*}
+    \sum_{\xchoice}\PRSQ{\SQPP}{\XVX} 
+    \relr = {\mreflng{\probpath/definition/sqprob}} &\ \sum_{\xchoice} \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\SQI{\SQPP}{\TR'}{\XV = \XX}}{\TR}\right)\\
+    \relr = {\mreflng{\probpath/proof/sqpplimdef}} &\ \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}\sum_{\xchoice}\SQI{\SQPP}{\TR'}{\XV = \XX}}{\TR}\right)\\
+    \relr = {\mreflng{\probpath/definition/seqi}} &\ \lim_{\TR \rightarrow \infty}\left(\frac{\sum_{\TR' = 1}^{\TR}1}{\TR}\right)\\
+    =  &\ \lim_{\TR \rightarrow \infty}1 = 1.
+  \end{align*}
+\end{proof}
