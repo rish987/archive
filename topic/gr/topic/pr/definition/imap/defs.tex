@@ -1,0 +1,31 @@
+\def\imapdef#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  {\small
+  $$\CIND{\XV}{\YV}{\ZV} \iff 
+  \forall \xyzchoice,
+  \CPr{\XV = \XX}{\ZV = \ZZ, \YV = \YY} \ne \undef \implies
+  \CPr{\XX}{\ZZ,\YY} = \CPr{\XX}{\ZZ},
+  $$
+  }
+  and, for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$\IND{\XV}{\YV} \iff \CIND{\XV}{\YV}{\emptyset} \iff 
+  \forall \XX, \YY \in \TOS{\X} \times \TOS{\Y},
+  \CPr{\XV = \XX}{\YV = \YY} \ne \undef \implies
+  \CPr{\XX}{\YY} = \MPr{\XX}#1$$%
+  %
+}
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  {\small
+  $$\CIND{\XV}{\YV}{\ZV} \iff 
+  \forall \xyzchoice,
+  \CPr{\XV = \XX}{\ZV = \ZZ, \YV = \YY} \ne \undef \implies
+  \CPr{\XX}{\ZZ,\YY} = \CPr{\XX}{\ZZ},
+  $$
+  }
+  and, for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  $$\IND{\XV}{\YV} \iff \CIND{\XV}{\YV}{\emptyset} \iff 
+  \forall \XX, \YY \in \TOS{\X} \times \TOS{\Y},
+  \CPr{\XV = \XX}{\YV = \YY} \ne \undef \implies
+  \CPr{\XX}{\YY} = \MPr{\XX}#1$$%
+  %
+}
