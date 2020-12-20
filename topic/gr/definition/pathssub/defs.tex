@@ -1,8 +1,8 @@
 \def\pathssubdef#1{%
-  for all $\GRDEF{\GR}{\VTX}{\EDG}$, $\VTX' \subseteq \VTX$ and $\VTXX, \VTXX' \in \VTX'^2$,
+  for all $\VTXP \subseteq \VTX$ and $\VTXX, \VTXX' \in \VTXP^2$,
   $$ 
-  \PATHSGRSUB{\GR}{\VTX'}{\VTXX}{\VTXX'} \defeq 
-    \PATHSGR{\GRSUB{\GR}{\VTX'}}{\VTXX}{\VTXX'},$$
-  or, for contextual $\GRDEF{\GR}{\VTX}{\EDG}$,
-  $$\PATHSSUB{\VTX'}{\VTXX}{\VTXX'}#1$$%
+  \PATHSGRSUB{\GR}{\VTXP}{\VTXX}{\VTXX'} \defeq 
+    \PATHSGR{\GRSUB{\GR}{\VTXP}}{\VTXX}{\VTXX'},$$
+  or, for contextual $\GR$,
+  $$\PATHSSUB{\VTXP}{\VTXX}{\VTXX'}#1$$%
 }

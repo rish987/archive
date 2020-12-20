@@ -1,0 +1,10 @@
+\def\pmapedef#1{%
+  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+  with $\VTXALT \defeq \XV \cup \YV \cup \ZV \cup \QV$,
+  that we have, for all $\emptyset \subset \XVA, \YVA, \ZVA \subseteq \VTXALT$,
+  $$\CIND{\XVA}{\YVA}{\ZVA, \WVA},\ \CIND{\XVA}{\WVA}{\ZVA,\YVA} \rell {\implies} int \CIND{\XVA}{\YVA, \WVA}{\ZVA},$$
+  $$\CIND{\XVA}{\YVA}{\ZVA} \rell {\implies} sun \CIND{\XVA}{\YVA}{\ZVA,\WV},$$
+  and
+$$\CIND{\XVA}{\YVA}{\ZVA} \rell {\implies} tran \forall \WVA \subset \VTXALT : \|\WVA\| = 1,\ \CIND{\XVA}{\WVA}{\ZVA} \aror \CIND{\WV}{\YVA}{\ZVA},$$
+  if and only if $\exists \EDGALT \subseteq \VTXALT^2 : \rell {\PMAP{\OS{\VTXALT,\EDGALT}}} pmap $#1
+}

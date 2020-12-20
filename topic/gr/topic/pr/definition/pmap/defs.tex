@@ -1,8 +1,7 @@
-\def\imapdef#1{%
+\def\pmapdef#1{%
   for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
   with $\VTXALT \defeq \XV \cup \YV \cup \ZV \cup \QV$,
   and all $\EDGALT \subseteq \VTXALT^2$,
   with $\GRALT \defeq \OS{\VTXALT, \EDGALT}$,
-  $$\IMAP{\GRALT} \iff \forall\ \emptyset \subset \XVA, \YVA \subseteq \VTXALT, \ZVA \subseteq \VTXALT : 
-  \DJ{\XVA, \YVA, \ZVA},\ \CIND{\XVA}{\YVA}{\ZVA} \impliedby \SNPATHGRSUB{\GRALT}{\ZVA}{\XVA}{\YVA}#1$$%
-}
+  $$\PMAP{\GRALT} \iff \IMAP{\GRALT},\ \DMAP{\GRALT}#1$$%
+}%

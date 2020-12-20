@@ -1,0 +1,9 @@
+\def\pathswapprop#1{%
+  for all $\VTXXA, \VTXXB, \VTXXC \in \VTX^3$, and $\VTXP \subseteq \VTX$ such that $\VTXXA, \VTXXB, \VTXXC, \notin \VTXP$,
+  $$
+  \PATHGRSUB{\GR}{\VTXP \cup \VTXXB}{\VTXXA}{\VTXXC},
+  \PATHGRSUB{\GR}{\VTXP \cup \VTXXA}{\VTXXC}{\VTXXB} 
+  \implies
+  \PATHGRSUB{\GR}{\VTXP \cup \VTXXC}{\VTXXA}{\VTXXB}#1
+  $$%
+}

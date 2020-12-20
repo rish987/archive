@@ -11,26 +11,53 @@
 
 \def\grpath{archive/topic/gr}
 \def\VTX{\enm{\lngraw{\grpath/definition/nodedef}{\rm V}}}
+\def\VTXA{\enm{{\rm A}}}
+\def\VTXB{\enm{{\rm B}}}
 \def\VTXX{\enm{\lngraw{\grpath/definition/nodedef}{\rm v}}}
+\def\VTXXA{\enm{{\rm a}}}
+\def\VTXXB{\enm{{\rm b}}}
+\def\VTXXC{\enm{{\rm c}}}
 \def\EDG{\enm{\lngraw{\grpath/definition/edgedef}{\rm E}}}
+\def\VTXALT{\enm{\rm V}}
+\def\EDGALT{\enm{\rm E}}
+\def\GRALT{\enm{\rm G}}
 \def\EDGG{\enm{\lngraw{\grpath/definition/edgedef}{\rm e}}}
 \def\GR{\enm{\lngraw{\grpath/definition/graphdef}{\rm G}}}
-\def\GRDEF#1#2#3{\enm{\lngraw{\grpath/definition/graphdef}{#1 \gets #2, #3}}}
-\def\GRSUB#1#2{\enm{\lngraw{\grpath/definition/graphsub}{#1\setminus#2}}}
+%\def\GRDEF#1#2#3{\enm{\lngraw{\grpath/definition/graphdef}{#1 \gets #2, #3}}}
+\def\GRSUB#1#2{\enm{\lngraw{\grpath/definition/graphsub}{#1{\setminus_{\rightarrow}}#2}}}
 
 \def\PATHS#1#2{\enm{\lngraw{\grpath/definition/paths}{#1\ \contour{black}{$\longrightarrow$}\ #2}}}
 \def\PATHSSUB#1#2#3{\enm{\lngraw{\grpath/definition/pathssub}{#2\ {\contour{black}{$\longrightarrow$}}\ #3 \setminus #1}}}
-\def\PATHSGR#1#2#3{\enm{\lngraw{\grpath/definition/paths}{#1\left(\PATHS{#2}{#3}\right)}}}
-\def\PATHSGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathssub}{#1\left(\PATHSSUB{#2}{#3}{#4}\right)}}}
+\def\PATHSGR#1#2#3{\enm{\lngraw{\grpath/definition/paths}{\left(#1;\ \PATHS{#2}{#3}\right)}}}
+\def\PATHSGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathssub}{\left(#1;\ \PATHSSUB{#2}{#3}{#4}\right)}}}
 
 \def\PATH#1#2{\enm{\lngraw{\grpath/definition/path}{#1\ \longrightarrow\ #2}}}
 \def\PATHSUB#1#2#3{\enm{\lngraw{\grpath/definition/pathsub}{#2\ {\longrightarrow}\ #3 \setminus #1}}}
-\def\PATHGR#1#2#3{\enm{\lngraw{\grpath/definition/path}{#1\left(\PATH{#2}{#3}\right)}}}
-\def\PATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathsub}{#1\left(\PATHSUB{#2}{#3}{#4}\right)}}}
+\def\PATHGR#1#2#3{\enm{\lngraw{\grpath/definition/path}{\left(#1;\ \PATH{#2}{#3}\right)}}}
+\def\PATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathsub}{\left(#1;\ \PATHSUB{#2}{#3}{#4}\right)}}}
 
 \def\NPATH#1#2{\enm{\lngraw{\grpath/definition/path}{#1\ \centernot\longrightarrow\ #2}}}
 \def\NPATHSUB#1#2#3{\enm{\lngraw{\grpath/definition/pathsub}{#2\ {\centernot\longrightarrow}\ #3 \setminus #1}}}
-\def\NPATHGR#1#2#3{\enm{\lngraw{\grpath/definition/path}{#1\left(\NPATH{#2}{#3}\right)}}}
-\def\NPATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathsub}{#1\left(\NPATHSUB{#2}{#3}{#4}\right)}}}
+\def\NPATHGR#1#2#3{\enm{\lngraw{\grpath/definition/path}{\left(#1;\ \NPATH{#2}{#3}\right)}}}
+\def\NPATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/pathsub}{\left(#1;\ \NPATHSUB{#2}{#3}{#4}\right)}}}
+
+\def\SPATHS#1#2{\enm{\lngraw{\grpath/definition/spaths}{#1\ \contour{black}{$\longrightarrow$}\ #2}}}
+\def\SPATHSSUB#1#2#3{\enm{\lngraw{\grpath/definition/spathssub}{#2\ {\contour{black}{$\longrightarrow$}}\ #3 \setminus #1}}}
+\def\SPATHSGR#1#2#3{\enm{\lngraw{\grpath/definition/spaths}{\left(#1;\ \PATHS{#2}{#3}\right)}}}
+\def\SPATHSGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/spathssub}{\left(#1;\ \PATHSSUB{#2}{#3}{#4}\right)}}}
+
+\def\SPATH#1#2{\enm{\lngraw{\grpath/definition/spath}{#1\ \longrightarrow\ #2}}}
+\def\SPATHSUB#1#2#3{\enm{\lngraw{\grpath/definition/spathsub}{#2\ {\longrightarrow}\ #3 \setminus #1}}}
+\def\SPATHGR#1#2#3{\enm{\lngraw{\grpath/definition/spath}{\left(#1;\ \PATH{#2}{#3}\right)}}}
+\def\SPATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/spathsub}{\left(#1;\ \PATHSUB{#2}{#3}{#4}\right)}}}
+
+\def\SNPATH#1#2{\enm{\lngraw{\grpath/definition/spath}{#1\ \centernot\longrightarrow\ #2}}}
+\def\SNPATHSUB#1#2#3{\enm{\lngraw{\grpath/definition/spathsub}{#2\ {\centernot\longrightarrow}\ #3 \setminus #1}}}
+\def\SNPATHGR#1#2#3{\enm{\lngraw{\grpath/definition/spath}{\left(#1;\ \NPATH{#2}{#3}\right)}}}
+\def\SNPATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/spathsub}{\left(#1;\ \NPATHSUB{#2}{#3}{#4}\right)}}}
 
 \def\PERMREP#1{\enm{#1^{*}}}
+\def\DJ#1{\enm{{\rm DJ}\left(#1\right)}}
+\def\NEQ#1{\enm{{\rm NE}\left(#1\right)}}
+\def\UNI#1#2{\enm{\bigcup\limits_{#1}^{#2}}}
+\def\VTXP{\enm{{\rm V}'}}
