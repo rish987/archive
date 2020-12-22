@@ -1,7 +1,7 @@
 \def\pathsdef#1{%
   for all $\VTXX, \VTXX' \in \VTX^2$,
   $$ \PATHSGR{\GR}{\VTXX}{\VTXX'} \defeq 
-  \{\overline{\VTX} \in \PERMREP{\VTX} \mid \OSI{\overline{\VTX}}{0} = \VTXX, \OSI{\overline{\VTX}}{-1} = \VTXX',  \left(\forall 0 \le t \le \|\VTX\| - 2, \OS{\OSI{\overline{\VTX}}{t}, \OSI{\overline{\VTX}}{t+1}} \in \EDG\right)\},$$
+  \{\PTH \in \ALLPATHSGR{\GR} \mid \OSI{\PTH}{0} = \VTXX, \OSI{\PTH}{-1} = \VTXX'\},$$
   or, for contextual $\GR$,
   $$\PATHS{\VTXX}{\VTXX'}#1$$%
 }

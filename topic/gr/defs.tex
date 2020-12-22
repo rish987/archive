@@ -5,10 +5,15 @@
 \def\vec#1{\enm{\overline{#1}}}
 \def\OS#1{\enm{\left[#1\right]}}
 \def\OSI#1#2{\enm{#1\left[#2\right]}}
+\def\OSIG#1#2{\enm{#1\left\langle#2\right\rangle}}
+\def\OSIGI#1#2#3{\enm{\OSI{\OSIG{#1}{#2}}{#3}}}
 \def\OSS#1{\enm{\left\|#1\right\|}}
+\def\OSCNT#1#2{\enm{\left\|#1;\ #2\right\|}}
 \def\TOS#1{\enm{{#1^{\times}}}}
 \def\VV#1{\enm{\vec{#1}}}
 
+\def\PATHSEQ#1#2{\enm{\lngraw{\grpath/definition/allpathseq}{#1 \underset{\rightarrow}{=} #2}}}
+\def\PATHSEQGR#1#2#3{\enm{\lngraw{\grpath/definition/allpathseq}{\left(#1;\ \PATHSEQ{#2}{#3}\right)}}}
 \def\grpath{archive/topic/gr}
 \def\VTX{\enm{\lngraw{\grpath/definition/nodedef}{\rm V}}}
 \def\VTXA{\enm{{\rm A}}}
@@ -18,13 +23,17 @@
 \def\VTXXB{\enm{{\rm b}}}
 \def\VTXXC{\enm{{\rm c}}}
 \def\EDG{\enm{\lngraw{\grpath/definition/edgedef}{\rm E}}}
+\def\ALLPATHSGR#1{\enm{\lngraw{\grpath/definition/allpaths}{\rm PATHS}\left(#1\right)}}
+\def\ALLPATHS{\enm{\lngraw{\grpath/definition/allpaths}{\rm PATHS}}}
+\def\PTH{\enm{{\rm P}}}
+\def\PTHP{\enm{{\rm P}'}}
 \def\VTXALT{\enm{\rm V}}
 \def\EDGALT{\enm{\rm E}}
 \def\GRALT{\enm{\rm G}}
 \def\EDGG{\enm{\lngraw{\grpath/definition/edgedef}{\rm e}}}
 \def\GR{\enm{\lngraw{\grpath/definition/graphdef}{\rm G}}}
 %\def\GRDEF#1#2#3{\enm{\lngraw{\grpath/definition/graphdef}{#1 \gets #2, #3}}}
-\def\GRSUB#1#2{\enm{\lngraw{\grpath/definition/graphsub}{#1{\setminus_{\rightarrow}}#2}}}
+\def\GRSUB#1#2{\enm{\lngraw{\grpath/definition/graphsub}{#1{\underset{\rightarrow}{\setminus}}#2}}}
 
 \def\PATHS#1#2{\enm{\lngraw{\grpath/definition/paths}{#1\ \contour{black}{$\longrightarrow$}\ #2}}}
 \def\PATHSSUB#1#2#3{\enm{\lngraw{\grpath/definition/pathssub}{#2\ {\contour{black}{$\longrightarrow$}}\ #3 \setminus #1}}}
@@ -61,3 +70,10 @@
 \def\NEQ#1{\enm{{\rm NE}\left(#1\right)}}
 \def\UNI#1#2{\enm{\bigcup\limits_{#1}^{#2}}}
 \def\VTXP{\enm{{\rm V}'}}
+\def\IHN{\enm{n}}
+\def\IHNP{\enm{n'}}
+\def\OSTT{\enm{t}}
+\def\OSTTP{\enm{t'}}
+
+\def\and{\enm{\text{ and }}}
+\def\mrefpathseq{\mreflng{\grpath/definition/allpathseq}}

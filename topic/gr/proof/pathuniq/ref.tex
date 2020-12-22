@@ -1,0 +1,68 @@
+\begin{proposition}
+  \nrp 1
+  We have that \pathuniqprop.%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  {\it Base case.}
+
+  We have that, for all $\PTH \in \ALLPATHS$ such that $\OSS{\PTH} \rell = bc 1 $,
+  letting 
+  $\PTHP \rell {\defeq} pe \PTH$,
+  we have 
+  $$\OSI{\PTHP}{0} \relr = pe \OSI{\PTH}{0},\OSI{\PTHP}{-1} \relr = pe \OSI{\PTH}{-1},$$
+  so
+  $$\relr {\PATHSEQ{\PTH}{\PTHP}} {\mrefpathseq} ,$$
+  and, for all $\VTXX \in \PTH$
+  $$1 \le \OSCNT{\VTXX}{\PTH} = \OSCNT{\VTXX}{\PTHP} \le \OSS{\PTHP} \relr = pe \OSS{\PTH} \relr = bc 1,$$%
+  so
+  $$\OSCNT{\VTXX}{\PTHP} = 1.$$
+  \hrule
+  {\it Inductive hypothesis.}
+
+  Suppose, for all $1 \le \IHN' \le \IHN$, with $\IHN \ge 1$, and 
+  all $\PTH \in \ALLPATHS$ such that $\OSS{\PTH} = \IHNP$,
+  there exists $\PTHP \in \ALLPATHS$ such that
+  $$\rell {\PATHSEQ{\PTH}{\PTHP}} iha \and \forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTHP} \rell = ihb 1 .$$
+  \hrule
+  {\it Inductive step.}
+
+  We have that, for all $\PTH \in \ALLPATHS$ such that $\OSS{\PTH} = \IHN + 1$,
+  there are two cases to consider:
+  \begin{itemize}
+    \item $\forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTH} = 1 .$
+
+    Then, letting 
+    $\PTHP \rell {\defeq} pe \PTH$,
+    we immediately have
+    $$\relr {\PATHSEQ{\PTH}{\PTHP}} {\mrefpathseq} \and \forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTHP} = \OSCNT{\VTXX}{\PTH} = 1.$$
+
+    \item $\exists \VTXX \in \PTH : \OSCNT{\VTXX}{\PTH} > 1 .$
+
+    Then, there are two cases to consider:
+    \begin{itemize}
+      \item $\VTXX = \OSI{\PTH}{0}$.
+        Then, letting $\OSTT = \OSIGI{\PTH}{\VTXX}{1}$, we have that
+        $$\OSI{\PTH}{\OSTT:} \relr {\in} {\mreflng{\grpath/proof/subpath}} \ALLPATHS,$$
+        and letting
+      \item $\VTXX \rell {\ne} fn \OSI{\PTH}{0}$.
+        Then, letting $\OSTT_1 \rell {\defeq} to \OSIGI{\PTH}{\VTXX}{0}$
+        and $\OSTT_2 \rell {\defeq} tt \OSIGI{\PTH}{\VTXX}{1}$,
+        we have that
+        $$\OS{\OSI{\PTH}{\OSTT_1 - 1}, \OSI{\PTH}{\OSTT_2}} = \OS{\OSI{\PTH}{\OSTT_1 - 1}, \OSI{\PTH}{\OSTT_1}} \rell {\in} ie \EDG,$$
+        so
+        $$\OSI{\PTH}{:\OSTT_1} \cup \OSI{\PTH}{\OSTT_2:} \relr {\in} {(\mreflng{\grpath/proof/subpath},ie)->\mreflng{\grpath/proof/subpathcomb}} \ALLPATHS,$$
+        and letting
+        $$\PTH^- \rell {\defeq} pm \OSI{\PTH}{:\OSTT_1} \cup \OSI{\PTH}{\OSTT_2:},$$
+        we have
+        $$\OSI{\PTH^-}{0} \relr = fn,to,pm \OSI{\PTH}{0} \and \OSI{\PTH^-}{-1} \relr = tt,pm \OSI{\PTH}{-1}
+        \implies \PATHSEQ{\PTH}{\PTH^-}
+        ,$$
+        with
+        $$\OSS{\PTH^-} < $$
+    \end{itemize}
+  \end{itemize}
+
+  \hrule
+\end{proof}
