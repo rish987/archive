@@ -1,0 +1,35 @@
+\begin{proposition}
+  We have that \pathsubcondprop.%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  $\implies$ suppose $\PTH \in \PATHSSUB{\VTXP}{\VTXXA}{\VTXXB}$.
+
+  Then,
+  $$\PTH \relr {\in} {\mrefpaths} \ALLPATHSGR{\GRSUB{\GR}{\VTXP}},$$
+  so
+  $$\forall \VTXX \in \PTH, \VTXX \relr {\in} {\mrefallpaths} \VTX \setminus \VTXP,$$
+  and we have
+  $$\forall \VTXX \in \PTH, \VTXX \notin \VTXP.$$
+  \hrule
+  $\impliedby$ suppose $\forall \VTXX \in \PTH, \VTXX \rell {\notin} ni \VTXP$.
+
+  We first note that
+  $$\PTH \relr {\in} {pi,\mrefpaths} \ALLPATHSGR{\GR},$$
+  so
+  $$\forall \VTXX \in \PTH, \VTXX \relr {\in} {\mrefallpaths} \VTX,$$
+  and 
+  $$\forall \VTXX \in \PTH, \VTXX \rellr {\in} np {!,ni} \VTX \setminus \VTXP 
+  \relr {\implies} {\mrefgraphsub} \VTXX \rell {\in} gz \OSI{\GRSUB{\GR}{\VTXP}}{0},$$%
+  and
+  $$\forall 0 \le \OSTT \le \OSS{\PTH} - 2,\ \OS{\OSI{\PTH}{\OSTT}, \OSI{\PTH}{\OSTT+1}} 
+  \relr {\in} {pi,\mrefpaths,\mrefallpaths} \EDG,\ \OSI{\PTH}{\OSTT}, \OSI{\PTH}{\OSTT + 1} 
+  \relr {\notin} np \VTXP 
+  \relr {\implies} {\mrefgraphsub} \OS{\OSI{\PTH}{\OSTT}, \OSI{\PTH}{\OSTT+1}} \rell {\in} go \OSI{\GRSUB{\GR}{\VTXP}}{1},$$%
+  so
+  $$\PTH \relr {\in} gz,go \ALLPATHSGR{\GRSUB{\GR}{\VTXP}},$$
+  and
+  $$\PTH \relr {\in} !,pi \PATHSSUB{\VTXP}{\VTXXA}{\VTXXB}.$$
+  \hrule
+\end{proof}

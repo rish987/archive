@@ -1,0 +1,35 @@
+\begin{proposition}
+  We have that \pathtransprop.%
+\end{proposition}
+
+\begin{proof}
+  We have that 
+  $\exists \PTH \relr {\in} pac \PATHS{\VTXXA}{\VTXXC}$,
+  so
+  $\OSI{\PTH}{0} \rell = pa \VTXXA$ and
+  $\OSI{\PTH}{-1} \rell = pc \VTXXC$.
+
+  Also,
+  $\exists \PTHP \relr {\in} pcb \PATHS{\VTXXC}{\VTXXB}$,
+  so
+  $\OSI{\PTHP}{0} \rell = ppc  \VTXXC$ and
+  $\OSI{\PTHP}{-1} \rell = ppb  \VTXXB$.
+
+  There are two cases to consider:
+  \begin{itemize}
+    \item $\OSS{\PTH} = 1$.
+
+      Then, $\VTXXA \relr = pa \OSI{\PTH}{0} = \OSI{\PTH}{-1} \relr = pc \VTXXC$, so
+      $$\relr {\PATH{\VTXXA}{\VTXXB}} pcb .$$
+
+    \item $\OSS{\PTH} \rell > sg 1$.
+      Then, $\OS{\OSI{\PTH}{-2}, \OSI{\PTH}{-1}} \relr = pc,ppc \OS{\OSI{\PTH}{-2}, \OSI{\PTHP}{0}} \rellr {\in} ei {\mrefallpaths} \EDG$ and $\OSI{\PTH}{:-1} \rellr {\in} pi {\mrefsubpath} \ALLPATHS$, so
+      letting $\PTH^+ \defeq \OSI{\PTH}{:-1} \cup \PTHP$,
+      we have
+      $$\PTH^+ \relr {\in} {(ei,pi,pcb)->\mrefsubpathcomb} \ALLPATHS,$$
+      and 
+    $$\OSI{\PTH^+}{0} \relr {=} sg,pa \VTXXA \and \OSI{\PTH^+}{-1} \relr {=} ppb \VTXXB,$$
+      so
+      $$\PTH^+ \relr {\in} {\mrefpaths} \PATHS{\VTXXA}{\VTXXB} \relr {\implies} {\mrefpath} \PATH{\VTXXA}{\VTXXB}.$$
+  \end{itemize}
+\end{proof}
