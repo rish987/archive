@@ -3,13 +3,6 @@
 \def\edg{\hlg{edge}}
 
 \def\vec#1{\enm{\overline{#1}}}
-\def\OS#1{\enm{\left[#1\right]}}
-\def\OSI#1#2{\enm{#1\left[#2\right]}}
-\def\OSIG#1#2{\enm{#1\left\langle#2\right\rangle}}
-\def\OSIGI#1#2#3{\enm{\OSI{\OSIG{#1}{#2}}{#3}}}
-\def\OSS#1{\enm{\left\|#1\right\|}}
-\def\OSCNT#1#2{\enm{\left\|#1;\ #2\right\|}}
-\def\TOS#1{\enm{{#1^{\times}}}}
 \def\VV#1{\enm{\vec{#1}}}
 
 \def\PATHSEQ#1#2{\enm{\lngraw{\grpath/definition/allpathseq}{#1 \underset{\rightarrow}{=} #2}}}
@@ -66,18 +59,11 @@
 \def\SNPATHGR#1#2#3{\enm{\lngraw{\grpath/definition/spath}{\left(#1;\ \NPATH{#2}{#3}\right)}}}
 \def\SNPATHGRSUB#1#2#3#4{\enm{\lngraw{\grpath/definition/spathsub}{\left(#1;\ \NPATHSUB{#2}{#3}{#4}\right)}}}
 
-\def\PERMREP#1{\enm{#1^{*}}}
-\def\DJ#1{\enm{{\rm DJ}\left(#1\right)}}
-\def\NEQ#1{\enm{{\rm NE}\left(#1\right)}}
-\def\UNI#1#2{\enm{\bigcup\limits_{#1}^{#2}}}
 \def\VTXP{\enm{{\rm V}'}}
-\def\IHN{\enm{n}}
-\def\IHNP{\enm{n'}}
-\def\OSTT{\enm{t}}
-\def\OSTTP{\enm{t'}}
 
-\def\and{\enm{\text{ and }}}
-\def\so{\enm{\text{ so }}}
+\def\UD{\enm{\lngraw{\grpath/definition/undir}{{\rm UD}}}}
+\def\UDGR#1{\enm{\lngraw{\grpath/definition/undir}{{\rm UD}\left(#1\right)}}}
+
 \def\mrefpathseq{\mreflng{\grpath/definition/allpathseq}}
 \def\mrefallpaths{\mreflng{\grpath/definition/allpaths}}
 \def\mrefpaths{\mreflng{\grpath/definition/paths}}

@@ -1,0 +1,24 @@
+\begin{proposition}
+  We have that \pathtransprop.%
+\end{proposition}
+
+\begin{proof}
+  We have that 
+  $\exists \PTH \relr {\in} pab \PATHS{\VTXXA}{\VTXXB}$,
+  where
+  $\OSI{\PTH}{0} \rell = pa  \VTXXA$ and
+  $\OSI{\PTH}{-1} \rell = pb  \VTXXB$,
+  and
+  $$
+  \forall 0 \le t \le \OSS{\PTH} - 2, \OS{\OSI{\PTH}{t}, \OSI{\PTH}{t+1}} \relr {\in} {\mrefpaths,\mrefallpaths} \EDG
+  \ \ \ \ \relr {\implies} ud \ \ \ \ 
+  \forall 0 \le t \le \OSS{\PTH} - 2, \OS{\OSI{\PTH}{t+1}, \OSI{\PTH}{t}} \in \EDG
+  $$
+  so letting $\PTHP \defeq \OSI{\PTH}{::-1}$, we have 
+  $$\forall 0 \le t \le \OSS{\PTHP} - 2, \OS{\OSI{\PTHP}{t}, \OSI{\PTHP}{t+1}} \in \EDG$$
+  $\implies \PTHP \rell {\in} ap \ALLPATHS$, and
+  where
+  $$\OSI{\PTHP}{0} \relr = pb \VTXXB \and \OSI{\PTHP}{-1} \relr = pa \VTXXA,$$
+  so
+  $$\PTHP \relr {\in} {(ap,!)->\mrefpaths} \PATHS{\VTXXB}{\VTXXA} \relr {\implies} {\mrefpath} \PATH{\VTXXB}{\VTXXA}.$$%
+\end{proof}
