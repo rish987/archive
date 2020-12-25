@@ -1,0 +1,30 @@
+\begin{proposition}
+  We have that \conddecompdef.%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  $\implies$.
+
+  We have that 
+  \begin{align*}
+    \CIND{\XVA}{\YVA}{\ZVA} 
+    \relr {\implies} {\mrefinddecomp} &\ \forall \EVAP \in \YVA,\ \CIND{\XVA}{\OS{\EVAP}}{\ZVA} \\
+    \relr {\implies} {\mrefindsymm} &\ \forall \EVAP \in \YVA,\ \CIND{\OS{\EVAP}}{\XVA}{\ZVA} \\
+    \relr {\implies} {\mrefinddecomp} &\ \forall \EVA,\ \EVAP \in \XVA\times\YVA, \CIND{\OS{\EVAP}}{\OS{\EVA}}{\ZVA}\\
+    \relr {\implies} {\mrefindsymm} &\ \forall \EVA,\ \EVAP \in \XVA \times \YVA, \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.
+  \end{align*}
+
+  \hrule
+  $\impliedby$.
+
+  We have that 
+  \begin{align*}
+    \forall \EVA, \EVAP \in \XVA \times \YVA,\ \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.
+    \relr {\implies} {(int,sun)->\reflnm{proof}{inddecomprev}} &\ \forall \EVA \in \XVA,\ \CIND{\OS{\EVA}}{\YVA}{\ZVA}\\
+    \relr {\implies} {\mrefindsymm} &\ \forall \EVA \in \XVA,\ \CIND{\YVA}{\OS{\EVA}}{\ZVA}\\
+    \relr {\implies} {(int,sun)->\mreflng{\probpath/proof/pmape/proof/conddecomp/proof/inddecomprev}} &\ \forall \EVA \in \XVA,\ \CIND{\YVA}{\XVA}{\ZVA}\\
+    \relr {\implies} {\mrefindsymm} &\ \forall \EVA \in \XVA,\ \CIND{\XVA}{\YVA}{\ZVA}.
+  \end{align*}
+  \hrule
+\end{proof}

@@ -1,0 +1,102 @@
+\begin{proposition}
+  We have that \indgrpatheqdef.%
+\end{proposition}
+
+\begin{proof}
+  \hrule
+  $\implies$ suppose $\PATHSUB{\ZVA}{\EVA}{\EVAP}$.
+
+  Then,
+  $$\relr {\exists} {\mreflng{\grpath/proof/pathuniq}} \PTH \in \PATHSSUB{\ZVA}{\EVA}{\EVAP} : \forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTH} = 1,$$
+  so, for all $0 \le \OSTT, \OSTTP, \OSTTPP \le \OSS{\PTH} - 1$ such that $\NEQ{\OSTT, \OSTTP, \OSTTPP}$,
+  $$\NEQ{\OSI{\PTH}{\OSTT}, \OSI{\PTH}{\OSTTP}, \OSI{\PTH}{\OSTTPP}},$$
+  therefore
+  $$\rell {\DJ{\OS{\OSI{\PTH}{\OSTT}},\OS{\OSI{\PTH}{\OSTTPP}}, \ZVA}} adj
+  \and \OSI{\PTH}{\OSTTP} \rell {\in} ani (\VTXALT \setminus \OS{\OSI{\PTH}{\OSTT}},\OS{\OSI{\PTH}{\OSTTPP}}, \ZVA),$$
+  so we have, for all $1 \le \OSTT \le \OSS{\PTH} - 2$,
+  $$
+  \NCIND{\OS{\OSI{\PTH}{0}}}{\OS{\OSI{\PTH}{\OSTT}}}{\ZVA} \and
+  \NCIND{\OS{\OSI{\PTH}{\OSTT}}}{\OS{\OSI{\PTH}{\OSTT + 1}}}{\ZVA}
+  \rellr {\implies} atran {(adj,ani)->$\lnot$tran}
+  \NCIND{\OS{\OSI{\PTH}{0}}}{\OS{\OSI{\PTH}{\OSTT + 1}}}{\ZVA},
+  $$%
+  and, for all $0 \le \OSTT \le \OSS{\PTH} - 2$,
+  $$\OS{\OS{\OSI{\PTH}{\OSTT}}, \OS{\OSI{\PTH}{\OSTT + 1}}} \relr {\in} {\mrefallpaths} \EDGALT \ \ \ \ \relr {\implies} pmape \ \ \ \ \NCIND{\OS{\OSI{\PTH}{\OSTT}}}{\OS{\OSI{\PTH}{\OSTT + 1}}}{\ZVA}.$$
+  Therefore, 
+  $$\relr {\NCIND{\OS{\OSI{\PTH}{0}}}{\OS{\OSI{\PTH}{\OSS{\PTH} - 1}}}{\ZVA}} atran,! $$
+  so $\relr {\NCIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}} {\mrefpaths} $.
+  \erule
+
+  $\impliedby$.
+
+  Firstly, note that
+  $$\forall \OS{\EVA, \EVAP} \in \EDGALT, \OS{\EVAP, \EVA} \relr {\in} {pmape,\mrefindsymm} \EDGALT \ \ \ \ \ \ \relr {\implies} {\mreflng{\grpath/definition/undir}} \ \ \ \ \ \ \rell {\UD} ud .$$
+
+  \erule
+  {\it Base case.}
+
+  Suppose that $\|\ZVA\| \rell {=} smt \|\VTXALT\| - 2$ and $\rell {\NPATHSUB{\ZVA}{\EVA}{\EVAP}} npath $.
+
+  Then,
+  $$\ZVA \rellr = cd smt \VTXALT \setminus \{\EVA, \EVAP\},$$
+  so
+  \begin{align*}
+    \OS{\EVA, \EVAP} \relr {\notin} npath \EDGALT \relr {\implies} pmape &\ 
+  \exists \VTXPALT \subseteq \VTXALT \setminus \{\EVA, \EVAP\} : \CIND{\OS{\EVA}}{\OS{\EVAP}}{\VTXPALT} \\
+    \relr {\implies} cd,sun &\ \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.
+  \end{align*}
+  \hrule
+  {\it Inductive hypothesis.}
+
+  Let $\IHN \rell {\le} nd \|\VTXALT\| - 2$. Suppose, for all $\IHNP$ such that $\IHN \le \IHNP \le \|\VTXALT\| - 2$, that for all 
+  $\EVA, \EVAP \in \VTXALT^2$ such that $\EVA \ne \EVAP$ and $\ZVA \subseteq (\VTXALT \setminus \{\EVA, \EVAP\})$ with $\|\ZVA\| = \IHNP$,
+  $$\NPATHSUB{\ZVA}{\EVA}{\EVAP} \rell {\implies} ih \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.$$%
+
+  \hrule
+  {\it Inductive step.}
+
+  Let $\|\ZVA\| \rell {=} cs \IHN - 1$, and suppose $\rell {\NPATHSUB{\ZVA}{\EVA}{\EVAP}} npath $.
+
+  Then, 
+  $$\|\VTXALT \setminus \{\EVA, \EVAP\} \cup \ZVA\| \relr {>} cs,nd,css 0, \so \exists \EVAPP \in \VTXALT \setminus \{\EVA, \EVAP\} \cup \ZVA,$$ 
+  with
+  $$\|\ZVA,\EVA\|, \|\ZVA,\EVAP\|, \|\ZVA,\EVAPP\| = \|\ZVA\| + 1 \rellr {=} eqn cs \IHN \rellr {\le} lts nd \|\VTXALT\| - 2 $$
+  and
+  $$
+  \rellr {\NPATHSUB{\ZVA, \EVAPP}{\EVA}{\EVAP}} snpath {(npath)->$\lnot$\mreflng{\grpath/proof/pathsubless}} 
+  \ \ \ \ \ \ \relr {\implies} {(-eqn,-lts)->ih} \ \ \ \ \ \ 
+  \rell {\CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA \cup \OS{\EVAPP}}} inda
+  $$
+  and
+  $$ 
+  \NPATHSUB{\ZVA,\EVAP}{\EVA}{\EVAPP}
+  \relr {\aror} {(npath,ud)->$\lnot$\mreflng{\grpath/proof/pathswapud}}
+  \NPATHSUB{\ZVA,\EVA}{\EVAP}{\EVAPP},
+  $$
+  so there are two cases to consider:
+  \begin{itemize}
+    \item $\rell {\NPATHSUB{\ZVA,\EVAP}{\EVA}{\EVAPP}} co $.
+
+      Then, 
+      \begin{align*}
+      \relr {\CIND{\OS{\EVA}}{\OS{\EVAPP}}{\ZVA \cup \OS{\EVAP}}} {(co,-eqn,-lts)->ih}
+      \ \ \ \ \relr {\implies} {(inda,!)->int} &\ \ \ \  
+      \CIND{\OS{\EVA}}{\OS{\EVAP,\EVAPP}}{\ZVA}\\
+      \relr {\implies} {\mrefinddecomp} &\ \ \ \ 
+      \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.
+      \end{align*}
+    \item $\rell {\NPATHSUB{\ZVA,\EVA}{\EVAP}{\EVAPP}} ct $.
+      
+      Then, 
+      \begin{align*}
+      \relr {\CIND{\OS{\EVAP}}{\OS{\EVAPP}}{\ZVA \cup \OS{\EVA}}} {(ct,-eqn,-lts)->ih} \and 
+      \relr {\CIND{\OS{\EVAP}}{\OS{\EVA}}{\ZVA \cup \OS{\EVAPP}}} {(inda)->\mrefindsymm}
+      \relr {\implies} int &\ 
+      \CIND{\OS{\EVAP}}{\OS{\EVA,\EVAPP}}{\ZVA}\\
+      \relr {\implies} {\mrefinddecomp} &\
+      \CIND{\OS{\EVAP}}{\OS{\EVA}}{\ZVA}\\
+      \relr {\implies} {\mrefindsymm} &\
+      \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.
+      \end{align*}
+  \end{itemize}
+\end{proof}

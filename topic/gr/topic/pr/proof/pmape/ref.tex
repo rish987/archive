@@ -1,5 +1,4 @@
 \begin{proposition}
-  \nrp 1
   We have that \pmapedef.%
 \end{proposition}
 
@@ -7,5 +6,19 @@
   \hrule
   $\implies$.
 
-  We have, for all $\emptyset \subset \XVA, \YVA, \ZVA \subseteq \VTXALT$,
+  Let $\pmapee$ with contextual $\GRALT \defeq \OS{\VTXALT, \EDGALT}$.
+
+  For all $\ZVA \subseteq \VTXALT$ and $\emptyset \subset \XVA, \YVA \subseteq \VTXALT$ such that $\DJ{\XVA, \YVA, \ZVA}$,
+  {\small
+  $$ 
+  \CIND{\XVA}{\YVA}{\ZVA} 
+  \relr {\iff} {(int,sun)->\reflnm{proof}{conddecomp}}
+  \forall \EVA, \EVAP \in \XVA \times \YVA, \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA} 
+  \relr {\iff} {(int,sun,tran,pmape)->\reflnm{proof}{indgrpatheq}}
+  \forall \EVA, \EVAP \in \XVA \times \YVA, \NPATHSUB{\ZVA}{\EVA}{\EVAP} 
+  \relr {\iff} {\mreflng{\grpath/definition/spath}}
+  \SNPATHSUB{\ZVA}{\XVA}{\YVA}
+  $$
+  $\relr {\implies} {\mrefpmap} \PMAP{\GRALT}$.
+  }
 \end{proof}

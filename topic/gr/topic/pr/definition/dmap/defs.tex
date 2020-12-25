@@ -1,8 +1,8 @@
 \def\dmapdef#1{%
-  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
-  with $\VTXALT \defeq \XV \cup \YV \cup \ZV \cup \QV$,
+  for \ctx\ $\SSPT{\SPT}{\M{\QV}{\Q}}$, $\DD \in \D$,
+  with $\VTXALT \defeq \QV$,
   and all $\EDGALT \subseteq \VTXALT^2$,
   with $\GRALT \defeq \OS{\VTXALT, \EDGALT}$,
-  $$\DMAP{\GRALT} \iff \forall\ \emptyset \subset \XVA, \YVA \subseteq \VTXALT, \ZVA \subseteq \VTXALT : 
+  $$\DMAP{\GRALT} \iff \forall\ \ZVA \subseteq \VTXALT,\ \emptyset \subset \XVA, \YVA \subseteq \VTXALT : 
   \DJ{\XVA, \YVA, \ZVA},\ \CIND{\XVA}{\YVA}{\ZVA} \implies \SNPATHGRSUB{\GRALT}{\ZVA}{\XVA}{\YVA}#1$$%
 }

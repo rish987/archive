@@ -1,10 +1,19 @@
+\def\int#1{%
+for all $\ZVA \subseteq \VTXALT$ and $\emptyset \subset \XVA, \YVA, \WVA \subseteq \VTXALT$ such that $\DJ{\XVA, \YVA, \ZVA, \WVA}$,
+$$\CIND{\XVA}{\YVA}{\ZVA, \WVA},\ \CIND{\XVA}{\WVA}{\ZVA,\YVA} \rell {\implies} int \CIND{\XVA}{\YVA, \WVA}{\ZVA}#1$$%
+}
+\def\sun#1{%
+for all $\ZVA, \WVA \subseteq \VTXALT$ and $\emptyset \subset \XVA, \YVA \subseteq \VTXALT$ such that $\DJ{\XVA, \YVA, \ZVA, \WVA}$,
+$$\CIND{\XVA}{\YVA}{\ZVA} \rell {\implies} sun \CIND{\XVA}{\YVA}{\ZVA,\WVA}#1$$%
+}
+\def\tran#1{%
+for all $\ZVA \subseteq \VTXALT$ and $\emptyset \subset \XVA, \YVA \subseteq \VTXALT$ such that $\DJ{\XVA, \YVA, \ZVA}$,
+  $$\CIND{\XVA}{\YVA}{\ZVA} \rell {\implies} tran \forall \EVA \in \VTXALT \setminus (\XVA, \YVA, \ZVA) ,\ \CIND{\XVA}{\OS{\EVA}}{\ZVA} \aror \CIND{\OS{\EVA}}{\YVA}{\ZVA}#1$$%
+}
+\def\pmapee{\enm{\EDGALT \rell {\defeq} pmape \{\OS{\EVA, \EVAP} \in \VTXALT^2 \mid 
+\EVA \ne \EVAP,\ \forall \VTXPALT \subseteq \VTXALT \setminus \{\EVA, \EVAP\},\ \NCIND{\OS{\EVA}}{\OS{\EVAP}}{\VTXPALT}\}}}
 \def\pmapedef#1{%
-  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
-  with $\VTXALT \defeq \XV \cup \YV \cup \ZV \cup \QV$,
-  that we have, for all $\emptyset \subset \XVA, \YVA, \ZVA \subseteq \VTXALT$,
-  $$\CIND{\XVA}{\YVA}{\ZVA, \WVA},\ \CIND{\XVA}{\WVA}{\ZVA,\YVA} \rell {\implies} int \CIND{\XVA}{\YVA, \WVA}{\ZVA},$$
-  $$\CIND{\XVA}{\YVA}{\ZVA} \rell {\implies} sun \CIND{\XVA}{\YVA}{\ZVA,\WV},$$
-  and
-$$\CIND{\XVA}{\YVA}{\ZVA} \rell {\implies} tran \forall \WVA \subset \VTXALT : \|\WVA\| = 1,\ \CIND{\XVA}{\WVA}{\ZVA} \aror \CIND{\WV}{\YVA}{\ZVA},$$
+  for \ctx\ $\SSPT{\SPT}{\M{\QV}{\Q}}$, $\DD \in \D$,
+  with $\VTXALT \defeq \QV$, we have\\ \int, \sun, and \tran\relax
   if and only if $\exists \EDGALT \subseteq \VTXALT^2 : \rell {\PMAP{\OS{\VTXALT,\EDGALT}}} pmap $#1
 }

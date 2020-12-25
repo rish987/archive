@@ -41,6 +41,9 @@
 \def\mrefinddecomp{\mreflng{\probpath/proof/inddecomp}}
 \def\mrefindcontr{\mreflng{\probpath/proof/indcontr}}
 \def\mrefprobsumone{\mreflng{\probpath/proof/sqmprobsumone}}
+\def\mrefimap{\mreflng{\probpath/definition/imap}}
+\def\mrefdmap{\mreflng{\probpath/definition/dmap}}
+\def\mrefpmap{\mreflng{\probpath/definition/pmap}}
 
 \def\var{\hlg{variable}}
 \def\vvar{\hlg{vector variable}}
@@ -101,6 +104,9 @@
 \def\XVA{\enm{{{\rm A}}}}
 \def\YVA{\enm{{{\rm B}}}}
 \def\ZVA{\enm{{{\rm C}}}}
+\def\EVA{\enm{{{\rm H}}}}
+\def\EVAP{\enm{{{\rm H}'}}}
+\def\EVAPP{\enm{{{\rm H}''}}}
 \def\WVA{\enm{{{\rm S}}}}
 
 \def\XV{\enm{\refxyzv{{{\rm X}}}}}
@@ -153,6 +159,7 @@
 \def\indep{\enm\protect{\mathpalette{\protect\indeP}{\perp}}}
 \def\indeP#1#2{\enm{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}}
 \def\CIND#1#2#3{\enm{\lngraw{\probpath/definition/ind}{#1\ {\indep}\ #2 \mid #3}}}
+\def\NCIND#1#2#3{\enm{\lngraw{\probpath/definition/ind}{#1\ {\centernot{\indep}}\ #2 \mid #3}}}
 \def\IND#1#2{\enm{\lngraw{\probpath/definition/ind}{#1\ {\indep}\ #2}}}
 \def\xyzwchoice{\enm{\XX,\YY,\ZZ,\WW \in \TOS{\X} \times \TOS{\Y} \times \TOS{\Z} \times \TOS{\W}}}
 \def\yzwchoice{\enm{\YY,\ZZ,\WW \in \TOS{\Y} \times \TOS{\Z} \times \TOS{\W}}}
