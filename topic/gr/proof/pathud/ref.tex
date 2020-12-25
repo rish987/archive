@@ -1,8 +1,10 @@
 \begin{proposition}
-  We have that \pathtransprop.%
+  \nrp 1
+  We have that \pathudprop.%
 \end{proposition}
 
 \begin{proof}
+  \nrp 2
   We have that 
   $\exists \PTH \relr {\in} pab \PATHS{\VTXXA}{\VTXXB}$,
   where
@@ -14,9 +16,11 @@
   \ \ \ \ \relr {\implies} ud \ \ \ \ 
   \forall 0 \le t \le \OSS{\PTH} - 2, \OS{\OSI{\PTH}{t+1}, \OSI{\PTH}{t}} \in \EDG
   $$
+  \nrp 2
   so letting $\PTHP \defeq \OSI{\PTH}{::-1}$, we have 
   $$\forall 0 \le t \le \OSS{\PTHP} - 2, \OS{\OSI{\PTHP}{t}, \OSI{\PTHP}{t+1}} \in \EDG$$
-  $\implies \PTHP \rell {\in} ap \ALLPATHS$, and
+  \nrp 3
+  $\relr {\implies} {\mrefallpaths} \PTHP \rell {\in} ap \ALLPATHS$, and
   where
   $$\OSI{\PTHP}{0} \relr = pb \VTXXB \and \OSI{\PTHP}{-1} \relr = pa \VTXXA,$$
   so

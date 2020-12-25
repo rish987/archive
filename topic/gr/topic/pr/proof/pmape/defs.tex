@@ -12,8 +12,8 @@ for all $\ZVA \subseteq \VTXALT$ and $\emptyset \subset \XVA, \YVA \subseteq \VT
 }
 \def\pmapee{\enm{\EDGALT \rell {\defeq} pmape \{\OS{\EVA, \EVAP} \in \VTXALT^2 \mid 
 \EVA \ne \EVAP,\ \forall \VTXPALT \subseteq \VTXALT \setminus \{\EVA, \EVAP\},\ \NCIND{\OS{\EVA}}{\OS{\EVAP}}{\VTXPALT}\}}}
-\def\pmapedef#1{%
+\def\pmapeprop#1{%
   for \ctx\ $\SSPT{\SPT}{\M{\QV}{\Q}}$, $\DD \in \D$,
-  with $\VTXALT \defeq \QV$, we have\\ \int, \sun, and \tran\relax
-  if and only if $\exists \EDGALT \subseteq \VTXALT^2 : \rell {\PMAP{\OS{\VTXALT,\EDGALT}}} pmap $#1
+  with $\VTXALT \defeq \QV$, if\\ \int, \sun, and \tran\relax
+  then $\exists \EDGALT \subseteq \VTXALT^2 : \rell {\PMAP{\OS{\VTXALT,\EDGALT}}} pmap $#1
 }

@@ -1,18 +1,22 @@
 \begin{proposition}
+  \nrp 1
   We have that \indgrpatheqdef.%
 \end{proposition}
 
 \begin{proof}
   \hrule
+  \nrp 2
   $\implies$ suppose $\PATHSUB{\ZVA}{\EVA}{\EVAP}$.
 
+  \nrp 3
   Then,
   $$\relr {\exists} {\mreflng{\grpath/proof/pathuniq}} \PTH \in \PATHSSUB{\ZVA}{\EVA}{\EVAP} : \forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTH} = 1,$$
   so, for all $0 \le \OSTT, \OSTTP, \OSTTPP \le \OSS{\PTH} - 1$ such that $\NEQ{\OSTT, \OSTTP, \OSTTPP}$,
   $$\NEQ{\OSI{\PTH}{\OSTT}, \OSI{\PTH}{\OSTTP}, \OSI{\PTH}{\OSTTPP}},$$
   therefore
   $$\rell {\DJ{\OS{\OSI{\PTH}{\OSTT}},\OS{\OSI{\PTH}{\OSTTPP}}, \ZVA}} adj
-  \and \OSI{\PTH}{\OSTTP} \rell {\in} ani (\VTXALT \setminus \OS{\OSI{\PTH}{\OSTT}},\OS{\OSI{\PTH}{\OSTTPP}}, \ZVA),$$
+  \and \OSI{\PTH}{\OSTTP} \rell {\in} ani (\VTXALT \setminus \{\OSI{\PTH}{\OSTT}\},\{\OSI{\PTH}{\OSTTPP}\}, \ZVA),$$
+  \nrp 5
   so we have, for all $1 \le \OSTT \le \OSS{\PTH} - 2$,
   $$
   \NCIND{\OS{\OSI{\PTH}{0}}}{\OS{\OSI{\PTH}{\OSTT}}}{\ZVA} \and
@@ -20,25 +24,31 @@
   \rellr {\implies} atran {(adj,ani)->$\lnot$tran}
   \NCIND{\OS{\OSI{\PTH}{0}}}{\OS{\OSI{\PTH}{\OSTT + 1}}}{\ZVA},
   $$%
+  \nrp 6
   and, for all $0 \le \OSTT \le \OSS{\PTH} - 2$,
   $$\OS{\OS{\OSI{\PTH}{\OSTT}}, \OS{\OSI{\PTH}{\OSTT + 1}}} \relr {\in} {\mrefallpaths} \EDGALT \ \ \ \ \relr {\implies} pmape \ \ \ \ \NCIND{\OS{\OSI{\PTH}{\OSTT}}}{\OS{\OSI{\PTH}{\OSTT + 1}}}{\ZVA}.$$
+  \nrp 7
   Therefore, 
-  $$\relr {\NCIND{\OS{\OSI{\PTH}{0}}}{\OS{\OSI{\PTH}{\OSS{\PTH} - 1}}}{\ZVA}} atran,! $$
+  $$\relr {\NCIND{\OS{\OSI{\PTH}{0}}}{\OS{\OSI{\PTH}{\OSS{\PTH} - 1}}}{\ZVA}} atran,! ,$$
   so $\relr {\NCIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}} {\mrefpaths} $.
   \erule
 
   $\impliedby$.
 
+  \nrp 8
   Firstly, note that
-  $$\forall \OS{\EVA, \EVAP} \in \EDGALT, \OS{\EVAP, \EVA} \relr {\in} {pmape,\mrefindsymm} \EDGALT \ \ \ \ \ \ \relr {\implies} {\mreflng{\grpath/definition/undir}} \ \ \ \ \ \ \rell {\UD} ud .$$
+  $$\forall \OS{\EVA, \EVAP} \in \EDGALT, \OS{\EVAP, \EVA} \relr {\in} {pmape,$\lnot$\mrefindsymm} \EDGALT \ \ \ \ \ \ \relr {\implies} {\mreflng{\grpath/definition/undir}} \ \ \ \ \ \ \rell {\UD} ud .$$
 
   \erule
   {\it Base case.}
 
+  \nrp 9
   Suppose that $\|\ZVA\| \rell {=} smt \|\VTXALT\| - 2$ and $\rell {\NPATHSUB{\ZVA}{\EVA}{\EVAP}} npath $.
 
+  \nrp 10
   Then,
   $$\ZVA \rellr = cd smt \VTXALT \setminus \{\EVA, \EVAP\},$$
+  \nrp 11
   so
   \begin{align*}
     \OS{\EVA, \EVAP} \relr {\notin} npath \EDGALT \relr {\implies} pmape &\ 
@@ -48,6 +58,7 @@
   \hrule
   {\it Inductive hypothesis.}
 
+  \nrp 12
   Let $\IHN \rell {\le} nd \|\VTXALT\| - 2$. Suppose, for all $\IHNP$ such that $\IHN \le \IHNP \le \|\VTXALT\| - 2$, that for all 
   $\EVA, \EVAP \in \VTXALT^2$ such that $\EVA \ne \EVAP$ and $\ZVA \subseteq (\VTXALT \setminus \{\EVA, \EVAP\})$ with $\|\ZVA\| = \IHNP$,
   $$\NPATHSUB{\ZVA}{\EVA}{\EVAP} \rell {\implies} ih \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.$$%
@@ -55,18 +66,23 @@
   \hrule
   {\it Inductive step.}
 
+  \nrp 13
   Let $\|\ZVA\| \rell {=} cs \IHN - 1$, and suppose $\rell {\NPATHSUB{\ZVA}{\EVA}{\EVAP}} npath $.
 
+  \nrp 14
   Then, 
   $$\|\VTXALT \setminus \{\EVA, \EVAP\} \cup \ZVA\| \relr {>} cs,nd,css 0, \so \exists \EVAPP \in \VTXALT \setminus \{\EVA, \EVAP\} \cup \ZVA,$$ 
+  \nrp 15
   with
   $$\|\ZVA,\EVA\|, \|\ZVA,\EVAP\|, \|\ZVA,\EVAPP\| = \|\ZVA\| + 1 \rellr {=} eqn cs \IHN \rellr {\le} lts nd \|\VTXALT\| - 2 $$
+  \nrp 16
   and
   $$
   \rellr {\NPATHSUB{\ZVA, \EVAPP}{\EVA}{\EVAP}} snpath {(npath)->$\lnot$\mreflng{\grpath/proof/pathsubless}} 
   \ \ \ \ \ \ \relr {\implies} {(-eqn,-lts)->ih} \ \ \ \ \ \ 
   \rell {\CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA \cup \OS{\EVAPP}}} inda
   $$
+  \nrp 17
   and
   $$ 
   \NPATHSUB{\ZVA,\EVAP}{\EVA}{\EVAPP}
@@ -75,7 +91,7 @@
   $$
   so there are two cases to consider:
   \begin{itemize}
-    \item $\rell {\NPATHSUB{\ZVA,\EVAP}{\EVA}{\EVAPP}} co $.
+    \item \nrp 18 $\rell {\NPATHSUB{\ZVA,\EVAP}{\EVA}{\EVAPP}} co $.
 
       Then, 
       \begin{align*}
@@ -85,7 +101,7 @@
       \relr {\implies} {\mrefinddecomp} &\ \ \ \ 
       \CIND{\OS{\EVA}}{\OS{\EVAP}}{\ZVA}.
       \end{align*}
-    \item $\rell {\NPATHSUB{\ZVA,\EVA}{\EVAP}{\EVAPP}} ct $.
+    \item \nrp 19 $\rell {\NPATHSUB{\ZVA,\EVA}{\EVAP}{\EVAPP}} ct $.
       
       Then, 
       \begin{align*}

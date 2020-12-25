@@ -7,17 +7,19 @@
   \hrule
   {\it Base case.}
 
+  \nrp 2
   We have that, for all $\PTH \in \ALLPATHS$ such that $\OSS{\PTH} \rell = bc 1 $,
   letting 
   $\PTHP \defeq \PTH$,
   we have 
   $$\OSI{\PTHP}{0} = \OSI{\PTH}{0},\OSI{\PTHP}{-1} = \OSI{\PTH}{-1}, \so \relr {\PATHSEQ{\PTH}{\PTHP}} {\mrefpathseq} ,$$
-  $$$$
-  and, for all $\VTXX \in \PTHP$
+  \nrp 3
+  and for all $\VTXX \in \PTHP$
   $$1 \le \OSCNT{\VTXX}{\PTHP} = \OSCNT{\VTXX}{\PTH} \le \OSS{\PTH} \relr = bc 1, \so \OSCNT{\VTXX}{\PTHP} = 1.$$%
   \hrule
   {\it Inductive hypothesis.}
 
+  \nrp 4
   Suppose, for all $1 \le \IHN' \le \IHN$, with $\IHN \ge 1$, and 
   all $\PTH \in \ALLPATHS$ such that $\OSS{\PTH} = \IHNP$,
   there exists $\PTHP \in \ALLPATHS$ such that
@@ -25,26 +27,27 @@
   \hrule
   {\it Inductive step.}
 
+  \nrp 5
   We have that, for all $\PTH \in \ALLPATHS$ such that $\OSS{\PTH} \rell = ps \IHN + 1$,
   there are two cases to consider:
   \begin{itemize}
-    \item $\forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTH} \rell = mo 1 .$
+    \item \nrp 6 $\forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTH} \rell = mo 1 .$
 
     Then, letting 
     $\PTHP \defeq \PTH$,
     we immediately have
     $$\relr {\PATHSEQ{\PTH}{\PTHP}} {\mrefpathseq} \and \forall \VTXX \in \PTH, \OSCNT{\VTXX}{\PTHP} = \OSCNT{\VTXX}{\PTH} \relr = mo 1.$$
 
-    \item $\exists \VTXX \in \PTH : \OSCNT{\VTXX}{\PTH} \rell > mg 1 .$
+    \item \nrp 7 $\exists \VTXX \in \PTH : \OSCNT{\VTXX}{\PTH} \rell > mg 1 .$
 
     Then, there are two cases to consider:
     \begin{itemize}
-      \item $\VTXX \rell = fe \OSI{\PTH}{0}$.
+      \item \nrp 8 $\VTXX \rell = fe \OSI{\PTH}{0}$.
         Then, letting $\OSTT \defeq \OSIGI{\PTH}{\VTXX}{1}$, we have that
         $\OSS{\PTH} \ \ \rellr > sgt mg \ \ \OSTT \ \ \ \ \rellr > tg mg,fe \ \ 0 ,$
-        so
-        $\PTH^- \defeq \OSI{\PTH}{\OSTT:} \rellr {\in} pmi {(sgt,tg)->\mreflng{\grpath/proof/subpath}} \ALLPATHS,$
-        and we have
+        so letting
+        $\PTH^- \defeq \OSI{\PTH}{\OSTT:}$, we have $\PTH^- \rellr {\in} pmi {(sgt,tg)->\mreflng{\grpath/proof/subpath}} \ALLPATHS,$
+        and
         $$\OSI{\PTH^-}{0} \relr = sgt,tg \OSI{\PTH}{0} \and \OSI{\PTH^-}{-1} \relr = sgt \OSI{\PTH}{-1}
         \ \ \relr {\implies} {(!,-pmi)->\mrefpathseq} \ \ \rell {\PATHSEQ{\PTH}{\PTH^-}} pmeq
         ,$$
@@ -52,23 +55,26 @@
         $$\OSS{\PTH^-} \relrg = sgt,tg 10pt
         \OSS{\PTH} - \OSTT 
         \relr < tg \OSS{\PTH} \rell = pml \IHN + 1,$$
+        \nrp 9
         and so there exists $\PTHP \in \ALLPATHS$ such that
         $$\rellr {\PATHSEQ{\PTH^-}{\PTHP}} pmeqpp {(-pml)->iha} \and \forall \VTXX \in \PTHP, \OSCNT{\VTXX}{\PTHP} \relr = {(-pml)->ihb} 1 ,$$
         and
         $\relr {\PATHSEQ{\PTH}{\PTHP}} pmeq,pmeqpp .$
-      \item $\VTXX \rell {\ne} fn \OSI{\PTH}{0}$.
+      \item \nrp 10 $\VTXX \rell {\ne} fn \OSI{\PTH}{0}$.
         Then, letting $\OSTT_1 \defeq \OSIGI{\PTH}{\VTXX}{0}$
         and $\OSTT_2 \defeq \OSIGI{\PTH}{\VTXX}{1}$,
         we have that
         $$\OSS{\PTH} \ \ \rellr > sgto mg \ \ \OSTT_2 \ \ \ \ \rellr > togtt mg \ \ \ \ \OSTT_1 \ \ \rellr > tog mg,fn \ \ 0 ,$$
         so
         $$\OS{\OSI{\PTH}{\OSTT_1 - 1}, \OSI{\PTH}{\OSTT_2}} \relr = mg \OS{\OSI{\PTH}{\OSTT_1 - 1}, \OSI{\PTH}{\OSTT_1}} \rellr {\in} ie {mg,\mrefallpaths} \EDG,$$
+        \nrp 11
         and
-        $$\PTH^- \defeq \OSI{\PTH}{:\OSTT_1} \cup \OSI{\PTH}{\OSTT_2:} \rellr {\in} pmi {(\mreflng{\grpath/proof/subpath},ie)->\mreflng{\grpath/proof/subpathcomb}} \ALLPATHS,$$
+        $$\PTH^- \defeq \OSI{\PTH}{:\OSTT_1} \cup \OSI{\PTH}{\OSTT_2:} \rellr {\in} pmi {(\mreflng{\grpath/proof/subpath},-ie)->\mreflng{\grpath/proof/subpathcomb}} \ALLPATHS,$$
         so we have
         $$\OSI{\PTH^-}{0} \relr = tog \OSI{\PTH}{0} \and \OSI{\PTH^-}{-1} \relr = sgto \OSI{\PTH}{-1}
         \ \ \relr {\implies} {(!,-pmi)->\mrefpathseq} \ \ \rell {\PATHSEQ{\PTH}{\PTH^-}} pmeq
         ,$$
+        \nrp 12
         with
         $$\OSS{\PTH^-} \relrg = sgto,sgto-tog,sgto-togtt,tog 14pt
         \OSTT_1 + \OSS{\PTH} - \OSTT_2 = \OSS{\PTH} - (\OSTT_2 - \OSTT_1)
