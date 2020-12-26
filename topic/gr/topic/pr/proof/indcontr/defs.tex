@@ -1,17 +1,17 @@
-\def\indcontrdefa#1{%
-  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\WV}{\W}, \M{\QV}{\Q}}$, $\DD \in \D$,
-  $$
-  \rell {\CIND{\XV}{\YV}{\ZV}} icia ,\ \  \rell {\CIND{\XV}{\WV}{\ZV,\YV}} icib , \implies \CIND{\XV}{\YV,\WV}{\ZV}#1
-  $$%
-}
-\def\indcontrdefb#1{%
-  for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
-  $$
-  \rell {\IND{\XV}{\YV}} icia ,\ \ \rell {\CIND{\XV}{\ZV}{\YV}} icib , \implies \IND{\XV}{\YV,\ZV}#1
-  $$%
-}
-\def\indcontrdef#1{%
-  \indcontrdefa,
-  and,
-  \indcontrdefb#1
-}
+ \def\indcontrdefa#1{%
+   for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\WV}{\W}, \M{\QV}{\Q}}$, $\DD \in \D$,
+   $$
+   \rell {\CIND{\XV}{\YV}{\ZV}} icia ,\ \  \rell {\CIND{\XV}{\WV}{\ZV,\YV}} icib , \implies \CIND{\XV}{\YV,\WV}{\ZV}#1
+   $$%
+ }
+ \def\indcontrdefb#1{%
+   for \ctx\ $\SSPT{\SPT}{\M{\XV}{\X},\M{\YV}{\Y}, \M{\ZV}{\Z}, \M{\QV}{\Q}}$, $\DD \in \D$,
+   $$
+   \rell {\IND{\XV}{\YV}} icia ,\ \ \rell {\CIND{\XV}{\ZV}{\YV}} icib , \implies \IND{\XV}{\YV,\ZV}#1
+   $$%
+ }
+ \def\indcontrdef#1{%
+   \indcontrdefa,
+   and,
+   \indcontrdefb#1
+ }

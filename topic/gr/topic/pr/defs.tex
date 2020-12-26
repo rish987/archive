@@ -156,7 +156,7 @@
 
 \def\M#1#2{\enm{\lngraw{\probpath/definition/match}{\left(#1, #2\right)}}}
 
-\def\indep{\enm\protect{\mathpalette{\protect\indeP}{\perp}}}
+\def\indep{\enm{\protect{\mathpalette{\protect\indeP}{\perp}}}}
 \def\indeP#1#2{\enm{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}}
 \def\CIND#1#2#3{\enm{\lngraw{\probpath/definition/ind}{#1\ {\indep}\ #2 \mid #3}}}
 \def\NCIND#1#2#3{\enm{\lngraw{\probpath/definition/ind}{#1\ {\centernot{\indep}}\ #2 \mid #3}}}
